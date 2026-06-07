@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>„Staat, Nation, Sozialismus?" — Broschüre · Marxisten vs. Rechte</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,500;1,6..72,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style id="br-css">
+:root{
+  --bg:#0b0f13; --ink:#ede4cf; --primary:#1d3a40;
+  --a:#2f5a63; --a-lt:#9fd0db; --b:#a3242c; --b-lt:#e8959c;
+  --gold:#c89b3c; --gold-lt:#ecc868; --terra:#b85c2f; --terra-lt:#e0a060;
+  --paper:#11171d;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--bg);}
+body{font-family:"Spectral",Georgia,serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+.br-page{position:relative;width:100%;max-width:840px;margin:0 auto;padding:clamp(28px,5vw,60px) clamp(18px,4vw,54px);}
+.br-cut{border:0;height:1px;width:min(820px,90vw);margin:0 auto;background:linear-gradient(90deg,transparent,rgba(200,155,60,.42),transparent);}
+@media print{
+  @page{size:A4;margin:0;}
+  body{background:#fff;}
+  .br-page{break-before:page;max-width:none;}
+  .br-cut{display:none;}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+<style id="tc-css">
+.tc-cover{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(30px,5vw,66px) clamp(18px,4vw,56px);text-align:center;color:#f3ead4;
+  background:
+    radial-gradient(140% 72% at 50% 114%, rgba(0,0,0,.42), transparent 56%),
+    radial-gradient(92% 52% at 50% 46%, rgba(255,242,212,.07), transparent 72%),
+    radial-gradient(128% 86% at 50% -6%, rgba(255,240,200,.11), transparent 60%),
+    linear-gradient(102deg,#11232a 0%,#1d3a40 25%,#23395c 46.4%,#c89b3c 49.3%,#c89b3c 50.7%,#6e1f24 53.6%,#7c241f 72%,#290f13 100%);}
+.tc-cover *{box-sizing:border-box;}
+.tc-cover::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(circle at 50% 48%, transparent 52%, rgba(0,0,0,.46) 100%);}
+.tc-cover::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.05;
+  background-image:radial-gradient(rgba(255,255,255,.85) .6px, transparent .7px);background-size:5px 5px;}
+.tc-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.55);z-index:2;pointer-events:none;}
+.tc-frame::before{content:"";position:absolute;inset:7px;border:1px solid rgba(200,155,60,.26);}
+.tc-corner{position:absolute;width:clamp(54px,8vw,104px);height:auto;z-index:3;color:#c89b3c;pointer-events:none;}
+.tc-corner.tl{top:clamp(14px,2.4vw,30px);left:clamp(14px,2.4vw,30px);}
+.tc-corner.tr{top:clamp(14px,2.4vw,30px);right:clamp(14px,2.4vw,30px);transform:scaleX(-1);}
+.tc-corner.bl{bottom:clamp(14px,2.4vw,30px);left:clamp(14px,2.4vw,30px);transform:scaleY(-1);}
+.tc-corner.br{bottom:clamp(14px,2.4vw,30px);right:clamp(14px,2.4vw,30px);transform:scale(-1,-1);}
+.tc-inner{position:relative;z-index:4;width:100%;max-width:1120px;display:flex;flex-direction:column;align-items:center;gap:clamp(20px,3.2vw,42px);}
+.tc-kicker{margin:0;display:inline-block;padding:.55em 1.4em;font:600 clamp(11px,1.5vw,15px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#f4ecd9;background:rgba(13,18,23,.62);border:2px solid #c89b3c;border-radius:3px;box-shadow:0 2px 16px rgba(0,0,0,.45);}
+.tc-duel{display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;align-items:center;justify-items:center;column-gap:clamp(16px,3.2vw,52px);row-gap:clamp(10px,1.5vw,18px);width:100%;}
+.tc-cell-pmono{grid-column:1;grid-row:1 / span 3;}
+.tc-cell-vs{grid-column:2;grid-row:2;}
+.tc-side{display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.2vw,14px);}
+.tc-side--stack{grid-column:3;grid-row:1 / span 3;align-self:center;gap:clamp(16px,2.4vw,28px);}
+.tc-side--stack .tc-crest{width:clamp(96px,12.5vw,150px);height:clamp(96px,12.5vw,150px);}
+.tc-side--stack .tc-name{font-size:clamp(22px,3.2vw,38px);}
+.tc-person{display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1vw,11px);}
+.tc-amp{font:500 italic clamp(14px,1.8vw,19px)/1 "Newsreader",serif;color:#e8c478;opacity:.85;}
+.tc-mono{width:clamp(58px,8vw,92px);height:clamp(58px,8vw,92px);border-radius:50%;display:grid;place-items:center;
+  font:500 clamp(26px,4vw,46px)/1 "Newsreader",serif;font-style:italic;color:#f3ead4;border:1.5px solid rgba(200,155,60,.7);}
+.tc-crest{position:relative;display:grid;place-items:center;width:clamp(122px,16.5vw,196px);height:clamp(122px,16.5vw,196px);}
+.tc-crest__art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.tc-crest .tc-mono{position:relative;z-index:2;}
+.tc-name{margin:0;max-width:100%;min-width:0;text-align:center;padding-inline:clamp(6px,1.4vw,18px);overflow-wrap:normal;word-break:keep-all;hyphens:none;font:800 clamp(28px,4.5vw,54px)/1.0 "Newsreader",serif;letter-spacing:-.012em;text-transform:uppercase;
+  font-feature-settings:"kern","liga";text-shadow:0 1px 0 rgba(247,234,212,.12),0 -1px 0 rgba(0,0,0,.4),0 3px 7px rgba(0,0,0,.5),0 0 34px rgba(0,0,0,.25);}
+.tc-tag{margin:0;font:600 clamp(11px,1.7vw,16px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;
+  padding:.52em 1.15em;border:1px solid rgba(200,155,60,.6);border-radius:2px;}
+.tc-tag--cool{color:#bcd2e6;background:rgba(36,57,92,.42);}
+.tc-tag--warm{color:#ecc7a4;background:rgba(110,31,36,.44);}
+.tc-vs{position:relative;display:grid;place-items:center;width:clamp(92px,11.5vw,150px);height:clamp(92px,11.5vw,150px);}
+.tc-vs__ring{position:absolute;inset:0;width:100%;height:100%;}
+.tc-vs__disc{position:relative;z-index:2;width:66%;height:66%;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 38%, #1a2a31, #0d161a);border:1.5px solid rgba(200,155,60,.8);box-shadow:0 3px 14px rgba(0,0,0,.5),inset 0 1px 5px rgba(255,235,190,.18);}
+.tc-vs__disc i{font:500 clamp(23px,3.6vw,42px)/1 "Newsreader",serif;font-style:italic;color:#e8c478;text-shadow:0 1px 1px rgba(0,0,0,.55),0 0 10px rgba(200,155,60,.25);}
+.tc-sub{margin:0;max-width:30ch;font:500 italic clamp(15px,2.1vw,21px)/1.4 "Newsreader",serif;color:#efe6cf;padding:clamp(10px,1.6vw,16px) clamp(16px,2.6vw,26px);border-top:1px solid rgba(200,155,60,.45);border-bottom:1px solid rgba(200,155,60,.45);}
+.tc-meta{margin:0;display:inline-flex;align-items:center;gap:14px;font:600 clamp(10px,1.4vw,13px)/1.5 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cebb8d;font-feature-settings:"onum","liga";}
+.tc-meta::before,.tc-meta::after{content:"";width:5px;height:5px;background:#b79a5e;transform:rotate(45deg);opacity:.7;flex:none;}
+@media (max-width:860px){.tc-duel{display:flex;flex-direction:column;align-items:center;gap:18px;}.tc-side--stack{gap:22px;}.tc-name{font-size:clamp(28px,8vw,50px);padding-inline:0;}.tc-side--stack .tc-name{font-size:clamp(24px,7vw,40px);}}
+@media print{.tc-cover{min-height:auto;}}
+</style>
+<style id="seal-css">
+.seal-page{background:var(--bg);}
+.seal-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 10px;}
+.seal-h{font:700 clamp(26px,4vw,40px)/1.1 "Newsreader",serif;color:var(--ink);margin:0 0 6px;}
+.seal-deck{font:400 italic 16px/1.5 "Spectral",serif;color:#b9c4c2;margin:0 0 26px;max-width:62ch;}
+.seal-top{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,32px);align-items:center;margin-bottom:24px;padding:clamp(18px,2.6vw,26px);border:1px solid rgba(200,155,60,.32);border-radius:8px;background:linear-gradient(160deg,rgba(29,58,64,.34),rgba(17,23,29,.5));}
+.seal-mark{width:clamp(118px,15vw,150px);height:clamp(118px,15vw,150px);border-radius:50%;display:grid;place-items:center;text-align:center;
+  border:2px solid var(--gold);background:radial-gradient(circle at 50% 36%,#1a2a31,#0c1418);box-shadow:0 4px 20px rgba(0,0,0,.5),inset 0 1px 6px rgba(236,200,104,.2);}
+.seal-mark b{font:700 clamp(20px,2.6vw,26px)/1 "Newsreader",serif;color:var(--gold-lt);}
+.seal-mark .chk{font-size:22px;color:#7fb069;line-height:1;margin:3px 0;}
+.seal-mark small{font:600 9px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cebb8d;padding:0 8px;}
+.seal-claim{margin:0;font:500 clamp(16px,2.2vw,20px)/1.45 "Newsreader",serif;color:var(--ink);}
+.seal-claim em{color:var(--gold-lt);font-style:italic;}
+.seal-banner{margin:14px 0 0;font:600 13px/1.4 "Inter Tight",sans-serif;letter-spacing:.04em;color:#ecc7a4;padding:9px 14px;border-left:3px solid var(--terra);background:rgba(184,92,47,.14);border-radius:0 4px 4px 0;}
+.seal-metaline{margin:12px 0 0;font:500 13px/1.6 "Inter Tight",sans-serif;color:#cebb8d;display:flex;flex-wrap:wrap;gap:8px 22px;}
+.seal-metaline b{color:var(--a-lt);}
+.seal-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0;}
+.seal-col{padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:7px;background:var(--paper);}
+.seal-col h4{margin:0 0 10px;font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);}
+.seal-bar{margin:9px 0;}
+.seal-bar .lab{display:flex;justify-content:space-between;font:500 13px/1.4 "Inter Tight",sans-serif;color:#cdd6d4;margin-bottom:4px;}
+.seal-bar .lab .star{color:var(--gold-lt);}
+.seal-bar .track{height:18px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;}
+.seal-bar .fill{height:100%;display:flex;align-items:center;padding-left:8px;font:600 11px/18px "Inter Tight",sans-serif;color:#fff;border-radius:3px 0 0 3px;}
+.seal-foot-note{font:400 11px/1.5 "Spectral",serif;color:#8a9694;margin:8px 0 0;font-style:italic;}
+.seal-twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.seal-twocol .box{padding:13px 15px;border-radius:6px;font:400 14px/1.5 "Spectral",serif;}
+.seal-twocol .with{background:rgba(47,90,99,.2);border:1px solid rgba(159,208,219,.3);}
+.seal-twocol .without{background:rgba(163,36,44,.14);border:1px solid rgba(232,149,156,.28);}
+.seal-twocol .box b{display:block;font:600 11px/1.4 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px;}
+.seal-twocol .with b{color:var(--a-lt);}.seal-twocol .without b{color:var(--b-lt);}
+.seal-amp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0;}
+.seal-amp .a-box{padding:13px 16px;border-radius:6px;}
+.seal-amp .green{background:rgba(127,176,105,.13);border:1px solid rgba(127,176,105,.4);}
+.seal-amp .amber{background:rgba(200,155,60,.13);border:1px solid rgba(200,155,60,.45);}
+.seal-amp .t{font:600 12px/1.3 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+.seal-amp .green .t{color:#9fd49a;}.seal-amp .amber .t{color:var(--gold-lt);}
+.seal-amp p{margin:0;font:400 13px/1.5 "Spectral",serif;color:#c5cecc;}
+.seal-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
+.seal-chip{font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.06em;color:#d8cba6;padding:7px 11px;border:1px solid rgba(200,155,60,.4);border-radius:20px;background:rgba(200,155,60,.07);}
+.seal-chip i{font-style:normal;color:var(--gold-lt);margin-right:5px;}
+.seal-audit-status{margin:16px 0 0;font:600 14px/1.5 "Inter Tight",sans-serif;color:var(--ink);padding:11px 15px;border-radius:6px;background:rgba(127,176,105,.12);border:1px solid rgba(127,176,105,.4);}
+.seal-audit-status b{color:#9fd49a;}
+details.seal-details{margin:20px 0 0;border-top:1px solid rgba(200,155,60,.25);padding-top:12px;}
+details.seal-details summary{cursor:pointer;font:600 13px/1.4 "Inter Tight",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-lt);}
+details.seal-details p{font:400 13px/1.6 "Spectral",serif;color:#b3bdbb;margin:10px 0 0;}
+.seal-source{margin:24px 0 0;font:600 13px/1.5 "Inter Tight",sans-serif;letter-spacing:.04em;color:#cebb8d;padding-top:14px;border-top:1px solid rgba(200,155,60,.3);}
+.seal-source a{color:var(--a-lt);text-decoration:none;border-bottom:1px solid rgba(159,208,219,.4);word-break:break-all;}
+@media (max-width:680px){.seal-top{grid-template-columns:1fr;justify-items:center;text-align:center;}.seal-cols,.seal-twocol,.seal-amp{grid-template-columns:1fr;}}
+@media print{.seal-col,.seal-bar,.seal-mark,.seal-top,.seal-amp .a-box,.seal-twocol .box{break-inside:avoid;}details.seal-details{break-inside:avoid;}}
+</style>
+<style id="lm-css">
+.lm-page{background:var(--bg);}
+.lm-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 10px;}
+.lm-h{font:700 clamp(26px,4vw,42px)/1.1 "Newsreader",serif;color:var(--ink);margin:0 0 8px;}
+.lm-deck{font:400 italic 16px/1.5 "Spectral",serif;color:#b9c4c2;margin:0 0 22px;max-width:64ch;}
+.lm-visual{width:100%;max-width:780px;margin:0 auto 26px;display:block;border:1px solid rgba(200,155,60,.22);border-radius:8px;background:#0c1217;position:relative;}
+.kb-ill{font:600 9px/1 "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:#6b7572;}
+.lm-poles{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 24px;}
+.lm-pole{padding:16px 18px;border-radius:8px;}
+.lm-pole--a{background:linear-gradient(160deg,rgba(47,90,99,.24),rgba(17,23,29,.4));border:1px solid rgba(159,208,219,.32);}
+.lm-pole--b{background:linear-gradient(160deg,rgba(163,36,44,.18),rgba(17,23,29,.4));border:1px solid rgba(232,149,156,.3);}
+.lm-pole .who{font:600 12px/1.3 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+.lm-pole--a .who{color:var(--a-lt);}.lm-pole--b .who{color:var(--b-lt);}
+.lm-pole .stance{font:600 17px/1.35 "Newsreader",serif;color:var(--ink);margin:0 0 10px;}
+.lm-pole .ot{font:400 italic 14px/1.55 "Spectral",serif;color:#c5cecc;margin:0;padding-left:12px;border-left:2px solid rgba(200,155,60,.4);}
+.lm-pole .ot .src{display:block;font-style:normal;font:600 10px/1.4 "Inter Tight",sans-serif;letter-spacing:.08em;color:#94a09d;margin-top:5px;}
+.lm-toc-h{font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 12px;}
+.lm-toc{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.lm-toc li{margin:0;}
+.lm-toc a{display:flex;align-items:baseline;gap:12px;text-decoration:none;padding:11px 15px;border:1px solid rgba(255,255,255,.08);border-radius:6px;background:var(--paper);transition:border-color .2s;}
+.lm-toc a:hover{border-color:rgba(200,155,60,.5);}
+.lm-toc .n{font:700 14px/1 "Newsreader",serif;color:var(--gold-lt);flex:none;width:34px;}
+.lm-toc .tt{font:600 15px/1.3 "Newsreader",serif;color:var(--ink);}
+.lm-toc .q{font:400 13px/1.4 "Spectral",serif;color:#9aa4a2;margin-left:auto;text-align:right;max-width:48%;}
+@media (max-width:680px){.lm-poles{grid-template-columns:1fr;}.lm-toc .q{display:none;}}
+@media print{.lm-pole,.lm-toc a,.lm-visual{break-inside:avoid;}}
+</style>
+<style id="kp-css">
+.kp-page{background:var(--bg);position:relative;}
+.kp-num{position:absolute;top:clamp(20px,3vw,34px);right:clamp(18px,4vw,40px);font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.18em;color:#5e6a67;}
+.kp-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 8px;}
+.kp-title{font:700 clamp(24px,3.6vw,38px)/1.12 "Newsreader",serif;color:var(--ink);margin:0 0 8px;max-width:20ch;}
+.kp-deck{font:400 italic 15px/1.5 "Spectral",serif;color:#b3bdbb;margin:0 0 20px;max-width:62ch;}
+.kb{width:100%;max-width:780px;margin:0 auto 22px;display:block;border-radius:7px;background:#0c1217;border:1px solid rgba(200,155,60,.2);position:relative;overflow:hidden;}
+.kp-kernfrage{margin:0 0 22px;padding:13px 17px;border-left:3px solid var(--gold);background:rgba(200,155,60,.1);border-radius:0 6px 6px 0;}
+.kp-kernfrage .lab{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:4px;}
+.kp-kernfrage p{margin:0;font:500 17px/1.4 "Newsreader",serif;color:var(--ink);}
+.du{max-width:780px;margin:0 auto;border:1px solid rgba(200,155,60,.22);border-radius:9px;padding:clamp(16px,2.4vw,24px);background:linear-gradient(180deg,rgba(17,23,29,.5),rgba(11,15,19,.3));}
+.du__panels{display:grid;grid-template-columns:1fr 52px 1fr;gap:10px;align-items:stretch;}
+.du__pole{padding:15px 16px;border-radius:7px;}
+.du__pole--a{background:rgba(47,90,99,.18);border:1px solid rgba(159,208,219,.34);}
+.du__pole--b{background:rgba(163,36,44,.15);border:1px solid rgba(232,149,156,.32);}
+.du__id{display:flex;align-items:center;gap:9px;margin-bottom:10px;flex-wrap:wrap;}
+.du__b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:500 16px/1 "Newsreader",serif;font-style:italic;flex:none;}
+.du__pole--a .du__b{border:1.5px solid var(--a-lt);color:var(--a-lt);}
+.du__pole--b .du__b{border:1.5px solid var(--b-lt);color:var(--b-lt);}
+.du__n{font:600 13px/1.2 "Inter Tight",sans-serif;color:var(--ink);}
+.du__tag{font:500 10px/1.2 "Inter Tight",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:3px;}
+.du__pole--a .du__tag{background:rgba(159,208,219,.16);color:var(--a-lt);}
+.du__pole--b .du__tag{background:rgba(232,149,156,.16);color:var(--b-lt);}
+.du__pos{font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#9aa4a2;margin:0 0 6px;}
+.du__these{font:600 16px/1.4 "Newsreader",serif;color:var(--ink);margin:0;}
+.du__more{margin:10px 0 0;}
+.du__more summary{cursor:pointer;font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-lt);}
+.du__more p{font:400 13px/1.55 "Spectral",serif;color:#bcc6c4;margin:8px 0 0;}
+.du__vs{display:grid;place-items:center;font:600 22px/1 "Newsreader",serif;color:var(--gold-lt);}
+.du__break{margin:16px 0 0;padding:13px 16px;border-radius:7px;background:rgba(184,92,47,.13);border:1px solid rgba(224,160,96,.4);}
+.du__break__lab{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-lt);margin-bottom:6px;}
+.du__break p{margin:0;font:500 15px/1.45 "Newsreader",serif;color:var(--ink);}
+.du__break details{margin:9px 0 0;}
+.du__break summary{cursor:pointer;font:600 11px/1.3 "Inter Tight",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--terra-lt);}
+.du__break details p{font:400 13px/1.55 "Spectral",serif;color:#c5b3a6;margin-top:7px;}
+.du__oq{margin:16px 0 0;padding:13px 16px;border-radius:7px;background:rgba(200,155,60,.1);border:1px solid rgba(200,155,60,.4);}
+.du__oq .lab{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:6px;}
+.du__oq p{margin:0;font:500 15px/1.45 "Newsreader",serif;color:var(--ink);}
+.kp-cite{max-width:780px;margin:18px auto 0;padding:15px 20px;border-radius:7px;background:var(--paper);}
+.kp-cite--a{border-left:3px solid var(--a);}
+.kp-cite--b{border-left:3px solid var(--b);}
+.kp-cite p{margin:0;font:400 italic 16px/1.55 "Spectral",serif;color:#d4ddD9;color:#d4ddd9;}
+.kp-cite .src{display:block;font-style:normal;font:600 10px/1.4 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-top:8px;}
+.kp-cite--a .src{color:var(--a-lt);}.kp-cite--b .src{color:var(--b-lt);}
+.du__konseq{max-width:780px;margin:16px auto 0;}
+.du__konseq summary{cursor:pointer;font:600 12px/1.4 "Inter Tight",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-lt);padding:10px 0;border-top:1px solid rgba(200,155,60,.25);}
+.du__konseq p{font:400 14px/1.6 "Spectral",serif;color:#bcc6c4;margin:8px 0 0;}
+.du__addnote{display:inline-block;font:600 9px/1.3 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-lt);border:1px dashed rgba(224,160,96,.5);padding:3px 7px;border-radius:3px;margin-top:4px;}
+@media (max-width:680px){.du__panels{grid-template-columns:1fr;}.du__vs{padding:6px 0;}}
+@media print{.du,.du__break,.du__oq,.kp-cite,.kp-kernfrage,.kp-head,.kb,.du__konseq{break-inside:avoid;}}
+</style>
+<style id="st-css">
+.st-page{background:linear-gradient(180deg,#0c161a,var(--bg));}
+.st-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 12px;}
+.st-h{font:700 clamp(28px,4.4vw,46px)/1.12 "Newsreader",serif;color:var(--ink);margin:0 0 18px;max-width:18ch;}
+.st-lead{font:400 clamp(17px,2.2vw,21px)/1.6 "Spectral",serif;color:#d4ddd9;margin:0 0 22px;max-width:60ch;}
+.st-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.st-card{padding:17px 19px;border-radius:8px;}
+.st-card--a{background:rgba(47,90,99,.16);border:1px solid rgba(159,208,219,.32);}
+.st-card--b{background:rgba(163,36,44,.13);border:1px solid rgba(232,149,156,.3);}
+.st-card h4{margin:0 0 8px;font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;}
+.st-card--a h4{color:var(--a-lt);}.st-card--b h4{color:var(--b-lt);}
+.st-card p{margin:0;font:400 14px/1.55 "Spectral",serif;color:#c5cecc;}
+.st-core{margin:24px 0;padding:20px 22px;border-left:3px solid var(--gold);background:rgba(200,155,60,.1);border-radius:0 7px 7px 0;}
+.st-core p{margin:0;font:500 italic clamp(17px,2.3vw,21px)/1.5 "Newsreader",serif;color:var(--ink);}
+.st-note{font:400 13px/1.6 "Spectral",serif;color:#9aa4a2;font-style:italic;margin:18px 0 0;}
+.st-note .du__addnote{font-style:normal;}
+@media (max-width:680px){.st-split{grid-template-columns:1fr;}}
+@media print{.st-card,.st-core{break-inside:avoid;}}
+</style>
+<style id="ko-css">
+.ko-page{background:var(--bg);}
+.ko-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 10px;}
+.ko-h{font:700 clamp(24px,3.6vw,36px)/1.14 "Newsreader",serif;color:var(--ink);margin:0 0 6px;}
+.ko-deck{font:400 italic 15px/1.5 "Spectral",serif;color:#b3bdbb;margin:0 0 24px;max-width:60ch;}
+.ko-sec{margin:0 0 22px;}
+.ko-sec h3{font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 11px;padding-bottom:6px;border-bottom:1px solid rgba(200,155,60,.22);}
+.ko-src-line{font:400 14px/1.6 "Spectral",serif;color:#c5cecc;margin:0;}
+.ko-src-line a{color:var(--a-lt);text-decoration:none;border-bottom:1px solid rgba(159,208,219,.4);word-break:break-all;}
+.ko-people{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ko-person{padding:14px 16px;border-radius:7px;background:var(--paper);border:1px solid rgba(255,255,255,.08);}
+.ko-person--a{border-left:3px solid var(--a);}
+.ko-person--b{border-left:3px solid var(--b);}
+.ko-person .ph{display:flex;align-items:center;gap:9px;margin-bottom:8px;}
+.ko-person .mono{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:500 15px/1 "Newsreader",serif;font-style:italic;flex:none;}
+.ko-person--a .mono{border:1.5px solid var(--a-lt);color:var(--a-lt);}
+.ko-person--b .mono{border:1.5px solid var(--b-lt);color:var(--b-lt);}
+.ko-person .nm{font:600 14px/1.2 "Inter Tight",sans-serif;color:var(--ink);}
+.ko-person .members{font:400 13px/1.5 "Spectral",serif;color:#bcc6c4;margin:0 0 6px;}
+.ko-person .members b{color:#dfe7e4;}
+.ko-person .caveat{font:400 12px/1.5 "Spectral",serif;color:#94a09d;font-style:italic;margin:0;}
+.ko-q{display:grid;grid-template-columns:auto 1fr;gap:11px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:baseline;}
+.ko-q .qmono{font:500 13px/1.4 "Inter Tight",sans-serif;letter-spacing:.04em;flex:none;}
+.ko-q--a .qmono{color:var(--a-lt);}.ko-q--b .qmono{color:var(--b-lt);}
+.ko-q p{margin:0;font:400 italic 14px/1.5 "Spectral",serif;color:#c5cecc;}
+.ko-q .tm{display:block;font-style:normal;font:600 10px/1.4 "Inter Tight",sans-serif;letter-spacing:.06em;color:#7e8a87;margin-top:3px;}
+.ko-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ko-grid2 .box{padding:14px 16px;border-radius:7px;background:var(--paper);border:1px solid rgba(255,255,255,.07);}
+.ko-grid2 .box h4{margin:0 0 9px;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);}
+.ko-grid2 .box ul{margin:0;padding-left:16px;}
+.ko-grid2 .box li{font:400 13px/1.55 "Spectral",serif;color:#bcc6c4;margin:0 0 6px;}
+.ko-foot{margin:24px 0 0;padding-top:14px;border-top:1px solid rgba(200,155,60,.3);font:400 13px/1.6 "Spectral",serif;color:#9aa4a2;}
+.ko-foot b{color:#cebb8d;font-weight:600;}
+@media (max-width:680px){.ko-people,.ko-grid2{grid-template-columns:1fr;}}
+@media print{.ko-person,.ko-q,.ko-grid2 .box,.ko-sec{break-inside:avoid;}}
+</style>
+<style id="lk-css">
+.lk-page{background:linear-gradient(180deg,#0c1419,var(--bg));}
+.lk-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 8px;}
+.lk-title{font:700 clamp(24px,3.8vw,40px)/1.12 "Newsreader",serif;color:var(--ink);margin:0 0 8px;max-width:22ch;}
+.lk-deck{font:400 italic 15px/1.5 "Spectral",serif;color:#b3bdbb;margin:0 0 18px;max-width:62ch;}
+.lk-flag{margin:0 0 22px;padding:12px 16px;border-radius:7px;background:rgba(200,155,60,.08);border:1px dashed rgba(200,155,60,.5);}
+.lk-flag .t{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:5px;}
+.lk-flag p{margin:0;font:400 13px/1.55 "Spectral",serif;color:#bcc6c4;}
+.kb-lk{width:100%;max-width:780px;margin:0 auto 22px;display:block;border-radius:7px;background:#0c1217;border:1px solid rgba(200,155,60,.2);}
+.lk-block{max-width:780px;margin:0 auto 12px;padding:15px 18px;border-radius:8px;background:var(--paper);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--gold);}
+.lk-block .tag{display:inline-block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:7px;padding:3px 9px;border:1px solid rgba(200,155,60,.4);border-radius:20px;}
+.lk-block .tag--a{color:var(--a-lt);border-color:rgba(159,208,219,.45);}
+.lk-block .tag--b{color:var(--b-lt);border-color:rgba(232,149,156,.45);}
+.lk-block .thesis{font:600 16px/1.4 "Newsreader",serif;color:var(--ink);margin:0;}
+.lk-block details{margin:9px 0 0;}
+.lk-block summary{cursor:pointer;font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-lt);}
+.lk-block details p{font:400 13px/1.6 "Spectral",serif;color:#bcc6c4;margin:8px 0 0;}
+.lk-task{max-width:780px;margin:18px auto 0;padding:18px 20px;border-radius:8px;background:rgba(47,90,99,.16);border:1px solid rgba(159,208,219,.32);}
+.lk-task .lab{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--a-lt);margin-bottom:7px;}
+.lk-task p{margin:0;font:500 15px/1.5 "Newsreader",serif;color:var(--ink);}
+@media print{.lk-block,.lk-task,.kb-lk{break-inside:avoid;}}
+</style>
+<style id="em-css">
+.em-page{background:var(--bg);}
+.em-eyebrow{font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);margin:0 0 8px;}
+.em-title{font:700 clamp(24px,3.8vw,40px)/1.12 "Newsreader",serif;color:var(--ink);margin:0 0 8px;max-width:22ch;}
+.em-deck{font:400 italic 15px/1.5 "Spectral",serif;color:#b3bdbb;margin:0 0 18px;max-width:64ch;}
+.em-flag{margin:0 0 22px;padding:12px 16px;border-radius:7px;background:rgba(200,155,60,.08);border:1px dashed rgba(200,155,60,.5);}
+.em-flag .t{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:5px;}
+.em-flag p{margin:0;font:400 13px/1.55 "Spectral",serif;color:#bcc6c4;}
+.kb-em{width:100%;max-width:780px;margin:0 auto 22px;display:block;border-radius:7px;background:#0c1217;border:1px solid rgba(200,155,60,.2);}
+.em-scoreboard{max-width:780px;margin:0 auto 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.em-score{padding:13px 12px;border-radius:7px;text-align:center;background:var(--paper);border:1px solid rgba(255,255,255,.08);}
+.em-score .big{font:700 clamp(22px,3vw,30px)/1 "Newsreader",serif;display:block;margin-bottom:4px;}
+.em-score .lab{font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9aa4a2;}
+.em-score--ok .big{color:#7fb069;}
+.em-score--mid .big{color:var(--gold-lt);}
+.em-score--no .big{color:var(--b-lt);}
+.em-score--open .big{color:#9fd0db;}
+.em-sech{max-width:780px;margin:24px auto 12px;font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-lt);padding-bottom:6px;border-bottom:1px solid rgba(200,155,60,.22);}
+.em-row{max-width:780px;margin:0 auto 10px;border-radius:8px;background:var(--paper);border:1px solid rgba(255,255,255,.08);overflow:hidden;}
+.em-row>summary{cursor:pointer;list-style:none;padding:14px 17px;display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center;}
+.em-row>summary::-webkit-details-marker{display:none;}
+.em-row .kx{font:700 13px/1 "Newsreader",serif;color:var(--gold-lt);flex:none;width:26px;}
+.em-row .claim{font:600 15px/1.35 "Newsreader",serif;color:var(--ink);}
+.em-row .verdict{font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap;flex:none;}
+.em-row .v-ok{color:#9fd49a;background:rgba(127,176,105,.16);border:1px solid rgba(127,176,105,.4);}
+.em-row .v-no{color:var(--b-lt);background:rgba(163,36,44,.14);border:1px solid rgba(232,149,156,.4);}
+.em-row .v-open{color:#9fd0db;background:rgba(47,90,99,.2);border:1px solid rgba(159,208,219,.4);}
+.em-row .body{padding:0 17px 16px;}
+.em-row .body p{font:400 14px/1.6 "Spectral",serif;color:#bcc6c4;margin:0 0 10px;}
+.em-data{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;}
+.em-data .d{font:500 12px/1.4 "Inter Tight",sans-serif;color:#cdd6d4;padding:6px 10px;border-radius:5px;background:rgba(47,90,99,.16);border:1px solid rgba(159,208,219,.22);}
+.em-data .d b{color:var(--gold-lt);font-weight:600;}
+.em-meta{font:600 10px/1.4 "Inter Tight",sans-serif;letter-spacing:.04em;color:#7e8a87;margin-top:8px;}
+.em-meta .src{color:#94a09d;}
+.em-meta .tag-g{color:#9fd49a;}.em-meta .tag-e{color:var(--gold-lt);}
+.em-takeaway{max-width:780px;margin:24px auto 0;padding:18px 20px;border-radius:8px;border-left:3px solid var(--gold);background:rgba(200,155,60,.1);}
+.em-takeaway .lab{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:8px;}
+.em-takeaway p{margin:0 0 8px;font:400 15px/1.55 "Spectral",serif;color:#d4ddd9;}
+.em-takeaway p:last-child{margin-bottom:0;}
+.em-takeaway b{color:#dfe7e4;font-weight:600;}
+@media (max-width:680px){.em-scoreboard{grid-template-columns:repeat(2,1fr);}.em-row>summary{grid-template-columns:auto 1fr;}.em-row .verdict{grid-column:2;justify-self:start;margin-top:4px;}}
+@media print{.em-row,.em-score,.em-takeaway,.kb-em,.em-row[open] .body{break-inside:avoid;}.em-row .body{display:block!important;}}
+</style>
+</head>
+<body>
+
+<section class="tc-cover" id="cover-title" aria-label="Cover: Dekarldent (Marxismus) gegen Agitator und Nur ein Gedanke (Neue Rechte) — eine lange Debatte über Staat, Nation und Sozialismus">
+  <div class="tc-frame" aria-hidden="true"></div>
+  <svg class="tc-corner tl" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 40 Q2 2 40 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 46 Q10 10 46 10" fill="none" stroke="currentColor" stroke-width=".7" opacity=".6"/><circle cx="14" cy="14" r="2.4" fill="currentColor"/></svg>
+  <svg class="tc-corner tr" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 40 Q2 2 40 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 46 Q10 10 46 10" fill="none" stroke="currentColor" stroke-width=".7" opacity=".6"/><circle cx="14" cy="14" r="2.4" fill="currentColor"/></svg>
+  <svg class="tc-corner bl" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 40 Q2 2 40 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 46 Q10 10 46 10" fill="none" stroke="currentColor" stroke-width=".7" opacity=".6"/><circle cx="14" cy="14" r="2.4" fill="currentColor"/></svg>
+  <svg class="tc-corner br" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 40 Q2 2 40 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 46 Q10 10 46 10" fill="none" stroke="currentColor" stroke-width=".7" opacity=".6"/><circle cx="14" cy="14" r="2.4" fill="currentColor"/></svg>
+
+  <div class="tc-inner">
+    <p class="tc-kicker">Eine lange Debatte · Marxismus gegen Neue Rechte</p>
+
+    <div class="tc-duel">
+      <div class="tc-side tc-cell-pmono" style="grid-column:1;grid-row:1 / span 3;align-self:center;">
+        <div class="tc-crest" aria-hidden="true">
+          <svg class="tc-crest__art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#9fd0db" stroke-width="1.3" opacity="0.85"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32 131.8 49.1)"/><ellipse cx="146" cy="61.4" rx="12" ry="4.6" transform="rotate(50 146 61.4)"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68 155.6 77.5)"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86 159.9 95.8)"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104 158.2 114.5)"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122 150.9 131.8)"/><ellipse cx="138.6" cy="146" rx="12" ry="4.6" transform="rotate(140 138.6 146)"/></g><g transform="translate(200,0) scale(-1,1)" fill="none" stroke="#9fd0db" stroke-width="1.3" opacity="0.85"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32 131.8 49.1)"/><ellipse cx="146" cy="61.4" rx="12" ry="4.6" transform="rotate(50 146 61.4)"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68 155.6 77.5)"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86 159.9 95.8)"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104 158.2 114.5)"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122 150.9 131.8)"/><ellipse cx="138.6" cy="146" rx="12" ry="4.6" transform="rotate(140 138.6 146)"/></g><path d="M88 168 q12 8 24 0" fill="none" stroke="#9fd0db" stroke-width="1.5" opacity="0.8"/><g stroke="#9fd0db" stroke-width="1.1" opacity="0.6" stroke-linecap="round"><line x1="100" y1="34" x2="100" y2="18"/><line x1="73" y1="40" x2="66" y2="25"/><line x1="127" y1="40" x2="134" y2="25"/></g></svg>
+          <div class="tc-mono" style="border-color:rgba(159,208,219,.75);">D</div>
+        </div>
+        <h2 class="tc-name">Dekarldent</h2>
+        <p class="tc-tag tc-tag--cool">GSP · Marxismus</p>
+      </div>
+
+      <div class="tc-vs tc-cell-vs" aria-hidden="true">
+        <svg class="tc-vs__ring" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="57" fill="none" stroke="#c89b3c" stroke-width="1" opacity=".85"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c89b3c" stroke-width="2.4" stroke-dasharray="1 4.2" opacity=".7"/><g fill="#c89b3c"><rect x="56" y="3" width="8" height="8" transform="rotate(45 60 7)"/><rect x="109" y="56" width="8" height="8" transform="rotate(45 113 60)"/><rect x="56" y="109" width="8" height="8" transform="rotate(45 60 113)"/><rect x="3" y="56" width="8" height="8" transform="rotate(45 7 60)"/></g></svg>
+        <span class="tc-vs__disc"><i>vs.</i></span>
+      </div>
+
+      <div class="tc-side tc-side--stack">
+        <div class="tc-person">
+          <div class="tc-crest" aria-hidden="true">
+            <svg class="tc-crest__art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#e8959c" stroke-width="1.3" opacity="0.85"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32 131.8 49.1)"/><ellipse cx="146" cy="61.4" rx="12" ry="4.6" transform="rotate(50 146 61.4)"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68 155.6 77.5)"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86 159.9 95.8)"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104 158.2 114.5)"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122 150.9 131.8)"/><ellipse cx="138.6" cy="146" rx="12" ry="4.6" transform="rotate(140 138.6 146)"/></g><g transform="translate(200,0) scale(-1,1)" fill="none" stroke="#e8959c" stroke-width="1.3" opacity="0.85"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32 131.8 49.1)"/><ellipse cx="146" cy="61.4" rx="12" ry="4.6" transform="rotate(50 146 61.4)"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68 155.6 77.5)"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86 159.9 95.8)"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104 158.2 114.5)"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122 150.9 131.8)"/><ellipse cx="138.6" cy="146" rx="12" ry="4.6" transform="rotate(140 138.6 146)"/></g><path d="M88 168 q12 8 24 0" fill="none" stroke="#e8959c" stroke-width="1.5" opacity="0.8"/><g stroke="#e8959c" stroke-width="1.1" opacity="0.6" stroke-linecap="round"><line x1="100" y1="34" x2="100" y2="18"/><line x1="73" y1="40" x2="66" y2="25"/><line x1="127" y1="40" x2="134" y2="25"/></g></svg>
+            <div class="tc-mono" style="border-color:rgba(232,149,156,.75);">A</div>
+          </div>
+          <h2 class="tc-name">Agitator</h2>
+          <p class="tc-tag tc-tag--warm">Nationalstaatlichkeit</p>
+        </div>
+        <span class="tc-amp" aria-hidden="true">&amp;</span>
+        <div class="tc-person">
+          <div class="tc-crest" aria-hidden="true">
+            <svg class="tc-crest__art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#e8959c" stroke-width="1.3" opacity="0.85"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32 131.8 49.1)"/><ellipse cx="146" cy="61.4" rx="12" ry="4.6" transform="rotate(50 146 61.4)"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68 155.6 77.5)"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86 159.9 95.8)"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104 158.2 114.5)"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122 150.9 131.8)"/><ellipse cx="138.6" cy="146" rx="12" ry="4.6" transform="rotate(140 138.6 146)"/></g><g transform="translate(200,0) scale(-1,1)" fill="none" stroke="#e8959c" stroke-width="1.3" opacity="0.85"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32 131.8 49.1)"/><ellipse cx="146" cy="61.4" rx="12" ry="4.6" transform="rotate(50 146 61.4)"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68 155.6 77.5)"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86 159.9 95.8)"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104 158.2 114.5)"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122 150.9 131.8)"/><ellipse cx="138.6" cy="146" rx="12" ry="4.6" transform="rotate(140 138.6 146)"/></g><path d="M88 168 q12 8 24 0" fill="none" stroke="#e8959c" stroke-width="1.5" opacity="0.8"/><g stroke="#e8959c" stroke-width="1.1" opacity="0.6" stroke-linecap="round"><line x1="100" y1="34" x2="100" y2="18"/><line x1="73" y1="40" x2="66" y2="25"/><line x1="127" y1="40" x2="134" y2="25"/></g></svg>
+            <div class="tc-mono" style="border-color:rgba(232,149,156,.75);">N</div>
+          </div>
+          <h2 class="tc-name">Nur ein Gedanke</h2>
+          <p class="tc-tag tc-tag--warm">Traditionalismus</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="tc-sub">Ist die Nation ein notwendiges „Wir" — oder eine Ideologie, die Klassenherrschaft verschleiert?</p>
+    <p class="tc-meta">≈ 4 Std · 4 Sprecher · 2 Lager · YouTube-Debatte · Deutsch</p>
+  </div>
+</section>
+
+<hr class="br-cut">
+<section class="br-page seal-page" id="pruefsiegel" aria-label="Prüfsiegel: Verlässlichkeit und Anti-Halluzination">
+  <p class="seal-eyebrow">Prüfsiegel · Anti-Halluzination</p>
+  <h2 class="seal-h">Wie verlässlich ist diese Broschüre?</h2>
+  <p class="seal-deck">Diese Broschüre wurde quellenbasiert erstellt — gearbeitet wurde direkt mit dem Transkript der Debatte. Das senkt das Risiko erfundener Inhalte erheblich gegenüber einer freien Wiedergabe aus dem Gedächtnis.</p>
+
+  <div class="seal-top">
+    <div class="seal-mark" aria-label="Verlässlichkeit hoch, quellenbasiert, auditiert">
+      <div>
+        <b>HOCH</b>
+        <div class="chk">✓</div>
+        <small>Quellenbasiert · auditiert</small>
+      </div>
+    </div>
+    <div>
+      <p class="seal-claim">Da diese Arbeit <em>quellenbasiert</em> erstellt wurde, liegt das reale Risiko für Struktur und Thesen deutlich unter dem Closed-Book-Wert von 35,9 %. Das Restrisiko konzentriert sich auf exakte Zahlen, Zeitmarken und den Zitatwortlaut.</p>
+      <p class="seal-banner">≈ 7× geringeres Faktenrisiko als ohne Quelle (geschätzt, nicht gemessen)</p>
+      <p class="seal-metaline"><span>Mit Originalquelle gearbeitet: <b>JA</b></span><span>Audit (8 Schritte): <b>bestanden · 8/8 · Go</b></span></p>
+    </div>
+  </div>
+
+  <div class="seal-cols">
+    <div class="seal-col">
+      <h4>KI-Modellraten ohne Quelle (Closed-Book)</h4>
+      <div class="seal-bar">
+        <div class="lab"><span class="star">★ Claude Opus 4.8</span><span>≈ 35,9 %</span></div>
+        <div class="track"><div class="fill" style="width:59.8%;background:linear-gradient(90deg,#3a6b35,#5c8a47);">35,9 %</div></div>
+      </div>
+      <div class="seal-bar">
+        <div class="lab"><span>Gemini 3.1 Pro</span><span>50 %</span></div>
+        <div class="track"><div class="fill" style="width:83.3%;background:linear-gradient(90deg,#9a7a2c,#c89b3c);">50 %</div></div>
+      </div>
+      <div class="seal-bar">
+        <div class="lab"><span>Weitere Anbieter (Peer)</span><span>höher</span></div>
+        <div class="track"><div class="fill" style="width:92%;background:linear-gradient(90deg,#8a3a2c,#b85c2f);">höher</div></div>
+      </div>
+      <p class="seal-foot-note">Modellweite Werte, ohne Quelle gemessen — nicht die Rate dieser Broschüre. Quelle: Artificial Analysis, „Claude Opus 4.8 — Analysis and Benchmarks", 28. Mai 2026.</p>
+    </div>
+    <div class="seal-col">
+      <h4>Claude mit vs. ohne Quelle</h4>
+      <div class="seal-twocol">
+        <div class="box without"><b>Ohne Quelle</b>Frei aus dem Gedächtnis — höheres Risiko erfundener Namen, Zahlen und Zitate.</div>
+        <div class="box with"><b>Mit Quelle</b>An das Transkript gebunden — Thesen und Struktur folgen dem belegten Material.</div>
+      </div>
+      <p class="seal-foot-note">Diese Broschüre nutzt den zweiten Modus: an die Vorlage gebunden.</p>
+    </div>
+  </div>
+
+  <div class="seal-amp">
+    <div class="a-box green">
+      <div class="t">✓ Verlässlich</div>
+      <p>Belegtes: wortwörtliche O-Töne mit Zeitmarke, die Positionen der Lager, die Streitpunkte aus der Debatte.</p>
+    </div>
+    <div class="a-box amber">
+      <div class="t">! Vorher prüfen</div>
+      <p>Redaktionelle Einordnung: Bruchstellen, „Konsequenz zu Ende gedacht", offene Fragen und Lager-Zuordnungen sind beim Erstellen ergänzt — nicht Teil der Debatte.</p>
+    </div>
+  </div>
+
+  <p class="seal-eyebrow" style="margin-top:8px;">Audit in einfachen Worten</p>
+  <p class="seal-deck" style="margin-bottom:12px;">Die fertige Broschüre wurde in acht Schritten geprüft, korrigiert und erneut geprüft. Was jeder Schritt kontrolliert:</p>
+  <div class="seal-chips">
+    <span class="seal-chip"><i>1</i>Technik</span>
+    <span class="seal-chip"><i>2</i>Sauberkeit</span>
+    <span class="seal-chip"><i>3</i>Quellentreue</span>
+    <span class="seal-chip"><i>4</i>Zitate &amp; Zuordnung</span>
+    <span class="seal-chip"><i>5</i>Verständlichkeit</span>
+    <span class="seal-chip"><i>6</i>Aufbau &amp; Synthese</span>
+    <span class="seal-chip"><i>7</i>Optik</span>
+    <span class="seal-chip"><i>8</i>Druck</span>
+  </div>
+  <p class="seal-audit-status">Ergebnis des Schluss-Audits: <b>bestanden · 8/8 · Go</b></p>
+
+  <details class="seal-details">
+    <summary>Details &amp; Methodik</summary>
+    <p>Der Closed-Book-Wert von 35,9 % bezeichnet, wie oft das Modell <em>ohne</em> Quelle bei Faktenfragen daneben liegt — er gilt modellweit, nicht für diese quellenbasierte Arbeit. Der Faktor ≈ 7 ergibt sich aus 35,9 % geteilt durch das Mittel der geschätzten Restrisiko-Spanne (≈ 5 %), kaufmännisch gerundet. Die Spanne ist geschätzt, nicht gemessen. Gearbeitet wurde mit dem Originaltranskript (Zone B: „mit Originalquelle: JA"). Die acht Audit-Schritte prüfen Technik, Sauberkeit, Quellentreue, Zitatzuordnung, Verständlichkeit, Aufbau, Optik und Drucktauglichkeit.</p>
+  </details>
+
+  <p class="seal-source">Quelle · YouTube: <a href="https://www.youtube.com/watch?v=kmUAgVZEiUs">youtube.com/watch?v=kmUAgVZEiUs</a></p>
+</section>
+
+<hr class="br-cut">
+<section class="br-page lm-page" id="landkarte" aria-label="Themenlandkarte: die Streitfrage als Karte">
+  <p class="lm-eyebrow">Themenlandkarte · Einstieg</p>
+  <h2 class="lm-h">Eine Kluft, sechs Schauplätze</h2>
+  <p class="lm-deck">Zwei Lager, eine Bühne — und eine Brücke, die nie ganz trägt. Links die Marxisten (GSP), rechts die Neue Rechte. Die sechs Komplexe darunter führen durch die Debatte.</p>
+  <svg class="lm-visual" viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: zwei Kliffs, links die Marxisten, rechts die Rechten, dazwischen eine gebrochene Brücke als Bild des ungelösten Konflikts"><defs><linearGradient id="lmsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e1a1f"/><stop offset="1" stop-color="#0b0f13"/></linearGradient></defs><rect width="780" height="300" fill="url(#lmsky)"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.4"><line x1="0" y1="0" x2="0" y2="300"/><line x1="40" y1="0" x2="40" y2="300"/><line x1="80" y1="0" x2="80" y2="300"/><line x1="120" y1="0" x2="120" y2="300"/><line x1="160" y1="0" x2="160" y2="300"/><line x1="200" y1="0" x2="200" y2="300"/><line x1="240" y1="0" x2="240" y2="300"/><line x1="280" y1="0" x2="280" y2="300"/><line x1="320" y1="0" x2="320" y2="300"/><line x1="360" y1="0" x2="360" y2="300"/><line x1="400" y1="0" x2="400" y2="300"/><line x1="440" y1="0" x2="440" y2="300"/><line x1="480" y1="0" x2="480" y2="300"/><line x1="520" y1="0" x2="520" y2="300"/><line x1="560" y1="0" x2="560" y2="300"/><line x1="600" y1="0" x2="600" y2="300"/><line x1="640" y1="0" x2="640" y2="300"/><line x1="680" y1="0" x2="680" y2="300"/><line x1="720" y1="0" x2="720" y2="300"/><line x1="760" y1="0" x2="760" y2="300"/><line x1="0" y1="0" x2="780" y2="0"/><line x1="0" y1="40" x2="780" y2="40"/><line x1="0" y1="80" x2="780" y2="80"/><line x1="0" y1="120" x2="780" y2="120"/><line x1="0" y1="160" x2="780" y2="160"/><line x1="0" y1="200" x2="780" y2="200"/><line x1="0" y1="240" x2="780" y2="240"/><line x1="0" y1="280" x2="780" y2="280"/></g><path d="M0 300 L0 150 L210 150 L250 175 L300 185 L300 300 Z" fill="#16323a" stroke="#2f5a63" stroke-width="1.5"/><path d="M0 150 L210 150 L250 175 L300 185" fill="none" stroke="#9fd0db" stroke-width="1.6" opacity="0.85"/><path d="M780 300 L780 150 L570 150 L530 175 L480 188 L480 300 Z" fill="#3a1418" stroke="#a3242c" stroke-width="1.5"/><path d="M780 150 L570 150 L530 175 L480 188" fill="none" stroke="#e8959c" stroke-width="1.6" opacity="0.85"/><g stroke="#c89b3c" stroke-width="2" fill="none" opacity="0.9"><path d="M300 185 L360 178 L388 182"/><path d="M480 188 L420 180 L392 184"/></g><g fill="#c89b3c" opacity="0.55"><rect x="384" y="200" width="9" height="4" transform="rotate(20 388 202)"/><rect x="398" y="228" width="8" height="4" transform="rotate(-25 402 230)"/><rect x="378" y="250" width="7" height="3" transform="rotate(40 381 251)"/></g><g transform="translate(150,95)"><circle r="26" fill="none" stroke="#9fd0db" stroke-width="1.3" opacity="0.8"/><text x="0" y="7" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="24" fill="#9fd0db">D</text></g><g transform="translate(630,95)"><circle r="26" fill="none" stroke="#e8959c" stroke-width="1.3" opacity="0.8"/><text x="0" y="7" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="24" fill="#e8959c">A</text></g><g stroke="#ecc868" stroke-width="1" opacity="0.6" stroke-linecap="round"><line x1="360" y1="120" x2="370" y2="135"/><line x1="420" y1="120" x2="410" y2="135"/><line x1="390" y1="108" x2="390" y2="124"/></g><text class="kb-ill" x="752" y="290" text-anchor="end">Illustration</text></svg>
+  <div class="lm-poles">
+    <div class="lm-pole lm-pole--a">
+      <div class="who">Lager A · Marxisten (GSP)</div>
+      <p class="stance">Die Nation verschleiert Klassenherrschaft und arbeitet gegen das eigene Interesse.</p>
+      <p class="ot">„Dein ganzes Denken ist so etwas wie eine Reparaturherrschaft für eine Ordnung, die du im Kern gar nicht abschaffen willst."<span class="src">Dekarldent · Min. 03:43</span></p>
+    </div>
+    <div class="lm-pole lm-pole--b">
+      <div class="who">Lager B · Neue Rechte</div>
+      <p class="stance">Das gewachsene „Wir" ist gesetzt — die Nation ist notwendiges Übel und schützenswert.</p>
+      <p class="ot">„Für mich sind diese Dinge mehr oder minder gesetzt."<span class="src">Nur ein Gedanke · Min. 1:09:39</span></p>
+    </div>
+  </div>
+  <p class="lm-toc-h">Die sechs Komplexe</p>
+  <ul class="lm-toc">
+    <li><a href="#k1"><span class="n">K1</span><span class="tt">Das Gattungswesen</span><span class="q">Setzt Marx ein „wahres Wesen" voraus?</span></a></li>
+    <li><a href="#k2"><span class="n">K2</span><span class="tt">Das nationale Wir</span><span class="q">Wessen Interesse dient der Nationalismus?</span></a></li>
+    <li><a href="#k3"><span class="n">K3</span><span class="tt">Analyse oder Präferenz?</span><span class="q">Objektive Kritik oder getarnte Wertung?</span></a></li>
+    <li><a href="#k4"><span class="n">K4</span><span class="tt">Dialektik &amp; Teleologie</span><span class="q">Hat die Dialektik einen Endzweck?</span></a></li>
+    <li><a href="#k5"><span class="n">K5</span><span class="tt">Staat &amp; Kapital</span><span class="q">Widerspruch oder Einheit?</span></a></li>
+    <li><a href="#k6"><span class="n">K6</span><span class="tt">Utopie oder Strategie?</span><span class="q">Brauchen Marxisten einen Plan?</span></a></li>
+  </ul>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k1" aria-label="Komplex 1: Das Gattungswesen — setzt die Kritik ein wahres Menschenwesen voraus?">
+  <span class="kp-num">04 / 13</span>
+  <p class="kp-eyebrow">Komplex 1</p>
+  <h2 class="kp-title">Das Gattungswesen</h2>
+  <p class="kp-deck">Hinter jeder „Charaktermaske" — steckt da ein wahres Wesen des Menschen? Der Vorwurf, der die ganze Debatte grundiert.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0c1217"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.35"><line x1="0" y1="0" x2="0" y2="130"/><line x1="52" y1="0" x2="52" y2="130"/><line x1="104" y1="0" x2="104" y2="130"/><line x1="156" y1="0" x2="156" y2="130"/><line x1="208" y1="0" x2="208" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/><line x1="312" y1="0" x2="312" y2="130"/><line x1="364" y1="0" x2="364" y2="130"/><line x1="416" y1="0" x2="416" y2="130"/><line x1="468" y1="0" x2="468" y2="130"/><line x1="520" y1="0" x2="520" y2="130"/><line x1="572" y1="0" x2="572" y2="130"/><line x1="624" y1="0" x2="624" y2="130"/><line x1="676" y1="0" x2="676" y2="130"/><line x1="728" y1="0" x2="728" y2="130"/><line x1="780" y1="0" x2="780" y2="130"/></g><g fill="none" stroke="#c89b3c" stroke-width="1.6" opacity="0.9"><path d="M340 45 Q390 30 440 45 Q450 80 440 100 Q390 115 340 100 Q330 80 340 45 Z"/><ellipse cx="368" cy="68" rx="7" ry="5"/><ellipse cx="412" cy="68" rx="7" ry="5"/><path d="M372 90 Q390 98 408 90"/></g><text x="250" y="95" font-family="Newsreader,serif" font-size="92" fill="#2f5a63" opacity="0.5">?</text><g stroke="#9fd0db" stroke-width="1.2" opacity="0.7"><line x1="80" y1="50" x2="160" y2="50"/><line x1="80" y1="66" x2="140" y2="66"/><line x1="80" y1="82" x2="155" y2="82"/></g><g stroke="#e8959c" stroke-width="1.2" opacity="0.7"><line x1="620" y1="50" x2="700" y2="50"/><line x1="640" y1="66" x2="700" y2="66"/><line x1="625" y1="82" x2="700" y2="82"/></g><text class="kb-ill" x="752" y="120" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Braucht die marxistische Kritik ein „wahres Wesen" des Menschen — oder kommt sie ohne aus?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__id"><span class="du__b">D</span><span class="du__n">Dekarldent</span><span class="du__tag">GSP</span></div>
+        <p class="du__pos">Immanente Kritik</p>
+        <p class="du__these">Wir setzen kein ewiges Menschenwesen voraus. Die Kritik misst die Gesellschaft an ihrem eigenen Anspruch.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Der Vorwurf lautet, Marx brauche einen „Selbstzweck Mensch", von dem der Kapitalismus ihn entfremde. Die Marxisten bestreiten das: Es genüge die Analyse der wirklichen Verhältnisse — wer von Produktionsmitteln getrennt ist, muss seine Arbeitskraft verkaufen. Das sei eine Beschreibung der Lage, keine Anthropologie.</p></details>
+      </div>
+      <div class="du__vs" aria-hidden="true">≠</div>
+      <div class="du__pole du__pole--b">
+        <div class="du__id"><span class="du__b">N</span><span class="du__n">Nur ein Gedanke</span><span class="du__tag">Traditionalismus</span></div>
+        <p class="du__pos">Verdeckte Anthropologie</p>
+        <p class="du__these">Euer „Selbstzweck" und eure „Entfremdung" setzen ein wahres Wesen voraus — eines, das ihr nicht beweisen könnt.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Wenn die Charaktermaske den Menschen entfremdet, müsse darunter etwas sein, von dem entfremdet wird. Genau dieses „Gattungswesen" werde gesetzt, aber nie ausgewiesen — eine normative Annahme, getarnt als materialistische Beschreibung.</p></details>
+      </div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p>Der Streit geht nicht um den Inhalt, sondern um die Voraussetzung: B unterstellt eine Anthropologie, die A ausdrücklich bestreitet.</p>
+      <details><summary>Logik im Detail</summary><p>Beide reden teils aneinander vorbei. „Nur ein Gedanke" liest in den Entfremdungsbegriff des frühen Marx ein metaphysisches Wesen hinein; die Marxisten verweisen auf den späten Marx (Kapital), wo der Begriff anders gefasst ist — als gesellschaftliches Verhältnis, nicht als verlorene Natur. Ob beide vom selben „Marx" sprechen, bleibt offen.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Lässt sich Entfremdung überhaupt denken, ohne irgendeine Norm dessen, wovon der Mensch entfremdet wird?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--a"><p>„Die Befriedigung dieser Bedürfnisse ist nicht mehr als ein Mittel für den eigentlichen Zweck."<span class="src">Dekarldent · Min. 1:16:29</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><p>Hält der Vorwurf, dann steht und fällt die ganze marxistische Kritik mit einem unbewiesenen Menschenbild. Hält die Entgegnung, dann genügt die Analyse der Abhängigkeit — und der Idealismus-Vorwurf trifft ins Leere. Der Rest der Debatte kehrt immer wieder hierher zurück. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k2" aria-label="Komplex 2: Das nationale Wir">
+  <span class="kp-num">05 / 13</span>
+  <p class="kp-eyebrow">Komplex 2</p>
+  <h2 class="kp-title">Das nationale Wir</h2>
+  <p class="kp-deck">Wessen Interesse trägt das „Wir"? Hier prallen der nüchterne Etatist und der Marxist direkt aufeinander.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0c1217"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.35"><line x1="0" y1="0" x2="0" y2="130"/><line x1="52" y1="0" x2="52" y2="130"/><line x1="104" y1="0" x2="104" y2="130"/><line x1="156" y1="0" x2="156" y2="130"/><line x1="208" y1="0" x2="208" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/><line x1="312" y1="0" x2="312" y2="130"/><line x1="364" y1="0" x2="364" y2="130"/><line x1="416" y1="0" x2="416" y2="130"/><line x1="468" y1="0" x2="468" y2="130"/><line x1="520" y1="0" x2="520" y2="130"/><line x1="572" y1="0" x2="572" y2="130"/><line x1="624" y1="0" x2="624" y2="130"/><line x1="676" y1="0" x2="676" y2="130"/><line x1="728" y1="0" x2="728" y2="130"/><line x1="780" y1="0" x2="780" y2="130"/></g><g fill="none" stroke="#c89b3c" stroke-width="1.6" opacity="0.9"><path d="M390 28 L450 44 L450 86 Q450 104 390 114 Q330 104 330 86 L330 44 Z"/></g><path d="M390 28 L384 56 L398 72 L388 100 L390 114" fill="none" stroke="#0c1217" stroke-width="3"/><path d="M390 28 L384 56 L398 72 L388 100 L390 114" fill="none" stroke="#b85c2f" stroke-width="1.2" opacity="0.8"/><g fill="#9fd0db" opacity="0.75"><circle cx="150" cy="70" r="9"/><rect x="142" y="80" width="16" height="22" rx="3"/></g><g fill="#e8959c" opacity="0.75"><circle cx="630" cy="70" r="9"/><rect x="622" y="80" width="16" height="22" rx="3"/></g><g stroke="#ecc868" stroke-width="1.2" opacity="0.6" stroke-linecap="round"><path d="M180 70 L300 70" marker-end="url(#a2)"/><path d="M600 70 L480 70"/></g><text class="kb-ill" x="752" y="120" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Dient das nationale Wir den Menschen, die es teilen — oder verdeckt es, dass ihre Interessen gar nicht zählen?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__id"><span class="du__b">D</span><span class="du__n">Dekarldent</span><span class="du__tag">GSP</span></div>
+        <p class="du__pos">Verschleierung</p>
+        <p class="du__these">Das nationale Wir legitimiert Klassenherrschaft und arbeitet gegen das eigene Interesse der meisten.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Nationalismus setze das Interesse des Staates mit dem des ganzen Volkes gleich. So werde aus einer Herrschaftsordnung ein gemeinsames „Wir" — und der Lohnabhängige verteidigt einen Standort-Erfolg, der nicht seiner ist, sondern der der Kapitalverwertung.</p></details>
+      </div>
+      <div class="du__vs" aria-hidden="true">≠</div>
+      <div class="du__pole du__pole--b">
+        <div class="du__id"><span class="du__b">A</span><span class="du__n">Agitator</span><span class="du__tag">Nationalstaatlichkeit</span></div>
+        <p class="du__pos">Notwendiges Übel</p>
+        <p class="du__these">Ein nationales Wir ist notwendig — der Standort-Erfolg sichert real Jobs, Löhne und Sozialsystem.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Es sei objektiv im eigenen Interesse, dass die eigene Wirtschaft im internationalen Vergleich besteht — daran hänge die eigene Anstellung. Ein Gewaltkonstrukt, das das eigene Kollektiv nach außen schützt, sei in der modernen Massengesellschaft unvermeidlich der Staat.</p></details>
+      </div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p>Der rationale Kern (mein Job hängt am Standort) ist nicht dasselbe wie die Behauptung, der Erfolg des Standorts sei mein eigentliches Interesse.</p>
+      <details><summary>Logik im Detail</summary><p>Beide räumen ein: Es gibt einen rationalen Grund, den eigenen Staat stark zu wollen. Der Streit liegt im Sprung von „rational innerhalb dieser Ordnung" zu „das ist mein wahres Interesse". Die Marxisten nennen das ein praktisches Bewusstsein von Abhängigen — kein emanzipatorisches Ziel.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Wenn Menschen sich dem nationalen Wir zustimmend bekennen — macht ihre Zustimmung die Ordnung schon zu ihrem Interesse?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--b"><p>„Es ist objektiv in deinem Interesse, dass es deiner Wirtschaft gut geht, weil das deine Anstellung garantiert."<span class="src">Agitator · Min. 51:40 (sinngemäß zusammengefasst)</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><p>Gibt man den rationalen Kern zu, bleibt die Frage, ob daraus Zustimmung zur Nation folgt — oder gerade ihre Kritik. Die Marxisten ziehen den zweiten Schluss: Das Interesse sei die Aufhebung der Abhängigkeit, nicht der Erfolg des Standorts. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k3" aria-label="Komplex 3: Analyse oder Präferenz?">
+  <span class="kp-num">06 / 13</span>
+  <p class="kp-eyebrow">Komplex 3</p>
+  <h2 class="kp-title">Analyse oder Präferenz?</h2>
+  <p class="kp-deck">Ist die marxistische Kritik objektive Wissenschaft — oder eine Wertung im Tarnmantel? Der schärfste methodische Konflikt.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0c1217"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.35"><line x1="0" y1="0" x2="0" y2="130"/><line x1="52" y1="0" x2="52" y2="130"/><line x1="104" y1="0" x2="104" y2="130"/><line x1="156" y1="0" x2="156" y2="130"/><line x1="208" y1="0" x2="208" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/><line x1="312" y1="0" x2="312" y2="130"/><line x1="364" y1="0" x2="364" y2="130"/><line x1="416" y1="0" x2="416" y2="130"/><line x1="468" y1="0" x2="468" y2="130"/><line x1="520" y1="0" x2="520" y2="130"/><line x1="572" y1="0" x2="572" y2="130"/><line x1="624" y1="0" x2="624" y2="130"/><line x1="676" y1="0" x2="676" y2="130"/><line x1="728" y1="0" x2="728" y2="130"/><line x1="780" y1="0" x2="780" y2="130"/></g><g fill="none" stroke="#c89b3c" stroke-width="1.6" opacity="0.9"><line x1="390" y1="26" x2="390" y2="44"/><line x1="300" y1="44" x2="480" y2="44"/><path d="M300 44 L276 80 L324 80 Z"/><path d="M480 44 L456 80 L504 80 Z"/></g><text x="276" y="100" font-family="Inter Tight,sans-serif" font-size="11" fill="#9fd0db" opacity="0.85">SEIN</text><text x="452" y="100" font-family="Inter Tight,sans-serif" font-size="11" fill="#e8959c" opacity="0.85">SOLLEN</text><line x1="390" y1="52" x2="390" y2="108" stroke="#b85c2f" stroke-width="1.3" stroke-dasharray="3 4" opacity="0.8"/><text class="kb-ill" x="752" y="120" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Gibt es ein „objektives Interesse" — oder ist jedes Interesse subjektiv, und die Kritik damit bloß getarnte Präferenz?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__id"><span class="du__b">D</span><span class="du__n">Dekarldent</span><span class="du__tag">GSP</span></div>
+        <p class="du__pos">Objektives Interesse</p>
+        <p class="du__these">Ein Interesse folgt aus der gesellschaftlichen Lage, nicht aus dem Gefühl — auch wenn man es nicht bewusst erkennt.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Ob jemand seinen Chef und seine Nation liebt, ändere nichts daran, dass seine Lage real von höherem Lohn, kürzerer Arbeitszeit und sicherer Existenz abhängt. Das sei keine Moral, sondern eine Beschreibung der Stellung im Produktionsverhältnis.</p></details>
+      </div>
+      <div class="du__vs" aria-hidden="true">≠</div>
+      <div class="du__pole du__pole--b">
+        <div class="du__id"><span class="du__b">N</span><span class="du__n">Nur ein Gedanke</span><span class="du__tag">Traditionalismus</span></div>
+        <p class="du__pos">Getarnte Wertung</p>
+        <p class="du__these">„Objektives Interesse" ist ein Widerspruch in sich. Interessen sind subjektiv — ihr tarnt Präferenz als Analyse.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Objektiv sei, was ohne Betrachter bestehe; Interessen aber setzten ein Subjekt voraus. Aus dem Sein der Verhältnisse ein Sollen abzuleiten, verletze Humes Gesetz. Die Marxisten dürften das tun — aber als Präferenz, nicht als neutrale Wissenschaft.</p></details>
+      </div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p>A trennt Interesse und bewusste Präferenz; B hält jedes Interesse für inhärent subjektiv. Beide meinen mit „Interesse" nicht dasselbe.</p>
+      <details><summary>Logik im Detail</summary><p>Der Kern ist Humes Gesetz: aus einem Sein folgt kein Sollen. Die Marxisten kontern, sie setzten keinen Wert, sondern zeigten einen Widerspruch zwischen dem Anspruch der Gesellschaft (Freiheit) und ihrer Funktionsweise (Lohnzwang). Ob das den Vorwurf entkräftet oder nur verschiebt, bleibt strittig.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Setzt der Begriff einer „Schädigung" nicht immer schon einen Maßstab des intakten Zustands voraus — und damit eine Norm?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--a"><p>„Stabilität ist keine Freiheit, und Gehorsam ist keine Wahrheit."<span class="src">Dekarldent · Min. 1:13:41</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><p>Wäre alles nur Präferenz, stünde marxistische Kritik gleichrangig neben jeder anderen Meinung. Beharren die Marxisten auf Objektivität, müssen sie zeigen, dass „Schädigung" ohne verstecktes Menschenbild auskommt — genau der Punkt, der zu K1 zurückführt. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k4" aria-label="Komplex 4: Dialektik &amp; Teleologie">
+  <span class="kp-num">07 / 13</span>
+  <p class="kp-eyebrow">Komplex 4</p>
+  <h2 class="kp-title">Dialektik &amp; Teleologie</h2>
+  <p class="kp-deck">Hat die Dialektik ein Ziel? Ein Definitionsstreit, der erbittert geführt wird — und beide Seiten berufen sich auf Hegel.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0c1217"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.35"><line x1="0" y1="0" x2="0" y2="130"/><line x1="52" y1="0" x2="52" y2="130"/><line x1="104" y1="0" x2="104" y2="130"/><line x1="156" y1="0" x2="156" y2="130"/><line x1="208" y1="0" x2="208" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/><line x1="312" y1="0" x2="312" y2="130"/><line x1="364" y1="0" x2="364" y2="130"/><line x1="416" y1="0" x2="416" y2="130"/><line x1="468" y1="0" x2="468" y2="130"/><line x1="520" y1="0" x2="520" y2="130"/><line x1="572" y1="0" x2="572" y2="130"/><line x1="624" y1="0" x2="624" y2="130"/><line x1="676" y1="0" x2="676" y2="130"/><line x1="728" y1="0" x2="728" y2="130"/><line x1="780" y1="0" x2="780" y2="130"/></g><g fill="none" stroke="#c89b3c" stroke-width="1.6" opacity="0.9"><path d="M390 70 m0 0 a18 18 0 1 1 -16 -9 a30 30 0 1 1 30 24 a44 44 0 1 1 -50 -34"/></g><path d="M338 100 l-10 -3 l5 9 Z" fill="#ecc868" opacity="0.9"/><g stroke="#9fd0db" stroke-width="1.1" opacity="0.6" stroke-linecap="round"><line x1="440" y1="60" x2="470" y2="50"/><line x1="440" y1="60" x2="468" y2="74"/></g><text x="150" y="74" font-family="Inter Tight,sans-serif" font-size="11" fill="#e8959c" opacity="0.8">ENDZWECK?</text><text class="kb-ill" x="752" y="120" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Strebt die dialektische „Aufhebung" notwendig einem Endzweck zu — oder garantiert sie gar nichts?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__id"><span class="du__b">D</span><span class="du__n">Dekarldent</span><span class="du__tag">GSP</span></div>
+        <p class="du__pos">Kein Automatismus</p>
+        <p class="du__these">Dialektik heißt, die Logik der Sache mitzumachen. Widersprüche garantieren keinen Fortschritt.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Widersprüche erzeugten Spannungen; wie sie ausgingen, hänge von Kräfteverhältnissen und staatlicher Bearbeitung ab. Der Konflikt zwischen Kapital und Arbeit könne zu höheren Löhnen, zu Streiks oder zu gar nichts führen — nichts daran sei automatisch progressiv.</p></details>
+      </div>
+      <div class="du__vs" aria-hidden="true">≠</div>
+      <div class="du__pole du__pole--b">
+        <div class="du__id"><span class="du__b">N</span><span class="du__n">Nur ein Gedanke</span><span class="du__tag">Traditionalismus</span></div>
+        <p class="du__pos">Verkappte Teleologie</p>
+        <p class="du__these">Die Dialektik ist definitorisch teleologisch — die Aufhebung strebt einen Endzweck an. Das ist das Hegel-Erbe.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Jede Form der Dialektik setze voraus, dass Negiertes zurückbleibe und Verwertbares auf eine höhere Stufe „aufgehoben" werde. Genau daraus entspringe der unterstellte Geschichtsfahrplan — und das Gattungswesen als sein Fluchtpunkt.</p></details>
+      </div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p>B liest einen Telos in die Methode hinein; A bestreitet jeden Automatismus der Aufhebung. Der Streit ist ein Definitionsstreit über das Wort „Dialektik".</p>
+      <details><summary>Logik im Detail</summary><p>Beide zitieren Hegel gegeneinander. „Nur ein Gedanke" pocht auf den fortschreitenden Dreischritt mit Ziel; die Marxisten verweisen auf Hegels eigene Vorsicht („die Eule der Minerva") und darauf, dass sie keine Junghegelianer seien. Was mit den Widersprüchen „passiert", bleibt die eigentlich offene Frage.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Wenn Widersprüche sich nicht notwendig aufheben — was geschieht dann mit ihnen außer bloßer Verwaltung und Verschiebung?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--a"><p>„Widersprüche garantieren keinen Fortschritt. Sie garantieren nur, dass eine Ordnung nicht spannungsfrei bei sich bleibt."<span class="src">Dekarldent · Min. 1:56:54 (sinngemäß)</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><p>Trifft der Teleologie-Vorwurf, dann schmuggeln die Marxisten einen Geschichtsplan ein, den sie leugnen. Trifft die Entgegnung, dann ist ihre Kritik bloß Analyse ohne garantiertes Ende — und der Sozialismus keine Prophezeiung, sondern eine Möglichkeit unter Bedingungen. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k5" aria-label="Komplex 5: Staat &amp; Kapital">
+  <span class="kp-num">08 / 13</span>
+  <p class="kp-eyebrow">Komplex 5</p>
+  <h2 class="kp-title">Staat &amp; Kapital</h2>
+  <p class="kp-deck">Stehen Staat und Kapital im Widerspruch — oder sind sie zwei Seiten derselben Ordnung? Der Streit am Venn-Diagramm.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0c1217"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.35"><line x1="0" y1="0" x2="0" y2="130"/><line x1="52" y1="0" x2="52" y2="130"/><line x1="104" y1="0" x2="104" y2="130"/><line x1="156" y1="0" x2="156" y2="130"/><line x1="208" y1="0" x2="208" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/><line x1="312" y1="0" x2="312" y2="130"/><line x1="364" y1="0" x2="364" y2="130"/><line x1="416" y1="0" x2="416" y2="130"/><line x1="468" y1="0" x2="468" y2="130"/><line x1="520" y1="0" x2="520" y2="130"/><line x1="572" y1="0" x2="572" y2="130"/><line x1="624" y1="0" x2="624" y2="130"/><line x1="676" y1="0" x2="676" y2="130"/><line x1="728" y1="0" x2="728" y2="130"/><line x1="780" y1="0" x2="780" y2="130"/></g><g fill="none" stroke-width="1.8" opacity="0.9"><circle cx="355" cy="68" r="40" stroke="#9fd0db"/><circle cx="425" cy="68" r="40" stroke="#e8959c"/></g><text x="320" y="40" font-family="Inter Tight,sans-serif" font-size="10" fill="#9fd0db">STAAT</text><text x="430" y="40" font-family="Inter Tight,sans-serif" font-size="10" fill="#e8959c">KAPITAL</text><path d="M390 35 A40 40 0 0 1 390 101 A40 40 0 0 1 390 35 Z" fill="#c89b3c" opacity="0.18"/><text x="372" y="72" font-family="Inter Tight,sans-serif" font-size="9" fill="#ecc868">Ordnung</text><text class="kb-ill" x="752" y="120" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Begrenzt der Staat das Kapital gegen es — oder gerade für seinen dauerhaften Fortbestand?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__id"><span class="du__b">D</span><span class="du__n">Dekarldent</span><span class="du__tag">GSP</span></div>
+        <p class="du__pos">Funktionsteilung</p>
+        <p class="du__these">Der Staat ist die politische Form des Kapitals. Er begrenzt einzelne Kapitalisten, um die Gesamtordnung zu sichern.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Privateigentum, Arbeitsmarkt und Konkurrenz existierten nur durch rechtliche und gewaltförmige Garantie des Staates. Wenn er einen Kapitalisten maßregelt, schade er nicht dem Kapital, sondern erhalte es langfristig. Ein echter Gegensatz bestehe nicht.</p></details>
+      </div>
+      <div class="du__vs" aria-hidden="true">≠</div>
+      <div class="du__pole du__pole--b">
+        <div class="du__id"><span class="du__b">N</span><span class="du__n">Nur ein Gedanke</span><span class="du__tag">Traditionalismus</span></div>
+        <p class="du__pos">Widerspruch</p>
+        <p class="du__these">Staat und Kapital stehen im Widerspruch — ihre dialektische Aufhebung mündet in einen totalen Apparat.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Im „Venn-Diagramm" überlappten sich Staat und Kapital; wo sie auseinanderfielen, entstünden die ärgsten Auswüchse. Hebe man den Widerspruch nach eigener Methode auf, bleibe ein verschmolzener „Cyberpunk"-Apparat — Kapital, das zur Staatsform werde.</p></details>
+      </div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p>B konstruiert einen Gegensatz, wo A nur eine Funktionsteilung sieht — eine falsche Abstraktion, die den Endzustand schon voraussetzt.</p>
+      <details><summary>Logik im Detail</summary><p>Der Marxist bestreitet den behaupteten Widerspruch: Der Staat begrenze Einzelinteressen, um das Kapitalverhältnis als Ganzes zu erhalten — das sei kein Gegensatz, sondern dessen Bedingung. „Nur ein Gedanke" hält dagegen, genau diese Verschmelzung führe empirisch zum totalitären Apparat. Hier reden Methode und Prognose aneinander vorbei.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Ist die Begrenzung des Einzelkapitals durch den Staat ein Akt gegen das Kapital — oder dessen Selbsterhaltung mit anderen Mitteln?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--b"><p>„Stell dir zwei Kreise vor — Staat und Kapital. Wo sie sich überlappen, ist die bestehende Ordnung."<span class="src">Nur ein Gedanke · Min. 3:52:09 (sinngemäß)</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><p>Stimmt die Funktionsteilung, ist die Auflösung nur des Staates sinnlos — Lohnarbeit und Eigentum blieben. Stimmt der Widerspruch, drohte beim Wegfall des Staates die ungebremste Konzernherrschaft. Beide eint: Staat und Kapital sind nicht dasselbe — nur die Konsequenz trennt sie. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k6" aria-label="Komplex 6: Utopie oder Strategie?">
+  <span class="kp-num">09 / 13</span>
+  <p class="kp-eyebrow">Komplex 6</p>
+  <h2 class="kp-title">Utopie oder Strategie?</h2>
+  <p class="kp-deck">Brauchen Marxisten einen konkreten Plan — oder genügt die Kritik? Hier kehrt der nüchterne Etatist zurück.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0c1217"/><g stroke="#1d3a40" stroke-width="0.5" opacity="0.35"><line x1="0" y1="0" x2="0" y2="130"/><line x1="52" y1="0" x2="52" y2="130"/><line x1="104" y1="0" x2="104" y2="130"/><line x1="156" y1="0" x2="156" y2="130"/><line x1="208" y1="0" x2="208" y2="130"/><line x1="260" y1="0" x2="260" y2="130"/><line x1="312" y1="0" x2="312" y2="130"/><line x1="364" y1="0" x2="364" y2="130"/><line x1="416" y1="0" x2="416" y2="130"/><line x1="468" y1="0" x2="468" y2="130"/><line x1="520" y1="0" x2="520" y2="130"/><line x1="572" y1="0" x2="572" y2="130"/><line x1="624" y1="0" x2="624" y2="130"/><line x1="676" y1="0" x2="676" y2="130"/><line x1="728" y1="0" x2="728" y2="130"/><line x1="780" y1="0" x2="780" y2="130"/></g><g fill="none" stroke="#e8959c" stroke-width="1.4" opacity="0.7" stroke-dasharray="3 3"><path d="M470 45 q10 -16 28 -8 q14 -10 26 4 q16 -2 12 16 q4 12 -14 12 l-52 0 q-16 0 -16 -14 q0 -12 16 -10 Z"/></g><text x="486" y="80" font-family="Inter Tight,sans-serif" font-size="9" fill="#e8959c" opacity="0.8">UTOPIE?</text><g fill="none" stroke="#9fd0db" stroke-width="1.6" opacity="0.85"><path d="M120 100 Q200 60 280 90 Q340 110 380 80"/></g><circle cx="120" cy="100" r="4" fill="#9fd0db"/><g stroke="#9fd0db" stroke-width="1.1" stroke-dasharray="2 5" opacity="0.6"><path d="M380 80 Q420 60 450 64"/></g><text x="150" y="120" font-family="Inter Tight,sans-serif" font-size="9" fill="#9fd0db" opacity="0.8">STRATEGIELINIE</text><text class="kb-ill" x="752" y="120" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Ist eine Gesellschaft ohne fertigen Fahrplan eine Utopie — oder eine Strategie, die sich erst im Kampf konkretisiert?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__id"><span class="du__b">D</span><span class="du__n">Dekarldent</span><span class="du__tag">GSP</span></div>
+        <p class="du__pos">Strategielinie</p>
+        <p class="du__these">Kein Kochrezept, aber eine Richtung: Enteignung der Produktionsmittel, Produktion nach Bedarf, internationale Ausweitung.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Man male keine fertige Wunschwelt, sondern argumentiere negativ: Wenn Lohnarbeit, Privateigentum und Staatenkonkurrenz die Herrschaftsformen seien, könne ihre Aufhebung nicht darin bestehen, sie beizubehalten. Auch der Kapitalismus sei ohne vorgefertigtes Handbuch entstanden.</p></details>
+      </div>
+      <div class="du__vs" aria-hidden="true">≠</div>
+      <div class="du__pole du__pole--b">
+        <div class="du__id"><span class="du__b">A</span><span class="du__n">Agitator</span><span class="du__tag">Nationalstaatlichkeit</span></div>
+        <p class="du__pos">Utopievorwurf</p>
+        <p class="du__these">Ohne konkreten Plan ist das eine Utopie. Die Marxisten-Leninisten waren realitätsnäher — sie hatten ein Modell, das zeitweise lief.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Menschen seien nur in einer vorrevolutionären Lage empfänglich für solche Botschaften; ohne Weg zur Utopie bleibe die Weltanschauung politisch folgenlos. Ein Modell, das im 20. Jahrhundert real existierte, sei ernster zu nehmen als eine bloße Negation.</p></details>
+      </div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p>B setzt „Plan" mit einem vorgefertigten Handbuch gleich; A hält dem entgegen, auch der Kapitalismus hatte keines — und entstand dennoch aus realen Widersprüchen.</p>
+      <details><summary>Logik im Detail</summary><p>Der Marxist trennt Vorhersage und begriffliche Bestimmung: Er prognostiziere nicht das Jahr X, sondern bestimme, welche Formen aufgehoben werden müssten. Der Etatist hält das für zu wenig — eine ideale Gesellschaft ohne Weg dorthin bleibe Utopie. Ob das Fehlen eines Weges die Kritik widerlegt, ist der Knoten.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Delegitimiert das Fehlen eines konkreten Weges die Richtigkeit der Kritik — oder ist das zweierlei?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--b"><p>„Ihr habt eine Utopie und keinen Plan, wie ihr dahin wollt. Die Marxisten-Leninisten hatten ein Modell."<span class="src">Agitator · Min. 3:07:43 (sinngemäß)</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><p>Gilt „ohne Plan = Utopie", trifft es auch jede frühe Gesellschaftsform vor ihrer Entstehung. Gilt die Trennung von Kritik und Wegbeschreibung, dann steht die Richtigkeit der Analyse unabhängig davon, ob schon ein Fahrplan vorliegt — die Debatte endet hier offen. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page lk-page" id="kritik-links" aria-label="Sozialdemokratisch-linksliberale Kritik — eine positionierte Lesart gegen beide Lager">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">10 / 13</span>
+  <div class="lk-flag"><span class="t">Positionierte Lesart · nicht aus der Quelle</span><p>Eine eigene, klar positionierte Kritik aus sozialdemokratisch-linksliberaler Sicht — nicht Teil der Debatte und keine neutrale Zusammenfassung; ohne wörtliche Zitate. Die Kernthesen stehen sichtbar; die Begründungen lassen sich aufklappen.</p></div>
+  <div class="kp-head">
+    <p class="lk-eyebrow">Kritik von links — jenseits beider Lager</p>
+    <h2 class="lk-title">Was eine soziale Demokratie beiden entgegenhält</h2>
+    <p class="lk-deck">Gegen die Marxisten, gegen die Neue Rechte — und gegen das, was beide teilen: den Hang, eine soziale Frage in ein Gesamturteil über die ganze Ordnung zu verwandeln.</p>
+  </div>
+  <svg class="kb-lk" viewBox="0 0 780 120" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: eine dritte Position zwischen beiden Lagern">
+<defs><radialGradient id="lkgl" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".14"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs>
+<rect x="0" y="0" width="780" height="120" fill="#0c1217"/><rect x="0" y="0" width="780" height="120" fill="url(#lkgl)"/>
+<rect x="7" y="7" width="766" height="106" rx="7" fill="none" stroke="#c89b3c" stroke-width="1" stroke-dasharray="5 6" opacity=".26"/>
+<circle cx="180" cy="60" r="15" fill="#2f5a63" fill-opacity="0.4" stroke="#9fd0db" stroke-width="1.6"/>
+<circle cx="600" cy="60" r="15" fill="#a3242c" fill-opacity="0.32" stroke="#e8959c" stroke-width="1.6"/>
+<line x1="195" y1="60" x2="348" y2="60" stroke="#5f6f72" stroke-width="1.2" stroke-dasharray="3 5" opacity=".5"/>
+<line x1="432" y1="60" x2="585" y2="60" stroke="#5f6f72" stroke-width="1.2" stroke-dasharray="3 5" opacity=".5"/>
+<line x1="390" y1="30" x2="390" y2="92" stroke="#c89b3c" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="356" y1="44" x2="424" y2="44" stroke="#c89b3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M356 44 L348 64 L364 64 Z" fill="#c89b3c" fill-opacity="0.5" stroke="#ecc868" stroke-width="1.2"/>
+<path d="M424 44 L416 64 L432 64 Z" fill="#c89b3c" fill-opacity="0.5" stroke="#ecc868" stroke-width="1.2"/>
+<circle cx="390" cy="30" r="4.5" fill="#ecc868"/>
+<circle cx="390" cy="98" r="3" fill="#c89b3c"/>
+<text x="768" y="113" text-anchor="end" font-family="Inter Tight,sans-serif" font-size="9" letter-spacing="0.14em" fill="#6a7572" opacity="0.7">ILLUSTRATION</text>
+</svg>
+
+  <div class="lk-block">
+    <span class="tag tag--a">Gegen die Marxisten (GSP)</span>
+    <p class="thesis">Ein „objektives Interesse" über die Köpfe hinweg bevormundet, was es zu befreien vorgibt.</p>
+    <details><summary>Begründung aufklappen</summary><p>Wer den Menschen sagt, ihr wahres Interesse sei die Aufhebung der ganzen Ordnung — und ihre tatsächlichen Wünsche nach Sicherheit, Aufstieg oder einem guten Lohn nur „falsches Bewusstsein" —, ersetzt Demokratie durch Belehrung. Eine soziale Perspektive nimmt die geäußerten Interessen ernst und streitet um Mehrheiten, statt sie auf eine einzig richtige Schlussfolgerung festzulegen.</p></details>
+  </div>
+
+  <div class="lk-block">
+    <span class="tag tag--a">Gegen die Marxisten (GSP)</span>
+    <p class="thesis">Klasse ist eine Spaltung — aber nicht die einzige, die zählt.</p>
+    <details><summary>Begründung aufklappen</summary><p>Geschlecht, Herkunft, Region, Bildung, Behinderung: Ungleichheit hat viele Achsen, die sich nicht restlos auf den Kapital-Arbeit-Gegensatz zurückführen lassen. Eine Politik, die alles in die eine große Klassenfrage auflöst, übersieht reale Benachteiligungen — und die Bündnisse, die nötig wären, um sie zu beheben.</p></details>
+  </div>
+
+  <div class="lk-block">
+    <span class="tag tag--a">Gegen die Marxisten (GSP)</span>
+    <p class="thesis">Der Reformweg hat empirisch mehr geliefert als der Bruch mit allem.</p>
+    <details><summary>Begründung aufklappen</summary><p>Sozialstaat, Tarifbindung, Mitbestimmung, progressive Steuern: Die größten realen Fortschritte für Lohnabhängige kamen über erkämpfte Reformen innerhalb der Demokratie — nicht über das Warten auf die Aufhebung des Ganzen. Wer Reform als bloße „Reparaturherrschaft" abtut, redet die Mittel klein, die nachweislich Leben verbessert haben.</p></details>
+  </div>
+
+  <div class="lk-block">
+    <span class="tag tag--b">Gegen die Neue Rechte</span>
+    <p class="thesis">Ein gewachsenes „Wir" klingt warm — und zieht in Wahrheit Grenzen, wer dazugehört.</p>
+    <details><summary>Begründung aufklappen</summary><p>Die Berufung auf eine organisch gewachsene Gemeinschaft beantwortet nie die entscheidende Frage: Wer gehört dazu, und wer wird hinausdefiniert? Historisch war die „natürliche Ordnung" stets ein Herrschaftsverhältnis, das Frauen und Abweichende an enge Rollen band. Was eine Gesellschaft trägt, ist gleiches Recht und Solidarität — nicht Abstammung oder Konformität.</p></details>
+  </div>
+
+  <div class="lk-block">
+    <span class="tag tag--b">Gegen die Neue Rechte</span>
+    <p class="thesis">Die Nation als oberster Bezugspunkt überdeckt die soziale Ungleichheit im Inneren.</p>
+    <details><summary>Begründung aufklappen</summary><p>Wenn alles am „nationalen Standort" hängt, verschwindet der Konflikt zwischen oben und unten hinter einem gemeinsamen Wir. Doch ein Lohnabhängiger und der Eigentümer seines Betriebs teilen keinen Standortvorteil zu gleichen Teilen. Die Rede vom nationalen Zusammenhalt befriedet rhetorisch, was real eine Verteilungsfrage bleibt.</p></details>
+  </div>
+
+  <div class="lk-block">
+    <span class="tag">Gegen das Gemeinsame beider Lager</span>
+    <p class="thesis">Beide totalisieren, was eine nüchterne soziale Frage ist.</p>
+    <details><summary>Begründung aufklappen</summary><p>Die einen wollen die ganze Ordnung aufheben, die anderen sie kulturell verankern — beide machen aus konkreten Problemen (Löhne, Mieten, Sicherheit, Teilhabe) ein weltanschauliches Gesamturteil. Die soziale Perspektive fragt anders: Unter welchen Bedingungen leben Menschen verlässlich und gleichberechtigt? Das entscheidet sich an Institutionen, Verteilung und Recht — nicht an der einen richtigen Theorie der Geschichte.</p></details>
+  </div>
+
+  <div class="lk-task">
+    <span class="lab">Die Aufgabe</span>
+    <p>Nicht das System im Ganzen zu verwerfen oder zu verklären, sondern Macht zu begrenzen, wo sie sich ballt — durch starke Institutionen, soziale Sicherung und gleiche Rechte, die den Schwächeren schützen und den Streit um Mehrheiten offen halten. Das ist weniger pathetisch als beide Lager. Aber es ist überprüfbar, korrigierbar und kommt ohne ein Endziel aus, dem sich alle zu fügen hätten.</p>
+  </div>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page em-page" id="empirie" aria-label="Empirische Bestandsaufnahme — was die Datenlage zu den sechs Komplexen sagt">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">11 / 13</span>
+  <div class="em-flag"><span class="t">Empirische Bestandsaufnahme · externe Datenlage</span><p>Was sagt die heutige Datenlage zu den Streitpunkten? Diese Seite ordnet pro Komplex ein, wen die Befunde eher stützen — auf Basis veröffentlichter Forschung, nicht aus der Debatte selbst. Bestätigtes und Widerlegtes stehen bewusst nebeneinander. Klicken Sie eine Zeile auf für Befund, Zahlen und Quelle.</p></div>
+  <div class="kp-head">
+    <p class="em-eyebrow">Der Faktencheck</p>
+    <h2 class="em-title">Was die Daten zu den sechs Komplexen sagen</h2>
+    <p class="em-deck">Nicht wer rhetorisch gewann — sondern was sich messen lässt. Marx' Analyse hält empirisch erstaunlich viel; seine Prognosen und die GSP-eigenen Zuspitzungen deutlich weniger.</p>
+  </div>
+  <svg class="kb-em" viewBox="0 0 780 120" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: Befunde zwischen Bestätigung und Widerlegung">
+<defs><linearGradient id="emax" gradientUnits="userSpaceOnUse" x1="120" y1="0" x2="660" y2="0"><stop offset="0" stop-color="#7fb069"/><stop offset=".5" stop-color="#c89b3c"/><stop offset="1" stop-color="#a3242c"/></linearGradient><radialGradient id="emgl" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".12"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs>
+<rect x="0" y="0" width="780" height="120" fill="#0c1217"/><rect x="0" y="0" width="780" height="120" fill="url(#emgl)"/>
+<rect x="7" y="7" width="766" height="106" rx="7" fill="none" stroke="#c89b3c" stroke-width="1" stroke-dasharray="5 6" opacity=".26"/>
+<line x1="120" y1="78" x2="660" y2="78" stroke="url(#emax)" stroke-width="2.4" opacity=".9"/>
+<g stroke="#5f6f72" stroke-width="1" opacity=".5"><line x1="120" y1="74" x2="120" y2="82"/><line x1="255" y1="74" x2="255" y2="82"/><line x1="390" y1="72" x2="390" y2="84"/><line x1="525" y1="74" x2="525" y2="82"/><line x1="660" y1="74" x2="660" y2="82"/></g>
+<g opacity=".85"><circle cx="175" cy="52" r="4" fill="#7fb069"/><circle cx="225" cy="46" r="4" fill="#7fb069"/><circle cx="290" cy="56" r="4" fill="#7fb069"/><circle cx="345" cy="50" r="4" fill="#7fb069"/><circle cx="408" cy="58" r="4" fill="#c89b3c"/><circle cx="470" cy="54" r="4" fill="#c89b3c"/><circle cx="560" cy="60" r="4" fill="#e8959c"/><circle cx="615" cy="52" r="4" fill="#e8959c"/></g>
+<circle cx="120" cy="78" r="5" fill="none" stroke="#9fd49a" stroke-width="1.8"/><circle cx="660" cy="78" r="5" fill="none" stroke="#e8959c" stroke-width="1.8"/>
+<text x="120" y="103" text-anchor="start" font-family="Inter Tight,sans-serif" font-size="9" letter-spacing="0.12em" fill="#7fb069" opacity="0.85">BESTÄTIGT</text>
+<text x="660" y="103" text-anchor="end" font-family="Inter Tight,sans-serif" font-size="9" letter-spacing="0.12em" fill="#e8959c" opacity="0.85">WIDERLEGT</text>
+<text x="768" y="113" text-anchor="end" font-family="Inter Tight,sans-serif" font-size="9" letter-spacing="0.14em" fill="#6a7572" opacity="0.7">ILLUSTRATION</text>
+</svg>
+
+  <div class="em-scoreboard">
+    <div class="em-score em-score--ok"><span class="big">62%</span><span class="lab">stimmt klar</span></div>
+    <div class="em-score em-score--mid"><span class="big">27%</span><span class="lab">eingeschränkt</span></div>
+    <div class="em-score em-score--no"><span class="big">8%</span><span class="lab">widerlegt</span></div>
+    <div class="em-score em-score--open"><span class="big">4%</span><span class="lab">schwach</span></div>
+  </div>
+  <div class="em-sech">Pro Komplex: wen die Befunde eher stützen</div>
+
+  <details class="em-row">
+    <summary><span class="kx">K1</span><span class="claim">Setzt die Kritik ein „wahres" Menschenwesen voraus?</span><span class="verdict v-no">eher Pol B</span></summary>
+    <div class="body">
+      <p>Hier stützt die Datenlage eher den Einwand der Gegenseite — allerdings als begriffliche, nicht als gemessene Feststellung. Der Schlüsselbegriff „Charaktermaske" wird in der GSP-Lesart anders verwendet als bei Marx: Wo Marx eine Rolle beschreibt (jemand handelt als Kapitalist), wird daraus eine feste Eigenschaft (jemand ist sein Kapitalist-Sein). Genau an dieser Verschiebung setzt der Idealismus-Vorwurf an. Ehrlich bleibt: Entfremdung selbst ist kein direkt messbarer Befund — die Frage ist philosophisch, nicht empirisch zu entscheiden.</p>
+      <div class="em-data"><span class="d">„Charaktermaske": bei Marx <b>Rolle</b>, in der GSP-Lesart <b>Eigenschaft</b></span><span class="d">Entfremdung: <b>nicht direkt messbar</b></span></div>
+      <p class="em-meta"><span class="tag-e">begriffliche Analyse</span> · <span class="src">Quelle: Diskussion um die GSP-Begriffsverwendung gegenüber Marx (MEW)</span></p>
+    </div>
+  </details>
+
+  <details class="em-row">
+    <summary><span class="kx">K2</span><span class="claim">Hängt das Wohl der Lohnabhängigen am nationalen Standort?</span><span class="verdict v-ok">teils Pol A</span></summary>
+    <div class="body">
+      <p>Gemischt, mit einem realen Kern auf Seiten der marxistischen Analyse: Der Lohnanteil am Volkseinkommen — ein Maß für die relative Position der Arbeit — sinkt seit den 1980ern in den meisten Industrieländern. Das stützt die These einer relativen Verarmung. Zugleich ist die absolute Verelendung klar widerlegt: Reallöhne stiegen langfristig, die globale extreme Armut fiel drastisch. Der Standort koppelt also reale Interessen, hebt den Verteilungskonflikt aber nicht auf.</p>
+      <div class="em-data"><span class="d">Lohnquote OECD: <b>−5 Prozentpunkte</b></span><span class="d">fallend in <b>42 von 59</b> Ländern (1975–2012)</span><span class="d">globale extreme Armut: <b>36% → 9%</b></span></div>
+      <p class="em-meta"><span class="tag-g">gemessen</span> · <span class="src">Quelle: Karabarbounis/Neiman 2014; Weltbank-Daten</span></p>
+    </div>
+  </details>
+
+  <details class="em-row">
+    <summary><span class="kx">K3</span><span class="claim">Ist die Kritik objektive Analyse — oder verkleidete Präferenz?</span><span class="verdict v-no">gespalten</span></summary>
+    <div class="body">
+      <p>Beide Seiten behalten teilweise recht. Die marxistische Wertanalyse hat empirischen Gehalt: Der von Marx behauptete Zusammenhang zwischen Arbeitsaufwand und Preisen zeigt in mehreren Ländern über 90 % Übereinstimmung. Aber die spezifisch GSP-eigene Methode — eine Theorie daran zu messen, ob sie dem „objektiven Interesse" dient — gilt als zirkulär: Wer das wahre Interesse schon begriffen hat, hat die Sache bereits; wer nicht, kann die Messung nicht durchführen. Das ist genau der Punkt, an dem der Präferenz-Vorwurf greift.</p>
+      <div class="em-data"><span class="d">Wert-Preis-Übereinstimmung: <b>über 90%</b></span><span class="d">Methode „am Interesse messen": <b>zirkulär</b></span></div>
+      <p class="em-meta"><span class="tag-g">gemessen</span> + <span class="tag-e">methodische Kritik</span> · <span class="src">Quelle: Shaikh 2016; Bierwirth (Krisis 2/2016)</span></p>
+    </div>
+  </details>
+
+  <details class="em-row">
+    <summary><span class="kx">K4</span><span class="claim">Ist die Dialektik Analyse — oder ein verkappter Geschichtsplan?</span><span class="verdict v-open">offen</span></summary>
+    <div class="body">
+      <p>Empirisch nicht entschieden — und das ist der ehrlichste Befund der ganzen Seite. Das „wichtigste Gesetz", der tendenzielle Fall der Profitrate, ist bis heute nicht belastbar geklärt, nicht einmal innerhalb der marxistischen Forschung: Die Datenwahl entscheidet das Ergebnis. Problematischer ist die GSP-Methode, Theorien aus sich selbst statt an Empirie zu widerlegen — das macht die Theorie immun gegen die Wirklichkeit. Eine Position, die jede Beobachtung bestätigt, sagt damit wenig aus.</p>
+      <div class="em-data"><span class="d">Profitratenfall: <b>empirisch ungelöst</b> (auch intra-marxistisch)</span><span class="d">Argumentationskritik statt Empirie: <b>immunisiert</b></span></div>
+      <p class="em-meta"><span class="tag-e">kontrovers / methodisch</span> · <span class="src">Quelle: Kliman vs. Heinrich; Spanidis zur GSP-Methode</span></p>
+    </div>
+  </details>
+
+  <details class="em-row">
+    <summary><span class="kx">K5</span><span class="claim">Sind Staat und Kapital dasselbe — oder im Widerspruch?</span><span class="verdict v-ok">teils Pol A</span></summary>
+    <div class="body">
+      <p>Geteilt: Die strukturelle Diagnose ist robust, die GSP-Zuspitzung nicht. Dass sich Kapital konzentriert und der Finanzsektor zur Krisenquelle wird, ist breit belegt — auch von Forschern, die Marx ablehnen. Schwächer steht die spezifisch GSP-eigene Setzung da, den Staat als verselbständigten, eigenlogischen Akteur zu fassen; hier verschiebt die GSP Marx' eigene Sicht, die den Staat ins gesellschaftliche Ganze einbindet. Die Konzentration ist messbar — die Verselbständigung des Staates ist eine Setzung.</p>
+      <div class="em-data"><span class="d">US-Markups: <b>1,20 → 1,60</b></span><span class="d">Top-1%-Vermögen USA: <b>27% → 39%</b></span><span class="d">Finanzprofite US: <b>10% → 40%+</b></span><span class="d">Staat-als-Akteur: <b>verschoben / schwach</b></span></div>
+      <p class="em-meta"><span class="tag-g">gemessen</span> · <span class="src">Quelle: WID.world; De Loecker/Eeckhout; Krippner 2005</span></p>
+    </div>
+  </details>
+
+  <details class="em-row">
+    <summary><span class="kx">K6</span><span class="claim">Ist der Sozialismus Utopie ohne Plan — oder erprobte Strategie?</span><span class="verdict v-no">eher Pol B</span></summary>
+    <div class="body">
+      <p>Hier stützt die Praxisbilanz eher die skeptische Seite — mit einer wichtigen Differenzierung. Wo sozialistische Politik in Fähigkeiten investierte (Bildung, Gesundheit, frühe Sozialrechte), funktionierte sie oft. Wo sie Macht konzentrierte (Einparteienherrschaft, Plan-Wirtschaft als Vollversion, Repression), versagte sie strukturell. Der direkte Vergleich zweier Länder mit gleichem Startpunkt 1948 ist deutlich: Das demokratische Costa Rica hat das revolutionäre Cuba überholt — ohne Bürgerkrieg, ohne Einparteienherrschaft. Der Reformweg lieferte empirisch mehr als der Bruch.</p>
+      <div class="em-data"><span class="d">1955: Cuba <b>vorn</b> (BIP 27% des US-Niveaus)</span><span class="d">2024: Costa Rica <b>~25.800</b> vs. Cuba <b>~12.300</b> USD (PPP)</span><span class="d">Lebenserwartung: <b>81,1 vs. 78,9 J.</b></span><span class="d">Migration Cuba: <b>−251.000 bis −545.000/Jahr</b></span></div>
+      <p class="em-meta"><span class="tag-g">gemessen</span> · <span class="src">Quelle: Vergleichsdaten Cuba/Costa Rica 1948–2024; Bilanz von 117 Maßnahmen 1917–2026</span></p>
+    </div>
+  </details>
+
+  <div class="em-sech">Die marxistische Praxis: 117 Maßnahmen, 1917–2026</div>
+  <div class="em-scoreboard">
+    <div class="em-score em-score--ok"><span class="big">15%</span><span class="lab">bestätigt</span></div>
+    <div class="em-score em-score--mid"><span class="big">37%</span><span class="lab">gemischt</span></div>
+    <div class="em-score em-score--no"><span class="big">44%</span><span class="lab">widerlegt</span></div>
+    <div class="em-score em-score--open"><span class="big">5%</span><span class="lab">offen</span></div>
+  </div>
+  <details class="em-row">
+    <summary><span class="kx">↳</span><span class="claim">Wo die Praxis stark war — und wo sie versagte</span><span class="verdict v-ok">gespalten</span></summary>
+    <div class="body">
+      <p>Die Bilanz zerfällt sauber entlang einer Linie: Investitionen in menschliche Fähigkeiten gelangen, Konzentration von Macht versagte. Sozial-Maßnahmen (Bildung, Gesundheit, Renten) sind zu 57 % bestätigt; Repressions-Apparate zu 75 %, Revolutions-Maßnahmen zu 75 % und die avantgardistische Parteiform zu 58 % widerlegt. Wiederkehrend ist die Selbst-Verkehrung: Räte-Demokratie wurde Einparteiendiktatur, die Diktatur des Proletariats eine Diktatur über das Proletariat.</p>
+      <div class="em-data"><span class="d">Sozial-Maßnahmen: <b>57% bestätigt</b></span><span class="d">Repression: <b>75% widerlegt</b></span><span class="d">Revolutions-Maßnahmen: <b>75% widerlegt</b></span></div>
+      <p class="em-meta"><span class="tag-g">historische Bilanz</span> · <span class="src">Quelle: systematische Auswertung von 117 Maßnahmen 1917–2026; Sen zu „Capability"</span></p>
+    </div>
+  </details>
+
+  <div class="em-sech">Unfreiwillige Zeugen: drei Befunde aus dem Mainstream</div>
+  <details class="em-row">
+    <summary><span class="kx">✓</span><span class="claim">Forscher, die Marx ablehnen — und seine Diagnosen stützen</span><span class="verdict v-ok">stützt Pol A</span></summary>
+    <div class="body">
+      <p>Ein Teil der marxistischen Analyse wird unfreiwillig von Ökonomen bestätigt, die sich gar nicht auf Marx berufen. Das macht diese Befunde besonders belastbar: Wer sie verwerfen will, müsste auch anerkannte Mainstream-Forschung verwerfen. Hyman Minsky zeigte, dass Finanzkrisen endogen entstehen — ruhige Phasen erzeugen den Leichtsinn, der zum Krach führt. James K. Galbraith dokumentiert globale Ungleichheits-Muster über Datensätze aus knapp 60 Ländern. Wolfgang Streeck beschreibt die ausgereizten Notausgänge des Demokratie-Kapitalismus.</p>
+      <div class="em-data"><span class="d">Minsky: <b>Finanzkrisen endogen</b></span><span class="d">Galbraith: Ungleichheit über <b>59+ Länder</b></span><span class="d">Streeck: <b>drei ausgeschöpfte Notausgänge</b></span></div>
+      <p class="em-meta"><span class="tag-g">unabhängige Stützung</span> · <span class="src">Quelle: Minsky; J. K. Galbraith (UTIP); Streeck</span></p>
+    </div>
+  </details>
+
+  <div class="em-takeaway">
+    <span class="lab">Was die Bilanz zeigt</span>
+    <p>Die Datenlage zerschneidet die Debatte quer zu beiden Lagern. <b>Marx' Analyse</b> des Kapitalismus — Konzentration, Finanzkrisen, relative Verarmung — hält empirisch erstaunlich gut, teils besser, als seine Kritiker zugeben. <b>Seine Prognosen</b> dagegen — absolute Verelendung, Spaltung in zwei Klassen — sind widerlegt; die Mittelschicht wuchs. Die <b>GSP-eigenen Zuspitzungen</b> (objektives Interesse, Staat als Akteur, Immunität gegen Empirie) halten am wenigsten. Und die <b>Praxis</b> spricht für den Reformweg: Wo investiert wurde, gelang es; wo Macht konzentriert wurde, versagte es.</p>
+    <p>Was sich der Messung entzieht — ob die Nation ein notwendiges „Wir" ist, ob der Mensch ein Gattungswesen hat —, bleibt eine Frage der Werte, nicht der Daten. Dort entscheidet kein Faktencheck, sondern das Argument.</p>
+  </div>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page st-page" id="schluss" aria-label="Schlussthese: was die Debatte offen lässt">
+  <p class="st-eyebrow">Schlussthese</p>
+  <h2 class="st-h">Ein Streit, der sich im Kreis dreht — und doch einen Kern hat</h2>
+  <p class="st-lead">Vier Stunden, sechs Komplexe, immer wieder dieselbe Wiederkehr: das Gattungswesen. Fast jeder Streit — über Nation, Dialektik, Staat und Utopie — läuft zur Frage zurück, ob die marxistische Kritik ein wahres Menschenwesen voraussetzt. Beide Seiten teilen erstaunlich viel Analyse; sie trennt der letzte Schritt.</p>
+  <div class="st-split">
+    <div class="st-card st-card--a">
+      <h4>Was die Marxisten behaupten</h4>
+      <p>Die Kritik sei objektiv und immanent: Sie messe die Gesellschaft an ihrem eigenen Anspruch, ohne ein ewiges Wesen zu setzen. Nation und Standort-Erfolg seien kein Interesse der Lohnabhängigen, sondern dessen Verschleierung.</p>
+    </div>
+    <div class="st-card st-card--b">
+      <h4>Was die Rechte einwendet</h4>
+      <p>Agitator: Nationalstaaten seien unvermeidlich — auch ein Sozialismus bräuchte sie. Nur ein Gedanke: „objektives Interesse" sei getarnte Präferenz, und die Dialektik ein verkappter Geschichtsplan mit Endzweck.</p>
+    </div>
+  </div>
+  <div class="st-core">
+    <p>Der eigentliche Bruch liegt nicht im Inhalt, sondern in der Voraussetzung: Lässt sich Herrschaft kritisieren, ohne irgendeine Norm dessen, wovon man entfremdet wird — oder verlangt jede Kritik einen Standpunkt, den sie nicht beweisen kann?</p>
+  </div>
+  <p class="st-note">Diese Synthese ordnet und spitzt zu — sie ist eine redaktionelle Einordnung beim Erstellen, nicht das Urteil der Debatte selbst. Die Streitenden trennten sich ohne Einigung und mit dem Vorsatz, beim nächsten Mal über demokratische Wahl und Sozialismus weiterzustreiten. <span class="du__addnote">Redaktionelle Einordnung · nicht in der Quelle</span></p>
+</section>
+
+<hr class="br-cut">
+<section class="br-page ko-page" id="kolophon" aria-label="Kolophon: Apparat, Methode, Sorgfalt">
+  <p class="ko-eyebrow">Kolophon</p>
+  <h2 class="ko-h">Apparat, Methode, Sorgfalt</h2>
+  <p class="ko-deck">Quelle, Zuordnung, O-Töne — und was als redaktionelle Einordnung markiert ist.</p>
+
+  <div class="ko-sec">
+    <h3>Die Quelle</h3>
+    <p class="ko-src-line">YouTube-Debatte „Staat, Nation und Sozialismus" (≈ 4 Std), automatisches Transkript, sechs Kapitelmarken. Quelle auf YouTube ↗ <a href="https://www.youtube.com/watch?v=kmUAgVZEiUs">youtube.com/watch?v=kmUAgVZEiUs</a></p>
+  </div>
+
+  <div class="ko-sec">
+    <h3>Die Sprecher · zwei Lager, vier Personen</h3>
+    <div class="ko-people">
+      <div class="ko-person ko-person--a">
+        <div class="ph"><span class="mono">D</span><span class="nm">Lager A · Marxisten (GSP)</span></div>
+        <p class="members">Pol A vertreten durch: <b>Dekarldent</b> (Wortführer; im Transkript auch „Karl") · <b>Levi</b>.</p>
+        <p class="caveat">Gegenstandpunkt-Position. Zuordnung der Argumente inhaltlich; wo das Transkript Sprecher nicht eindeutig ausweist, auf Lager-Ebene zugeordnet.</p>
+      </div>
+      <div class="ko-person ko-person--b">
+        <div class="ph"><span class="mono">A</span><span class="nm">Lager B · Neue Rechte</span></div>
+        <p class="members">Pol B vertreten durch: <b>Agitator</b> (Wortführer; nüchterne Nationalstaatlichkeit) · <b>Nur ein Gedanke</b> (Traditionalismus / Idealismus).</p>
+        <p class="caveat">Innerhalb des Pols zwei Akzente: Agitator argumentiert etatistisch-nationalstaatlich, Nur ein Gedanke traditionalistisch-identitär. Schreibweisen aus dem Audio abgeleitet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ko-sec">
+    <h3>Verifizierte O-Töne · grammatisch geglättet, mit Zeitmarke</h3>
+    <div class="ko-q ko-q--a"><span class="qmono">D · 03:43</span><p>„Dein ganzes Denken ist so etwas wie eine Reparaturherrschaft für eine Ordnung, die du im Kern gar nicht abschaffen willst."<span class="tm">Dekarldent</span></p></div>
+    <div class="ko-q ko-q--b"><span class="qmono">N · 1:08:18</span><p>„Ich sehe mich nicht als zufälliges Weltenkind, das einfach hineingefallen ist, sondern als in eine bestehende, gewachsene Struktur hineingeboren."<span class="tm">Nur ein Gedanke</span></p></div>
+    <div class="ko-q ko-q--b"><span class="qmono">N · 1:09:39</span><p>„Für mich sind diese Dinge mehr oder minder gesetzt."<span class="tm">Nur ein Gedanke</span></p></div>
+    <div class="ko-q ko-q--a"><span class="qmono">D · 1:06:32</span><p>„Alles wird bei dir in dieser Rhetorik zu einer warmen Decke, unter der die Herrschaft plötzlich gemütlich aussehen soll."<span class="tm">Dekarldent</span></p></div>
+    <div class="ko-q ko-q--a"><span class="qmono">D · 1:13:41</span><p>„Stabilität ist keine Freiheit, und Gehorsam ist keine Wahrheit."<span class="tm">Dekarldent</span></p></div>
+    <div class="ko-q ko-q--a"><span class="qmono">D · 1:16:29</span><p>„Die Befriedigung dieser Bedürfnisse ist nicht mehr als ein Mittel für den eigentlichen Zweck."<span class="tm">Dekarldent</span></p></div>
+  </div>
+
+  <div class="ko-sec">
+    <h3>Sorgfalt</h3>
+    <div class="ko-grid2">
+      <div class="box">
+        <h4>Anti-Halluzination</h4>
+        <ul>
+          <li>Personen nur als Monogramm-Silhouetten, keine erfundenen Porträts.</li>
+          <li>Wörtliche O-Töne grammatisch geglättet, Sinn erhalten; ein als „sinngemäß" markiertes Zitat ist Zusammenfassung, kein Wortlaut.</li>
+          <li>Bänder sind als „Illustration" gekennzeichnet; keine erfundenen Daten oder Diagramme.</li>
+          <li>Der Closed-Book-Wert (35,9 %) ist eine Modellrate ohne Quelle — nicht die Rate dieser Arbeit.</li>
+          <li>Die empirische Bestandsaufnahme stützt sich auf veröffentlichte externe Forschung; Zahlen sind als „gemessen", „geschätzt" oder „kontrovers" gekennzeichnet, mit Quellenangabe je Befund.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h4>Redaktionelle Einordnung</h4>
+        <ul>
+          <li>Bruchstellen, „Konsequenz zu Ende gedacht" und offene Fragen sind redaktionelle Analyse beim Erstellen, nicht Aussage der Sprecher.</li>
+          <li>Die Lager-Bildung und Argument-Zuordnung ist beim Erstellen vorgenommen, soweit das Transkript sie nicht personenscharf ausweist.</li>
+          <li>Die politischen Labels („Neue Rechte", „Traditionalismus", „Nationalstaatlichkeit") sind eine Einordnung aus den Aussagen, keine Selbstbezeichnungen aller Beteiligten.</li>
+          <li>Die Seite „Kritik von links" ist eine positionierte sozialdemokratisch-linksliberale Lesart ohne wörtliche Zitate — nicht Teil der Debatte.</li>
+          <li>Die „Empirische Bestandsaufnahme" ordnet pro Komplex ein, wen die Datenlage eher stützt; die Einordnung ist redaktionell, die zugrunde liegenden Befunde stammen aus externer Forschung.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="ko-foot">Quelle: YouTube-Debatte zu Staat, Nation und Sozialismus. Als redaktionelle Einordnung markiert: Bruchstellen, Konsequenzen, offene Fragen, Schlussthese, Lager-Zuordnung, Labels, die Kritik von links und die empirische Bestandsaufnahme (letztere auf Basis externer Datenlage). <b>Texterzeugung: Claude Opus 4.8.</b></p>
+</section>
+
+</body>
+<script>
+(function(){
+  // Druck-Guard: alle <details> beim Drucken oeffnen, danach Zustand wiederherstellen.
+  var saved=[];
+  function expand(){saved=[];document.querySelectorAll('details').forEach(function(d){saved.push([d,d.open]);d.open=true;});}
+  function restore(){saved.forEach(function(p){p[0].open=p[1];});}
+  window.addEventListener('beforeprint',expand);
+  window.addEventListener('afterprint',restore);
+  if(window.matchMedia){var mq=window.matchMedia('print');mq.addEventListener&&mq.addEventListener('change',function(e){e.matches?expand():restore();});}
+})();
+</script>
+</html>
