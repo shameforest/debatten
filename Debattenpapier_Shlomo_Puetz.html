@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>„Degeneriert?“ — Broschüre · Pütz vs. SHLOMO</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,500;1,6..72,600&family=Spectral:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style id="tc-css">
+.tc-cover{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(30px,5vw,66px) clamp(18px,4vw,56px);text-align:center;color:#f3ead4;
+  background:
+    radial-gradient(140% 72% at 50% 114%, rgba(0,0,0,.42), transparent 56%),
+    radial-gradient(92% 52% at 50% 46%, rgba(255,242,212,.07), transparent 72%),
+    radial-gradient(128% 86% at 50% -6%, rgba(255,240,200,.11), transparent 60%),
+    linear-gradient(102deg,#11232a 0%,#1d3a40 25%,#23395c 46.4%,#c89b3c 49.3%,#c89b3c 50.7%,#6e1f24 53.6%,#7c241f 72%,#290f13 100%);}
+.tc-cover *{box-sizing:border-box;}
+.tc-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+.tc-cover::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(circle at 50% 48%, transparent 52%, rgba(0,0,0,.46) 100%);}
+.tc-cover::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.05;
+  background-image:radial-gradient(rgba(255,255,255,.85) .6px, transparent .7px);background-size:5px 5px;}
+.tc-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.55);z-index:2;pointer-events:none;}
+.tc-frame::before{content:"";position:absolute;inset:7px;border:1px solid rgba(200,155,60,.26);}
+.tc-corner{position:absolute;width:clamp(54px,8vw,104px);height:auto;z-index:3;color:#c89b3c;pointer-events:none;}
+.tc-corner.tl{top:clamp(14px,2.4vw,30px);left:clamp(14px,2.4vw,30px);}
+.tc-corner.tr{top:clamp(14px,2.4vw,30px);right:clamp(14px,2.4vw,30px);transform:scaleX(-1);}
+.tc-corner.bl{bottom:clamp(14px,2.4vw,30px);left:clamp(14px,2.4vw,30px);transform:scaleY(-1);}
+.tc-corner.br{bottom:clamp(14px,2.4vw,30px);right:clamp(14px,2.4vw,30px);transform:scale(-1,-1);}
+.tc-inner{position:relative;z-index:4;width:100%;max-width:1120px;display:flex;flex-direction:column;align-items:center;gap:clamp(20px,3.2vw,42px);}
+.tc-kicker{margin:0;display:inline-block;padding:.55em 1.4em;font:600 clamp(11px,1.5vw,15px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#f4ecd9;background:rgba(13,18,23,.62);border:2px solid #c89b3c;border-radius:3px;box-shadow:0 2px 16px rgba(0,0,0,.45);}
+
+.tc-duel{display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;align-items:center;justify-items:center;column-gap:clamp(16px,3.2vw,52px);row-gap:clamp(10px,1.5vw,18px);width:100%;}
+.tc-cell-pmono{grid-column:1;grid-row:1;}.tc-cell-pname{grid-column:1;grid-row:2;}.tc-cell-ptag{grid-column:1;grid-row:3;}
+.tc-cell-smono{grid-column:3;grid-row:1;transform:translateX(clamp(10px,2.4vw,46px));}.tc-cell-sname{grid-column:3;grid-row:2;}.tc-cell-stag{grid-column:3;grid-row:3;}
+.tc-cell-vs{grid-column:2;grid-row:2;}
+
+.tc-mono{width:clamp(58px,8vw,92px);height:clamp(58px,8vw,92px);border-radius:50%;display:grid;place-items:center;
+  font:500 clamp(26px,4vw,46px)/1 "Newsreader",serif;font-style:italic;color:#f3ead4;border:1.5px solid rgba(200,155,60,.7);}
+.tc-crest{position:relative;display:grid;place-items:center;width:clamp(122px,16.5vw,196px);height:clamp(122px,16.5vw,196px);}
+.tc-crest__art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.tc-crest .tc-mono{position:relative;z-index:2;}
+
+
+.tc-name{margin:0;max-width:100%;min-width:0;text-align:center;padding-inline:clamp(6px,1.4vw,18px);overflow-wrap:break-word;font:800 clamp(30px,5.2vw,58px)/0.98 "Newsreader",serif;letter-spacing:-.012em;text-transform:uppercase;
+  font-feature-settings:"kern","liga";text-shadow:0 1px 0 rgba(247,234,212,.12),0 -1px 0 rgba(0,0,0,.4),0 3px 7px rgba(0,0,0,.5),0 0 34px rgba(0,0,0,.25);}
+.tc-tag{margin:0;font:600 clamp(11px,1.7vw,16px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;
+  padding:.52em 1.15em;border:1px solid rgba(200,155,60,.6);border-radius:2px;}
+.tc-tag--cool{color:#bcd2e6;background:rgba(36,57,92,.42);}
+.tc-tag--warm{color:#ecc7a4;background:rgba(110,31,36,.44);}
+.tc-vs{position:relative;display:grid;place-items:center;width:clamp(92px,11.5vw,150px);height:clamp(92px,11.5vw,150px);}
+.tc-vs__rose{position:absolute;inset:0;width:100%;height:100%;}
+.tc-vs__ring{position:absolute;inset:0;width:100%;height:100%;}
+.tc-vs__disc{position:relative;z-index:2;width:66%;height:66%;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 38% 30%,#313841,#11151a);border:2px solid #c89b3c;
+  box-shadow:0 0 0 4px rgba(200,155,60,.20),0 0 0 5.5px rgba(200,155,60,.5),0 10px 30px rgba(0,0,0,.62);}
+.tc-vs__disc i{font:500 clamp(23px,3.6vw,42px)/1 "Newsreader",serif;font-style:italic;color:#e8c478;text-shadow:0 1px 1px rgba(0,0,0,.55),0 0 10px rgba(200,155,60,.25);}
+.tc-pitch{position:relative;max-width:860px;display:flex;justify-content:center;padding:clamp(6px,1.2vw,12px) 0;}
+.tc-pitch p{margin:0;max-width:100%;padding:.55em 1.15em;background:rgba(12,17,22,.68);border:3px solid #c89b3c;border-radius:5px;box-shadow:0 5px 24px rgba(0,0,0,.5);font:500 clamp(20px,3vw,34px)/1.3 "Newsreader",serif;font-style:italic;color:#f9f2dd;font-feature-settings:"liga","kern";}
+.tc-meta{margin:0;display:inline-flex;align-items:center;gap:14px;font:600 clamp(10px,1.4vw,13px)/1.5 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cebb8d;font-feature-settings:"onum","liga";}
+.tc-meta::before,.tc-meta::after{content:"";width:5px;height:5px;background:#b79a5e;transform:rotate(45deg);opacity:.7;flex:none;}
+.tc-scroll{position:absolute;bottom:clamp(16px,2.6vw,30px);left:50%;transform:translateX(-50%);z-index:4;
+  font:600 10px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#cebb8d;opacity:.82;
+  display:flex;flex-direction:column;align-items:center;gap:6px;}
+.tc-scroll svg{width:16px;height:16px;color:#c89b3c;}
+@media (max-width:860px){.tc-duel{display:flex;flex-direction:column;align-items:center;gap:16px;}.tc-cell-pmono{order:1;}.tc-cell-pname{order:2;}.tc-cell-ptag{order:3;}.tc-cell-vs{order:4;}.tc-cell-smono{order:5;}.tc-cell-sname{order:6;}.tc-cell-stag{order:7;}.tc-cell-smono{transform:none;}.tc-name{font-size:clamp(40px,12vw,58px);padding-inline:0;}}
+@media print{.tc-cover{min-height:auto;}.tc-scroll{display:none;}.tc-sheen{display:none;}}
+.tc-rule2{display:flex;align-items:center;justify-content:center;gap:11px;width:min(460px,74%);}
+.tc-rule2__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,#c89b3c 28%,#c89b3c 72%,transparent);opacity:.72;}
+.tc-rule2__cap{width:7px;height:7px;background:#c89b3c;transform:rotate(45deg);opacity:.9;flex:none;}
+.tc-rule2__dot{position:relative;width:10px;height:10px;border:1px solid #c89b3c;transform:rotate(45deg);flex:none;}
+.tc-rule2__dot::after{content:"";position:absolute;inset:2.6px;background:#c89b3c;}
+.tc-sheen{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:linear-gradient(102deg,transparent 46%,rgba(255,238,205,.20) 49.6%,rgba(255,255,255,.30) 50%,rgba(255,238,205,.20) 50.4%,transparent 54%);animation:tcSheen 7s ease-in-out infinite;}
+@keyframes tcSheen{0%,100%{opacity:0}50%{opacity:.45}}
+.tc-edge{position:absolute;width:8px;height:8px;background:#c89b3c;transform:rotate(45deg);z-index:3;opacity:.9;pointer-events:none;box-shadow:0 0 0 1px rgba(17,21,26,.30);}
+.tc-edge--t{top:calc(clamp(14px,2.4vw,30px) - 4px);left:50%;margin-left:-4px;}
+.tc-edge--b{bottom:calc(clamp(14px,2.4vw,30px) - 4px);left:50%;margin-left:-4px;}
+.tc-edge--l{left:calc(clamp(14px,2.4vw,30px) - 4px);top:50%;margin-top:-4px;}
+.tc-edge--r{right:calc(clamp(14px,2.4vw,30px) - 4px);top:50%;margin-top:-4px;}
+@media (prefers-reduced-motion:reduce){.tc-sheen{animation:none;opacity:0;}}
+</style>
+<style>
+:root{--bg:#ede4cf;--pcard:#f4ecd9;--primary:#1d3a40;--eaccent:#b85c2f;--egold:#a07a1e;--eink:#1a2530;--erule:#cfc4a8;--ered:#a3242c;--gold:#c89b3c;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0b0f13;font-family:"Spectral",Georgia,serif;color:var(--eink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+.br-cut{border:0;height:1px;width:min(820px,90vw);margin:0 auto;background:linear-gradient(90deg,transparent,rgba(200,155,60,.42),transparent);}
+.br-page{position:relative;min-height:100vh;display:flex;flex-direction:column;}
+.seal-page{align-items:center;justify-content:flex-start;gap:clamp(18px,2.8vw,34px);padding:clamp(46px,8vw,96px) clamp(20px,5vw,64px);overflow:hidden;
+  background:radial-gradient(120% 78% at 50% 0%,#1b2832 0%,#0e161b 62%),radial-gradient(90% 60% at 50% 50%,rgba(200,155,60,.06),transparent 70%),#0e161b;color:#f4ecd9;text-align:center;}
+.seal-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.55);pointer-events:none;}
+.seal-frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,155,60,.26);}
+.seal-eyebrow{margin:0;font:600 clamp(11px,1.4vw,14px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#cda24f;}
+.seal-title{margin:0;font:600 clamp(28px,4.6vw,50px)/1.04 "Newsreader",serif;font-style:italic;color:#f7f0db;max-width:18ch;}
+.seal-mark{width:clamp(236px,33vw,330px);height:auto;filter:drop-shadow(0 8px 22px rgba(0,0,0,.5));}
+.seal-mark text{font-family:"Inter Tight",sans-serif;}
+.seal-arc{font-size:12.5px;font-weight:600;letter-spacing:.16em;fill:#cda24f;}
+.seal-grade{font-family:"Newsreader",serif;font-size:50px;font-weight:800;fill:#f7f0db;letter-spacing:.02em;}
+.seal-band{font-family:"Spectral",serif;font-size:13px;fill:#e7dcc2;}
+.seal-foot{font-size:10.5px;font-weight:600;letter-spacing:.2em;fill:#cda24f;}
+.seal-rating{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:680px;}
+.seal-factor{font:700 clamp(14px,2vw,19px)/1.15 "Inter Tight",sans-serif;letter-spacing:.02em;color:#13202a;background:linear-gradient(180deg,#ecc868,#cda24f);padding:.62em 1.35em;border-radius:4px;box-shadow:0 5px 18px rgba(0,0,0,.45);}
+.seal-meta{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-family:"Inter Tight",sans-serif;font-size:clamp(12px,1.5vw,15px);color:#cdbfa0;}
+.seal-meta b{color:#ecc868;font-weight:600;}
+.seal-sum{margin:0;font:500 clamp(15px,1.9vw,19px)/1.55 "Spectral",Georgia,serif;color:#e7dcc2;max-width:620px;}
+.seal-source{margin:6px 0 0;text-align:center;font:600 12.5px/1.5 "Inter Tight",sans-serif;color:#9a8f78;}
+.seal-source .lab{display:inline-block;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#cda24f;margin-right:.55em;font-size:11px;}
+.seal-source a{color:#ecc868;text-decoration:none;border-bottom:1px solid rgba(236,200,104,.4);}
+.seal-source a:hover{border-bottom-color:#ecc868;}
+.ko-link{color:#ecc868;text-decoration:none;border-bottom:1px solid rgba(236,200,104,.4);}
+.ko-link:hover{border-bottom-color:#ecc868;}
+.seal-hero{display:flex;flex-direction:column;align-items:center;gap:clamp(15px,2.4vw,28px);}
+.seal-div{border:0;height:1px;width:min(560px,82%);margin:0 auto;background:linear-gradient(90deg,transparent,rgba(200,155,60,.42),transparent);}
+.seal-verlass{max-width:700px;font:500 clamp(14px,1.7vw,17px)/1.55 "Spectral",Georgia,serif;color:#e9deca;}
+.seal-vl{display:inline-block;font:700 .68rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ecc868;margin-right:.55em;}
+.seal-block{width:100%;max-width:660px;display:flex;flex-direction:column;gap:13px;align-items:center;}
+.seal-h{margin:0;font:600 clamp(15px,1.9vw,19px)/1.2 "Inter Tight",sans-serif;color:#f1e7cf;letter-spacing:.01em;}
+.seal-h em{color:#ecc868;font-style:italic;}
+.seal-bars{width:100%;display:flex;flex-direction:column;gap:11px;}
+.seal-bar{display:grid;grid-template-columns:178px 1fr;align-items:center;gap:14px;}
+.seal-bar__name{font:600 13px/1.2 "Inter Tight",sans-serif;color:#cdbfa0;text-align:right;}
+.seal-bar__track{height:26px;background:rgba(255,255,255,.05);border:1px solid rgba(200,155,60,.22);border-radius:3px;overflow:hidden;}
+.seal-bar__fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding:0 .55em;font:700 12px/1 "Inter Tight",sans-serif;color:#fff;white-space:nowrap;box-sizing:border-box;}
+.seal-cap2{margin:.1em 0 0;font:400 clamp(10.5px,1.2vw,12px)/1.5 "Inter Tight",sans-serif;color:#9a8f78;max-width:620px;text-align:left;}
+@media (max-width:600px){.seal-bar{grid-template-columns:1fr;gap:5px;}.seal-bar__name{text-align:left;}}
+.seal-cmp{width:100%;max-width:680px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.seal-col{border:1px solid rgba(200,155,60,.25);border-radius:6px;padding:15px 16px;text-align:left;background:rgba(255,255,255,.025);}
+.seal-col--mit{border-color:rgba(236,200,104,.55);background:rgba(236,200,104,.06);box-shadow:0 4px 18px rgba(0,0,0,.32);}
+.seal-col h3{margin:0;font:700 .7rem/1 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;}
+.seal-col--on h3{color:#b9ad92;} .seal-col--mit h3{color:#ecc868;}
+.seal-col .big{display:block;margin:7px 0 8px;font:700 clamp(17px,2.2vw,23px)/1.1 "Newsreader",serif;font-style:italic;}
+.seal-col--on .big{color:#cdbfa0;} .seal-col--mit .big{color:#f4ecd9;}
+.seal-col p{margin:0 0 5px;font:400 clamp(12.5px,1.5vw,14px)/1.5 "Spectral",Georgia,serif;color:#d6cab0;}
+.seal-col p:last-child{margin-bottom:0;}
+.seal-amp{width:100%;max-width:680px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.seal-amp>div{display:flex;gap:11px;align-items:flex-start;border-radius:6px;padding:13px 15px;text-align:left;}
+.seal-amp .ok{background:rgba(58,107,53,.18);border:1px solid rgba(90,150,80,.42);}
+.seal-amp .warn{background:rgba(168,132,44,.15);border:1px solid rgba(200,155,60,.45);}
+.seal-amp span.tx{font:400 clamp(12px,1.45vw,13.5px)/1.45 "Inter Tight",sans-serif;color:#dcd0b6;}
+.seal-amp b{display:block;font:700 .68rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.seal-amp .ok b{color:#9fd08f;} .seal-amp .warn b{color:#ecc868;}
+.seal-ic{width:20px;height:20px;flex:none;margin-top:1px;}
+@media (max-width:600px){.seal-cmp,.seal-amp{grid-template-columns:1fr;}}
+.seal-audit{width:100%;max-width:680px;display:flex;flex-direction:column;gap:12px;align-items:center;}
+.seal-audit p{margin:0;font:500 clamp(14px,1.7vw,17px)/1.55 "Spectral",Georgia,serif;color:#e9deca;max-width:640px;}
+.seal-audit p .lab{display:inline-block;font:700 .68rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;margin-right:.5em;}
+.seal-steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.seal-step{font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.04em;color:#cdbfa0;border:1px solid rgba(200,155,60,.32);border-radius:999px;padding:.5em .9em;background:rgba(255,255,255,.03);}
+.seal-details{width:100%;max-width:680px;margin-top:2px;border:1px solid rgba(200,155,60,.22);border-radius:6px;background:rgba(255,255,255,.02);text-align:left;}
+.seal-details>summary{cursor:pointer;list-style:none;padding:12px 16px;font:700 .72rem/1 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#ecc868;display:flex;align-items:center;gap:9px;}
+.seal-details>summary::-webkit-details-marker{display:none;}
+.seal-details>summary::before{content:"+";font-size:1.15em;line-height:1;color:#cda24f;}
+.seal-details[open]>summary::before{content:"–";}
+.seal-details .body{padding:2px 16px 16px;font:400 12.5px/1.55 "Inter Tight",sans-serif;color:#bdb195;}
+.seal-details .body h4{margin:13px 0 3px;font:700 .66rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cdbfa0;}
+.seal-details .body p{margin:0 0 3px;}
+.seal-details .body ol{margin:4px 0 0;padding-left:1.35em;}
+.seal-details .body li{margin:2px 0;}
+.seal-details .body b{color:#e7dcc2;font-weight:600;}
+@media print{.seal-details{break-inside:avoid;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mono{display:inline-flex;align-items:center;justify-content:center;width:1.9em;height:1.9em;border-radius:50%;font:700 .8em/1 "Inter Tight",sans-serif;flex:none;}
+.mono--p{background:var(--primary);color:#fff;} .mono--s{background:var(--ered);color:#fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.lm-page{align-items:center;justify-content:flex-start;gap:clamp(16px,2.4vw,28px);padding:clamp(46px,7vw,84px) clamp(20px,5vw,60px);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b2832,#0e161b 64%),#0e161b;color:#f4ecd9;text-align:center;}
+.lm-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.5);pointer-events:none;}
+.lm-frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,155,60,.24);}
+.lm-num{position:absolute;top:clamp(20px,3vw,34px);right:clamp(26px,4vw,48px);font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.1em;color:#cda24f;z-index:2;}
+.lm-eyebrow{margin:0;font:700 clamp(11px,1.4vw,13px)/1 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cda24f;}
+.lm-title{margin:0;font:600 clamp(30px,5vw,52px)/1.04 "Newsreader",serif;font-style:italic;color:#f7f0db;}
+
+
+.lm-page .mono--p{background:#2f5a63;color:#fff;} .lm-page .mono--s{background:#a3242c;color:#fff;}
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.lm-h{margin:8px 0 0;font:700 clamp(11px,1.4vw,13px)/1 "Inter Tight",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#cda24f;}
+.lm-people{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.6vw,16px);width:100%;max-width:790px;}
+.lm-person{display:flex;gap:13px;align-items:flex-start;border:1px solid rgba(200,155,60,.28);border-radius:8px;background:rgba(255,255,255,.03);padding:14px 16px;text-align:left;}
+.lm-person--s{border-color:rgba(163,36,44,.45);}
+.lm-person .mono{width:2.6em;height:2.6em;font-size:1em;flex:none;}
+.lm-person__n{display:block;font:600 clamp(15px,1.8vw,18px)/1.1 "Inter Tight",sans-serif;color:#f4ecd9;}
+.lm-person__t{display:inline-block;font:700 .56rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin:4px 0 6px;}
+.lm-person--p .lm-person__t{color:#9fd0db;} .lm-person--s .lm-person__t{color:#e8959c;}
+.lm-person__d{display:block;font:400 12.5px/1.45 "Spectral",Georgia,serif;color:#cdbfa0;}
+
+
+
+
+
+ 
+
+ 
+
+
+.lm-chasm{width:100%;max-width:720px;border:1px solid rgba(200,155,60,.25);border-radius:8px;background:rgba(0,0,0,.22);padding:clamp(12px,1.8vw,20px);}
+.lm-chasm svg{width:100%;height:auto;display:block;}
+.lm-chasm text{font-family:"Inter Tight",sans-serif;}
+.lm-chasm .cl-n{font-weight:700;font-size:14px;fill:#f4ecd9;}
+.lm-chasm .cl-t{font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.lm-chasm .cl-s{font-family:"Spectral",serif;font-size:11px;fill:#cdbfa0;}
+.lm-chasm .cl-gap{font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;fill:#9a8f78;}
+.lm-chasm .cl-unb{font-family:"Newsreader",serif;font-weight:700;font-style:italic;font-size:19px;fill:#ecc868;}
+.lm-chasm .cl-q{font-family:"Newsreader",serif;font-style:italic;font-size:10.5px;fill:#b6a988;}
+.lm-chasm .cl-con{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:12.5px;}
+.lm-chasm .cl-ts{font-family:"Inter Tight",sans-serif;font-weight:700;font-size:9px;letter-spacing:.06em;fill:#cda24f;}
+.lm-chasmcap{margin-top:11px;font:600 .68rem/1.4 "Inter Tight",sans-serif;color:#9a8f78;text-align:center;}
+@media (max-width:620px){.lm-people{grid-template-columns:1fr;}}
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+.lm-surface{margin:0 0 16px;text-align:center;font:800 clamp(17px,2.3vw,24px)/1.32 "Inter Tight",sans-serif;color:#f4ecd9;}
+.lm-surface .lab{display:block;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9a8f78;margin-bottom:8px;}
+.lm-surface b{color:#ecc868;}
+.lm-h--final{font-size:clamp(12px,1.6vw,15px);color:#ecc868;margin-top:12px;}
+.lm-final{width:100%;max-width:760px;border:2px solid #ecc868;border-radius:12px;background:radial-gradient(120% 150% at 50% 0%,rgba(236,200,104,.17),rgba(236,200,104,.04));box-shadow:0 0 0 6px rgba(236,200,104,.06),0 12px 44px rgba(236,200,104,.17),0 6px 24px rgba(0,0,0,.5);padding:clamp(26px,3.6vw,44px) clamp(22px,3vw,42px);text-align:center;}
+.lm-final p{margin:0;font:600 clamp(21px,3.1vw,31px)/1.3 "Newsreader",serif;font-style:italic;color:#fbf3df;}
+.lm-final p b{color:#f0cf78;font-style:normal;font-weight:700;}
+.kp-page{align-items:center;justify-content:flex-start;gap:clamp(16px,2.4vw,26px);padding:clamp(46px,7vw,84px) clamp(20px,5vw,60px);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b2832,#0e161b 64%),#0e161b;color:#f4ecd9;text-align:left;position:relative;}
+.kp-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.5);pointer-events:none;}
+.kp-frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,155,60,.24);}
+.kp-num{position:absolute;top:clamp(20px,3vw,34px);right:clamp(26px,4vw,48px);font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.1em;color:#cda24f;z-index:2;}
+.kp-eyebrow{margin:0;font:700 clamp(11px,1.4vw,13px)/1 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cda24f;}
+.kp-title{margin:0;font:600 clamp(28px,4.6vw,48px)/1.05 "Newsreader",serif;font-style:italic;color:#f7f0db;}
+.kp-kernfrage{max-width:720px;width:100%;border-left:3px solid #cda24f;background:rgba(200,155,60,.06);border-radius:0 8px 8px 0;padding:14px 20px;text-align:left;box-sizing:border-box;}
+.kp-kernfrage .lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cda24f;margin-bottom:6px;}
+.kp-kernfrage p{margin:0;font:500 clamp(16px,2vw,20px)/1.4 "Newsreader",serif;font-style:italic;color:#e7dcc2;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+.kp-head{width:100%;max-width:760px;}
+.kp-deck{margin:8px 0 0;font:400 clamp(14px,1.8vw,17px)/1.45 "Spectral",Georgia,serif;font-style:italic;color:#9a8f78;}
+
+
+
+.kp-cite{border-left:3px solid #a3242c;background:rgba(163,36,44,.10);border-radius:0 6px 6px 0;padding:10px 14px;}
+.kp-cite p{margin:0;font:500 clamp(13px,1.6vw,15px)/1.42 "Newsreader",serif;font-style:italic;color:#e7dcc2;}
+.kp-cite .src{display:block;margin-top:5px;font:700 .58rem/1 "Inter Tight",sans-serif;font-style:normal;letter-spacing:.05em;color:#e8959c;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+.kp-cite--p{border-left-color:#2f5a63;}
+.kp-cite--p .src{color:#9fd0db;}
+.kp-cite--p{background:rgba(47,90,99,.10);}
+.st-page{text-align:center;}
+.st-eyebrow{margin:0;font:700 .72rem/1 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cda24f;}
+.st-title{margin:.45rem 0 0;font:800 clamp(30px,5vw,46px)/1.06 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.st-deck{margin:.7rem auto 0;font:400 clamp(15px,2vw,18px)/1.4 "Spectral",Georgia,serif;font-style:italic;color:#9a8f78;max-width:620px;}
+.st-meet{width:100%;max-width:680px;}
+.st-meet .lab{display:block;font:700 .56rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9a8f78;margin-bottom:7px;}
+.st-meet p{margin:0;font:400 clamp(13.5px,1.7vw,16px)/1.5 "Spectral",Georgia,serif;color:#cdbfa0;}
+.st-meet em{color:#e7dcc2;font-style:italic;}
+.st-core{width:100%;max-width:720px;border:2px solid rgba(200,155,60,.6);border-radius:14px;background:radial-gradient(ellipse at 50% 0%,rgba(200,155,60,.14),rgba(0,0,0,.25));box-shadow:0 0 0 6px rgba(200,155,60,.10),0 10px 40px rgba(0,0,0,.4);padding:26px 30px;box-sizing:border-box;}
+.st-core .lab{display:block;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#ecc868;margin-bottom:12px;}
+.st-core p{margin:0;font:500 clamp(16px,2.3vw,22px)/1.45 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.st-core p .g{color:#ecc868;font-weight:600;font-style:normal;}
+.st-open{width:100%;max-width:760px;}
+.st-open__lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cda24f;margin-bottom:12px;}
+.st-open__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.st-oitem{border:1px solid rgba(200,155,60,.25);border-radius:8px;background:rgba(0,0,0,.2);padding:12px 15px;text-align:left;font:400 13px/1.42 "Spectral",Georgia,serif;color:#dcd0b6;}
+.st-close{width:100%;max-width:680px;margin:0 auto;font:500 clamp(15px,2vw,19px)/1.45 "Newsreader",serif;font-style:italic;color:#cdbfa0;}
+.st-close .g{color:#ecc868;}
+@media (max-width:620px){.st-open__grid{grid-template-columns:1fr;}}
+.kb{width:100%;max-width:780px;height:clamp(96px,14vw,126px);border:1px solid rgba(200,155,60,.20);border-radius:10px;overflow:hidden;box-sizing:border-box;background:#0e161b;}
+.kb svg{display:block;width:100%;height:100%;}
+.kb-ill{font-weight:700;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;fill:#6f6857;}
+.ko-wrap{max-width:880px;margin:0 auto;width:100%;}
+.ko-rule{border:0;height:1px;width:min(420px,70%);margin:18px auto 4px;background:linear-gradient(90deg,transparent,rgba(200,155,60,.5),transparent);}
+.ko-sec{margin-top:22px;}
+.ko-sec__h{margin:0 0 10px;font:700 12px/1 "Inter Tight",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#cda24f;}
+.ko-card{border:1px solid rgba(200,155,60,.18);border-radius:10px;background:rgba(255,255,255,.014);padding:15px 17px;}
+.ko-card p{margin:0;font:400 13.5px/1.6 "Inter Tight",sans-serif;color:#c7bfae;}
+.ko-card ul{margin:0;padding-left:18px;}
+.ko-card li{font:400 13px/1.55 "Inter Tight",sans-serif;color:#c7bfae;margin:5px 0;}
+.ko-card li b,.ko-card p b{color:#e7dcc2;font-weight:600;}
+.ko-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ko-people{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;}
+.ko-person{display:flex;align-items:flex-start;gap:12px;border:1px solid rgba(200,155,60,.16);border-radius:10px;padding:13px 15px;background:rgba(255,255,255,.014);}
+.ko-person__b{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 15px "Inter Tight",sans-serif;color:#fff;}
+.ko-person--p .ko-person__b{background:#2f5a63;} .ko-person--s .ko-person__b{background:#a3242c;}
+.ko-person__n{margin:0;font:600 15px/1.2 "Newsreader",serif;color:#f2ead7;}
+.ko-person__r{margin:2px 0 0;font:600 11px/1.2 "Inter Tight",sans-serif;letter-spacing:.04em;text-transform:uppercase;}
+.ko-person--p .ko-person__r{color:#9fd0db;} .ko-person--s .ko-person__r{color:#e8959c;}
+.ko-person__note{margin:5px 0 0;font:400 12px/1.45 "Inter Tight",sans-serif;color:#9a917f;}
+.ko-q{display:grid;grid-template-columns:128px 1fr;gap:8px 16px;align-items:start;padding:12px 0;border-top:1px solid rgba(200,155,60,.12);}
+.ko-q:first-of-type{border-top:0;padding-top:4px;}
+.ko-q__meta{display:flex;align-items:center;gap:9px;}
+.ko-q__b{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:800 12px "Inter Tight",sans-serif;color:#fff;}
+.ko-q--p .ko-q__b{background:#2f5a63;} .ko-q--s .ko-q__b{background:#a3242c;}
+.ko-q__ts{font:700 12.5px "Inter Tight",sans-serif;color:#cda24f;letter-spacing:.02em;white-space:nowrap;}
+.ko-q__t{margin:0;font:400 14.5px/1.5 "Spectral",Georgia,serif;font-style:italic;color:#e7dcc2;}
+.ko-foot{margin:24px auto 0;max-width:760px;text-align:center;font:400 12px/1.6 "Inter Tight",sans-serif;color:#7d7666;}
+@media (max-width:620px){.ko-grid,.ko-people{grid-template-columns:1fr;} .ko-q{grid-template-columns:1fr;gap:5px;}}
+.dl-flag{width:100%;max-width:760px;border:1.5px dashed rgba(200,155,60,.55);border-radius:10px;background:rgba(200,155,60,.06);padding:12px 18px;text-align:left;box-sizing:border-box;}
+.dl-flag .t{display:block;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ecc868;margin-bottom:5px;}
+.dl-flag p{margin:0;font:400 13px/1.45 "Spectral",Georgia,serif;color:#cdbfa0;}
+
+
+
+
+
+
+
+
+
+.dlx-block{width:100%;max-width:760px;border:1px solid rgba(200,155,60,.22);border-left-width:4px;border-radius:9px;background:rgba(0,0,0,.20);padding:14px 18px;text-align:left;box-sizing:border-box;}
+.dlx-block--p{border-left-color:#2f5a63;} .dlx-block--s{border-left-color:#a3242c;} .dlx-block--f{border-left-color:#c89b3c;} .dlx-block--e{border-left-color:#b85c2f;}
+.dlx-tag{display:block;font:700 .56rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9a8f78;margin-bottom:6px;}
+.dlx-block--p .dlx-tag{color:#9fd0db;} .dlx-block--s .dlx-tag{color:#e8959c;} .dlx-block--f .dlx-tag{color:#e0b860;} .dlx-block--e .dlx-tag{color:#e0a060;}
+.dlx-thesis{margin:0;font:600 clamp(15px,1.9vw,18px)/1.35 "Newsreader",serif;color:#f4ecd9;}
+.dlx-more{margin-top:9px;}
+.dlx-more summary{cursor:pointer;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#cda24f;list-style:none;display:inline-flex;align-items:center;gap:7px;}
+.dlx-more summary::-webkit-details-marker{display:none;}
+.dlx-more summary::after{content:"+";font-size:1.15em;line-height:0;}
+.dlx-more[open] summary::after{content:"–";}
+.dlx-more p{margin:9px 0 0;font:400 13.5px/1.5 "Spectral",Georgia,serif;color:#dcd0b6;}
+@media print{.dlx-more p{display:block !important;} .dlx-more summary{display:none;}}
+.du{width:100%;max-width:780px;position:relative;border:1px solid rgba(200,155,60,.28);border-radius:11px;overflow:hidden;background:rgba(0,0,0,.18);box-sizing:border-box;text-align:left;}
+.du__panels{display:grid;grid-template-columns:1fr 56px 1fr;align-items:stretch;}
+.du__pole{padding:16px 18px 16px;box-sizing:border-box;border-top:3px solid;}
+.du__pole--a{background:rgba(47,90,99,.12);border-top-color:#2f5a63;}
+.du__pole--b{background:rgba(163,36,44,.10);border-top-color:#a3242c;}
+.du__gutter{display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.18);border-left:1px solid rgba(200,155,60,.18);border-right:1px solid rgba(200,155,60,.18);}
+.du__vs{width:46px;height:46px;border-radius:50%;background:#0e161b;border:2px solid #c89b3c;display:flex;align-items:center;justify-content:center;font:700 22px/1 "Newsreader",serif;color:#ecc868;}
+.du__top{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.du__top .mono{width:2.1em;height:2.1em;font-size:.95em;}
+.du__pole--a .mono{background:#2f5a63;} .du__pole--b .mono{background:#a3242c;}
+.du__name{display:block;font:700 .98rem/1.1 "Inter Tight",sans-serif;color:#f4ecd9;}
+.du__tag{display:block;font:700 .54rem/1.3 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;}
+.du__pole--a .du__tag{color:#9fd0db;} .du__pole--b .du__tag{color:#e8959c;}
+.du__pos{margin:0 0 8px;font:700 .56rem/1.3 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;}
+.du__these{margin:0;font:600 clamp(15px,2vw,19px)/1.32 "Newsreader",serif;color:#f4ecd9;}
+.du__more{margin-top:11px;}
+.du__more>summary{cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cda24f;list-style:none;padding:5px 12px;border:1px solid rgba(200,155,60,.38);border-radius:999px;transition:background .15s,color .15s,border-color .15s;}
+.du__more>summary::-webkit-details-marker{display:none;}
+.du__more>summary::after{content:"+";font-size:1.15em;line-height:0;}
+.du__more[open]>summary::after{content:"–";}
+.du__more>summary:hover{background:rgba(200,155,60,.14);color:#f0d68a;border-color:rgba(200,155,60,.6);}
+.du__more>p{margin:10px 0 0;font:400 13px/1.5 "Spectral",Georgia,serif;color:#dcd0b6;}
+.du__break{border-top:1px solid rgba(184,92,47,.42);background:rgba(184,92,47,.11);padding:13px 18px;}
+.du__break__lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e0a060;margin-bottom:6px;}
+.du__break__line{margin:0;font:600 clamp(13.5px,1.7vw,16px)/1.38 "Newsreader",serif;color:#f4ecd9;}
+.du__oq{border-top:1px solid rgba(236,200,104,.4);background:rgba(236,200,104,.10);padding:14px 18px;}
+.du__oq .lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;margin-bottom:6px;}
+.du__oq p{margin:0;font:500 clamp(13px,1.6vw,15px)/1.42 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.du__konseq{width:100%;max-width:780px;border:1.5px solid rgba(236,200,104,.5);border-radius:10px;background:rgba(236,200,104,.06);box-sizing:border-box;text-align:left;overflow:hidden;}
+.du__konseq>summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;font:700 .62rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;list-style:none;transition:background .15s;}
+.du__konseq>summary::-webkit-details-marker{display:none;}
+.du__konseq>summary::after{content:"+";font-size:1.3em;line-height:0;}
+.du__konseq[open]>summary::after{content:"–";}
+.du__konseq>summary:hover{background:rgba(236,200,104,.07);}
+.du__konseq .body{padding:0 18px 15px;}
+.du__konseq .body p{margin:0;font:500 clamp(14px,1.8vw,17px)/1.45 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+@media print{.du__more>summary,.du__konseq>summary{display:none !important;}}
+@media (max-width:620px){.du__panels{grid-template-columns:1fr;}.du__gutter{border-left:none;border-right:none;border-top:1px solid rgba(200,155,60,.18);border-bottom:1px solid rgba(200,155,60,.18);padding:8px 0;}}
+
+.kp-cite{max-width:760px;width:100%;box-sizing:border-box;}
+.kp-fazit{width:100%;max-width:760px;border:1.5px solid rgba(236,200,104,.5);border-radius:10px;background:rgba(236,200,104,.06);padding:16px 20px;text-align:left;box-sizing:border-box;}
+.cm-sech{margin:18px auto 12px;max-width:760px;text-align:center;font:700 .78rem/1.3 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cda24f;}
+.cm-block{position:relative;width:100%;max-width:760px;margin:0 auto 12px;border:1px solid rgba(200,155,60,.18);border-left:4px solid var(--cm-c,#c89b3c);border-radius:8px;background:rgba(0,0,0,.20);padding:13px 18px;text-align:left;box-sizing:border-box;}
+.cm-block--p{--cm-c:#9fd0db;} .cm-block--s{--cm-c:#e8959c;} .cm-block--mid{--cm-c:#ecc868;} .cm-block--meta{--cm-c:#e0a060;}
+.cm-block__head{display:flex;flex-wrap:wrap;gap:5px 14px;align-items:baseline;justify-content:space-between;margin-bottom:6px;}
+.cm-tag{font:700 .72rem/1.2 'Inter Tight',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--cm-c,#c89b3c);}
+.cm-lean{font:600 .64rem/1.2 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#968b75;}
+.cm-pos{margin:0 0 6px;font:600 clamp(15px,1.95vw,18px)/1.4 'Newsreader',serif;color:#f1e7cf;}
+.cm-quote{margin:0;font:400 clamp(13px,1.6vw,15px)/1.55 'Spectral',Georgia,serif;font-style:italic;color:#d3c7ad;}
+.cm-by{display:inline-block;margin-left:.5em;font:600 .72rem/1 'Inter Tight',sans-serif;font-style:normal;color:var(--cm-c,#c89b3c);letter-spacing:.01em;}
+.cm-qs{width:100%;max-width:760px;margin:18px auto 0;}
+.cm-qs__h{margin:0 0 12px;text-align:center;font:600 clamp(16px,2vw,21px)/1.2 'Newsreader',serif;font-style:italic;color:#f1e7cf;}
+.cm-qs__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.cm-qcol{border:1px solid rgba(200,155,60,.2);border-top:3px solid var(--cm-c,#c89b3c);border-radius:6px;background:rgba(255,255,255,.02);padding:13px 16px;}
+.cm-qcol--p{--cm-c:#9fd0db;} .cm-qcol--s{--cm-c:#e8959c;}
+.cm-qcol__lab{display:block;margin-bottom:8px;font:700 .72rem/1.2 'Inter Tight',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--cm-c,#c89b3c);}
+.cm-qcol ul{margin:0;padding-left:1.1em;} .cm-qcol li{margin:0 0 7px;font:400 clamp(13px,1.55vw,14.5px)/1.5 'Spectral',Georgia,serif;color:#d9cdb3;} .cm-qcol li:last-child{margin-bottom:0;}
+.cm-meta-q{width:100%;max-width:760px;margin:14px auto 0;border:1px solid rgba(224,160,96,.32);border-radius:6px;background:rgba(224,160,96,.05);padding:12px 16px;box-sizing:border-box;font:400 clamp(13.5px,1.7vw,16px)/1.55 'Spectral',Georgia,serif;color:#e7dcc2;}
+.cm-meta-q .lab{display:inline-block;margin-right:.55em;font:700 .68rem/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e0a060;}
+@media (max-width:640px){.cm-qs__grid{grid-template-columns:1fr;}}
+.kp-fazit .lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;margin-bottom:7px;}
+.kp-fazit p{margin:0;font:500 clamp(14px,1.8vw,17px)/1.45 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media print{
+  @page{size:A4;margin:0;}
+  html,body{background:#0b0f13;}
+  .br-cut{display:none;}
+  #cover-title{min-height:297mm;}
+  .br-page{break-before:page;}
+  .du,.du__konseq,.dlx-block,.kp-cite,.kp-fazit,.kp-kernfrage,.kp-head,.dl-flag,.kb,.ko-q,.ko-person,.seal-col,.seal-bar,.seal-mark,.cm-block,.cm-qcol,.cm-meta-q{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<section class="tc-cover" id="cover-title" aria-label="Cover: Maximilian Pütz versus Shlomo — ein rechtsinternes Streitgespräch über Stigma und Sexualmoral">
+  <svg class="tc-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="tcHalf" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><circle cx="3" cy="3" r="1" fill="#f3ead4" opacity="0.5"/></pattern><pattern id="tcHatchR" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><line x1="0" y1="0" x2="0" y2="9" stroke="#d9b072" stroke-width="0.7"/></pattern><radialGradient id="tcCore" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#c89b3c" stop-opacity="0.10"/><stop offset="55%" stop-color="#c89b3c" stop-opacity="0.03"/><stop offset="100%" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect width="1440" height="900" fill="url(#tcHalf)" opacity="0.035"/><circle cx="720" cy="450" r="380" fill="url(#tcCore)"/><g stroke="#c89b3c" stroke-width="0.6" opacity="0.07"><line x1="798.0" y1="450.0" x2="1480.0" y2="450.0"/><line x1="797.7" y1="456.8" x2="1477.1" y2="516.2"/><line x1="796.8" y1="463.5" x2="1468.5" y2="582.0"/><line x1="795.3" y1="470.2" x2="1454.1" y2="646.7"/><line x1="793.3" y1="476.7" x2="1434.2" y2="709.9"/><line x1="790.7" y1="483.0" x2="1408.8" y2="771.2"/><line x1="787.5" y1="489.0" x2="1378.2" y2="830.0"/><line x1="783.9" y1="494.7" x2="1342.6" y2="885.9"/><line x1="779.8" y1="500.1" x2="1302.2" y2="938.5"/><line x1="775.2" y1="505.2" x2="1257.4" y2="987.4"/><line x1="770.1" y1="509.8" x2="1208.5" y2="1032.2"/><line x1="764.7" y1="513.9" x2="1155.9" y2="1072.6"/><line x1="759.0" y1="517.5" x2="1100.0" y2="1108.2"/><line x1="753.0" y1="520.7" x2="1041.2" y2="1138.8"/><line x1="746.7" y1="523.3" x2="979.9" y2="1164.2"/><line x1="740.2" y1="525.3" x2="916.7" y2="1184.1"/><line x1="733.5" y1="526.8" x2="852.0" y2="1198.5"/><line x1="726.8" y1="527.7" x2="786.2" y2="1207.1"/><line x1="720.0" y1="528.0" x2="720.0" y2="1210.0"/><line x1="713.2" y1="527.7" x2="653.8" y2="1207.1"/><line x1="706.5" y1="526.8" x2="588.0" y2="1198.5"/><line x1="699.8" y1="525.3" x2="523.3" y2="1184.1"/><line x1="693.3" y1="523.3" x2="460.1" y2="1164.2"/><line x1="687.0" y1="520.7" x2="398.8" y2="1138.8"/><line x1="681.0" y1="517.5" x2="340.0" y2="1108.2"/><line x1="675.3" y1="513.9" x2="284.1" y2="1072.6"/><line x1="669.9" y1="509.8" x2="231.5" y2="1032.2"/><line x1="664.8" y1="505.2" x2="182.6" y2="987.4"/><line x1="660.2" y1="500.1" x2="137.8" y2="938.5"/><line x1="656.1" y1="494.7" x2="97.4" y2="885.9"/><line x1="652.5" y1="489.0" x2="61.8" y2="830.0"/><line x1="649.3" y1="483.0" x2="31.2" y2="771.2"/><line x1="646.7" y1="476.7" x2="5.8" y2="709.9"/><line x1="644.7" y1="470.2" x2="-14.1" y2="646.7"/><line x1="643.2" y1="463.5" x2="-28.5" y2="582.0"/><line x1="642.3" y1="456.8" x2="-37.1" y2="516.2"/><line x1="642.0" y1="450.0" x2="-40.0" y2="450.0"/><line x1="642.3" y1="443.2" x2="-37.1" y2="383.8"/><line x1="643.2" y1="436.5" x2="-28.5" y2="318.0"/><line x1="644.7" y1="429.8" x2="-14.1" y2="253.3"/><line x1="646.7" y1="423.3" x2="5.8" y2="190.1"/><line x1="649.3" y1="417.0" x2="31.2" y2="128.8"/><line x1="652.5" y1="411.0" x2="61.8" y2="70.0"/><line x1="656.1" y1="405.3" x2="97.4" y2="14.1"/><line x1="660.2" y1="399.9" x2="137.8" y2="-38.5"/><line x1="664.8" y1="394.8" x2="182.6" y2="-87.4"/><line x1="669.9" y1="390.2" x2="231.5" y2="-132.2"/><line x1="675.3" y1="386.1" x2="284.1" y2="-172.6"/><line x1="681.0" y1="382.5" x2="340.0" y2="-208.2"/><line x1="687.0" y1="379.3" x2="398.8" y2="-238.8"/><line x1="693.3" y1="376.7" x2="460.1" y2="-264.2"/><line x1="699.8" y1="374.7" x2="523.3" y2="-284.1"/><line x1="706.5" y1="373.2" x2="588.0" y2="-298.5"/><line x1="713.2" y1="372.3" x2="653.8" y2="-307.1"/><line x1="720.0" y1="372.0" x2="720.0" y2="-310.0"/><line x1="726.8" y1="372.3" x2="786.2" y2="-307.1"/><line x1="733.5" y1="373.2" x2="852.0" y2="-298.5"/><line x1="740.2" y1="374.7" x2="916.7" y2="-284.1"/><line x1="746.7" y1="376.7" x2="979.9" y2="-264.2"/><line x1="753.0" y1="379.3" x2="1041.2" y2="-238.8"/><line x1="759.0" y1="382.5" x2="1100.0" y2="-208.2"/><line x1="764.7" y1="386.1" x2="1155.9" y2="-172.6"/><line x1="770.1" y1="390.2" x2="1208.5" y2="-132.2"/><line x1="775.2" y1="394.8" x2="1257.4" y2="-87.4"/><line x1="779.8" y1="399.9" x2="1302.2" y2="-38.5"/><line x1="783.9" y1="405.3" x2="1342.6" y2="14.1"/><line x1="787.5" y1="411.0" x2="1378.2" y2="70.0"/><line x1="790.7" y1="417.0" x2="1408.8" y2="128.8"/><line x1="793.3" y1="423.3" x2="1434.2" y2="190.1"/><line x1="795.3" y1="429.8" x2="1454.1" y2="253.3"/><line x1="796.8" y1="436.5" x2="1468.5" y2="318.0"/><line x1="797.7" y1="443.2" x2="1477.1" y2="383.8"/></g><g fill="none" stroke-width="1.1" opacity="0.16"><path d="M-60 310 C 360 230 1080 150 1500 70" stroke="#7d93bf"/><path d="M-60 380 C 360 300 1080 220 1500 140" stroke="#7d93bf"/><path d="M-60 450 C 360 370 1080 290 1500 210" stroke="#7d93bf"/><path d="M-60 520 C 360 440 1080 360 1500 280" stroke="#7d93bf"/><path d="M-60 590 C 360 510 1080 430 1500 350" stroke="#b87a52"/><path d="M-60 660 C 360 580 1080 500 1500 420" stroke="#b87a52"/><path d="M-60 730 C 360 650 1080 570 1500 490" stroke="#b87a52"/><path d="M-60 800 C 360 720 1080 640 1500 560" stroke="#b87a52"/></g><g fill="none" stroke="#c89b3c"><circle cx="720" cy="450" r="70" stroke-width="0.6" opacity="0.16"/><circle cx="720" cy="450" r="108" stroke-width="0.6" opacity="0.16"/><circle cx="720" cy="450" r="150" stroke-width="0.6" opacity="0.16"/><circle cx="720" cy="450" r="196" stroke-width="0.6" opacity="0.16"/><circle cx="720" cy="450" r="244" stroke-width="0.6" opacity="0.16"/><circle cx="720" cy="450" r="292" stroke-width="0.6" opacity="0.16"/><circle cx="720" cy="450" r="244" stroke-width="3" stroke-dasharray="1 9" opacity="0.18"/></g><g fill="none" stroke="#c89b3c" stroke-width="0.55" opacity="0.13"><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(0 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(15 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(30 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(45 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(60 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(75 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(90 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(105 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(120 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(135 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(150 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(165 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(180 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(195 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(210 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(225 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(240 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(255 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(270 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(285 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(300 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(315 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(330 720 450)"/><ellipse cx="720" cy="450" rx="232" ry="78" transform="rotate(345 720 450)"/></g><g fill="none" stroke="#8fa6cf" stroke-width="1" opacity="0.20"><path d="M 266 470 A 34 34 0 1 1 334 470"/><path d="M 242 470 A 58 58 0 1 1 358 470"/><path d="M 216 470 A 84 84 0 1 1 384 470"/><path d="M 188 470 A 112 112 0 1 1 412 470"/></g><g stroke="#cf8a63" stroke-width="0.9" opacity="0.20"><line x1="1060" y1="370" x2="1060" y2="570"/><line x1="1090" y1="370" x2="1090" y2="570"/><line x1="1120" y1="370" x2="1120" y2="570"/><line x1="1150" y1="370" x2="1150" y2="570"/><line x1="1180" y1="370" x2="1180" y2="570"/><line x1="1210" y1="370" x2="1210" y2="570"/><line x1="1240" y1="370" x2="1240" y2="570"/><line x1="1060" y1="370" x2="1240" y2="370"/><line x1="1060" y1="400" x2="1240" y2="400"/><line x1="1060" y1="430" x2="1240" y2="430"/><line x1="1060" y1="460" x2="1240" y2="460"/><line x1="1060" y1="490" x2="1240" y2="490"/><line x1="1060" y1="520" x2="1240" y2="520"/><line x1="1060" y1="550" x2="1240" y2="550"/></g></svg>
+  <span class="tc-sheen" aria-hidden="true"></span>
+  <span class="tc-frame" aria-hidden="true"></span>
+  <svg class="tc-corner tl" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 46 C8 24 24 8 46 8"/><path d="M8 8 h22"/><path d="M8 8 v22"/><path d="M8 8 C30 12 41 23 45 45" stroke-width="1" opacity=".55"/></g><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g fill="currentColor"><circle cx="46" cy="8" r="2"/><circle cx="8" cy="46" r="2"/></g></svg>
+  <svg class="tc-corner tr" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 46 C8 24 24 8 46 8"/><path d="M8 8 h22"/><path d="M8 8 v22"/><path d="M8 8 C30 12 41 23 45 45" stroke-width="1" opacity=".55"/></g><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g fill="currentColor"><circle cx="46" cy="8" r="2"/><circle cx="8" cy="46" r="2"/></g></svg>
+  <svg class="tc-corner bl" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 46 C8 24 24 8 46 8"/><path d="M8 8 h22"/><path d="M8 8 v22"/><path d="M8 8 C30 12 41 23 45 45" stroke-width="1" opacity=".55"/></g><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g fill="currentColor"><circle cx="46" cy="8" r="2"/><circle cx="8" cy="46" r="2"/></g></svg>
+  <svg class="tc-corner br" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 46 C8 24 24 8 46 8"/><path d="M8 8 h22"/><path d="M8 8 v22"/><path d="M8 8 C30 12 41 23 45 45" stroke-width="1" opacity=".55"/></g><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g fill="currentColor"><circle cx="46" cy="8" r="2"/><circle cx="8" cy="46" r="2"/></g></svg>
+  <span class="tc-edge tc-edge--t" aria-hidden="true"></span><span class="tc-edge tc-edge--r" aria-hidden="true"></span><span class="tc-edge tc-edge--b" aria-hidden="true"></span><span class="tc-edge tc-edge--l" aria-hidden="true"></span>
+
+  <div class="tc-inner">
+    <p class="tc-kicker">Ein rechtsinternes Streitgespräch</p>
+    <div class="tc-rule2" aria-hidden="true"><span class="tc-rule2__cap"></span><span class="tc-rule2__line"></span><span class="tc-rule2__dot"></span><span class="tc-rule2__line"></span><span class="tc-rule2__cap"></span></div>
+
+    <div class="tc-duel">
+      <div class="tc-crest tc-crest--cool tc-cell-pmono"><svg class="tc-crest__art" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32.0 131.8 49.1)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="146.0" cy="61.4" rx="12" ry="4.6" transform="rotate(50.0 146.0 61.4)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68.0 155.6 77.5)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86.0 159.9 95.8)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104.0 158.2 114.5)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122.0 150.9 131.8)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="138.6" cy="146.0" rx="12" ry="4.6" transform="rotate(140.0 138.6 146.0)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><path d="M 132.4 148.1 A 60 60 0 0 0 132.4 51.9" fill="none" stroke="#c89b3c" stroke-width="1" opacity="0.5"/></g><g transform="translate(200,0) scale(-1,1)"><ellipse cx="131.8" cy="49.1" rx="12" ry="4.6" transform="rotate(32.0 131.8 49.1)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="146.0" cy="61.4" rx="12" ry="4.6" transform="rotate(50.0 146.0 61.4)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="155.6" cy="77.5" rx="12" ry="4.6" transform="rotate(68.0 155.6 77.5)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="159.9" cy="95.8" rx="12" ry="4.6" transform="rotate(86.0 159.9 95.8)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="158.2" cy="114.5" rx="12" ry="4.6" transform="rotate(104.0 158.2 114.5)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="150.9" cy="131.8" rx="12" ry="4.6" transform="rotate(122.0 150.9 131.8)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/><ellipse cx="138.6" cy="146.0" rx="12" ry="4.6" transform="rotate(140.0 138.6 146.0)" fill="none" stroke="#c89b3c" stroke-width="1.3" opacity="0.85"/></g><g fill="none" stroke="#c89b3c" stroke-width="1.5" opacity="0.8"><ellipse cx="130.1" cy="167.6" rx="7" ry="4.4" transform="rotate(156 130.1 167.6)"/><ellipse cx="112.8" cy="172.9" rx="7" ry="4.4" transform="rotate(170 112.8 172.9)"/><ellipse cx="87.2" cy="172.9" rx="7" ry="4.4" transform="rotate(190 87.2 172.9)"/><ellipse cx="69.9" cy="167.6" rx="7" ry="4.4" transform="rotate(204 69.9 167.6)"/></g><g fill="none" stroke="#c89b3c" stroke-width="1.5" opacity="0.8"><path d="M96 175 q4 -5 0 -10" /><path d="M104 175 q-4 -5 0 -10"/></g><g stroke="#8fa6cf" stroke-width="1.2" opacity="0.7" stroke-linecap="round"><line x1="100.0" y1="34.0" x2="100.0" y2="18.0"/><line x1="126.8" y1="39.7" x2="133.4" y2="25.1"/><line x1="73.2" y1="39.7" x2="66.6" y2="25.1"/><line x1="147.5" y1="54.2" x2="159.0" y2="43.0"/><line x1="52.5" y1="54.2" x2="41.0" y2="43.0"/></g></svg><div class="tc-mono">P</div></div>
+      <h2 class="tc-name tc-cell-pname">Maximilian<br>Pütz</h2>
+      <p class="tc-tag tc-tag--cool tc-cell-ptag">Libertär</p>
+
+      <div class="tc-vs tc-cell-vs">
+        <svg class="tc-vs__rose" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="47" fill="none" stroke="#c89b3c" stroke-width=".7" opacity=".5"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#c89b3c" stroke-width="2.5" stroke-dasharray="1 6" opacity=".55"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#c89b3c" stroke-width="0.5" stroke-dasharray="0.5 3" opacity=".3"/>
+          <circle cx="50" cy="50" r="33" fill="none" stroke="#c89b3c" stroke-width=".6" opacity=".4"/>
+        </svg>
+        <svg class="tc-vs__ring" viewBox="0 0 120 120" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="57" fill="none" stroke="#c89b3c" stroke-width="1" opacity=".85"/><circle cx="60" cy="60" r="51" fill="none" stroke="#c89b3c" stroke-width="2.4" stroke-dasharray="1 4.2" opacity=".7"/><circle cx="60" cy="60" r="46" fill="none" stroke="#c89b3c" stroke-width=".6" opacity=".55"/><g fill="#c89b3c"><rect x="56" y="3" width="8" height="8" transform="rotate(45 60 7)"/><rect x="109" y="56" width="8" height="8" transform="rotate(45 113 60)"/><rect x="56" y="109" width="8" height="8" transform="rotate(45 60 113)"/><rect x="3" y="56" width="8" height="8" transform="rotate(45 7 60)"/></g></svg>
+        <span class="tc-vs__disc"><i>vs.</i></span>
+      </div>
+
+      <div class="tc-crest tc-crest--warm tc-cell-smono"><svg class="tc-crest__art" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="60" fill="none" stroke="#cc9a4a" stroke-width="3" stroke-dasharray="1.2 6" opacity="0.55"/><circle cx="100" cy="100" r="66" fill="none" stroke="#cc9a4a" stroke-width="0.7" opacity="0.45"/><g><ellipse cx="105.0" cy="28.2" rx="12" ry="4.6" transform="rotate(4.0 105.0 28.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="129.3" cy="34.2" rx="12" ry="4.6" transform="rotate(24.0 129.3 34.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="150.0" cy="48.2" rx="12" ry="4.6" transform="rotate(44.0 150.0 48.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="164.7" cy="68.4" rx="12" ry="4.6" transform="rotate(64.0 164.7 68.4)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="171.6" cy="92.5" rx="12" ry="4.6" transform="rotate(84.0 171.6 92.5)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="169.9" cy="117.4" rx="12" ry="4.6" transform="rotate(104.0 169.9 117.4)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="159.7" cy="140.3" rx="12" ry="4.6" transform="rotate(124.0 159.7 140.3)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="142.3" cy="158.2" rx="12" ry="4.6" transform="rotate(144.0 142.3 158.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="119.8" cy="169.2" rx="12" ry="4.6" transform="rotate(164.0 119.8 169.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/></g><g transform="translate(200,0) scale(-1,1)"><ellipse cx="105.0" cy="28.2" rx="12" ry="4.6" transform="rotate(4.0 105.0 28.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="129.3" cy="34.2" rx="12" ry="4.6" transform="rotate(24.0 129.3 34.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="150.0" cy="48.2" rx="12" ry="4.6" transform="rotate(44.0 150.0 48.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="164.7" cy="68.4" rx="12" ry="4.6" transform="rotate(64.0 164.7 68.4)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="171.6" cy="92.5" rx="12" ry="4.6" transform="rotate(84.0 171.6 92.5)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="169.9" cy="117.4" rx="12" ry="4.6" transform="rotate(104.0 169.9 117.4)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="159.7" cy="140.3" rx="12" ry="4.6" transform="rotate(124.0 159.7 140.3)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="142.3" cy="158.2" rx="12" ry="4.6" transform="rotate(144.0 142.3 158.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/><ellipse cx="119.8" cy="169.2" rx="12" ry="4.6" transform="rotate(164.0 119.8 169.2)" fill="none" stroke="#cc9a4a" stroke-width="1.3" opacity="0.85"/></g><g fill="none" stroke="#cc9a4a" stroke-width="1.4" opacity="0.85"><path d="M100 26 q-12 -6 -2 6 M100 26 q12 -6 2 6"/><circle cx="100" cy="30" r="2.4" fill="#cc9a4a"/></g><g fill="none" stroke="#cc9a4a" stroke-width="1.4" opacity="0.85"><rect x="92" y="150" width="16" height="4"/><rect x="94" y="154" width="12" height="20"/><line x1="97" y1="156" x2="97" y2="172"/><line x1="103" y1="156" x2="103" y2="172"/><rect x="90" y="174" width="20" height="5"/></g></svg><div class="tc-mono">S</div></div>
+      <h2 class="tc-name tc-cell-sname">Shlomo</h2>
+      <p class="tc-tag tc-tag--warm tc-cell-stag">Rechtsradikal</p>
+    </div>
+
+    <div class="tc-pitch">
+      <p>Darf die Gesellschaft verurteilen, wie wir lieben?</p>
+    </div>
+
+    <p class="tc-meta">63 Min · 2 Sprecher · YouTube-Doppelstream · Deutsch</p>
+  </div>
+
+  <div class="tc-scroll" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+</section>
+<hr class="br-cut">
+<section class="br-page seal-page" id="pruefsiegel" aria-label="Prüfsiegel: Verlässlichkeit und Audit">
+  <span class="seal-frame" aria-hidden="true"></span>
+  <div class="seal-hero">
+  <p class="seal-eyebrow">Prüfsiegel · Verlässlichkeit &amp; Audit</p>
+  <h1 class="seal-title">Was diese Broschüre wert ist</h1>
+  <svg class="seal-mark" viewBox="0 0 340 340" role="img" aria-label="Verlaesslichkeits-Siegel: hoch, quellenbasiert, auditiert" xmlns="http://www.w3.org/2000/svg"><defs><path id="seal-arc-top" d="M 60 170 A 110 110 0 0 1 280 170" fill="none"/></defs><circle cx="170" cy="170" r="160" fill="none" stroke="#cda24f" stroke-width="1" opacity=".5"/><circle cx="170" cy="170" r="156" fill="none" stroke="#cda24f" stroke-width="2.4" stroke-dasharray="1 5" opacity=".55"/><circle cx="320.0" cy="170.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="318.7" cy="189.6" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="314.9" cy="208.8" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="308.6" cy="227.4" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="299.9" cy="245.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="289.0" cy="261.3" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="276.1" cy="276.1" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="261.3" cy="289.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="245.0" cy="299.9" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="227.4" cy="308.6" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="208.8" cy="314.9" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="189.6" cy="318.7" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="170.0" cy="320.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="150.4" cy="318.7" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="131.2" cy="314.9" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="112.6" cy="308.6" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="95.0" cy="299.9" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="78.7" cy="289.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="63.9" cy="276.1" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="51.0" cy="261.3" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="40.1" cy="245.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="31.4" cy="227.4" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="25.1" cy="208.8" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="21.3" cy="189.6" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="20.0" cy="170.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="21.3" cy="150.4" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="25.1" cy="131.2" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="31.4" cy="112.6" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="40.1" cy="95.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="51.0" cy="78.7" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="63.9" cy="63.9" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="78.7" cy="51.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="95.0" cy="40.1" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="112.6" cy="31.4" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="131.2" cy="25.1" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="150.4" cy="21.3" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="170.0" cy="20.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="189.6" cy="21.3" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="208.8" cy="25.1" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="227.4" cy="31.4" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="245.0" cy="40.1" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="261.3" cy="51.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="276.1" cy="63.9" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="289.0" cy="78.7" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="299.9" cy="95.0" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="308.6" cy="112.6" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="314.9" cy="131.2" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="318.7" cy="150.4" r="2.1" fill="#cda24f" opacity="0.8"/><circle cx="170" cy="170" r="138" fill="none" stroke="#cda24f" stroke-width="1" opacity=".7"/><circle cx="170" cy="170" r="120" fill="none" stroke="#cda24f" stroke-width=".6" opacity=".5"/><circle cx="170" cy="170" r="118" fill="#0c1216" opacity=".55"/><text class="seal-arc"><textPath href="#seal-arc-top" startOffset="50%" text-anchor="middle">VERLÄSSLICHKEITS-SIEGEL</textPath></text><path d="M156 108 l8 9 17 -21" fill="none" stroke="#e9c463" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><text class="seal-grade" x="170" y="182" text-anchor="middle">HOCH</text><text class="seal-band" x="170" y="208" text-anchor="middle">Faktenrisiko ≈ 3–7 % (geschätzt)</text><text class="seal-foot" x="170" y="244" text-anchor="middle">QUELLENBASIERT · AUDITIERT</text><g fill="#cda24f" opacity=".85"><rect x="166" y="260" width="9" height="9" transform="rotate(45 170.5 264.5)"/></g></svg>
+  <div class="seal-rating">
+    <div class="seal-factor">≈ 7× geringeres Faktenrisiko als ohne Quelle</div>
+    <div class="seal-meta"><span>Mit Originalquelle gearbeitet: <b>JA</b></span><span>Audit (8 Schritte): <b>bestanden · 8/8 · Go</b></span></div>
+    <p class="seal-sum">Quellenbasierte Synthese: Belegtes — Zitate, Zahlen, Sachaussagen — ist verlässlich; Eigen-Analyse ist ausdrücklich als solche markiert.</p>
+  </div>
+  </div>
+  <hr class="seal-div" aria-hidden="true">
+  <p class="seal-verlass"><span class="seal-vl">Worauf Verlass ist</span> Alle Zitate, Zahlen und Sachaussagen dieser Broschüre sind an die Originalquelle gebunden; das Restrisiko betrifft nur exakte Wortlaute und Ziffern.</p>
+  <div class="seal-block">
+    <h2 class="seal-h">KI-Modellraten <em>ohne</em> Quelle (Closed-Book)</h2>
+    <div class="seal-bars">
+      <div class="seal-bar"><span class="seal-bar__name">Claude Opus 4.8 ★</span><span class="seal-bar__track"><span class="seal-bar__fill" style="width:59.8%;background:#3a6b35;">35,9 %</span></span></div>
+      <div class="seal-bar"><span class="seal-bar__name">Gemini 3.1 Pro</span><span class="seal-bar__track"><span class="seal-bar__fill" style="width:83.3%;background:#a8842c;">50 %</span></span></div>
+      <div class="seal-bar"><span class="seal-bar__name">OpenAI / Google (Peer)</span><span class="seal-bar__track"><span class="seal-bar__fill" style="width:92%;background:#7c7c7c;">höher</span></span></div>
+    </div>
+    <p class="seal-cap2">Modellweite Werte auf einem Closed-Book-Wissensbenchmark (AA-Omniscience), gemessen ohne beigelegte Quelle. Beschreibt das Modell allgemein, nicht diese Broschüre. Mit Originalquelle im Kontext (Grounding) liegt das praktische Risiko für Struktur und Thesen deutlich niedriger; das Restrisiko betrifft exakte Zahlen und Zitate. Quelle: Artificial Analysis, 28.05.2026.</p>
+  </div>
+  <hr class="seal-div" aria-hidden="true">
+  <h2 class="seal-h">Claude <em>mit</em> vs. <em>ohne</em> Quellen</h2>
+  <div class="seal-cmp">
+    <div class="seal-col seal-col--on"><h3>Ohne Quellen</h3><span class="big">frei aus dem Gedächtnis</span><p>Höheres Faktenrisiko (Closed-Book ≈ 35,9 %).</p><p>Kann Namen, Zahlen und Zitate unbemerkt erfinden.</p></div>
+    <div class="seal-col seal-col--mit"><h3>Mit Quellen · diese Broschüre</h3><span class="big">an die Vorlage gebunden</span><p>Geschätztes Faktenrisiko ≈ 3–7 % (geschätzt, nicht gemessen).</p><p>Nahezu perfekt belegt; Aussagen sind an der Quelle nachprüfbar.</p></div>
+  </div>
+  <div class="seal-amp">
+    <div class="ok"><svg class="seal-ic" viewBox="0 0 24 24" fill="none" stroke="#9fd08f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5 11-12"/></svg><span class="tx"><b>Verlässlich</b>Belegtes: direkte Zitate, Zahlen und Sachaussagen mit Quellenbezug.</span></div>
+    <div class="warn"><svg class="seal-ic" viewBox="0 0 24 24" fill="none" stroke="#ecc868" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 22 20 2 20Z"/><path d="M12 9.5v4.2"/><circle cx="12" cy="17" r="1" fill="#ecc868" stroke="none"/></svg><span class="tx"><b>Vorher prüfen</b>Eigen-Analyse, Szenarien, Bewertungen und Schlussfolgerungen des Bearbeiters.</span></div>
+  </div>
+  <hr class="seal-div" aria-hidden="true">
+  <div class="seal-audit">
+    <h2 class="seal-h">Audit in einfachen Worten</h2>
+    <p>Diese Broschüre durchläuft nach der Fertigstellung einen Audit in acht geordneten Schritten. Geprüft und, wo nötig, korrigiert wird auf:</p>
+    <div class="seal-steps"><span class="seal-step">Technik</span><span class="seal-step">Sauberkeit</span><span class="seal-step">Quellentreue</span><span class="seal-step">Zitate</span><span class="seal-step">Verständlichkeit</span><span class="seal-step">Aufbau & Synthesen</span><span class="seal-step">Optik</span><span class="seal-step">Druck</span></div>
+    <p><span class="lab">Was das heißt</span>Sie können sich auf Belegtes verlassen; Eigen-Analyse, Szenarien und Bewertungen sind ausdrücklich als Zusatz des Bearbeiters markiert. Das Ergebnis des Schluss-Audits wird oben im Siegel eingetragen.</p>
+    <details class="seal-details">
+      <summary>Details &amp; Methodik</summary>
+      <div class="body">
+        <h4>Benchmark</h4><p>AA-Omniscience misst Wissen und Halluzination <b>ohne</b> beigelegte Quelle (Closed-Book); niedriger ist besser. Die Werte beschreiben das Modell allgemein, nicht diese Broschüre. Quelle: Artificial Analysis, 28.05.2026.</p>
+        <h4>Schätzung des Risikos</h4><p>Die Spanne ≈ 3–7 % ist <b>geschätzt, nicht gemessen</b>. Grundlage ist das Arbeiten mit der Originalquelle im Kontext (Grounding); das verbleibende Risiko betrifft vor allem exakte Zahlen und Wortlaute.</p>
+        <h4>Faktor</h4><p>N = 35,9 % ÷ Spannen-Mittelwert (≈ 5 %) ≈ 7 (kaufmännisch gerundet) → rund siebenfach geringeres Faktenrisiko als ohne Quelle.</p>
+        <h4>Die acht Audit-Schritte</h4><ol><li>Technik &amp; Render</li><li>Artefakte &amp; Sauberkeit</li><li>Quellentreue</li><li>Zuordnung &amp; Zitate</li><li>Verständlichkeit</li><li>Konzept, Struktur &amp; Synthesen</li><li>Visuelle Ästhetik (Cover-Niveau)</li><li>Druck/Flyer &amp; Go/No-Go</li></ol>
+        <h4>Quellengrundlage (Zone B)</h4><p>Mit Originalquelle gearbeitet: <b>JA</b>. Grundlage ist das auto-transkribierte Video-Streitgespräch zwischen Maximilian Pütz und SHLOMO (0:00–1:02:56).</p>
+      </div>
+    </details>
+  </div>
+  <p class="seal-source"><span class="lab">Quelle</span><a href="https://www.youtube.com/watch?v=6WykWrIEjT0" target="_blank" rel="noopener">YouTube · das Streitgespräch (0:00–1:02:56)</a></p>
+</section>
+
+<hr class="br-cut">
+<section class="br-page lm-page" id="landkarte" aria-label="Das Streitgespräch: Worum gestritten wird">
+  <span class="lm-frame" aria-hidden="true"></span>
+  <span class="lm-num">03 / 12</span>
+  <p class="lm-eyebrow">Das Streitgespräch</p>
+  <h1 class="lm-title">Worum gestritten wird</h1>
+  <h2 class="lm-h">Die Gesprächsteilnehmer</h2>
+  <div class="lm-people">
+    <div class="lm-person lm-person--p"><span class="mono mono--p">P</span><span><span class="lm-person__n">Maximilian Pütz</span><span class="lm-person__t">Libertär</span><span class="lm-person__d">Gastgeber des Gesprächs. Argumentiert aus Freiheits-Sicht: Sexualität sei Privatsache, Staat und Moral hätten sich herauszuhalten.</span></span></div>
+    <div class="lm-person lm-person--s"><span class="mono mono--s">S</span><span><span class="lm-person__n">SHLOMO</span><span class="lm-person__t">Rechtsradikal</span><span class="lm-person__d">Sein Gegenpart. Argumentiert aus Ordnungs-Sicht: Eine Gesellschaft brauche verbindliche Normen; ein moralisches Stigma zu verteidigen sei legitim.</span></span></div>
+  </div>
+  <h2 class="lm-h">Die Konfliktlinie</h2>
+  <div class="lm-chasm">
+    <p class="lm-surface"><span class="lab">Die oberflächliche Frage</span>Sind offene Beziehungen und Swingerclubs <b>„degeneriert“</b>?</p>
+    <svg viewBox="0 0 760 384" role="img" aria-label="Zwei Personen auf gegenüberliegenden Klippen mit ihren Kernaussagen, getrennt von einem unüberbrückbaren Graben" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="chasmg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1318"/><stop offset="1" stop-color="#04070a"/></linearGradient></defs><rect x="300" y="150" width="160" height="234" fill="url(#chasmg)"/><line x1="304" y1="320" x2="456" y2="332" stroke="#141a1f" stroke-width="1"/><path d="M0 150 L300 150 L294 206 L306 264 L292 322 L300 384 L0 384 Z" fill="#1a2832"/><path d="M0 150 L300 150 L300 158 L0 158 Z" fill="#26424d"/><path d="M760 150 L460 150 L466 206 L454 264 L468 322 L460 384 L760 384 Z" fill="#241a1d"/><path d="M760 150 L460 150 L460 158 L760 158 Z" fill="#4a2a2e"/><rect x="300" y="157" width="58" height="7" fill="#6b5f44"/><rect x="402" y="157" width="58" height="7" fill="#6b5f44"/><rect x="362" y="190" width="22" height="6" fill="#544a34" transform="rotate(30 373 193)"/><g><circle cx="262" cy="116" r="13" fill="#2f5a63"/><path d="M248 150 Q248 130 262 130 Q276 130 276 150 Z" fill="#2f5a63"/><text x="262" y="121" text-anchor="middle" fill="#fff" font-weight="700" font-size="12.5">P</text></g><g><circle cx="498" cy="116" r="13" fill="#a3242c"/><path d="M484 150 Q484 130 498 130 Q512 130 512 150 Z" fill="#a3242c"/><text x="498" y="121" text-anchor="middle" fill="#fff" font-weight="700" font-size="12.5">S</text></g><text x="262" y="90" text-anchor="middle" class="cl-n">PÜTZ</text><text x="262" y="104" text-anchor="middle" class="cl-t" fill="#9fd0db">libertär</text><text x="498" y="90" text-anchor="middle" class="cl-n">SHLOMO</text><text x="498" y="104" text-anchor="middle" class="cl-t" fill="#e8959c">rechtsradikal</text><text x="150" y="182" text-anchor="middle" class="cl-s">Privatsache · keine Norm</text><text x="150" y="208" text-anchor="middle" class="cl-con" fill="#9fd0db">Schon das Verurteilen geht zu weit.</text><text x="150" y="230" text-anchor="middle" class="cl-q">„… die Maximalstufe der Abwertung“</text><text x="150" y="248" text-anchor="middle" class="cl-ts">O-Ton · Min. 6:05</text><text x="610" y="182" text-anchor="middle" class="cl-s">Norm · Stigma nötig</text><text x="610" y="208" text-anchor="middle" class="cl-con" fill="#e8959c">Normen folgen ist normal, nicht abseitig.</text><text x="610" y="230" text-anchor="middle" class="cl-q">„… einem kulturellen Gesamtkonzept folgen“</text><text x="610" y="248" text-anchor="middle" class="cl-ts">O-Ton · Min. 46:33</text><text x="380" y="126" text-anchor="middle" class="cl-gap">der Konflikt</text><text x="380" y="300" text-anchor="middle" class="cl-unb">unüberbrückbar?</text></svg>
+    <div class="lm-chasmcap">Konzept in Klartext, darunter der wörtliche O-Ton — getrennt von einem Graben, der unüberbrückbar scheint.</div>
+  </div>
+  <h2 class="lm-h lm-h--final">Die eigentliche Frage</h2>
+  <div class="lm-final"><p>Darf die Rechte ein moralisches <b>Stigma</b> verteidigen — oder ist schon das <b>Verurteilen</b> ein <b>Tabubruch</b>?</p></div>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k1" aria-label="Komplex 1: Auslöser und Meta-Regel">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">04 / 12</span>
+  <div class="kp-head">
+    <p class="kp-eyebrow">Komplex 1</p>
+    <h2 class="kp-title">Gleiche Geste, ungleiches Urteil</h2>
+    <p class="kp-deck">Der Streit beginnt mit einem Wort — und endet bei einer Regel, die niemand ausspricht.</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="k1bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#122a30"/><stop offset=".5" stop-color="#0e161b"/><stop offset="1" stop-color="#2a151a"/></linearGradient><radialGradient id="k1gl" cx="50%" cy="80%" r="55%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".16"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect x="0" y="0" width="780" height="130" fill="url(#k1bg)"/><rect x="0" y="0" width="780" height="130" fill="url(#k1gl)"/><path d="M150 98 Q290 40 400 72" fill="none" stroke="#5a8a92" stroke-width="1.5" opacity=".18"/><path d="M630 98 Q490 40 380 72" fill="none" stroke="#a3242c" stroke-width="1.5" opacity=".20"/><line x1="250" y1="118" x2="530" y2="118" stroke="#c89b3c" stroke-width="1" opacity=".16"/><path d="M378 116 L390 100 L402 116 Z" fill="#c89b3c"/><line x1="390" y1="100" x2="390" y2="78" stroke="#c89b3c" stroke-width="2"/><line x1="262" y1="66" x2="518" y2="90" stroke="#c89b3c" stroke-width="2.5" stroke-linecap="round"/><line x1="262" y1="66" x2="262" y2="80" stroke="#9a8f78" stroke-width="1.2"/><path d="M244 80 Q262 93 280 80" fill="none" stroke="#9fd0db" stroke-width="2"/><circle cx="262" cy="75" r="5.5" fill="#9fd0db"/><line x1="518" y1="90" x2="518" y2="104" stroke="#9a8f78" stroke-width="1.2"/><path d="M500 104 Q518 117 536 104" fill="none" stroke="#e8959c" stroke-width="2"/><circle cx="518" cy="99" r="5.5" fill="#e8959c"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Warum gilt das Angreifen einer Norm als mutig — ihr Verteidigen aber als Übergriff?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__top"><span class="mono mono--p">P</span><span><span class="du__name">Pütz</span><span class="du__tag">libertär</span></span></div>
+        <p class="du__pos">Norm lockern</p>
+        <p class="du__these">Das moralische Urteil selbst ist der eigentliche Übergriff.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Wer Sexualität moralisch bewertet, greift in einen geschützten Privatraum ein. Schon das Wort ‚degeneriert’ verschiebt eine private Frage in eine öffentliche Anklage — und macht den Wertenden zum eigentlichen Angreifer.</p></details>
+      </div>
+      <div class="du__gutter"><span class="du__vs" aria-hidden="true">&#8800;</span></div>
+      <div class="du__pole du__pole--b">
+        <div class="du__top"><span class="mono mono--s">S</span><span><span class="du__name">SHLOMO</span><span class="du__tag">rechtsradikal</span></span></div>
+        <p class="du__pos">Norm verteidigen</p>
+        <p class="du__these">Ohne moralischen Maßstab lässt sich gar nichts bewerten.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Eine Gesellschaft ohne Kategorien kann nichts mehr gut oder schlecht nennen. Wer das Verurteilen grundsätzlich verbietet, verbietet jede Norm — und mit ihr jede gewachsene Kultur.</p></details>
+      </div>
+    </div>
+    <div class="du__break">
+      <span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p class="du__break__line">Dieselbe Geste — eine Grenze ziehen — gilt je nach Richtung als mutig oder als Aggression.</p>
+      <details class="du__more du__more--c"><summary>Logik im Detail</summary><p>Das Lockern der Norm erscheint als unverfänglich, ihr Verteidigen als Übergriff. Diese Asymmetrie wird nirgends begründet — sie ist die stille Regel, nach der der Streit entschieden ist, bevor er beginnt.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Wer spaltet wirklich — und gibt es einen Maßstab, der nicht von der Richtung abhängt?</p></div>
+  </div>
+  <div class="kp-cite"><p>„Es geht darum, ob du überhaupt eine Kategorie dafür hast.“<span class="src">SHLOMO · Min. 9:31</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Gilt nur das Verteidigen als Angriff, lässt sich keine Norm je legitim verteidigen — die Debatte ist entschieden, ehe sie beginnt.</p></div></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k2" aria-label="Komplex 2: Dasselbe Boot und das Doppelmaß">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">05 / 12</span>
+  <div class="kp-head">
+    <p class="kp-eyebrow">Komplex 2</p>
+    <h2 class="kp-title">Wenn jeder Einwand zur Zustimmung wird</h2>
+    <p class="kp-deck">SHLOMO behauptet, auch der Tolerante werte längst — und macht damit jeden Widerspruch unmöglich.</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="k2bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#122a30"/><stop offset=".5" stop-color="#0e161b"/><stop offset="1" stop-color="#241318"/></linearGradient><radialGradient id="k2gl" cx="50%" cy="50%" r="42%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".16"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect x="0" y="0" width="780" height="130" fill="url(#k2bg)"/><rect x="0" y="0" width="780" height="130" fill="url(#k2gl)"/><g opacity=".3"><line x1="120" y1="48" x2="300" y2="56" stroke="#9fd0db" stroke-width="1.6"/><path d="M300 52 L312 56 L300 60 Z" fill="#9fd0db"/><line x1="660" y1="80" x2="478" y2="72" stroke="#9fd0db" stroke-width="1.6"/><path d="M478 76 L466 72 L478 68 Z" fill="#9fd0db"/></g><path d="M442.0,63.0 L441.4,66.4 L440.1,69.7 L438.3,72.9 L435.9,75.9 L433.0,78.7 L429.6,81.4 L425.8,83.7 L421.6,85.8 L417.0,87.5 L412.3,89.0 L407.3,90.1 L402.1,90.9 L396.9,91.3 L391.7,91.4 L386.5,91.2 L381.5,90.6 L376.6,89.7 L371.9,88.4 L367.6,86.9 L363.5,85.1 L359.9,83.1 L356.6,80.9 L353.8,78.5 L351.5,75.9 L349.7,73.2 L348.4,70.5 L347.6,67.7 L347.3,64.8 L347.6,62.0 L348.3,59.3 L349.6,56.6 L351.3,54.1 L353.4,51.7 L356.0,49.5 L358.9,47.4 L362.2,45.6 L365.7,44.1 L369.5,42.7 L373.4,41.7 L377.5,40.9 L381.7,40.4 L385.9,40.2 L390.1,40.3 L394.2,40.6 L398.2,41.2 L402.0,42.1 L405.6,43.2 L408.9,44.5 L412.0,46.0 L414.7,47.7 L417.1,49.5 L419.2,51.5 L420.8,53.6 L422.0,55.7 L422.8,57.9 L423.2,60.1 L423.2,62.3 L422.8,64.5 L422.0,66.6 L420.9,68.6 L419.4,70.5 L417.5,72.3 L415.4,74.0 L413.0,75.4 L410.4,76.7 L407.5,77.8 L404.6,78.7 L401.5,79.4 L398.3,79.9 L395.2,80.1 L392.0,80.1 L388.9,80.0 L385.8,79.6 L382.9,79.0 L380.1,78.3 L377.6,77.4 L375.2,76.3 L373.1,75.1 L371.2,73.8 L369.6,72.4 L368.3,70.9 L367.3,69.3 L366.6,67.7 L366.2,66.1 L366.1,64.5 L366.3,62.9 L366.8,61.4 L367.5,59.9 L368.5,58.5 L369.8,57.2 L371.2,56.1 L372.8,55.0 L374.7,54.0 L376.6,53.2 L378.6,52.6 L380.7,52.1 L382.9,51.7 L385.1,51.5 L387.3,51.5 L389.4,51.5 L391.5,51.8 L393.4,52.1 L395.3,52.6 L397.0,53.2 L398.6,53.9 L400.0,54.7 L401.3,55.5 L402.3,56.4 L403.2,57.4 L403.8,58.4 L404.3,59.4 L404.5,60.4 L404.6,61.4 L404.5,62.4 L404.2,63.4 L403.7,64.3 L403.1,65.1 L402.3,65.9 L401.4,66.6 L400.4,67.2 L399.3,67.7 L398.2,68.2 L397.0,68.5 L395.8,68.8 L394.6,68.9 L393.3,69.0 L392.2,69.0 L391.0,68.9 L389.9,68.7 L388.9,68.5 L388.0,68.2 L387.2,67.9 L386.4,67.5 L385.8,67.0 L385.3,66.6 L384.9,66.1 L384.6,65.6 L384.5,65.2 L384.4,64.7 L384.4,64.3 L384.5,63.8 L384.7,63.4 L385.0,63.1 L385.4,62.8 L385.8,62.5 L386.2,62.3 L386.6,62.1 L387.1,62.0 L387.6,61.9" fill="none" stroke="#c89b3c" stroke-width="2" stroke-linecap="round" opacity=".72"/><circle cx="435.9" cy="75.9" r="5.0" fill="rgb(159,208,219)"/><circle cx="385.9" cy="40.2" r="4.4" fill="rgb(183,188,198)"/><circle cx="366.2" cy="66.1" r="3.8" fill="rgb(208,169,177)"/><circle cx="400.4" cy="67.2" r="3.2" fill="rgb(232,149,156)"/><circle cx="387.6" cy="61.9" r="5" fill="#e8959c"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Ist Toleranz neutral — oder hat SHLOMO recht, dass auch sie schon ein Urteil ist?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__top"><span class="mono mono--p">P</span><span><span class="du__name">Pütz</span><span class="du__tag">libertär</span></span></div>
+        <p class="du__pos">Toleranz ist neutral</p>
+        <p class="du__these">Was privat ist, beurteile ich nicht — Toleranz ist kein verstecktes Urteil.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Wer eine Lebensform gewähren lässt, trifft keine Aussage über ihren Wert. Nichteinmischung ist gerade das Gegenteil eines Urteils — sie überlässt die Bewertung den Beteiligten selbst.</p></details>
+      </div>
+      <div class="du__gutter"><span class="du__vs" aria-hidden="true">&#8800;</span></div>
+      <div class="du__pole du__pole--b">
+        <div class="du__top"><span class="mono mono--s">S</span><span><span class="du__name">SHLOMO</span><span class="du__tag">rechtsradikal</span></span></div>
+        <p class="du__pos">Keine neutrale Toleranz</p>
+        <p class="du__these">Wer toleriert, wertet längst mit — nur weniger weit gegangen.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Sein Bild vom selben Boot besagt: Pütz und er treiben im selben Strom — Pütz ist nur weniger weit. Toleranz sei kein Außerhalb, sondern eine leisere Variante derselben Wertung; im Grunde stimme Pütz zu und benenne es nur anders.</p></details>
+      </div>
+    </div>
+    <div class="du__break">
+      <span class="du__break__lab">Die Bruchstelle · Logikfehler</span>
+      <p class="du__break__line">Jeder Widerspruch wird zur bloßen Gradfrage erklärt — und damit unwiderlegbar.</p>
+      <details class="du__more du__more--c"><summary>Logik im Detail</summary><p>Sagt Pütz ‚ich werte nicht’, lautet die Antwort: ‚du bist nur weiter oben im selben Boot’. So kann keine Entgegnung die These je treffen — sie immunisiert sich gegen jeden Einwand.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Gibt es einen Standpunkt, der nicht selbst schon wertet — oder behält SHLOMO recht?</p></div>
+  </div>
+  <div class="kp-cite"><p>„du sitzt im selben Boot. Du sitzt nur 100 m weiter runter den Fluss“<span class="src">SHLOMO · Min. 26:20</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Eine These, die jeden Widerspruch als heimliche Zustimmung deutet, beweist sich selbst — und damit nichts.</p></div></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k3" aria-label="Komplex 3: Die Form und der Historizismus">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">06 / 12</span>
+  <div class="kp-head">
+    <p class="kp-eyebrow">Komplex 3</p>
+    <h2 class="kp-title">Gewachsene Ordnung — oder gemachte?</h2>
+    <p class="kp-deck">Streiten beide über eine ewige Ordnung — oder über eine, die erst gemacht werden müsste?</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="k3bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#11272d"/><stop offset=".5" stop-color="#0e161b"/><stop offset="1" stop-color="#201619"/></linearGradient><linearGradient id="k3morph" gradientUnits="userSpaceOnUse" x1="189" y1="0" x2="545" y2="0"><stop offset="0" stop-color="#5a8a92"/><stop offset="1" stop-color="#c89b3c"/></linearGradient></defs><rect x="0" y="0" width="780" height="130" fill="url(#k3bg)"/><line x1="78" y1="120" x2="210" y2="120" stroke="#5a8a92" stroke-width="1" opacity=".25"/><line x1="540" y1="120" x2="740" y2="120" stroke="#c89b3c" stroke-width="1" opacity=".25"/><path d="M95 120 C100 95 120 85 140 68" fill="none" stroke="#5a8a92" stroke-width="3" stroke-linecap="round"/><path d="M140 68 C122 55 110 48 97 39" fill="none" stroke="#5a8a92" stroke-width="2.2" stroke-linecap="round"/><path d="M140 68 C160 53 176 47 189 38" fill="none" stroke="#5a8a92" stroke-width="2.2" stroke-linecap="round"/><path d="M132 80 C112 77 100 71 86 64" fill="none" stroke="#5a8a92" stroke-width="1.8" stroke-linecap="round"/><path d="M150 56 C150 46 156 40 162 33" fill="none" stroke="#5a8a92" stroke-width="1.6" stroke-linecap="round"/><circle cx="97" cy="39" r="3" fill="#9fd0db"/><circle cx="189" cy="38" r="3" fill="#9fd0db"/><circle cx="86" cy="64" r="2.6" fill="#9fd0db"/><circle cx="162" cy="33" r="2.6" fill="#9fd0db"/><circle cx="120" cy="50" r="2.2" fill="#9fd0db"/><path d="M189 40 C268 30 348 44 430 46 L545 48" fill="none" stroke="url(#k3morph)" stroke-width="2.2" stroke-linecap="round"/><path d="M545 44 L555 48 L545 52 Z" fill="#c89b3c"/><line x1="565" y1="32" x2="565" y2="116" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><line x1="615" y1="32" x2="615" y2="116" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><line x1="665" y1="32" x2="665" y2="116" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><line x1="715" y1="32" x2="715" y2="116" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><line x1="545" y1="48" x2="735" y2="48" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><line x1="545" y1="74" x2="735" y2="74" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><line x1="545" y1="100" x2="735" y2="100" stroke="#c89b3c" stroke-width="1.4" opacity=".82"/><rect x="562.5" y="45.5" width="5" height="5" fill="#c89b3c"/><rect x="562.5" y="71.5" width="5" height="5" fill="#c89b3c"/><rect x="562.5" y="97.5" width="5" height="5" fill="#c89b3c"/><rect x="612.5" y="45.5" width="5" height="5" fill="#c89b3c"/><rect x="612.5" y="71.5" width="5" height="5" fill="#c89b3c"/><rect x="612.5" y="97.5" width="5" height="5" fill="#c89b3c"/><rect x="662.5" y="45.5" width="5" height="5" fill="#c89b3c"/><rect x="662.5" y="71.5" width="5" height="5" fill="#c89b3c"/><rect x="662.5" y="97.5" width="5" height="5" fill="#c89b3c"/><rect x="712.5" y="45.5" width="5" height="5" fill="#c89b3c"/><rect x="712.5" y="71.5" width="5" height="5" fill="#c89b3c"/><rect x="712.5" y="97.5" width="5" height="5" fill="#c89b3c"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Ist die verbindliche Ordnung der Gesellschaft natürlich gewachsen — oder ein Projekt, das man errichten muss?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__top"><span class="mono mono--p">P</span><span><span class="du__name">Pütz</span><span class="du__tag">libertär</span></span></div>
+        <p class="du__pos">Die Form ist gemacht</p>
+        <p class="du__these">Die angeblich ewige Ordnung ist jung — Konvention, nicht Natur.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Was als zeitlose Form gilt, ist historisch relativ neu; und die Eliten, die sie predigten, hielten sich selten daran. Eine Ordnung, die sich wandelt und gebrochen wird, ist gemacht — nicht naturgegeben.</p></details>
+      </div>
+      <div class="du__gutter"><span class="du__vs" aria-hidden="true">&#8800;</span></div>
+      <div class="du__pole du__pole--b">
+        <div class="du__top"><span class="mono mono--s">S</span><span><span class="du__name">SHLOMO</span><span class="du__tag">rechtsradikal</span></span></div>
+        <p class="du__pos">Die Form ist nötig</p>
+        <p class="du__these">Jede Kultur hatte eine verbindliche Form; ohne sie folgt der Zerfall.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Gesellschaften halten nur zusammen, wenn sie einen gemeinsamen Rahmen teilen. Der libertäre Weg, der alles in gar keine Form gießt, lässt Bindung und Orientierung zerfallen — am Ende bleibt Beliebigkeit.</p></details>
+      </div>
+    </div>
+    <div class="du__break">
+      <span class="du__break__lab">Die Bruchstelle · das Paradox</span>
+      <p class="du__break__line">Was man erst wiederherstellen und durchsetzen muss, war nie einfach natürlich.</p>
+      <details class="du__more du__more--c"><summary>Logik im Detail</summary><p>SHLOMO beruft sich auf eine natürliche Ordnung — will sie aber aktiv restaurieren und erzwingen. Genau das ist Social Engineering: das gezielte Formen der Gesellschaft, das die Rechte sonst der Gegenseite vorwirft.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Ist Gesellschaft überhaupt formbar — und wenn ja: Wer bestimmt dann die Form?</p></div>
+  </div>
+  <div class="kp-cite"><p>„der libertäre Weg, wir gießen es in gar keine Form.“<span class="src">SHLOMO · Min. 15:31</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Will die Rechte die alte Ordnung wiederherstellen, baut sie selbst an der Gesellschaft — und kann das Bauen dann schwer den anderen verbieten.</p></div></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k4" aria-label="Komplex 4: Korrelation und libertärer Kern">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">07 / 12</span>
+  <div class="kp-head">
+    <p class="kp-eyebrow">Komplex 4</p>
+    <h2 class="kp-title">Aneinander vorbei</h2>
+    <p class="kp-deck">Pütz bestreitet jeden Schaden — und traut dem Staat keine Moral zu. Trifft das SHLOMOs Punkt?</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="k4bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#122a30"/><stop offset=".5" stop-color="#0e161b"/><stop offset="1" stop-color="#241318"/></linearGradient></defs><rect x="0" y="0" width="780" height="130" fill="url(#k4bg)"/><g opacity=".45"><circle cx="262" cy="78" r="2.1" fill="#7f8d90"/><circle cx="305" cy="72" r="2.1" fill="#7f8d90"/><circle cx="338" cy="82" r="2.1" fill="#7f8d90"/><circle cx="372" cy="75" r="2.1" fill="#7f8d90"/><circle cx="410" cy="80" r="2.1" fill="#7f8d90"/><circle cx="448" cy="73" r="2.1" fill="#7f8d90"/><circle cx="486" cy="81" r="2.1" fill="#7f8d90"/><circle cx="520" cy="76" r="2.1" fill="#7f8d90"/></g><line x1="120" y1="54" x2="558" y2="68" stroke="#5a8a92" stroke-width="2.4" stroke-linecap="round"/><path d="M558 61 L573 69 L557 75 Z" fill="#5a8a92"/><circle cx="120" cy="54" r="4" fill="none" stroke="#9fd0db" stroke-width="1.6"/><line x1="660" y1="100" x2="222" y2="86" stroke="#a3242c" stroke-width="2.4" stroke-linecap="round"/><path d="M222 79 L207 87 L223 93 Z" fill="#a3242c"/><circle cx="660" cy="100" r="4" fill="none" stroke="#e8959c" stroke-width="1.6"/><g opacity=".18" stroke="#c89b3c" stroke-width="1" stroke-dasharray="2 4"><line x1="300" y1="64" x2="300" y2="88"/><line x1="480" y1="70" x2="480" y2="92"/></g><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Gibt es einen Grund fürs Stigma — und falls ja, wer dürfte es überhaupt durchsetzen?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a">
+        <div class="du__top"><span class="mono mono--p">P</span><span><span class="du__name">Pütz</span><span class="du__tag">libertär</span></span></div>
+        <p class="du__pos">Kein Schaden, kein Zwang</p>
+        <p class="du__these">Privates korreliert nicht mit Schaden — und der Staat ist zu korrupt für Moral.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Aus privatem Verhalten folgt kein gesellschaftlicher Schaden; ein Faktengrund fürs Stigma fehlt. Und selbst wenn — der Staat ist ein faules System, das Moral nur korrumpiert. Ihm die Sittenwacht zu übertragen, macht es schlimmer.</p></details>
+      </div>
+      <div class="du__gutter"><span class="du__vs" aria-hidden="true">&#8800;</span></div>
+      <div class="du__pole du__pole--b">
+        <div class="du__top"><span class="mono mono--s">S</span><span><span class="du__name">SHLOMO</span><span class="du__tag">rechtsradikal</span></span></div>
+        <p class="du__pos">Es geht um Kultur</p>
+        <p class="du__these">Es geht nicht um Staatszwang, sondern um eine gelebte Norm.</p>
+        <details class="du__more"><summary>Begründung</summary><p>Ein Stigma braucht keinen Staat — es lebt in der Kultur, in dem, was als normal gilt. Und die Lockerung dieser Norm hat Folgen, ob eine Statistik sie misst oder nicht. Pütz’ Staatskritik zielt am eigentlichen Punkt vorbei.</p></details>
+      </div>
+    </div>
+    <div class="du__break">
+      <span class="du__break__lab">Die Bruchstelle · aneinander vorbei</span>
+      <p class="du__break__line">Pütz widerlegt den Staat als Moralwächter — SHLOMO fordert ein soziales Stigma. Beide treffen sich nicht.</p>
+      <details class="du__more du__more--c"><summary>Logik im Detail</summary><p>Eine Norm braucht keinen Staat; und fehlende Korrelation sagt nichts darüber, ob eine Kultur werten darf. Pütz beantwortet eine Frage, die SHLOMO so nicht gestellt hat — und SHLOMO eine, die Pütz nicht bestreitet.</p></details>
+    </div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Kann ein Stigma ohne den Staat wirken — und genügt fehlende Korrelation, um es zu rechtfertigen oder zu verwerfen?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--p"><p>„da gibt’s überhaupt gar keine Korrelation“<span class="src">PÜTZ · Min. 44:15</span></p></div>
+  <div class="kp-cite kp-cite--p"><p>„Der Staat ist halt in sich ein faules System, das immer korrumpiert wird durch Menschen.“<span class="src">PÜTZ · Min. 59:53</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Trifft Pütz’ Befund zu, fehlt dem Stigma die Schadensgrundlage — sein Staatsmisstrauen trifft aber nur den Zwang, nicht die Norm. Offen bleibt: Darf eine Kultur werten, auch ohne Staat und ohne messbaren Schaden?</p></div></details>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="k5" aria-label="Sozialdemokratisch-linksliberale Kritik des Bearbeiters">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">08 / 12</span>
+  <div class="dl-flag"><span class="t">Zusatz des Bearbeiters · sozialdemokratisch-linksliberale Lesart</span><p>Eine eigene, klar positionierte Kritik des Bearbeiters — nicht das Streitgespräch und keine neutrale Zusammenfassung; ohne wörtliche Zitate. Die Kernthesen stehen sichtbar; die Begründungen lassen sich aufklappen.</p></div>
+  <div class="kp-head">
+    <p class="kp-eyebrow" style="color:#cda24f">Kritik von links</p>
+    <h2 class="kp-title">Was eine soziale Perspektive einwendet</h2>
+    <p class="kp-deck">Gegen beide Positionen — und gegen das, was sie teilen.</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="k5hax" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="630" y2="0"><stop offset="0" stop-color="#5a8a92"/><stop offset="1" stop-color="#a3242c"/></linearGradient><radialGradient id="k5gl" cx="50%" cy="50%" r="46%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".15"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect x="0" y="0" width="780" height="130" fill="#0e161b"/><rect x="0" y="0" width="780" height="130" fill="url(#k5gl)"/><rect x="8" y="8" width="764" height="114" rx="8" fill="none" stroke="#c89b3c" stroke-width="1" stroke-dasharray="5 6" opacity=".28"/><line x1="150" y1="82" x2="630" y2="82" stroke="url(#k5hax)" stroke-width="2" opacity=".85"/><circle cx="150" cy="82" r="5" fill="#9fd0db"/><circle cx="630" cy="82" r="5" fill="#e8959c"/><line x1="390" y1="88" x2="390" y2="24" stroke="#c89b3c" stroke-width="3" stroke-linecap="round"/><path d="M382 32 L390 17 L398 32 Z" fill="#c89b3c"/><circle cx="390" cy="82" r="5.5" fill="none" stroke="#ecc868" stroke-width="2"/><circle cx="390" cy="64" r="4" fill="#ecc868"/><circle cx="390" cy="49" r="4" fill="#ecc868"/><circle cx="390" cy="34" r="4" fill="#ecc868"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="dlx-block dlx-block--p"><span class="dlx-tag">Gegen Pütz · libertär</span><p class="dlx-thesis">Freiheit ohne soziale Sicherheit ist ein Privileg, kein Recht.</p><details class="dlx-more"><summary>Begründung</summary><p>Sein Privatismus setzt voraus, dass alle frei und auf Augenhöhe wählen. Doch Autonomie hat materielle Bedingungen — wer ökonomisch abhängig ist, entscheidet nicht frei. Und der als „faul“ abgeschriebene Staat ist gerade das Mittel, das Schwächere vor Machtgefällen schützt.</p></details></div>
+  <div class="dlx-block dlx-block--s"><span class="dlx-tag">Gegen SHLOMO · rechtsradikal</span><p class="dlx-thesis">Stigma stiftet keine Ordnung — es schließt aus.</p><details class="dlx-more"><summary>Begründung</summary><p>Die berufene „natürliche“ Form war historisch ein Herrschaftsverhältnis: Sie band Frauen und Abweichende an enge Rollen. Was eine Gesellschaft trägt, ist Solidarität und gleiches Recht, nicht Beschämung. Eine Zugehörigkeit, die Konformität verlangt, erzeugt die Spaltung, die sie zu heilen vorgibt.</p></details></div>
+  <div class="dlx-block dlx-block--f"><span class="dlx-tag">Gegen den gemeinsamen Rahmen</span><p class="dlx-thesis">Beide moralisieren, was eine soziale Frage ist.</p><details class="dlx-more"><summary>Begründung</summary><p>Ob Stigma ja oder nein — beide verhandeln Sexualität als Frage der richtigen Gesinnung. Die soziale Perspektive fragt anders: Welche Bedingungen ermöglichen verlässliche, gleichberechtigte Beziehungen? Das entscheidet sich an Sicherheit, Bildung und Macht — nicht an Moral oder Markt.</p></details></div>
+  <div class="dlx-block dlx-block--e"><span class="dlx-tag">Fragen &amp; Empirie</span><p class="dlx-thesis">Nicht „schadet es?“, sondern: unter welchen Bedingungen?</p><details class="dlx-more"><summary>Begründung</summary><p>Pütz’ fehlende Korrelation und SHLOMOs Zerfallsthese sind beide zu grob. Stabilität hängt empirisch weniger an der Form als an materieller Sicherheit, Gleichstellung und sozialem Rückhalt. Wer sie will, müsste Ungleichheit verringern — nicht Normen verschärfen oder den Staat abbauen.</p></details></div>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="pluralismus" aria-label="Eine pluralistische Lesart des Bearbeiters">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">09 / 12</span>
+  <div class="dl-flag"><span class="t">Zusatz des Bearbeiters · eine pluralistische Lesart</span><p>Eine weitere positionierte Lesart des Bearbeiters — nicht das Streitgespräch und keine neutrale Zusammenfassung; ohne wörtliche Zitate. Sie wendet sich gegen beide Streitenden und gegen die linke Kritik zugleich.</p></div>
+  <div class="kp-head">
+    <p class="kp-eyebrow" style="color:#cda24f">Eine pluralistische Lesart</p>
+    <h2 class="kp-title">Wenn verschiedene Moralen koexistieren müssen</h2>
+    <p class="kp-deck">Vielleicht gibt es kein richtiges Leben für alle — sondern nur einen Rahmen, in dem unvereinbare Lebensformen friedlich bestehen.</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="plgl" cx="50%" cy="55%" r="48%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".14"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect x="0" y="0" width="780" height="130" fill="#0e161b"/><rect x="0" y="0" width="780" height="130" fill="url(#plgl)"/><rect x="252" y="30" width="276" height="62" rx="12" fill="#c89b3c" fill-opacity="0.05" stroke="#c89b3c" stroke-width="1.4" stroke-dasharray="6 5" opacity=".75"/><g opacity=".22" stroke="#c89b3c" stroke-dasharray="2 4" stroke-width="1"><line x1="352" y1="36" x2="352" y2="86"/><line x1="430" y1="36" x2="430" y2="86"/></g><circle cx="312" cy="61" r="13" fill="#2f5a63" fill-opacity="0.45" stroke="#9fd0db" stroke-width="1.8"/><rect x="378" y="48" width="26" height="26" fill="#a3242c" fill-opacity="0.32" stroke="#e8959c" stroke-width="1.8"/><path d="M462 75 L492 75 L477 47 Z" fill="#b85c2f" fill-opacity="0.36" stroke="#e0a060" stroke-width="1.8"/><line x1="232" y1="108" x2="548" y2="108" stroke="#c89b3c" stroke-width="2" stroke-linecap="round"/><line x1="232" y1="108" x2="232" y2="100" stroke="#c89b3c" stroke-width="2"/><line x1="548" y1="108" x2="548" y2="100" stroke="#c89b3c" stroke-width="2"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="dlx-block dlx-block--e"><span class="dlx-tag">Der gemeinsame Fehler</span><p class="dlx-thesis">Alle suchen das eine richtige Leben — das aber gibt es so nicht.</p><details class="dlx-more"><summary>Begründung</summary><p>Pütz, SHLOMO und die linke Kritik streiten darüber, WER recht hat. Diese Lesart bestreitet, dass es hier ein allgemeingültiges Richtig gibt: Werte sind vielfältig und teils unvereinbar — nicht auf eine Ordnung zu bringen, der alle zustimmen müssten.</p></details></div>
+  <div class="dlx-block dlx-block--s"><span class="dlx-tag">Gegen SHLOMO · rechtsradikal</span><p class="dlx-thesis">Eine verbindliche Form für alle verfehlt die Vielfalt der Lebensweisen.</p><details class="dlx-more"><summary>Begründung</summary><p>Wenn mehrere Lebensformen legitim nebeneinander bestehen, ist es Anmaßung, einer Gruppe ihre Form als die einzig richtige aufzuzwingen. Das Stigma erhebt eine von vielen Moralen zur Norm für alle.</p></details></div>
+  <div class="dlx-block dlx-block--p"><span class="dlx-tag">Gegen Pütz · libertär</span><p class="dlx-thesis">Auch der schlanke Staat ist eine Doktrin — und sichert keinen Frieden.</p><details class="dlx-more"><summary>Begründung</summary><p>Reine Marktfreiheit ist selbst eine umfassende Weltsicht, kein neutraler Boden. Und ein hohler Staat leistet gerade das nicht, worauf es ankommt: einen Rahmen, in dem unvereinbare Gruppen überhaupt friedlich koexistieren können.</p></details></div>
+  <div class="dlx-block dlx-block--f"><span class="dlx-tag">Gegen die linke Kritik</span><p class="dlx-thesis">Autonomie, Konsens, Gleichheit sind auch nur eine Moral unter mehreren.</p><details class="dlx-more"><summary>Begründung</summary><p>Die soziale Lesart setzt ihre Trias als allgemeinen Maßstab — pluralistisch ist sie eine umfassende Doktrin wie die anderen. Sie zur verbindlichen Messlatte aller Gemeinschaften zu machen, wiederholt den universalistischen Anspruch, den sie eigentlich kritisiert.</p></details></div>
+  <div class="kp-fazit"><span class="lab">Die Aufgabe</span><p>Nicht zu klären, wer recht hat, sondern einen Rahmen zu bauen, in dem verschiedene Moralen koexistieren — getragen von einem schmalen Minimum, das die Schwachen schützt und den Austritt erlaubt. Erst dieses Minimum hindert Koexistenz daran, zum Deckmantel für Unterdrückung zu werden.</p></div>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page" id="kommentare" aria-label="Auswertung der Kommentarspalte unter dem Video von Maximilian Pütz">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">10 / 12</span>
+  <div class="dl-flag"><span class="t">Auswertung der Kommentarspalte · Quelle: unter dem Video von Maximilian Pütz</span><p>Shlomo hat keinen YouTube-Kanal — diese Kommentare stehen unter Pützens Video, auf seinem eigenen Kanal. Qualitative Lese, keine repräsentative Auszählung; Cluster-Zuordnung und kritische Fragen sind Analyse des Bearbeiters. Bemerkenswert: Pütz antwortet selbst in den Kommentaren.</p></div>
+  <div class="kp-head">
+    <p class="kp-eyebrow" style="color:#cda24f">Echo der Kommentarspalte</p>
+    <h2 class="kp-title">Wohin die Kommentarspalte neigt</h2>
+    <p class="kp-deck">Auf Pützens eigenem Kanal — und doch folgt die Substanz oft Shlomo, während die Form-Kritik Shlomo trifft. Die häufigste Stimme liegt in der Mitte.</p>
+  </div>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cmgl" cx="50%" cy="52%" r="55%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".15"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect x="0" y="0" width="780" height="130" fill="#0e161b"/><rect x="0" y="0" width="780" height="130" fill="url(#cmgl)"/><line x1="74" y1="80" x2="706" y2="80" stroke="#c89b3c" stroke-width="2" stroke-linecap="round" opacity=".85"/><line x1="74" y1="80" x2="74" y2="71" stroke="#c89b3c" stroke-width="2"/><line x1="706" y1="80" x2="706" y2="71" stroke="#c89b3c" stroke-width="2"/><circle cx="86" cy="80" r="11" fill="#2f5a63" fill-opacity="0.5" stroke="#9fd0db" stroke-width="1.8"/><circle cx="132" cy="80" r="6" fill="#9fd0db" fill-opacity="0.5"/><circle cx="160" cy="74" r="5" fill="#9fd0db" fill-opacity="0.4"/><circle cx="178" cy="86" r="5" fill="#9fd0db" fill-opacity="0.4"/><circle cx="206" cy="80" r="6" fill="#9fd0db" fill-opacity="0.45"/><rect x="678" y="68" width="24" height="24" fill="#a3242c" fill-opacity="0.4" stroke="#e8959c" stroke-width="1.8"/><circle cx="636" cy="80" r="6" fill="#e8959c" fill-opacity="0.5"/><circle cx="610" cy="74" r="5" fill="#e8959c" fill-opacity="0.4"/><circle cx="592" cy="86" r="5" fill="#e8959c" fill-opacity="0.4"/><circle cx="566" cy="80" r="6" fill="#e8959c" fill-opacity="0.45"/><circle cx="470" cy="52" r="4.5" fill="#e0a060" fill-opacity="0.5"/><circle cx="498" cy="46" r="4" fill="#e0a060" fill-opacity="0.4"/><circle cx="516" cy="56" r="4" fill="#e0a060" fill-opacity="0.4"/><circle cx="390" cy="80" r="31" fill="none" stroke="#ecc868" stroke-width="1.4" stroke-dasharray="6 5" opacity=".7"/><circle cx="390" cy="80" r="17" fill="#c89b3c" fill-opacity="0.35" stroke="#ecc868" stroke-width="2"/><circle cx="350" cy="80" r="6" fill="#ecc868" fill-opacity="0.55"/><circle cx="430" cy="80" r="6" fill="#ecc868" fill-opacity="0.55"/><circle cx="368" cy="70" r="4.5" fill="#ecc868" fill-opacity="0.45"/><circle cx="414" cy="90" r="4.5" fill="#ecc868" fill-opacity="0.45"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <p class="cm-sech">Das Meinungsbild · sechs wiederkehrende Positionen</p>
+  <div class="cm-block cm-block--p"><div class="cm-block__head"><span class="cm-tag">Reine Privatsache</span><span class="cm-lean">Pütz-Pol</span></div><p class="cm-pos">Sexualität ist Privatsache — niemand soll moralisch darüber urteilen.</p><p class="cm-quote">„Sexualität ist reine Privatsache. Punkt.“<span class="cm-by">@-dAtA-TRoN-</span></p></div>
+  <div class="cm-block cm-block--p"><div class="cm-block__head"><span class="cm-tag">Pütz näher an der Realität</span><span class="cm-lean">Pütz-Pol</span></div><p class="cm-pos">Shlomo brillant, aber Theoretiker; Pütz bringt die Lebenserfahrung mit.</p><p class="cm-quote">„… da kommt halt auch noch die Lebenserfahrung deutlich durch“<span class="cm-by">@tellosdaniel7228</span></p></div>
+  <div class="cm-block cm-block--mid"><div class="cm-block__head"><span class="cm-tag">Die Mitte · gibt beiden recht</span><span class="cm-lean">Pütz + Shlomo</span></div><p class="cm-pos">Mildes Stigma — aber kein Verbot, und nicht öffentlich propagieren.</p><p class="cm-quote">„nicht verbieten, aber trotzdem mit Stigma bisschen lenken“<span class="cm-by">@huginn1879</span></p></div>
+  <div class="cm-block cm-block--s"><div class="cm-block__head"><span class="cm-tag">Degeneration ist ein Spektrum</span><span class="cm-lean">Shlomo-Neigung</span></div><p class="cm-pos">Vieles ist „degeneriert“ — tolerieren ja, glorifizieren nein.</p><p class="cm-quote">„Swingerclub ist degeneriert, Netflix ist degeneriert“<span class="cm-by">@ataraxia1829</span></p></div>
+  <div class="cm-block cm-block--s"><div class="cm-block__head"><span class="cm-tag">Inhaltlich Shlomo — aber zu verkopft</span><span class="cm-lean">Shlomo-Inhalt · Form-Kritik</span></div><p class="cm-pos">Recht in der Sache, aber rabulistisch und am eigentlichen Punkt vorbei.</p><p class="cm-quote">„… mit dieser Wadenbeißer-Rabulistik … hat der Diskussion überhaupt nicht gut getan“<span class="cm-by">@BrigoStyle</span></p></div>
+  <div class="cm-block cm-block--meta"><div class="cm-block__head"><span class="cm-tag">Sie reden aneinander vorbei</span><span class="cm-lean">Meta · zwei Weltbilder</span></div><p class="cm-pos">Zwei Ideologien — Freiheit gegen Gemeinschaft; oft gar nicht wirklich uneins.</p><p class="cm-quote">„Ihr redet aneinander vorbei …“<span class="cm-by">@zaches4360</span></p></div>
+  <div class="cm-qs">
+    <h3 class="cm-qs__h">Schärfste Fragen aus den Kommentaren</h3>
+    <div class="cm-qs__grid">
+      <div class="cm-qcol cm-qcol--s"><span class="cm-qcol__lab">An die Stigma-Seite · Shlomo</span><ul><li>Wenn alles ein Spektrum ist — wo endet die Stigmatisierung? Beim Feierabendbier, bei Knöcheln?</li><li>Gibt es überhaupt ein „sozial verträgliches“ Stigma — oder kippt es in „alle wie sie wollen“?</li><li>Erfüllt der Kritiker den eigenen Maßstab?</li></ul></div>
+      <div class="cm-qcol cm-qcol--p"><span class="cm-qcol__lab">An die Freiheits-Seite · Pütz</span><ul><li>Wenn jeder selbst entscheidet — wer trägt die Folgen für Kinder und Gesellschaft?</li><li>Lässt sich überhaupt eine Grenzlinie ziehen — oder rutscht alles ins Beliebige?</li><li>Hält die eigene Grenze stand: Swingerclub in Ordnung, aber hoher Bodycount pervers?</li></ul></div>
+    </div>
+    <p class="cm-meta-q"><span class="lab">An beide</span>Wart ihr in Wahrheit gar nicht uneins — und hätte ein Moderator die Scheindebatte entwirrt?</p>
+  </div>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page st-page" id="schlussthese" aria-label="Schlussthese">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">11 / 12</span>
+  <p class="st-eyebrow">Schlussthese</p>
+  <h2 class="st-title">Worüber wirklich gestritten wurde</h2>
+  <p class="st-deck">Hinter dem Wort ‚degeneriert’ liegt eine ältere, unentschiedene Frage.</p>
+  <div class="kb" aria-hidden="true"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="stgl" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="#c89b3c" stop-opacity=".17"/><stop offset="1" stop-color="#c89b3c" stop-opacity="0"/></radialGradient></defs><rect x="0" y="0" width="780" height="130" fill="#0e161b"/><rect x="0" y="0" width="780" height="130" fill="url(#stgl)"/><path d="M170 96 Q300 44 390 60" fill="none" stroke="#c89b3c" stroke-width="1.2" opacity=".14"/><path d="M610 96 Q480 44 390 60" fill="none" stroke="#c89b3c" stroke-width="1.2" opacity=".14"/><line x1="250" y1="116" x2="530" y2="116" stroke="#c89b3c" stroke-width="1" opacity=".16"/><path d="M376 112 L390 96 L404 112 Z" fill="#c89b3c"/><line x1="390" y1="96" x2="390" y2="72" stroke="#c89b3c" stroke-width="2"/><line x1="255" y1="72" x2="525" y2="72" stroke="#c89b3c" stroke-width="2.5" stroke-linecap="round"/><line x1="262" y1="72" x2="262" y2="84" stroke="#9a8f78" stroke-width="1.2"/><path d="M244 84 Q262 97 280 84" fill="none" stroke="#9fd0db" stroke-width="2"/><line x1="518" y1="72" x2="518" y2="84" stroke="#9a8f78" stroke-width="1.2"/><path d="M500 84 Q518 97 536 84" fill="none" stroke="#e8959c" stroke-width="2"/><circle cx="262" cy="74" r="6" fill="none" stroke="#9fd0db" stroke-width="2"/><circle cx="251" cy="65" r="2.4" fill="#9fd0db"/><circle cx="273" cy="63" r="2.4" fill="#9fd0db"/><rect x="511" y="67" width="5" height="5" fill="#e8959c"/><rect x="519" y="67" width="5" height="5" fill="#e8959c"/><rect x="511" y="75" width="5" height="5" fill="#e8959c"/><rect x="519" y="75" width="5" height="5" fill="#e8959c"/><text x="768" y="123" text-anchor="end" class="kb-ill">Illustration</text></svg></div>
+  <div class="st-meet"><span class="lab">Worin sie sich treffen</span><p>Beide wollen Ordnung, beide misstrauen dem Mainstream — und beide werten, auch wenn der eine es bestreitet. Ihr Konflikt ist keiner über das <em>Ob</em> der Werte, sondern über deren <em>Ort</em>.</p></div>
+  <div class="st-core"><span class="lab">Der unauflösbare Kern</span><p>Der Streit dreht sich kaum um Swingerclubs, sondern um die Frage: Darf eine Gemeinschaft das <span class="g">Private moralisch beurteilen</span> — oder ist schon das <span class="g">Urteil ein Übergriff</span>? Pütz setzt das <span class="g">Individuum</span> als letzte Instanz, SHLOMO die <span class="g">Kultur</span>. Aus beiden Prämissen folgt zwingend Verschiedenes — und keine widerlegt die andere.</p></div>
+  <div class="st-open"><span class="st-open__lab">Was offen bleibt</span><div class="st-open__grid"><div class="st-oitem">Gibt es einen Maßstab, der nicht von der Richtung abhängt?</div><div class="st-oitem">Existiert ein Standpunkt, der nicht selbst schon wertet?</div><div class="st-oitem">Ist die verbindliche Form natürlich — oder gemacht?</div><div class="st-oitem">Schadet das Private — und wo verliefe die Grenze?</div></div></div>
+  <p class="st-close">Es bleibt kein Sieger, sondern eine geschärfte Frage: <span class="g">Wie viel Form verträgt die Freiheit — und wie viel Freiheit die Form?</span></p>
+</section>
+
+<hr class="br-cut">
+<section class="br-page kp-page st-page" id="kolophon" aria-label="Kolophon">
+  <span class="kp-frame" aria-hidden="true"></span>
+  <span class="kp-num">12 / 12</span>
+  <div class="ko-wrap">
+    <p class="st-eyebrow">Kolophon</p>
+    <h2 class="st-title">Apparat, Methode, Sorgfalt</h2>
+    <p class="st-deck">Quelle, Zuordnung, O-Töne — und was als Zusatz des Bearbeiters markiert ist.</p>
+    <hr class="ko-rule">
+    <div class="ko-sec"><p class="ko-sec__h">Die Quelle</p><div class="ko-card"><p>Ein einziges deutschsprachiges YouTube-Streamgespräch (0:00–1:02:56, ≈ 63 Minuten) zwischen zwei Sprechern. Grundlage ist ein <b>automatisch erstelltes Transkript</b> — ohne Sprecher-Kennzeichnung. <a class="ko-link" href="https://www.youtube.com/watch?v=6WykWrIEjT0" target="_blank" rel="noopener">Quelle auf YouTube ↗</a></p></div></div>
+    <div class="ko-sec"><p class="ko-sec__h">Die Sprecher</p><div class="ko-people"><div class="ko-person ko-person--p"><span class="ko-person__b">P</span><div><p class="ko-person__n">Maximilian Pütz</p><p class="ko-person__r">libertär · Gastgeber</p><p class="ko-person__note">Vertritt die libertäre Position im Gespräch.</p></div></div><div class="ko-person ko-person--s"><span class="ko-person__b">S</span><div><p class="ko-person__n">SHLOMO</p><p class="ko-person__r">rechtsradikal</p><p class="ko-person__note">Nennt sich selbst bei Min. 29:47; Schreibweise aus dem Audio abgeleitet.</p></div></div></div><div class="ko-card"><p>Das Transkript trug keine Sprecher-Labels. Die Zuordnung der Aussagen erfolgte <b>inhaltlich</b> — anhand von Position, Anrede und Gesprächsverlauf, nicht aus Metadaten.</p></div></div>
+    <div class="ko-sec"><p class="ko-sec__h">Verifizierte O-Töne · wortwörtlich, mit Zeitmarke</p><div class="ko-card"><div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">P</span><span class="ko-q__ts">Min. 6:05</span></div><p class="ko-q__t">„degeneriert, das ist ja schon wirklich die Maximalstufe der Abwertung“</p></div><div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">S</span><span class="ko-q__ts">Min. 9:31</span></div><p class="ko-q__t">„Es geht darum, ob du überhaupt eine Kategorie dafür hast.“</p></div><div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">S</span><span class="ko-q__ts">Min. 10:46</span></div><p class="ko-q__t">„Im Grunde genommen stimmst du mir die ganze Zeit zu, aber framest es vorher etwas um.“</p></div><div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">S</span><span class="ko-q__ts">Min. 15:31</span></div><p class="ko-q__t">„der libertäre Weg, wir gießen es in gar keine Form.“</p></div><div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">S</span><span class="ko-q__ts">Min. 26:20</span></div><p class="ko-q__t">„du sitzt im selben Boot. Du sitzt nur 100 m weiter runter den Fluss“</p></div><div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">P</span><span class="ko-q__ts">Min. 44:15</span></div><p class="ko-q__t">„da gibt’s überhaupt gar keine Korrelation“</p></div><div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">S</span><span class="ko-q__ts">Min. 46:33</span></div><p class="ko-q__t">„in der Regel sind das normale Leute, die einem kulturellen Gesamtkonzept folgen“</p></div><div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">P</span><span class="ko-q__ts">Min. 59:53</span></div><p class="ko-q__t">„Der Staat ist halt in sich ein faules System, das immer korrumpiert wird durch Menschen.“</p></div></div></div>
+    <div class="ko-sec"><div class="ko-grid"><div><p class="ko-sec__h">Anti-Halluzination</p><div class="ko-card"><ul><li>Personen nur als <b>Monogramm-Silhouetten</b> (P · S) — keine erfundenen Porträts.</li><li>Nur <b>wortwörtlich verifizierte</b> O-Töne mit Zeitmarke; keine erfundenen Zitate, Zahlen oder Statistiken.</li><li>Die Kopf-Bänder sind <b>abstrakt-symbolische</b> Illustrationen (als „Illustration“ markiert) — keine Belegfotos, keine erfundenen Datendiagramme; die Punktwolke in „Aneinander vorbei“ ist bewusst trendlos.</li><li>Der Closed-Book-Wert (35,9 %) im Prüfsiegel beschreibt <b>ungestützte</b> Antworten, nicht diese quellengestützte Arbeit.</li></ul></div></div><div><p class="ko-sec__h">Zusätze des Bearbeiters</p><div class="ko-card"><ul><li><b>Seite 08 · „Kritik von links“</b> — eine sozialdemokratisch-linksliberale Lesart.</li><li><b>Seite 09 · „Eine pluralistische Lesart“</b> — eine Modus-vivendi-/wertepluralistische Lesart.</li><li>Seiten 08–09 sind <b>positionierte Deutungen</b> ohne wörtliche Zitate; sie stammen nicht aus dem Gespräch.</li><li><b>Seite 10 · „Wohin die Kommentarspalte neigt“</b> — Auswertung der Kommentare unter Pützens Video; qualitativ, keine Auszählung. Kommentar-Zitate wörtlich (mit @Handle); Cluster und Fragen sind Analyse des Bearbeiters. Alles Übrige folgt der Quelle.</li></ul></div></div></div></div>
+    <p class="ko-foot">Quelle: ein deutschsprachiges YouTube-Streamgespräch (≈ 63 Min). Diese Broschüre verdichtet es in Themenkomplexe; die Lesarten (S. 08–09) und die Kommentar-Auswertung (S. 10) sind als Zusätze des Bearbeiters markiert. Texterzeugung: Claude Opus 4.8.</p>
+  </div>
+</section>
+
+<script>/*__printdetails*/addEventListener("beforeprint",function(){document.querySelectorAll("details").forEach(function(d){d.__o=d.open;d.open=true;});});addEventListener("afterprint",function(){document.querySelectorAll("details").forEach(function(d){d.open=d.__o;});});</script>
+</body>
+</html>
