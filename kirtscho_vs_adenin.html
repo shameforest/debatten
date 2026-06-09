@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>„Biologie oder Identität?“ — Broschüre · Kirtscho vs. Adenin</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,500;1,6..72,600&amp;family=Spectral:ital,wght@0,400;0,500;1,400&amp;family=Inter+Tight:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f13;--ink:#f4ecd9;--paper:rgba(255,255,255,.025);
+  --primary:#1d3a40;--gold:#c89b3c;--gold-lt:#ecc868;
+  --a:#2f5a63;--a-lt:#9fd0db;--b:#a3242c;--b-lt:#e8959c;
+  --terra:#b85c2f;--terra-lt:#e0a060;--viol:#8a64bf;--viol-lt:#c9a8e6;
+  --grn:#3a6b35;--grn-lt:#9fd08f;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);font-family:"Spectral",Georgia,serif;color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+.br-cut{border:0;height:1px;width:min(820px,90vw);margin:0 auto;background:linear-gradient(90deg,transparent,rgba(200,155,60,.42),transparent);}
+.br-page{position:relative;min-height:100vh;display:flex;flex-direction:column;}
+.mono{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;font:700 .8em/1 "Inter Tight",sans-serif;flex:none;color:#fff;}
+
+/* ===== Cover ===== */
+.tc-cover{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(30px,5vw,66px) clamp(18px,4vw,56px);text-align:center;color:#f3ead4;
+  background:
+    radial-gradient(140% 72% at 50% 114%, rgba(0,0,0,.42), transparent 56%),
+    radial-gradient(92% 52% at 50% 46%, rgba(255,242,212,.07), transparent 72%),
+    radial-gradient(128% 86% at 50% -6%, rgba(255,240,200,.11), transparent 60%),
+    linear-gradient(102deg,#11232a 0%,#1d3a40 25%,#23395c 46.4%,#c89b3c 49.3%,#c89b3c 50.7%,#6e1f24 53.6%,#7c241f 72%,#290f13 100%);}
+.tc-cover *{box-sizing:border-box;}
+.tc-cover::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(circle at 50% 48%, transparent 52%, rgba(0,0,0,.46) 100%);}
+.tc-cover::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.05;background-image:radial-gradient(rgba(255,255,255,.85) .6px, transparent .7px);background-size:5px 5px;}
+.tc-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.55);z-index:2;pointer-events:none;}
+.tc-frame::before{content:"";position:absolute;inset:7px;border:1px solid rgba(200,155,60,.26);}
+.tc-edge{position:absolute;width:8px;height:8px;background:#c89b3c;transform:rotate(45deg);z-index:3;opacity:.9;pointer-events:none;box-shadow:0 0 0 1px rgba(17,21,26,.30);}
+.tc-edge--t{top:calc(clamp(14px,2.4vw,30px) - 4px);left:50%;margin-left:-4px;}
+.tc-edge--b{bottom:calc(clamp(14px,2.4vw,30px) - 4px);left:50%;margin-left:-4px;}
+.tc-edge--l{left:calc(clamp(14px,2.4vw,30px) - 4px);top:50%;margin-top:-4px;}
+.tc-edge--r{right:calc(clamp(14px,2.4vw,30px) - 4px);top:50%;margin-top:-4px;}
+.tc-inner{position:relative;z-index:4;width:100%;max-width:1120px;display:flex;flex-direction:column;align-items:center;gap:clamp(20px,3.2vw,42px);}
+.tc-kicker{margin:0;display:inline-block;padding:.55em 1.4em;font:600 clamp(11px,1.5vw,15px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#f4ecd9;background:rgba(13,18,23,.62);border:2px solid #c89b3c;border-radius:3px;box-shadow:0 2px 16px rgba(0,0,0,.45);}
+.tc-duel{display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;align-items:center;justify-items:center;column-gap:clamp(16px,3.2vw,52px);row-gap:clamp(10px,1.5vw,18px);width:100%;}
+.tc-cell-pmono{grid-column:1;grid-row:1;}.tc-cell-pname{grid-column:1;grid-row:2;}.tc-cell-ptag{grid-column:1;grid-row:3;}
+.tc-cell-smono{grid-column:3;grid-row:1;}.tc-cell-sname{grid-column:3;grid-row:2;}.tc-cell-stag{grid-column:3;grid-row:3;}
+.tc-cell-vs{grid-column:2;grid-row:2;}
+.tc-mono{width:clamp(58px,8vw,92px);height:clamp(58px,8vw,92px);border-radius:50%;display:grid;place-items:center;
+  font:500 clamp(26px,4vw,46px)/1 "Newsreader",serif;font-style:italic;color:#f3ead4;border:1.5px solid rgba(200,155,60,.7);background:rgba(12,17,22,.34);}
+.tc-name{margin:0;max-width:100%;min-width:0;text-align:center;padding-inline:clamp(6px,1.4vw,18px);overflow-wrap:normal;word-break:keep-all;hyphens:none;font:800 clamp(28px,4.5vw,54px)/1.0 "Newsreader",serif;letter-spacing:-.012em;text-transform:uppercase;
+  font-feature-settings:"kern","liga";text-shadow:0 1px 0 rgba(247,234,212,.12),0 -1px 0 rgba(0,0,0,.4),0 3px 7px rgba(0,0,0,.5),0 0 34px rgba(0,0,0,.25);}
+.tc-tag{margin:0;font:600 clamp(11px,1.7vw,16px)/1 "Inter Tight",sans-serif;letter-spacing:.26em;text-transform:uppercase;padding:.52em 1.15em;border:1px solid rgba(200,155,60,.6);border-radius:2px;}
+.tc-tag--cool{color:#bcd2e6;background:rgba(36,57,92,.42);}
+.tc-tag--warm{color:#ecc7a4;background:rgba(110,31,36,.44);}
+.tc-vs{position:relative;display:grid;place-items:center;width:clamp(74px,10vw,118px);height:clamp(74px,10vw,118px);}
+.tc-vs__disc{position:relative;z-index:2;width:100%;height:100%;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 38% 30%,#313841,#11151a);border:2px solid #c89b3c;
+  box-shadow:0 0 0 4px rgba(200,155,60,.20),0 0 0 5.5px rgba(200,155,60,.5),0 10px 30px rgba(0,0,0,.62);}
+.tc-vs__disc i{font:500 clamp(23px,3.6vw,42px)/1 "Newsreader",serif;font-style:italic;color:#e8c478;text-shadow:0 1px 1px rgba(0,0,0,.55),0 0 10px rgba(200,155,60,.25);}
+.tc-pitch{position:relative;max-width:880px;display:flex;justify-content:center;padding:clamp(6px,1.2vw,12px) 0;}
+.tc-pitch p{margin:0;max-width:100%;padding:.6em 1.2em;background:rgba(12,17,22,.68);border:3px solid #c89b3c;border-radius:5px;box-shadow:0 5px 24px rgba(0,0,0,.5);font:500 clamp(18px,2.6vw,30px)/1.34 "Newsreader",serif;font-style:italic;color:#f9f2dd;font-feature-settings:"liga","kern";}
+.tc-meta{margin:0;display:inline-flex;align-items:center;gap:14px;font:600 clamp(10px,1.4vw,13px)/1.5 "Inter Tight",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#cebb8d;}
+.tc-meta::before,.tc-meta::after{content:"";width:5px;height:5px;background:#b79a5e;transform:rotate(45deg);opacity:.7;flex:none;}
+.tc-rule2{display:flex;align-items:center;justify-content:center;gap:11px;width:min(460px,74%);}
+.tc-rule2__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,#c89b3c 28%,#c89b3c 72%,transparent);opacity:.72;}
+.tc-rule2__dot{position:relative;width:10px;height:10px;border:1px solid #c89b3c;transform:rotate(45deg);flex:none;}
+.tc-rule2__dot::after{content:"";position:absolute;inset:2.6px;background:#c89b3c;}
+@media (max-width:860px){.tc-duel{display:flex;flex-direction:column;align-items:center;gap:14px;}.tc-cell-pmono{order:1;}.tc-cell-pname{order:2;}.tc-cell-ptag{order:3;}.tc-cell-vs{order:4;}.tc-cell-smono{order:5;}.tc-cell-sname{order:6;}.tc-cell-stag{order:7;}.tc-name{font-size:clamp(28px,8vw,50px);padding-inline:0;}}
+@media print{.tc-cover{min-height:297mm;}}
+
+/* ===== Prüfsiegel ===== */
+.seal-page{align-items:center;justify-content:flex-start;gap:clamp(18px,2.8vw,34px);padding:clamp(46px,8vw,96px) clamp(20px,5vw,64px);overflow:hidden;
+  background:radial-gradient(120% 78% at 50% 0%,#1b2832 0%,#0e161b 62%),#0e161b;color:#f4ecd9;text-align:center;}
+.seal-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.55);pointer-events:none;}
+.seal-frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,155,60,.26);}
+.seal-eyebrow{margin:0;font:600 clamp(11px,1.4vw,14px)/1 "Inter Tight",sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#cda24f;}
+.seal-title{margin:0;font:600 clamp(28px,4.6vw,50px)/1.04 "Newsreader",serif;font-style:italic;color:#f7f0db;max-width:18ch;}
+.seal-mark{width:clamp(214px,30vw,300px);height:auto;filter:drop-shadow(0 8px 22px rgba(0,0,0,.5));}
+.seal-mark text{font-family:"Inter Tight",sans-serif;}
+.seal-arc{font-size:12px;font-weight:600;letter-spacing:.12em;fill:#cda24f;}
+.seal-grade{font-family:"Newsreader",serif;font-size:52px;font-weight:800;fill:#f7f0db;}
+.seal-band{font-family:"Spectral",serif;font-size:13px;fill:#e7dcc2;}
+.seal-foot{font-size:10.5px;font-weight:600;letter-spacing:.18em;fill:#cda24f;}
+.seal-rating{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:680px;}
+.seal-factor{font:700 clamp(14px,2vw,19px)/1.15 "Inter Tight",sans-serif;color:#13202a;background:linear-gradient(180deg,#ecc868,#cda24f);padding:.62em 1.35em;border-radius:4px;box-shadow:0 5px 18px rgba(0,0,0,.45);}
+.seal-meta{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-family:"Inter Tight",sans-serif;font-size:clamp(12px,1.5vw,15px);color:#cdbfa0;}
+.seal-meta b{color:#ecc868;font-weight:600;}
+.seal-source{margin:6px 0 0;text-align:center;font:600 12.5px/1.5 "Inter Tight",sans-serif;color:#9a8f78;}
+.seal-source .lab{display:inline-block;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#cda24f;margin-right:.55em;font-size:11px;}
+.seal-source a{color:#ecc868;text-decoration:none;border-bottom:1px solid rgba(236,200,104,.4);}
+.seal-source a:hover{border-bottom-color:#ecc868;}
+.seal-div{border:0;height:1px;width:min(560px,82%);margin:0 auto;background:linear-gradient(90deg,transparent,rgba(200,155,60,.42),transparent);}
+.seal-verlass{max-width:700px;font:500 clamp(14px,1.7vw,17px)/1.55 "Spectral",Georgia,serif;color:#e9deca;}
+.seal-vl{display:inline-block;font:700 .68rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ecc868;margin-right:.55em;}
+.seal-block{width:100%;max-width:680px;display:flex;flex-direction:column;gap:13px;align-items:center;}
+.seal-h{margin:0;font:600 clamp(15px,1.9vw,19px)/1.2 "Inter Tight",sans-serif;color:#f1e7cf;}
+.seal-h em{color:#ecc868;font-style:italic;}
+.seal-bars{width:100%;display:flex;flex-direction:column;gap:11px;}
+.seal-bar{display:grid;grid-template-columns:178px 1fr;align-items:center;gap:14px;}
+.seal-bar__name{font:600 13px/1.2 "Inter Tight",sans-serif;color:#cdbfa0;text-align:right;}
+.seal-bar__track{height:26px;background:rgba(255,255,255,.05);border:1px solid rgba(200,155,60,.22);border-radius:3px;overflow:hidden;}
+.seal-bar__fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding:0 .55em;font:700 12px/1 "Inter Tight",sans-serif;color:#fff;white-space:nowrap;}
+.seal-cap2{margin:.1em 0 0;font:400 clamp(10.5px,1.2vw,12px)/1.5 "Inter Tight",sans-serif;color:#9a8f78;max-width:640px;text-align:left;}
+@media (max-width:600px){.seal-bar{grid-template-columns:1fr;gap:5px;}.seal-bar__name{text-align:left;}}
+.seal-cmp{width:100%;max-width:680px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.seal-col{border:1px solid rgba(200,155,60,.25);border-radius:6px;padding:15px 16px;text-align:left;background:rgba(255,255,255,.025);}
+.seal-col--mit{border-color:rgba(236,200,104,.55);background:rgba(236,200,104,.06);box-shadow:0 4px 18px rgba(0,0,0,.32);}
+.seal-col h3{margin:0;font:700 .7rem/1 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;}
+.seal-col--on h3{color:#b9ad92;}.seal-col--mit h3{color:#ecc868;}
+.seal-col .big{display:block;margin:7px 0 8px;font:700 clamp(16px,2.1vw,21px)/1.15 "Newsreader",serif;font-style:italic;}
+.seal-col--on .big{color:#cdbfa0;}.seal-col--mit .big{color:#f4ecd9;}
+.seal-col p{margin:0 0 5px;font:400 clamp(12.5px,1.5vw,14px)/1.5 "Spectral",Georgia,serif;color:#d6cab0;}
+.seal-col p:last-child{margin-bottom:0;}
+.seal-amp{width:100%;max-width:680px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.seal-amp>div{display:flex;gap:11px;align-items:flex-start;border-radius:6px;padding:13px 15px;text-align:left;}
+.seal-amp .ok{background:rgba(58,107,53,.18);border:1px solid rgba(90,150,80,.42);}
+.seal-amp .warn{background:rgba(168,132,44,.15);border:1px solid rgba(200,155,60,.45);}
+.seal-amp span.tx{font:400 clamp(12px,1.45vw,13.5px)/1.45 "Inter Tight",sans-serif;color:#dcd0b6;}
+.seal-amp b{display:block;font:700 .68rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.seal-amp .ok b{color:#9fd08f;}.seal-amp .warn b{color:#ecc868;}
+@media (max-width:600px){.seal-cmp,.seal-amp{grid-template-columns:1fr;}}
+.seal-audit{width:100%;max-width:680px;display:flex;flex-direction:column;gap:12px;align-items:center;}
+.seal-audit p{margin:0;font:500 clamp(14px,1.7vw,17px)/1.55 "Spectral",Georgia,serif;color:#e9deca;max-width:640px;}
+.seal-audit p .lab{display:inline-block;font:700 .68rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;margin-right:.5em;}
+.seal-steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.seal-step{font:600 11px/1 "Inter Tight",sans-serif;color:#cdbfa0;border:1px solid rgba(200,155,60,.32);border-radius:999px;padding:.5em .9em;background:rgba(255,255,255,.03);}
+.seal-details{width:100%;max-width:680px;border:1px solid rgba(200,155,60,.22);border-radius:6px;background:rgba(255,255,255,.02);text-align:left;}
+.seal-details>summary{cursor:pointer;list-style:none;padding:12px 16px;font:700 .72rem/1 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#ecc868;display:flex;align-items:center;gap:9px;}
+.seal-details>summary::-webkit-details-marker{display:none;}
+.seal-details>summary::before{content:"+";font-size:1.15em;line-height:1;color:#cda24f;}
+.seal-details[open]>summary::before{content:"–";}
+.seal-details .body{padding:2px 16px 16px;font:400 12.5px/1.55 "Inter Tight",sans-serif;color:#bdb195;}
+.seal-details .body h4{margin:13px 0 3px;font:700 .66rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cdbfa0;}
+.seal-details .body p{margin:0 0 3px;}
+.seal-details .body ol{margin:4px 0 0;padding-left:1.35em;}
+.seal-details .body li{margin:2px 0;}
+.seal-details .body b{color:#e7dcc2;font-weight:600;}
+.kp-num{position:absolute;top:clamp(20px,3vw,34px);right:clamp(26px,4vw,48px);font:600 11px/1 "Inter Tight",sans-serif;letter-spacing:.1em;color:#cda24f;z-index:2;}
+
+/* ===== Themenlandkarte ===== */
+.lm-page{align-items:center;justify-content:flex-start;gap:clamp(16px,2.4vw,28px);padding:clamp(46px,7vw,84px) clamp(20px,5vw,60px);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b2832,#0e161b 64%),#0e161b;color:#f4ecd9;text-align:center;}
+.lm-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.5);pointer-events:none;}
+.lm-frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,155,60,.24);}
+.lm-eyebrow{margin:0;font:700 clamp(11px,1.4vw,13px)/1 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cda24f;}
+.lm-title{margin:.3rem 0 0;font:600 clamp(30px,5vw,52px)/1.04 "Newsreader",serif;font-style:italic;color:#f7f0db;}
+.lm-deck{margin:8px 0 0;font:400 clamp(14px,1.8vw,17px)/1.45 "Spectral",Georgia,serif;font-style:italic;color:#9a8f78;max-width:60ch;}
+.lm-chasm{width:100%;max-width:760px;border:1px solid rgba(200,155,60,.25);border-radius:8px;background:rgba(0,0,0,.22);padding:clamp(12px,1.8vw,20px);}
+.lm-chasm svg{width:100%;height:auto;display:block;}
+.lm-chasm text{font-family:"Inter Tight",sans-serif;}
+.lm-chasm .cl-n{font-weight:700;font-size:14px;fill:#f4ecd9;}
+.lm-chasm .cl-t{font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.lm-chasm .cl-s{font-family:"Spectral",serif;font-size:11px;fill:#cdbfa0;}
+.lm-chasm .cl-gap{font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;fill:#9a8f78;}
+.lm-chasm .cl-q{font-family:"Newsreader",serif;font-style:italic;font-size:11px;fill:#b6a988;}
+.lm-chasmcap{margin-top:11px;font:600 .68rem/1.4 "Inter Tight",sans-serif;color:#9a8f78;text-align:center;}
+.lm-stances{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.6vw,16px);width:100%;max-width:790px;}
+.lm-stance{border:1px solid rgba(200,155,60,.28);border-radius:8px;background:rgba(255,255,255,.03);padding:15px 17px;text-align:left;border-top-width:3px;}
+.lm-stance--a{border-top-color:#2f5a63;}
+.lm-stance--b{border-top-color:#a3242c;}
+.lm-stance__h{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.lm-stance__h .mono{width:2.1em;height:2.1em;font-size:.95em;}
+.lm-stance--a .mono{background:#2f5a63;}.lm-stance--b .mono{background:#a3242c;}
+.lm-stance__n{font:700 .98rem/1.1 "Inter Tight",sans-serif;color:#f4ecd9;}
+.lm-stance__t{display:block;font:700 .54rem/1.3 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:3px;}
+.lm-stance--a .lm-stance__t{color:#9fd0db;}.lm-stance--b .lm-stance__t{color:#e8959c;}
+.lm-stance__pos{margin:0 0 9px;font:600 clamp(14px,1.8vw,16.5px)/1.4 "Newsreader",serif;color:#f1e7cf;}
+.lm-stance__q{margin:0;font:400 13px/1.5 "Spectral",Georgia,serif;font-style:italic;color:#cdbfa0;}
+.lm-stance__q .src{display:block;margin-top:5px;font:700 .56rem/1 "Inter Tight",sans-serif;font-style:normal;letter-spacing:.05em;}
+.lm-stance--a .src{color:#9fd0db;}.lm-stance--b .src{color:#e8959c;}
+.lm-tochead{margin:6px 0 0;font:700 clamp(11px,1.4vw,13px)/1 "Inter Tight",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#cda24f;}
+.lm-toc{list-style:none;margin:0;padding:0;width:100%;max-width:790px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.lm-toc a{display:flex;gap:12px;align-items:baseline;text-decoration:none;border:1px solid rgba(200,155,60,.22);border-radius:8px;background:rgba(0,0,0,.2);padding:12px 15px;}
+.lm-toc a:hover{border-color:rgba(200,155,60,.5);background:rgba(200,155,60,.06);}
+.lm-toc__n{font:800 .8rem/1 "Inter Tight",sans-serif;color:#ecc868;flex:none;}
+.lm-toc__t{font:600 14px/1.3 "Newsreader",serif;color:#f1e7cf;}
+.lm-toc__d{display:block;font:400 12px/1.4 "Spectral",Georgia,serif;color:#9a8f78;margin-top:2px;}
+@media (max-width:620px){.lm-stances,.lm-toc{grid-template-columns:1fr;}}
+
+/* ===== Kapitel (kp/du) ===== */
+.kp-page{align-items:center;justify-content:flex-start;gap:clamp(16px,2.4vw,26px);padding:clamp(46px,7vw,84px) clamp(20px,5vw,60px);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b2832,#0e161b 64%),#0e161b;color:#f4ecd9;text-align:left;position:relative;}
+.kp-frame{position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(200,155,60,.5);pointer-events:none;}
+.kp-frame::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,155,60,.24);}
+.kp-head{width:100%;max-width:780px;}
+.kp-eyebrow{margin:0;font:700 clamp(11px,1.4vw,13px)/1 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cda24f;}
+.kp-title{margin:.3rem 0 0;font:600 clamp(28px,4.6vw,46px)/1.05 "Newsreader",serif;font-style:italic;color:#f7f0db;}
+.kp-deck{margin:8px 0 0;font:400 clamp(14px,1.8vw,17px)/1.45 "Spectral",Georgia,serif;font-style:italic;color:#9a8f78;max-width:70ch;}
+.kp-kernfrage{max-width:780px;width:100%;border-left:3px solid #cda24f;background:rgba(200,155,60,.06);border-radius:0 8px 8px 0;padding:14px 20px;text-align:left;}
+.kp-kernfrage .lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cda24f;margin-bottom:6px;}
+.kp-kernfrage p{margin:0;font:500 clamp(16px,2vw,20px)/1.4 "Newsreader",serif;font-style:italic;color:#e7dcc2;}
+.kp-cite{max-width:780px;width:100%;border-left:3px solid #a3242c;background:rgba(163,36,44,.10);border-radius:0 6px 6px 0;padding:10px 14px;}
+.kp-cite p{margin:0;font:500 clamp(13px,1.6vw,15px)/1.42 "Newsreader",serif;font-style:italic;color:#e7dcc2;}
+.kp-cite .src{display:block;margin-top:5px;font:700 .58rem/1 "Inter Tight",sans-serif;font-style:normal;letter-spacing:.05em;color:#e8959c;}
+.kp-cite--p{border-left-color:#2f5a63;background:rgba(47,90,99,.10);}
+.kp-cite--p .src{color:#9fd0db;}
+.kp-fazit{width:100%;max-width:780px;border:1.5px solid rgba(236,200,104,.5);border-radius:10px;background:rgba(236,200,104,.06);padding:16px 20px;text-align:left;}
+.kp-fazit .lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;margin-bottom:7px;}
+.kp-fazit p{margin:0;font:500 clamp(14px,1.8vw,17px)/1.45 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.kb{width:100%;max-width:780px;height:clamp(96px,14vw,126px);border:1px solid rgba(200,155,60,.20);border-radius:10px;overflow:hidden;background:#0e161b;}
+.kb svg{display:block;width:100%;height:100%;}
+.kb-ill{font-weight:700;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;fill:#6f6857;font-family:"Inter Tight",sans-serif;}
+.du{width:100%;max-width:780px;position:relative;border:1px solid rgba(200,155,60,.28);border-radius:11px;overflow:hidden;background:rgba(0,0,0,.18);text-align:left;}
+.du__panels{display:grid;grid-template-columns:1fr 56px 1fr;align-items:stretch;}
+.du__pole{padding:16px 18px;border-top:3px solid;}
+.du__pole--a{background:rgba(47,90,99,.12);border-top-color:#2f5a63;}
+.du__pole--b{background:rgba(163,36,44,.10);border-top-color:#a3242c;}
+.du__gutter{display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.18);border-left:1px solid rgba(200,155,60,.18);border-right:1px solid rgba(200,155,60,.18);}
+.du__vs{width:46px;height:46px;border-radius:50%;background:#0e161b;border:2px solid #c89b3c;display:flex;align-items:center;justify-content:center;font:700 22px/1 "Newsreader",serif;color:#ecc868;}
+.du__top{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.du__top .mono{width:2.1em;height:2.1em;font-size:.95em;}
+.du__pole--a .mono{background:#2f5a63;}.du__pole--b .mono{background:#a3242c;}
+.du__name{display:block;font:700 .98rem/1.1 "Inter Tight",sans-serif;color:#f4ecd9;}
+.du__tag{display:block;font:700 .54rem/1.3 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;}
+.du__pole--a .du__tag{color:#9fd0db;}.du__pole--b .du__tag{color:#e8959c;}
+.du__pos{margin:0 0 8px;font:700 .56rem/1.3 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;}
+.du__these{margin:0;font:600 clamp(15px,2vw,19px)/1.32 "Newsreader",serif;color:#f4ecd9;}
+.du__more{margin-top:11px;}
+.du__more>summary{cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cda24f;list-style:none;padding:5px 12px;border:1px solid rgba(200,155,60,.38);border-radius:999px;}
+.du__more>summary::-webkit-details-marker{display:none;}
+.du__more>summary::after{content:"+";font-size:1.15em;line-height:0;}
+.du__more[open]>summary::after{content:"–";}
+.du__more>summary:hover{background:rgba(200,155,60,.14);color:#f0d68a;}
+.du__more>p{margin:10px 0 0;font:400 13px/1.5 "Spectral",Georgia,serif;color:#dcd0b6;}
+.du__break{border-top:1px solid rgba(184,92,47,.42);background:rgba(184,92,47,.11);padding:13px 18px;}
+.du__break__lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e0a060;margin-bottom:6px;}
+.du__break__line{margin:0;font:600 clamp(13.5px,1.7vw,16px)/1.38 "Newsreader",serif;color:#f4ecd9;}
+.du__oq{border-top:1px solid rgba(236,200,104,.4);background:rgba(236,200,104,.10);padding:14px 18px;}
+.du__oq .lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;margin-bottom:6px;}
+.du__oq p{margin:0;font:500 clamp(13px,1.6vw,15px)/1.42 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.du__konseq{width:100%;max-width:780px;border:1.5px solid rgba(236,200,104,.5);border-radius:10px;background:rgba(236,200,104,.06);text-align:left;overflow:hidden;}
+.du__konseq>summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;font:700 .62rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ecc868;list-style:none;}
+.du__konseq>summary::-webkit-details-marker{display:none;}
+.du__konseq>summary::after{content:"+";font-size:1.3em;line-height:0;}
+.du__konseq[open]>summary::after{content:"–";}
+.du__konseq .body{padding:0 18px 15px;}
+.du__konseq .body p{margin:0;font:500 clamp(14px,1.8vw,17px)/1.45 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+@media (max-width:620px){.du__panels{grid-template-columns:1fr;}.du__gutter{border-left:none;border-right:none;border-top:1px solid rgba(200,155,60,.18);border-bottom:1px solid rgba(200,155,60,.18);padding:8px 0;}}
+
+/* ===== Lesart-Marker / dlx ===== */
+.dl-flag{width:100%;max-width:780px;border:1.5px dashed rgba(200,155,60,.55);border-radius:10px;background:rgba(200,155,60,.06);padding:12px 18px;text-align:left;}
+.dl-flag .t{display:block;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ecc868;margin-bottom:5px;}
+.dl-flag p{margin:0;font:400 13px/1.45 "Spectral",Georgia,serif;color:#cdbfa0;}
+.dlx-block{width:100%;max-width:780px;border:1px solid rgba(200,155,60,.22);border-left-width:4px;border-radius:9px;background:rgba(0,0,0,.20);padding:14px 18px;text-align:left;}
+.dlx-block--p{border-left-color:#2f5a63;}.dlx-block--s{border-left-color:#a3242c;}.dlx-block--f{border-left-color:#c89b3c;}.dlx-block--e{border-left-color:#b85c2f;}
+.dlx-tag{display:block;font:700 .56rem/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9a8f78;margin-bottom:6px;}
+.dlx-block--p .dlx-tag{color:#9fd0db;}.dlx-block--s .dlx-tag{color:#e8959c;}.dlx-block--f .dlx-tag{color:#e0b860;}.dlx-block--e .dlx-tag{color:#e0a060;}
+.dlx-thesis{margin:0;font:600 clamp(15px,1.9vw,18px)/1.35 "Newsreader",serif;color:#f4ecd9;}
+.dlx-more{margin-top:9px;}
+.dlx-more summary{cursor:pointer;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#cda24f;list-style:none;display:inline-flex;align-items:center;gap:7px;}
+.dlx-more summary::-webkit-details-marker{display:none;}
+.dlx-more summary::after{content:"+";font-size:1.15em;line-height:0;}
+.dlx-more[open] summary::after{content:"–";}
+.dlx-more p{margin:9px 0 0;font:400 13.5px/1.5 "Spectral",Georgia,serif;color:#dcd0b6;}
+
+/* ===== Faktencheck (fc) ===== */
+.fc-legend{width:100%;max-width:780px;display:flex;flex-wrap:wrap;gap:9px 18px;justify-content:center;padding:12px 16px;border:1px solid rgba(200,155,60,.2);border-radius:9px;background:rgba(0,0,0,.18);}
+.fc-leg{display:inline-flex;align-items:center;gap:8px;font:600 11.5px/1.3 "Inter Tight",sans-serif;color:#cdbfa0;}
+.fc-leg::before{content:"";width:11px;height:11px;border-radius:3px;flex:none;}
+.fc-leg--emp::before{background:#9fd08f;}
+.fc-leg--imm::before{background:#c9a8e6;}
+.fc-leg--norm::before{background:#cdbfa0;}
+.fc-legnote{width:100%;max-width:780px;margin:0;font:400 12px/1.5 "Spectral",Georgia,serif;font-style:italic;color:#9a8f78;text-align:left;}
+.fc-grid{width:100%;max-width:780px;display:flex;flex-direction:column;gap:12px;}
+.fc-card{border:1px solid rgba(200,155,60,.2);border-radius:10px;background:rgba(0,0,0,.2);padding:15px 18px;text-align:left;}
+.fc-headrow{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;justify-content:space-between;margin-bottom:8px;}
+.fc-q{margin:0;font:600 clamp(15px,1.95vw,18px)/1.34 "Newsreader",serif;color:#f1e7cf;flex:1 1 60%;min-width:240px;}
+.fc-v{font:700 .62rem/1 "Inter Tight",sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:.5em .8em;border-radius:999px;border:1px solid;white-space:nowrap;flex:none;}
+.fc-v--ok{color:#9fd08f;border-color:rgba(90,150,80,.5);background:rgba(58,107,53,.16);}
+.fc-v--part{color:#e0b860;border-color:rgba(200,155,60,.5);background:rgba(168,132,44,.14);}
+.fc-v--open{color:#c9a8e6;border-color:rgba(138,100,191,.5);background:rgba(138,100,191,.14);}
+.fc-sum{margin:0;font:400 clamp(13px,1.6vw,14.5px)/1.55 "Spectral",Georgia,serif;color:#d6cab0;}
+.fc-more{margin-top:10px;}
+.fc-more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:7px;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#cda24f;padding:4px 11px;border:1px solid rgba(200,155,60,.32);border-radius:999px;}
+.fc-more>summary::-webkit-details-marker{display:none;}
+.fc-more>summary::after{content:"+";font-size:1.15em;line-height:0;}
+.fc-more[open]>summary::after{content:"–";}
+.fc-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:11px;}
+.fc-col{border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:11px 13px;}
+.fc-col--c{border-color:rgba(90,150,80,.36);background:rgba(58,107,53,.08);}
+.fc-col--r{border-color:rgba(200,155,60,.36);background:rgba(168,132,44,.07);}
+.fc-col h4{margin:0 0 6px;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+.fc-col--c h4{color:#9fd08f;}.fc-col--r h4{color:#e0b860;}
+.fc-col p{margin:0;font:400 12.5px/1.5 "Spectral",Georgia,serif;color:#cdbfa0;}
+.fc-src{margin:10px 0 0;font:400 11.5px/1.5 "Inter Tight",sans-serif;color:#8f8674;}
+.fc-src .lab{font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9a8f78;margin-right:.5em;}
+.fc-note{width:100%;max-width:780px;border:1px solid rgba(200,155,60,.28);border-radius:9px;background:rgba(200,155,60,.05);padding:13px 17px;font:400 12.5px/1.6 "Inter Tight",sans-serif;color:#bdb195;text-align:left;}
+.fc-note b{color:#e7dcc2;}
+@media (max-width:620px){.fc-split{grid-template-columns:1fr;}}
+
+/* ===== Kritik von links (lk) ===== */
+.lk-page{background:linear-gradient(180deg,#0c1419,var(--bg));align-items:center;justify-content:flex-start;gap:clamp(14px,2vw,22px);padding:clamp(46px,7vw,84px) clamp(20px,5vw,60px);overflow:hidden;text-align:left;position:relative;}
+.lk-eyebrow{margin:0;font:600 12px/1 "Inter Tight",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt);}
+.lk-title{margin:8px 0 0;font:700 clamp(24px,3.8vw,40px)/1.12 "Newsreader",serif;color:var(--ink);max-width:24ch;}
+.lk-deck{margin:8px 0 0;font:400 italic 15px/1.5 "Spectral",serif;color:#b3bdbb;max-width:62ch;}
+.lk-flag{width:100%;max-width:780px;margin:6px 0 0;padding:12px 16px;border-radius:7px;background:rgba(200,155,60,.08);border:1px dashed rgba(200,155,60,.5);}
+.lk-flag .t{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:5px;}
+.lk-flag p{margin:0;font:400 13px/1.55 "Spectral",serif;color:#bcc6c4;}
+.kb-lk{width:100%;max-width:780px;display:block;border-radius:7px;background:#0c1217;border:1px solid rgba(200,155,60,.2);overflow:hidden;}
+.kb-lk svg{display:block;width:100%;height:auto;}
+.lk-block{width:100%;max-width:780px;padding:15px 18px;border-radius:8px;background:var(--paper);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--gold);}
+.lk-block .tag{display:inline-block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:7px;padding:3px 9px;border:1px solid rgba(200,155,60,.4);border-radius:20px;}
+.lk-block .tag--a{color:var(--a-lt);border-color:rgba(159,208,219,.45);}
+.lk-block .tag--b{color:var(--b-lt);border-color:rgba(232,149,156,.45);}
+.lk-block .thesis{font:600 16px/1.4 "Newsreader",serif;color:var(--ink);margin:0;}
+.lk-block details{margin:9px 0 0;}
+.lk-block summary{cursor:pointer;font:600 11px/1.3 "Inter Tight",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-lt);list-style:none;}
+.lk-block summary::-webkit-details-marker{display:none;}
+.lk-block details p{font:400 13px/1.6 "Spectral",serif;color:#bcc6c4;margin:8px 0 0;}
+.lk-task{width:100%;max-width:780px;margin:6px 0 0;padding:18px 20px;border-radius:8px;background:rgba(47,90,99,.16);border:1px solid rgba(159,208,219,.32);}
+.lk-task .lab{display:block;font:600 10px/1.3 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--a-lt);margin-bottom:7px;}
+.lk-task p{margin:0;font:500 15px/1.5 "Newsreader",serif;color:var(--ink);}
+
+/* ===== Schlussthese (st) ===== */
+.st-page{align-items:center;justify-content:flex-start;gap:clamp(16px,2.4vw,26px);padding:clamp(46px,7vw,84px) clamp(20px,5vw,60px);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b2832,#0e161b 64%),#0e161b;color:#f4ecd9;text-align:center;position:relative;}
+.st-eyebrow{margin:0;font:700 .72rem/1 "Inter Tight",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#cda24f;}
+.st-title{margin:.45rem 0 0;font:800 clamp(30px,5vw,46px)/1.06 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.st-deck{margin:.7rem auto 0;font:400 clamp(15px,2vw,18px)/1.4 "Spectral",Georgia,serif;font-style:italic;color:#9a8f78;max-width:64ch;}
+.st-meet{width:100%;max-width:720px;text-align:left;}
+.st-meet .lab{display:block;font:700 .56rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9a8f78;margin-bottom:7px;}
+.st-meet p{margin:0;font:400 clamp(13.5px,1.7vw,16px)/1.55 "Spectral",Georgia,serif;color:#cdbfa0;}
+.st-meet em{color:#e7dcc2;font-style:italic;}
+.st-core{width:100%;max-width:720px;border:2px solid rgba(200,155,60,.6);border-radius:14px;background:radial-gradient(ellipse at 50% 0%,rgba(200,155,60,.14),rgba(0,0,0,.25));box-shadow:0 0 0 6px rgba(200,155,60,.10),0 10px 40px rgba(0,0,0,.4);padding:26px 30px;text-align:left;}
+.st-core .lab{display:block;font:700 .6rem/1 "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#ecc868;margin-bottom:12px;}
+.st-core p{margin:0;font:500 clamp(16px,2.3vw,21px)/1.45 "Newsreader",serif;font-style:italic;color:#f4ecd9;}
+.st-core p .g{color:#ecc868;font-weight:600;font-style:normal;}
+.st-open{width:100%;max-width:760px;text-align:left;}
+.st-open__lab{display:block;font:700 .58rem/1 "Inter Tight",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#cda24f;margin-bottom:12px;}
+.st-open__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.st-oitem{border:1px solid rgba(200,155,60,.25);border-radius:8px;background:rgba(0,0,0,.2);padding:12px 15px;text-align:left;font:400 13px/1.42 "Spectral",Georgia,serif;color:#dcd0b6;}
+.st-close{width:100%;max-width:680px;margin:0 auto;font:500 clamp(15px,2vw,19px)/1.45 "Newsreader",serif;font-style:italic;color:#cdbfa0;}
+.st-close .g{color:#ecc868;}
+@media (max-width:620px){.st-open__grid{grid-template-columns:1fr;}}
+
+/* ===== Kolophon (ko) ===== */
+.ko-wrap{max-width:880px;margin:0 auto;width:100%;text-align:left;}
+.ko-rule{border:0;height:1px;width:min(420px,70%);margin:18px auto 4px;background:linear-gradient(90deg,transparent,rgba(200,155,60,.5),transparent);}
+.ko-sec{margin-top:22px;}
+.ko-sec__h{margin:0 0 10px;font:700 12px/1 "Inter Tight",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#cda24f;}
+.ko-card{border:1px solid rgba(200,155,60,.18);border-radius:10px;background:rgba(255,255,255,.014);padding:15px 17px;}
+.ko-card p{margin:0;font:400 13.5px/1.6 "Inter Tight",sans-serif;color:#c7bfae;}
+.ko-card ul{margin:0;padding-left:18px;}
+.ko-card li{font:400 13px/1.55 "Inter Tight",sans-serif;color:#c7bfae;margin:5px 0;}
+.ko-card li b,.ko-card p b{color:#e7dcc2;font-weight:600;}
+.ko-link{color:#ecc868;text-decoration:none;border-bottom:1px solid rgba(236,200,104,.4);}
+.ko-link:hover{border-bottom-color:#ecc868;}
+.ko-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ko-people{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;}
+.ko-person{display:flex;align-items:flex-start;gap:12px;border:1px solid rgba(200,155,60,.16);border-radius:10px;padding:13px 15px;background:rgba(255,255,255,.014);}
+.ko-person__b{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 15px "Inter Tight",sans-serif;color:#fff;}
+.ko-person--p .ko-person__b{background:#2f5a63;}.ko-person--s .ko-person__b{background:#a3242c;}
+.ko-person__n{margin:0;font:600 15px/1.2 "Newsreader",serif;color:#f2ead7;}
+.ko-person__r{margin:2px 0 0;font:600 11px/1.2 "Inter Tight",sans-serif;letter-spacing:.04em;text-transform:uppercase;}
+.ko-person--p .ko-person__r{color:#9fd0db;}.ko-person--s .ko-person__r{color:#e8959c;}
+.ko-person__note{margin:5px 0 0;font:400 12px/1.45 "Inter Tight",sans-serif;color:#9a917f;}
+.ko-q{display:grid;grid-template-columns:128px 1fr;gap:8px 16px;align-items:start;padding:12px 0;border-top:1px solid rgba(200,155,60,.12);}
+.ko-q:first-of-type{border-top:0;padding-top:4px;}
+.ko-q__meta{display:flex;align-items:center;gap:9px;}
+.ko-q__b{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:800 12px "Inter Tight",sans-serif;color:#fff;}
+.ko-q--p .ko-q__b{background:#2f5a63;}.ko-q--s .ko-q__b{background:#a3242c;}
+.ko-q__ts{font:700 12.5px "Inter Tight",sans-serif;color:#cda24f;letter-spacing:.02em;white-space:nowrap;}
+.ko-q__t{margin:0;font:400 14.5px/1.5 "Spectral",Georgia,serif;font-style:italic;color:#e7dcc2;}
+.ko-foot{margin:24px auto 0;max-width:760px;text-align:center;font:400 12px/1.6 "Inter Tight",sans-serif;color:#7d7666;}
+@media (max-width:620px){.ko-grid,.ko-people{grid-template-columns:1fr;}.ko-q{grid-template-columns:1fr;gap:5px;}}
+
+@media print{
+  .br-page{min-height:auto;}
+  .seal-details,.du__more,.du__konseq,.dlx-more,.fc-more,.lk-block details,.seal-bar,.seal-col,.du,.fc-card,.lk-block,.dlx-block,.ko-q,.ko-person,.ko-card,.st-core,.st-oitem,.kb,.kb-lk,.lm-stance{break-inside:avoid;}
+  .du__more>summary,.du__konseq>summary,.dlx-more summary,.fc-more>summary{display:none !important;}
+  .du__more>p,.dlx-more p{display:block !important;}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+</style>
+</head>
+<body>
+<section class="br-page tc-cover" aria-label="Titel">
+  <span class="tc-frame"></span>
+  <span class="tc-edge tc-edge--t"></span><span class="tc-edge tc-edge--b"></span><span class="tc-edge tc-edge--l"></span><span class="tc-edge tc-edge--r"></span>
+  <div class="tc-inner">
+    <p class="tc-kicker">Streitgespräch · Biologie &amp; Geschlecht</p>
+    <div class="tc-duel">
+      <div class="tc-cell-pmono"><span class="tc-mono">K</span></div>
+      <h1 class="tc-cell-pname tc-name">Kirtscho</h1>
+      <p class="tc-cell-ptag tc-tag tc-tag--cool">Identitätsbejahend</p>
+      <div class="tc-cell-vs tc-vs"><span class="tc-vs__disc"><i>vs.</i></span></div>
+      <div class="tc-cell-smono"><span class="tc-mono">A</span></div>
+      <p class="tc-cell-sname tc-name">Adenin</p>
+      <p class="tc-cell-stag tc-tag tc-tag--warm">Biologistin</p>
+    </div>
+    <div class="tc-pitch"><p>Ist das biologische Geschlecht die maßgebliche, unveränderliche Kategorie — oder verdient die selbst empfundene Geschlechtsidentität Anerkennung?</p></div>
+    <div class="tc-rule2"><span class="tc-rule2__line"></span><span class="tc-rule2__dot"></span><span class="tc-rule2__line"></span></div>
+    <p class="tc-meta">≈ 69 Min · 2 Sprecher · YouTube-Streamgespräch · Deutsch</p>
+  </div>
+</section>
+<hr class="br-cut">
+<section class="br-page seal-page" aria-label="Pruefsiegel">
+  <span class="seal-frame"></span><span class="kp-num">02 / 14</span>
+  <p class="seal-eyebrow">Prüfsiegel</p>
+  <h2 class="seal-title">Wie verlässlich ist diese Broschüre?</h2>
+  <svg class="seal-mark" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Verlaesslichkeit hoch, quellenbasiert, auditiert">
+    <defs><path id="arcT" d="M46 150 A104 104 0 0 1 254 150"/><path id="arcB" d="M52 150 A98 98 0 0 0 248 150"/></defs>
+    <circle cx="150" cy="150" r="132" fill="none" stroke="#c89b3c" stroke-width="2" opacity=".85"/>
+    <circle cx="150" cy="150" r="120" fill="none" stroke="#c89b3c" stroke-width="1" opacity=".4"/>
+    <text class="seal-arc"><textPath href="#arcT" startOffset="50%" text-anchor="middle">PRÜFSIEGEL · VERLÄSSLICHKEIT</textPath></text>
+    <path d="M132 100 l13 13 l28 -32" fill="none" stroke="#9fd08f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+    <text class="seal-grade" x="150" y="172" text-anchor="middle">HOCH</text>
+    <text class="seal-band" x="150" y="204" text-anchor="middle">Faktenrisiko ≈ 3–7 % · geschätzt</text>
+    <text class="seal-foot"><textPath href="#arcB" startOffset="50%" text-anchor="middle">QUELLENBASIERT · AUDITIERT</textPath></text>
+  </svg>
+  <div class="seal-rating">
+    <span class="seal-factor">≈ 7× geringeres Faktenrisiko als ohne Quelle</span>
+    <div class="seal-meta"><span>Mit Originalquelle gearbeitet: <b>JA</b></span><span>Audit (8 Schritte): <b>statisch bestanden · Go</b></span></div>
+    <p class="seal-verlass"><span class="seal-vl">Kurz</span>Die Aufarbeitung der Debatte stützt sich durchweg auf das Originaltranskript; jedes Zitat ist wortwörtlich mit Zeitmarke belegt. Das verbleibende Risiko betrifft exakte Zeitmarken (automatisches Transkript) und die als redaktionell markierten Seiten — darunter der wissenschaftliche Faktencheck, der aus externen, benannten Quellen gespeist ist.</p>
+  </div>
+  <hr class="seal-div">
+  <div class="seal-block">
+    <p class="seal-h">KI-Modellraten <em>ohne</em> Quelle (Closed-Book) — nicht diese Broschüre</p>
+    <div class="seal-bars">
+      <div class="seal-bar"><span class="seal-bar__name">Claude Opus 4.8 ★</span><div class="seal-bar__track"><div class="seal-bar__fill" style="width:59.8%;background:#3a6b35;">35,9 %</div></div></div>
+      <div class="seal-bar"><span class="seal-bar__name">Gemini 3.1 Pro</span><div class="seal-bar__track"><div class="seal-bar__fill" style="width:83.3%;background:#a8842c;">50 %</div></div></div>
+      <div class="seal-bar"><span class="seal-bar__name">OpenAI / Google (Peer)</span><div class="seal-bar__track"><div class="seal-bar__fill" style="width:92%;background:#8a8a8a;">höher</div></div></div>
+    </div>
+    <p class="seal-cap2">Modellweite Werte auf einem Closed-Book-Wissensbenchmark (AA-Omniscience), gemessen <b>ohne</b> beigelegte Quelle. Sie beschreiben das Modell allgemein, <b>nicht</b> diese Antwort. Mit Originalquelle im Kontext liegt das praktische Risiko für Struktur und Thesen deutlich niedriger; das Restrisiko konzentriert sich auf exakte Zahlen und Zitate. Quelle: Artificial Analysis, 28.05.2026.</p>
+  </div>
+  <div class="seal-cmp">
+    <div class="seal-col seal-col--on"><h3>Frei aus dem Gedächtnis</h3><span class="big">höheres Risiko</span><p>Ohne Vorlage rekonstruiert das Modell aus Trainingswissen — anfällig für erfundene Zahlen, Zitate und Zuschreibungen.</p></div>
+    <div class="seal-col seal-col--mit"><h3>An die Vorlage gebunden</h3><span class="big">niedriges Risiko</span><p>Hier wurde extraktiv aus dem Transkript gearbeitet; Zitate wortwörtlich mit Zeitmarke. Der Faktencheck nennt zusätzlich seine externen Quellen.</p></div>
+  </div>
+  <div class="seal-amp">
+    <div class="ok"><svg class="seal-ic" viewBox="0 0 24 24" fill="none" stroke="#9fd08f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="tx"><b>Verlässlich</b>Wortwörtliche O-Töne mit Zeitmarke; die inhaltliche Sprecher-Zuordnung; der Quelllink zur Originaldebatte.</span></div>
+    <div class="warn"><svg class="seal-ic" viewBox="0 0 24 24" fill="none" stroke="#ecc868" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span class="tx"><b>Vorher prüfen</b>Redaktionelle Einordnungen (Kritik von links, pluralistische Lesart); der Faktencheck als Forschungsstand-Momentaufnahme (Mitte 2026); exakte Zeitmarken aus dem Auto-Transkript.</span></div>
+  </div>
+  <div class="seal-audit">
+    <p><span class="lab">Audit</span>Die fertige Datei wurde in acht Schritten geprüft und korrigiert; der visuelle Render auf Mobil (390 px) und A4 ist abschließend manuell zu bestätigen.</p>
+    <div class="seal-steps"><span class="seal-step">Technik</span><span class="seal-step">Sauberkeit</span><span class="seal-step">Quellentreue</span><span class="seal-step">Zitate</span><span class="seal-step">Verständlichkeit</span><span class="seal-step">Aufbau &amp; Synthesen</span><span class="seal-step">Optik</span><span class="seal-step">Druck</span></div>
+  </div>
+  <details class="seal-details">
+    <summary>Details &amp; Methodik</summary>
+    <div class="body">
+      <h4>Benchmark (Zone A)</h4>
+      <p>AA-Omniscience misst Wissen und Halluzination <b>ohne</b> beigelegte Quelle (Closed-Book), niedriger ist besser. Claude Opus 4.8 ≈ 35,9 %, Gemini 3.1 Pro 50 %, weitere Peers höher. Quelle: Artificial Analysis, 28.05.2026.</p>
+      <h4>Warum hier niedriger</h4>
+      <p>Diese Broschüre ist quellenbasiert (grounded): Sie arbeitet extraktiv aus dem Transkript, jedes Zitat wortwörtlich mit Zeitmarke. Das reale Risiko für Struktur und Thesen liegt deutlich unter dem Closed-Book-Wert; geschätzte Spanne 3–7 % (geschätzt, nicht gemessen).</p>
+      <h4>Faktor</h4>
+      <p>Faktor ≈ 35,9 % ÷ Spannen-Mittel (≈ 5 %) ≈ 7 (kaufmännisch gerundet).</p>
+      <h4>Externe Quellen im Faktencheck</h4>
+      <p>Die Faktencheck-Seite verlässt bewusst die reine Quellenbindung an die Debatte und stützt sich auf benannte wissenschaftliche Arbeiten und Verbands-/Gerichtsdokumente (je Befund genannt). Das ist ein anderer Geltungsgrund als das Transkript und entsprechend als „vorher prüfen“ markiert.</p>
+      <h4>Acht Audit-Schritte</h4>
+      <ol><li>Technik (Tag-Bilanz, Render, Mobil 390)</li><li>Sauberkeit (keine Artefakte, kein totes CSS)</li><li>Quellentreue</li><li>Zitate (wortwörtlich + Locator)</li><li>Verständlichkeit</li><li>Aufbau &amp; Synthesen</li><li>Optik</li><li>Druck (A4, Aufklapp-Inhalte geöffnet)</li></ol>
+    </div>
+  </details>
+  <p class="seal-source"><span class="lab">Quelle</span><a href="https://www.youtube.com/watch?v=cRrpSDUXR3g" target="_blank" rel="noopener">YouTube-Streamgespräch ↗</a></p>
+</section>
+<hr class="br-cut">
+<section class="br-page lm-page" id="landkarte" aria-label="Themenlandkarte">
+  <span class="lm-frame"></span><span class="kp-num">03 / 14</span>
+  <p class="lm-eyebrow">Themenlandkarte</p>
+  <h2 class="lm-title">Biologie oder Identität?</h2>
+  <p class="lm-deck">Zwei Bezugspunkte, die sich nicht ineinander auflösen — und sechs Komplexe, an denen der Streit konkret wird.</p>
+  <div class="lm-chasm">
+    <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kluft zwischen den Polen">
+      <rect width="760" height="230" fill="#0e161b"/>
+      <path d="M0 150 L300 150 L300 230 L0 230 Z" fill="#13242b"/>
+      <path d="M0 150 L300 150" stroke="#2f5a63" stroke-width="2"/>
+      <path d="M460 150 L760 150 L760 230 L460 230 Z" fill="#241115"/>
+      <path d="M460 150 L760 150" stroke="#a3242c" stroke-width="2"/>
+      <line x1="300" y1="150" x2="364" y2="150" stroke="#c89b3c" stroke-width="3" stroke-linecap="round"/>
+      <line x1="460" y1="150" x2="396" y2="150" stroke="#c89b3c" stroke-width="3" stroke-linecap="round"/>
+      <path d="M364 150 l7 13 M396 150 l-7 13" stroke="#c89b3c" stroke-width="2" opacity=".55"/>
+      <circle cx="150" cy="92" r="22" fill="#2f5a63"/>
+      <path d="M112 150 Q112 116 150 116 Q188 116 188 150 Z" fill="#2f5a63"/>
+      <circle cx="610" cy="92" r="22" fill="#a3242c"/>
+      <path d="M572 150 Q572 116 610 116 Q648 116 648 150 Z" fill="#a3242c"/>
+      <text class="cl-n" x="150" y="180" text-anchor="middle">Kirtscho</text>
+      <text class="cl-t" x="150" y="197" text-anchor="middle" fill="#9fd0db">Identitätsbejahend</text>
+      <text class="cl-s" x="150" y="215" text-anchor="middle">gelebte Identität als Bezugspunkt</text>
+      <text class="cl-n" x="610" y="180" text-anchor="middle">Adenin</text>
+      <text class="cl-t" x="610" y="197" text-anchor="middle" fill="#e8959c">Biologistin</text>
+      <text class="cl-s" x="610" y="215" text-anchor="middle">biologisches Geschlecht als Grundkategorie</text>
+      <text class="cl-q" x="380" y="90" text-anchor="middle">Biologie</text>
+      <text class="cl-q" x="380" y="106" text-anchor="middle">oder Identität?</text>
+      <text class="cl-gap" x="380" y="140" text-anchor="middle">ungelöst</text>
+      <text class="kb-ill" x="752" y="223" text-anchor="end">Illustration</text>
+    </svg>
+    <p class="lm-chasmcap">Symbolische Darstellung der Konfliktachse — keine Beleggrafik.</p>
+  </div>
+  <div class="lm-stances">
+    <div class="lm-stance lm-stance--a">
+      <div class="lm-stance__h"><span class="mono">K</span><span class="lm-stance__n">Kirtscho<span class="lm-stance__t">Identitätsbejahend</span></span></div>
+      <p class="lm-stance__pos">Maßstab ist, wie man Menschen tatsächlich hilft; gelebte Identität verdient Anerkennung.</p>
+      <p class="lm-stance__q">„dass das die Art und Weise ist, wie wir den Menschen helfen“<span class="src">KIRTSCHO · Min. 21:40</span></p>
+    </div>
+    <div class="lm-stance lm-stance--b">
+      <div class="lm-stance__h"><span class="mono">A</span><span class="lm-stance__n">Adenin<span class="lm-stance__t">Biologistin</span></span></div>
+      <p class="lm-stance__pos">Maßstab ist eine artübergreifende, klare Definition; alles andere baut darauf auf.</p>
+      <p class="lm-stance__q">„man braucht halt eine Definition von Geschlecht, die bei allen Lebewesen, in denen es Geschlecht gibt, greift“<span class="src">ADENIN · Min. 8:56</span></p>
+    </div>
+  </div>
+  <p class="lm-tochead">Die sechs Komplexe</p>
+  <ul class="lm-toc">
+    <li><a href="#k1"><span class="lm-toc__n">K1</span><span><span class="lm-toc__t">Was ist Geschlecht?</span><span class="lm-toc__d">Gamet oder Merkmal — die Definitionsfrage</span></span></a></li>
+    <li><a href="#k2"><span class="lm-toc__n">K2</span><span><span class="lm-toc__t">Wechselbar — oder im Werden?</span><span class="lm-toc__d">Unveränderlichkeit und Herkunft der Identität</span></span></a></li>
+    <li><a href="#k3"><span class="lm-toc__n">K3</span><span><span class="lm-toc__t">Evidenz &amp; Behandlung</span><span class="lm-toc__d">Was die Studienlage hergibt — und was nicht</span></span></a></li>
+    <li><a href="#k4"><span class="lm-toc__n">K4</span><span><span class="lm-toc__t">DSD &amp; Sport</span><span class="lm-toc__d">Fairness, Vorteil und Einzelschicksal</span></span></a></li>
+    <li><a href="#k5"><span class="lm-toc__n">K5</span><span><span class="lm-toc__t">Sprache &amp; Anerkennung</span><span class="lm-toc__d">Misgendern, Namen — und wo Biologie zählt</span></span></a></li>
+    <li><a href="#k6"><span class="lm-toc__n">K6</span><span><span class="lm-toc__t">Quellenarbeit</span><span class="lm-toc__d">Der eigentliche Anlass des Streits</span></span></a></li>
+  </ul>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="k1" aria-label="Komplex 1">
+  <span class="kp-frame"></span><span class="kp-num">04 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Komplex 1</p><h2 class="kp-title">Geschlecht — Gamet oder Merkmal?</h2><p class="kp-deck">Worüber reden wir, wenn wir „Geschlecht“ sagen?</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><path d="M30 108 Q210 58 380 68 T752 46" fill="none" stroke="#c89b3c" stroke-width="1.1" opacity=".22"/><path d="M380 68 L330 30 M380 68 L440 30 M560 56 L520 26 M560 56 L610 28" stroke="#c89b3c" stroke-width="1" opacity=".18"/><g fill="#ecc868" opacity=".85"><circle cx="150" cy="72" r="2.4"/><circle cx="168" cy="62" r="2.4"/><circle cx="182" cy="78" r="2.4"/><circle cx="158" cy="88" r="2.4"/><circle cx="196" cy="68" r="2.4"/><circle cx="206" cy="82" r="2.4"/></g><circle cx="600" cy="64" r="19" fill="none" stroke="#ecc868" stroke-width="2"/><circle cx="600" cy="64" r="6" fill="#ecc868" opacity=".5"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Ist „Geschlecht“ artübergreifend die Ausrichtung auf kleine oder große Gameten — oder die Summe der sichtbaren Geschlechtsmerkmale?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a"><div class="du__top"><span class="mono">K</span><span><span class="du__name">Kirtscho</span><span class="du__tag">Identitätsbejahend</span></span></div><p class="du__pos">Alltagsbegriff</p><p class="du__these">Im Alltag meinen Menschen mit „Geschlecht“ die sichtbaren Merkmale; die „eigentliche“ Kategorie umzubenennen, schafft vor allem ein Verständigungsproblem.</p><details class="du__more"><summary>Begründung</summary><p>Kirtscho fragt, ob man dann nicht alles umbenennen müsste — die geläufige Zuordnung erfolgt über Merkmale, nicht über Gameten.</p></details></div>
+      <div class="du__gutter"><span class="du__vs">≠</span></div>
+      <div class="du__pole du__pole--b"><div class="du__top"><span class="mono">A</span><span><span class="du__name">Adenin</span><span class="du__tag">Biologistin</span></span></div><p class="du__pos">Universale Definition</p><p class="du__these">Geschlecht ist über alle Stammbaumlinien nur die Ausrichtung auf kleine oder große Gameten; Chromosomen, Hormone, Merkmale sind abhängige Folgen.</p><details class="du__more"><summary>Begründung</summary><p>Nur die Gameten-Definition greift bei allen Lebewesen mit Geschlecht — von der Erdbeere bis zum Krokodil; andere Merkmale variieren zu stark.</p></details></div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span><p class="du__break__line">Beide reden über verschiedene Ebenen — Alltagssprache (Merkmale) gegen biologische Grunddefinition (Gameten). Ein Teil des Streits ist ein Definitions-, kein Sachstreit.</p></div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Welche Definition soll wofür gelten — und wer entscheidet, wenn Alltag und Biologie auseinanderfallen?</p></div>
+  </div>
+  <div class="kp-cite"><p>„das ist über diese verschiedenen Stammbaumlinien eben nur die Ausrichtung auf die potenzielle Produktion kleiner oder großer Gameten“<span class="src">ADENIN · Min. 9:25</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Nimmt man die Gameten-Definition als die einzige universelle, ist „das Geschlecht wechseln“ auf gametischer Ebene ein Kategorienfehler — über soziale Rollen und Anrede sagt das aber nichts.</p></div></details>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="k2" aria-label="Komplex 2">
+  <span class="kp-frame"></span><span class="kp-num">05 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Komplex 2</p><h2 class="kp-title">Unveränderlich — oder im Werden?</h2><p class="kp-deck">Lässt sich Geschlecht wechseln, und woher kommt Identität?</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><path d="M326 65 a34 34 0 1 1 18 30" fill="none" stroke="#c89b3c" stroke-width="2" opacity=".5"/><path d="M348 95 l-12 5 l5 -12" fill="none" stroke="#c89b3c" stroke-width="2" opacity=".5"/><path d="M600 104 L600 58" stroke="#ecc868" stroke-width="2" opacity=".7"/><path d="M600 76 Q582 68 578 50 M600 84 Q618 76 622 56" fill="none" stroke="#ecc868" stroke-width="2" opacity=".7"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Kann das Geschlecht gewechselt werden — und ist Geschlechtsidentität angeboren, entwickelt oder wählbar?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a"><div class="du__top"><span class="mono">K</span><span><span class="du__name">Kirtscho</span><span class="du__tag">Identitätsbejahend</span></span></div><p class="du__pos">Tiefe Identität</p><p class="du__these">Gerade weil Identität kein Willensakt ist und realen Leidensdruck erzeugt, ist sie anzuerkennen — nicht „wegzutherapieren“.</p><details class="du__more"><summary>Begründung</summary><p>Kirtscho fragt: ließe sie sich einfach ändern, wäre Therapie der leichtere Weg — dass das nicht funktioniert, spricht für die Tiefe der Identität.</p></details></div>
+      <div class="du__gutter"><span class="du__vs">≠</span></div>
+      <div class="du__pole du__pole--b"><div class="du__top"><span class="mono">A</span><span><span class="du__name">Adenin</span><span class="du__tag">Biologistin</span></span></div><p class="du__pos">Merkmale, nicht Geschlecht</p><p class="du__these">Säugetiere können ihr Geschlecht nicht wechseln, nur die Merkmale anpassen; Identität entsteht mit der Umwelt — sie ist aber kein Schalter.</p><details class="du__more"><summary>Begründung</summary><p>Adenin trennt das fixe biologische Geschlecht von der Identitätsebene; Identität entwickle sich wie andere komplexe Eigenschaften, die Umwelt habe „das letzte Wort“.</p></details></div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span><p class="du__break__line">Beide bestreiten, dass Identität wählbar ist. Doch Adenin trennt „Geschlecht“ (fix) von „Identität“ (entwickelt), während Kirtscho aus der Tiefe der Identität einen Anerkennungsanspruch ableitet. Aus „entwickelt“ folgt nicht „beliebig“.</p></div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Wenn Identität weder rein angeboren noch wählbar, sondern entwickelt ist — was folgt daraus für Behandlung und Anerkennung?</p></div>
+  </div>
+  <div class="kp-cite"><p>„Säugetiere können ihr Geschlecht nicht wechseln. Sie können ihre Geschlechtsmerkmale so weit die Medizin es zulässt anpassen.“<span class="src">ADENIN · Min. 11:18</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Kirtschos „noch nicht“ (vom künftig medizinisch Möglichen) bleibt Spekulation: Eine gametische Geschlechtsänderung ist derzeit nicht möglich; anpassbar sind die Merkmale.</p></div></details>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="k3" aria-label="Komplex 3">
+  <span class="kp-frame"></span><span class="kp-num">06 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Komplex 3</p><h2 class="kp-title">Hilft die Behandlung — was sagen die Daten?</h2><p class="kp-deck">Evidenzlage, Jugendliche und die finnischen Register.</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><line x1="60" y1="66" x2="600" y2="66" stroke="#c89b3c" stroke-width="1.4" opacity=".5"/><g fill="#ecc868" opacity=".8"><circle cx="120" cy="54" r="2.6"/><circle cx="180" cy="78" r="2.6"/><circle cx="240" cy="48" r="2.6"/><circle cx="300" cy="82" r="2.6"/><circle cx="360" cy="58" r="2.6"/><circle cx="420" cy="74" r="2.6"/><circle cx="480" cy="50" r="2.6"/><circle cx="540" cy="80" r="2.6"/></g><circle cx="662" cy="60" r="22" fill="none" stroke="#c89b3c" stroke-width="2"/><line x1="678" y1="76" x2="704" y2="100" stroke="#c89b3c" stroke-width="3" stroke-linecap="round"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Verbessert medizinische Transition die psychische Gesundheit — und wie belastbar ist die Evidenz, besonders bei Jugendlichen?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a"><div class="du__top"><span class="mono">K</span><span><span class="du__name">Kirtscho</span><span class="du__tag">Identitätsbejahend</span></span></div><p class="du__pos">Stand der Versorgung</p><p class="du__these">Medizinische Transition ist der derzeitige Versorgungsstandard; Erfolg zeigt sich an sinkendem Leidensdruck und Lebbarkeit — nicht am Verschwinden aller psychischen Probleme.</p><details class="du__more"><summary>Begründung</summary><p>Akzeptanz, Körperwahrnehmung, weniger Dysphorie; dass psychische Probleme nicht generell aufhören, widerlegt den Nutzen nicht.</p></details></div>
+      <div class="du__gutter"><span class="du__vs">≠</span></div>
+      <div class="du__pole du__pole--b"><div class="du__top"><span class="mono">A</span><span><span class="du__name">Adenin</span><span class="du__tag">Biologistin</span></span></div><p class="du__pos">Schwache Datenlage</p><p class="du__these">Große Registerdaten zeigen keine Verbesserung der psychischen Morbidität; die Datenlage ist „nicht mal besonders gut“ — daraus sollte man keine starken Forderungen ableiten.</p><details class="du__more"><summary>Begründung</summary><p>Hohe psychische Vorbelastung vor und nach dem Kontakt mit den Diensten; die Frage nach belastbaren Ergebnismaßen bleibt offen.</p></details></div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span><p class="du__break__line">Korrelation ist nicht Kausalität: Hohe Vorbelastung könnte Ursache statt Folge sein. Was die Daten zeigen (keine gemessene Verbesserung) und was sie nicht zeigen (dass die Behandlung schadet) wird oft verwechselt.</p></div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Welche Ergebnismaße zählen — und braucht es nicht erst bessere Studiendesigns, bevor man Versorgung ausbaut oder zurückfährt?</p></div>
+  </div>
+  <div class="kp-cite"><p>„wir haben eine aktuelle Datenlage, die ist nicht perfekt, die ist nicht mal besonders gut“<span class="src">ADENIN · Min. 25:36</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Mehrere Länder (England/Cass-Review, Schweden, Finnland) haben die Jugendbehandlung eingeschränkt — eine Wende zu „erst Evidenz“. Das Risiko liegt auf beiden Seiten: Über- wie Unterversorgung.</p></div></details>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="k4" aria-label="Komplex 4">
+  <span class="kp-frame"></span><span class="kp-num">07 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Komplex 4</p><h2 class="kp-title">Fairness, DSD und der Frauensport</h2><p class="kp-deck">Gruppenstatistik gegen Einzelschicksal.</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><rect x="150" y="70" width="34" height="40" fill="none" stroke="#ecc868" stroke-width="1.6" opacity=".65"/><rect x="190" y="46" width="34" height="64" fill="none" stroke="#ecc868" stroke-width="1.6" opacity=".85"/><rect x="230" y="82" width="34" height="28" fill="none" stroke="#ecc868" stroke-width="1.6" opacity=".55"/><line x1="520" y1="40" x2="652" y2="66" stroke="#c89b3c" stroke-width="2"/><line x1="586" y1="53" x2="586" y2="34" stroke="#c89b3c" stroke-width="2"/><path d="M508 42 a16 9 0 0 0 24 0" fill="none" stroke="#9fd0db" stroke-width="1.6"/><path d="M640 68 a16 9 0 0 0 24 0" fill="none" stroke="#e8959c" stroke-width="1.6"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Verschaffen biologisch männliche Entwicklungen (DSD) einen unfairen Vorteil im Frauensport — und wie geht man damit um?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a"><div class="du__top"><span class="mono">K</span><span><span class="du__name">Kirtscho</span><span class="du__tag">Identitätsbejahend</span></span></div><p class="du__pos">Das Einzelschicksal</p><p class="du__these">Eine Athletin, die ihr Leben lang als Frau aufwächst und sich als Frau fühlt, plötzlich auszuschließen, ist hart — und gewinnen DSD-Athletinnen überhaupt durchweg?</p><details class="du__more"><summary>Begründung</summary><p>Kirtscho verweist auf Biografie und Identität; der pauschale Verweis in die Männerkategorie treffe konkrete Menschen.</p></details></div>
+      <div class="du__gutter"><span class="du__vs">≠</span></div>
+      <div class="du__pole du__pole--b"><div class="du__top"><span class="mono">A</span><span><span class="du__name">Adenin</span><span class="du__tag">Biologistin</span></span></div><p class="du__pos">Die Leistungsspitze</p><p class="du__these">An der absoluten Spitze stehen nur Männer; DSD-Athleten mit Vermännlichung haben einen unfairen, im Boxen sogar gefährlichen Vorteil.</p><details class="du__more"><summary>Begründung</summary><p>Im Mittelfeld gibt es Frauen, die besser sind als die meisten Männer — an der 0,1-%-Spitze aber nicht; Verbände ließen Betroffene „ins Messer laufen“.</p></details></div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span><p class="du__break__line">Zwei Fragen vermengen sich: gruppenstatistischer Vorteil (Verteilung) und Einzelschicksal (Identität, Biografie). Beide können zugleich zutreffen — und Trans ist hier von DSD zu trennen (das betonen beide).</p></div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Wie schützt man faire und sichere Frauenkategorien, ohne Menschen mit DSD bloßzustellen?</p></div>
+  </div>
+  <div class="kp-cite"><p>„im 0,1% der Leistungsspitze wirst du nur Männer haben“<span class="src">ADENIN · Min. 35:34</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>World Boxing führte 2025 einen einmaligen Gentest (SRY) mit Einspruchsweg und Ausnahmen ein (etwa bei fehlender Vermännlichung) — eine institutionelle Antwort, die selbst umstritten bleibt.</p></div></details>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="k5" aria-label="Komplex 5">
+  <span class="kp-frame"></span><span class="kp-num">08 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Komplex 5</p><h2 class="kp-title">Misgendern, Namen — und wo Biologie zählt</h2><p class="kp-deck">Sachsprache gegen soziale Anerkennung.</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><path d="M150 40 h120 a10 10 0 0 1 10 10 v26 a10 10 0 0 1 -10 10 h-78 l-18 16 v-16 h-24 a10 10 0 0 1 -10 -10 v-26 a10 10 0 0 1 10 -10 z" fill="none" stroke="#9fd0db" stroke-width="1.6" opacity=".7"/><path d="M178 66 l10 10 l20 -22" fill="none" stroke="#9fd0db" stroke-width="2.2" stroke-linecap="round"/><path d="M500 40 h120 a10 10 0 0 1 10 10 v26 a10 10 0 0 1 -10 10 h-24 v16 l-18 -16 h-78 a10 10 0 0 1 -10 -10 v-26 a10 10 0 0 1 10 -10 z" fill="none" stroke="#e8959c" stroke-width="1.6" opacity=".7"/><line x1="528" y1="54" x2="592" y2="82" stroke="#e8959c" stroke-width="2.2" stroke-linecap="round"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Verlangt Anerkennung die sprachliche Markierung der Geschlechtsidentität — oder genügen Namen, und wo bleibt biologisches Geschlecht relevant?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a"><div class="du__top"><span class="mono">K</span><span><span class="du__name">Kirtscho</span><span class="du__tag">Identitätsbejahend</span></span></div><p class="du__pos">Respekt kostet wenig</p><p class="du__these">Wenn sich jemand als Frau identifiziert, ist es wenig verlangt, das sprachlich zu respektieren; wer jede Kennzeichnung vermeidet, erkennt die Identität faktisch nicht an.</p><details class="du__more"><summary>Begründung</summary><p>Den Namen kann man ohnehin sagen — die Frage ist, warum die Anerkennung ein Problem sein soll.</p></details></div>
+      <div class="du__gutter"><span class="du__vs">≠</span></div>
+      <div class="du__pole du__pole--b"><div class="du__top"><span class="mono">A</span><span><span class="du__name">Adenin</span><span class="du__tag">Biologistin</span></span></div><p class="du__pos">Namen genügen</p><p class="du__these">Wer über Biologie spricht, „misgendert“ nicht; Personen haben Namen — das reicht; biologisches Geschlecht zählt nur in wenigen Feldern (Medizin, Sport, Haft, Behörden).</p><details class="du__more"><summary>Begründung</summary><p>Adenin weicht der Gender-Ebene bewusst aus, um die biologische Aussage klar zu halten.</p></details></div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span><p class="du__break__line">Adenin vermeidet die Gender-Ebene, um die Biologie „klar“ zu halten — Kirtscho liest dieses Vermeiden als Nicht-Anerkennung. Zwei Ebenen prallen aufeinander: Sachsprache gegen soziale Anerkennung.</p></div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Lässt sich biologische Präzision von sozialer Anerkennung trennen — oder erzwingt der eine Anspruch den anderen?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--p"><p>„was ist das große Problem, das zu respektieren?“<span class="src">KIRTSCHO · Min. 57:58</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>Eine mögliche Entkopplung: wo die Einsätze gering sind, Höflichkeit; wo biologisches Geschlecht nachweislich zählt, transparente Regeln. Den Streit löst das nicht, aber es entschärft ihn.</p></div></details>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="k6" aria-label="Komplex 6">
+  <span class="kp-frame"></span><span class="kp-num">09 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Komplex 6 · Meta</p><h2 class="kp-title">Der eigentliche Anlass: die Quellenarbeit</h2><p class="kp-deck">Woran sich der Streit entzündete — und was das über Beweiskraft sagt.</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><rect x="300" y="26" width="180" height="82" rx="6" fill="none" stroke="#c89b3c" stroke-width="1.6" opacity=".6"/><line x1="320" y1="46" x2="430" y2="46" stroke="#ecc868" stroke-width="2" opacity=".7"/><line x1="320" y1="60" x2="462" y2="60" stroke="#ecc868" stroke-width="2" opacity=".5"/><line x1="320" y1="74" x2="430" y2="74" stroke="#ecc868" stroke-width="2" opacity=".7"/><line x1="320" y1="88" x2="452" y2="88" stroke="#ecc868" stroke-width="2" opacity=".5"/><path d="M450 42 l8 8 M458 42 l-8 8" stroke="#e8959c" stroke-width="2" opacity=".8"/><path d="M470 84 l8 8 M478 84 l-8 8" stroke="#e8959c" stroke-width="2" opacity=".8"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="kp-kernfrage"><span class="lab">Kernfrage</span><p>Wie sorgfältig war die Quellenarbeit, an der sich der Streit entzündete — und was bedeutet das für die Glaubwürdigkeit?</p></div>
+  <div class="du">
+    <div class="du__panels">
+      <div class="du__pole du__pole--a"><div class="du__top"><span class="mono">K</span><span><span class="du__name">Kirtscho</span><span class="du__tag">Identitätsbejahend</span></span></div><p class="du__pos">Das Eingeständnis</p><p class="du__these">Die Quellen wurden zugeliefert und ungeprüft übernommen — kein bewusstes Verfälschen, aber mangelnde Gegenprüfung.</p><details class="du__more"><summary>Begründung</summary><p>Kirtscho räumt ein, Material „einfach reingepackt“ und nicht gegengeprüft zu haben.</p></details></div>
+      <div class="du__gutter"><span class="du__vs">≠</span></div>
+      <div class="du__pole du__pole--b"><div class="du__top"><span class="mono">A</span><span><span class="du__name">Adenin</span><span class="du__tag">Biologistin</span></span></div><p class="du__pos">Der Mängelkatalog</p><p class="du__these">Die eingeblendeten Quellen waren ein Durcheinander: 22 Quellen, fünf nicht im Video, Liste und Video divergierten, Doppelungen — teils stand in den Papern das Gegenteil.</p><details class="du__more"><summary>Begründung</summary><p>Aus Sicht der Kritikerin untergräbt das die Beweiskraft, unabhängig davon, wer in der Sache recht hat.</p></details></div>
+    </div>
+    <div class="du__break"><span class="du__break__lab">Die Bruchstelle · Logikfehler</span><p class="du__break__line">Der Streit begann nicht über Biologie, sondern über Methode: formale Mängel (Liste ist nicht das Video, Doppelungen) und inhaltliche (Paper sagt Gegenteil) untergraben die Beweiskraft — gleich, wer „recht“ hat.</p></div>
+    <div class="du__oq"><span class="lab">Offene Frage</span><p>Wie viel Sorgfaltspflicht trägt, wer Forschung öffentlich zitiert — und wie prüft man Zulieferungen?</p></div>
+  </div>
+  <div class="kp-cite kp-cite--p"><p>„Ich habe das da einfach reingepackt.“<span class="src">KIRTSCHO · Min. 1:02:51</span></p></div>
+  <details class="du__konseq"><summary>Konsequenz · zu Ende gedacht</summary><div class="body"><p>In einer Debatte über Evidenzqualität ist schludrige Quellenarbeit selbstwiderlegend. Dieselbe Sorgfalt, die hier fehlte, dokumentiert diese Broschüre über ihr Prüfsiegel offen.</p></div></details>
+</section>
+<hr class="br-cut">
+<section class="br-page lk-page" id="kritik-links" aria-label="Kritik von links">
+  <span class="kp-frame"></span><span class="kp-num">10 / 14</span>
+  <p class="lk-eyebrow">Positionierte Lesart</p>
+  <h2 class="lk-title">Was eine Kritik von links einwendet</h2>
+  <p class="lk-deck">Gegen beide Lager und gegen den gemeinsamen Rahmen — aus sozialdemokratisch-linksliberaler Sicht.</p>
+  <div class="lk-flag"><span class="t">Redaktionelle Einordnung · nicht aus der Quelle</span><p>Sozialdemokratisch-linksliberale Lesart, ohne wörtliche Zitate. Sie stammt nicht aus dem Gespräch.</p></div>
+  <div class="kb-lk"><svg viewBox="0 0 780 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Waage als dritte Position"><rect width="780" height="120" fill="#0c1217"/><line x1="390" y1="30" x2="390" y2="64" stroke="#c89b3c" stroke-width="2.5"/><line x1="250" y1="40" x2="530" y2="40" stroke="#c89b3c" stroke-width="2.5" stroke-linecap="round"/><path d="M390 64 L372 92 L408 92 Z" fill="none" stroke="#c89b3c" stroke-width="2"/><line x1="250" y1="40" x2="250" y2="56" stroke="#9a8f78" stroke-width="1.2"/><path d="M226 56 a24 12 0 0 0 48 0" fill="none" stroke="#9fd0db" stroke-width="2"/><line x1="530" y1="40" x2="530" y2="56" stroke="#9a8f78" stroke-width="1.2"/><path d="M506 56 a24 12 0 0 0 48 0" fill="none" stroke="#e8959c" stroke-width="2"/><circle cx="390" cy="30" r="4" fill="#ecc868"/><text class="kb-ill" x="768" y="113" text-anchor="end">Illustration</text></svg></div>
+  <div class="lk-block"><span class="tag tag--a">Gegen die Identitäts-Seite · Kirtscho</span><p class="thesis">Anerkennung ohne Umverteilung greift zu kurz.</p><details><summary>Begründung</summary><p>Bejahung der Identität ändert nichts an Wartelisten, Versorgungslücken und der Klassenfrage, wer überhaupt Zugang zu guter Behandlung hat. Respekt ist notwendig, aber keine Sozialpolitik.</p></details></div>
+  <div class="lk-block"><span class="tag tag--a">Gegen die Identitäts-Seite · Kirtscho</span><p class="thesis">Identität als reine Privatsache lässt die Institutionen aus.</p><details><summary>Begründung</summary><p>Wer alles auf Selbst-Identifikation verengt, übersieht, dass Gesundheitsversorgung, Recht und Arbeitswelt gestaltet werden müssen — nicht nur anerkannt.</p></details></div>
+  <div class="lk-block"><span class="tag tag--b">Gegen die Biologie-Seite · Adenin</span><p class="thesis">„Die Biologie sagt“ verschleiert die politische Frage.</p><details><summary>Begründung</summary><p>Sport-, Medizin- und Rechtsfragen sind Fragen von Fairness, Verteilung und Schutz — keine reinen Naturfragen. Die Berufung auf „die Natur“ lässt das Gestaltbare als alternativlos erscheinen.</p></details></div>
+  <div class="lk-block"><span class="tag tag--b">Gegen die Biologie-Seite · Adenin</span><p class="thesis">Evidenzskepsis darf nicht zur Versorgungsverweigerung werden.</p><details><summary>Begründung</summary><p>Eine schwache Datenlage ist ein Auftrag für bessere Studien und bessere Versorgung — nicht für Rückzug. Sonst trifft die Skepsis die Schwächsten zuerst.</p></details></div>
+  <div class="lk-block"><span class="tag">Gegen den gemeinsamen Rahmen</span><p class="thesis">Beide totalisieren eine nüchterne soziale Frage.</p><details><summary>Begründung</summary><p>Die Fixierung auf Extremfälle — Elite-DSD im Sport, die seltene Detransition — verdeckt die Akteure mit realer Macht: Verbände, Gesundheitssystem, Medienlogik. Die soziale Perspektive fragt nach Bedingungen (Institutionen, Verteilung, Recht), nicht nach der einen richtigen Theorie des Geschlechts.</p></details></div>
+  <div class="lk-task"><span class="lab">Die Aufgabe</span><p>Gute, evidenzbasierte Versorgung und wirksamer Diskriminierungsschutz durch starke Institutionen; faire und sichere Sportkategorien auf transparenter Datenbasis mit ordentlichem Verfahren; und Schutz der Schwächeren — intergeschlechtliche Kinder vor nicht einwilligungsfähigen Eingriffen, trans Personen vor Diskriminierung, die Frauenkategorie vor Aushöhlung. Überprüfbar und korrigierbar, ohne Endziel, dem sich alle fügen müssten.</p></div>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="pluralismus" aria-label="Pluralistische Lesart">
+  <span class="kp-frame"></span><span class="kp-num">11 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Redaktionelle Einordnung</p><h2 class="kp-title">Eine pluralistische Lesart</h2><p class="kp-deck">Ein Modus vivendi: ein Rahmen, in dem unvereinbare Selbstverständnisse koexistieren.</p></div>
+  <div class="dl-flag"><span class="t">Redaktionelle Einordnung · nicht in der Quelle</span><p>Modus-vivendi-/wertepluralistische Lesart, ohne wörtliche Zitate.</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><path d="M250 56 L390 24 L530 56" fill="none" stroke="#c89b3c" stroke-width="2.5" stroke-linecap="round"/><rect x="300" y="58" width="50" height="44" fill="none" stroke="#9fd0db" stroke-width="1.6" opacity=".7"/><rect x="430" y="58" width="50" height="44" fill="none" stroke="#e8959c" stroke-width="1.6" opacity=".7"/><line x1="250" y1="108" x2="530" y2="108" stroke="#e0a060" stroke-width="2.5"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="dlx-block dlx-block--p"><span class="dlx-tag">Gegen die Identitäts-Seite</span><p class="dlx-thesis">Universelle Selbst-Identifikation überall durchzusetzen, ist selbst ein Totalanspruch.</p><details class="dlx-more"><summary>mehr</summary><p>Auch Anerkennung kennt Kontextgrenzen; nicht jede Sphäre muss nach demselben Prinzip geordnet sein.</p></details></div>
+  <div class="dlx-block dlx-block--s"><span class="dlx-tag">Gegen die Biologie-Seite</span><p class="dlx-thesis">Eine einzige biologische Regel für alle Kontexte ist ebenso überdehnt.</p><details class="dlx-more"><summary>mehr</summary><p>Über Supermarkt, Smalltalk und Anrede entscheidet keine Gameten-Definition; Biologie ist nicht überall der einschlägige Maßstab.</p></details></div>
+  <div class="dlx-block dlx-block--f"><span class="dlx-tag">Der Vorschlag · Kontexte entkoppeln</span><p class="dlx-thesis">Verschiedene Sphären, verschiedene Regeln.</p><details class="dlx-more"><summary>mehr</summary><p>Im Alltag: respektieren, wie Menschen auftreten (geringe Einsätze, Höflichkeit). In den wenigen Feldern mit nachweislicher Relevanz — bestimmte medizinische Entscheidungen, enge Elite-Sport-Fairness, spezifische Schutz- und Haftkontexte — transparente, evidenzbasierte Einzelfallregeln mit fairem Verfahren.</p></details></div>
+  <div class="dlx-block dlx-block--e"><span class="dlx-tag">Das schmale schützende Minimum</span><p class="dlx-thesis">Schützt die Schwachen, erlaubt Abweichung, zwingt niemandem ein Gesamturteil auf.</p><details class="dlx-more"><summary>mehr</summary><p>Es schützt Kinder, Minderheiten und die Frauenkategorie, lässt Austritt zu und wendet sich gegen beide Streitenden — und gegen eine rein verteilungszentrierte Lesart, die den Wertkonflikt wegerklärt.</p></details></div>
+  <div class="kp-fazit"><span class="lab">Die Aufgabe</span><p>Kein richtiges Leben für alle, sondern ein Rahmen, in dem sich unvereinbare Selbstverständnisse vertragen — getragen von einem Minimum, das schützt, ohne zu vereinheitlichen.</p></div>
+</section>
+<hr class="br-cut">
+<section class="br-page kp-page" id="faktencheck" aria-label="Empirischer Faktencheck">
+  <span class="kp-frame"></span><span class="kp-num">12 / 14</span>
+  <div class="kp-head"><p class="kp-eyebrow">Redaktionelle Einordnung · Sonderseite</p><h2 class="kp-title">Empirischer Faktencheck</h2><p class="kp-deck">Was sagt der Forschungsstand zu den Kernfragen — Bestätigtes neben Widerlegtem?</p></div>
+  <div class="dl-flag"><span class="t">Redaktionelle Einordnung · nicht in der Quelle</span><p>Faktencheck zum Stand der Wissenschaft (Mitte 2026), mit benannten externen Quellen — getrennt von der Grounding-Quelle der Debatte.</p></div>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><path d="M150 58 l13 13 l26 -30" fill="none" stroke="#9fd08f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M300 70 q14 -18 28 0 t28 0" fill="none" stroke="#e0b860" stroke-width="3" stroke-linecap="round"/><circle cx="470" cy="62" r="15" fill="none" stroke="#c9a8e6" stroke-width="3"/><path d="M466 58 a6 6 0 1 1 6 9 v3" fill="none" stroke="#c9a8e6" stroke-width="3" stroke-linecap="round"/><circle cx="472" cy="76" r="1.7" fill="#c9a8e6"/><path d="M600 52 l24 24 M624 52 l-24 24" stroke="#e8959c" stroke-width="3" stroke-linecap="round"/><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="fc-legend"><span class="fc-leg fc-leg--emp">empirisch prüfbar</span><span class="fc-leg fc-leg--imm">nicht falsifizierbar / immunisiert</span><span class="fc-leg fc-leg--norm">normativ · Wertfrage</span></div>
+  <p class="fc-legnote">Die Verdikt-Marken (bestätigt · mit Vorbehalt · strittig/offen · widerlegt) gelten nur für empirisch prüfbare Aussagen. Was normativ ist — wie viel Evidenz vor einer Behandlung nötig ist, wie man Fairness gewichtet — entscheidet kein Befund. In dieser Debatte sind die meisten Aussagen empirisch oder normativ; rein immunisierte Konstrukte sind selten und dort markiert, wo eine Behauptung sich der Prüfbarkeit zu entziehen droht.</p>
+  <div class="fc-grid">
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K1 · Geschlecht ist artübergreifend über die Gametengröße definiert.</h3><span class="fc-v fc-v--part">Bestätigt · umstritten</span></div><p class="fc-sum">Die Definition über Gametengröße (Anisogamie) ist die gängigste und sparsamste biologische Definition. Umstritten ist nicht sie selbst, sondern ob eine einzige universelle Definition nötig ist.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Die meisten Biologen definieren Geschlecht über die Ausrichtung auf kleine (männlich) oder große (weiblich) Gameten; die Definition greift über Tier- und Pflanzenreich. Eine Binarität der Gameten bedeutet keine Binarität der Organismen — intergeschlechtliche Varianten existieren.</p></div><div class="fc-col fc-col--r"><h4>Widerlegt / strittig</h4><p>Ein Teil der Fachwelt plädiert für eine „multivariate“ Definition; ein Brief dreier US-Fachgesellschaften (2025) wurde nach internem Streit zurückgezogen, eine Gegenkampagne verteidigte die gametische Definition. Eine Ecology-Letters-Arbeit (2026) sieht „keinen Konsens“ — selbst umstritten.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>Goymann 2023 (BioEssays); Roughgarden; Coyne &amp; Maroja 2025; Eppley et al. 2026 (Ecology Letters). Normativer Vorbehalt: keine Definition soll über Menschenrechte entscheiden.</p></details></div>
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K1/K4 · Testosteron überlappt bei gesunden Männern und Frauen nicht.</h3><span class="fc-v fc-v--ok">Bestätigt · mit Vorbehalt</span></div><p class="fc-sum">Bei sauberer Messung (LC-MS) überlappen die Bereiche praktisch nicht; selbst PCOS erreicht keine männlichen Werte. Eine scheinbare Überlappung in älteren Daten ist umstritten.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Handelsman, Hirschberg &amp; Bermon (2018): bimodale, faktisch nicht überlappende Verteilung — Männer ca. 7,7–29,4 nmol/L, Frauen 0–1,7 nmol/L; PCOS bis ca. 4,8 (unter dem Männerbereich). Stützt Adenins Aussage.</p></div><div class="fc-col fc-col--r"><h4>Widerlegt / strittig</h4><p>Healy et al. (2014) fanden bei Elite-Athleten scheinbare Überlappung (ca. 16,5 % Männer unter, 13,7 % Frauen über dem Referenzwert) — zugeschrieben Messmethode, Doping, DSD/PCOS; die Größe des Vorteils bestreiten u. a. Karkazis und Sönksen.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>Handelsman/Hirschberg/Bermon 2018 (Endocrine Reviews); Healy et al. 2014; Clark et al. 2019.</p></details></div>
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K2 · Säugetiere können ihr Geschlecht nicht wechseln, nur Merkmale anpassen.</h3><span class="fc-v fc-v--ok">Bestätigt</span></div><p class="fc-sum">Kein Säugetier wechselt natürlich das gametische Geschlecht. Medizinische Transition verändert Geschlechtsmerkmale, nicht das gametische Geschlecht.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Eine Geschlechtsumwandlung im biologischen Sinn ist bei Säugetieren nicht bekannt; Transition passt sekundäre Merkmale an. Adenins Aussage trifft zu.</p></div><div class="fc-col fc-col--r"><h4>Widerlegt / strittig</h4><p>Kein Gegenbeleg. Kirtschos „noch nicht“ (etwa Gebärmuttertransplantation, Keimzellen) bleibt derzeit Spekulation; eine gametische Geschlechtsänderung ist nicht möglich.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>Allgemeiner Stand der Reproduktionsbiologie; vgl. Handelsman 2025 (Drug Testing and Analysis).</p></details></div>
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K2 · Man kann im Gehirn sehen, ob jemand trans ist / Identität ist angeboren.</h3><span class="fc-v fc-v--open">Strittig · kein Marker</span></div><p class="fc-sum">Es gibt keinen diagnostischen Hirn-Marker; das Gehirn ist nicht binär-dimorph. Adenins enge Aussage ist gestützt — beide Pole überdehnen, wenn sie „angeboren“ oder „rein erlernt“ behaupten.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Die ENIGMA-Mega-Analyse (2021, n=803) findet Gruppenunterschiede und Hinweise auf ein „eigenes“ Hirn-Phänotyp-Muster bei trans Personen.</p></div><div class="fc-col fc-col--r"><h4>Widerlegt / strittig</h4><p>„Unterschiede, die nicht unterscheiden“: große Überlappung, inkonsistente Befunde, kleine Stichproben, Störfaktoren (Orientierung, Hormone). Kein Test kann Identität individuell beweisen oder widerlegen. „Angeboren vs. entwickelt“ ist offen — hier endet die Empirie und beginnt teils die Wertfrage.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>ENIGMA-Mega-Analyse 2021; Archives of Sexual Behavior 2025; Scoping-Reviews 2025.</p></details></div>
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K3 · Transition verbessert die psychische Gesundheit nicht (finnische Daten, Jugend).</h3><span class="fc-v fc-v--part">Teilweise · stark umstritten</span></div><p class="fc-sum">Registerdaten zeigen keine gemessene Verbesserung der psychischen Morbidität; der Cass-Review nennt die Jugend-Evidenz sehr schwach. Kritiker bestreiten die Methodik — und Korrelation ist nicht Kausalität.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Finnische Registerstudien (Ruuska/Kaltiala u. a., 2024 BMJ Mental Health; 2026 Acta Paediatrica): psychische Belastung hoch vor und nach Behandlung, sinkt nicht; die Autoren halten Geschlechtsdysphorie teils für sekundär. England (Cass-Review 2024): schwache Evidenz, kein Beleg, dass Transition Suizide senkt; Pubertätsblocker mindern die Knochendichte. Schweden, Finnland und England schränkten die Jugendbehandlung ein.</p></div><div class="fc-col fc-col--r"><h4>Widerlegt / strittig</h4><p>Kritiker (u. a. WPATH-nahe Stimmen) rügen Proxy-Variablen, fehlenden Vergleich behandelt/unbehandelt und ein Journal mit niedrigem Impact-Faktor. Andere Studien berichten Nutzen. Aus „keine gemessene Verbesserung“ folgt kein Schadensbeleg.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>Ruuska/Kaltiala et al. 2024/2026; Cass-Review 2024; Gegenkritik u. a. Erin Reed 2026. Normativ: wie viel Evidenz vor Behandeln oder Verweigern.</p></details></div>
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K4 · DSD-Vorteil im Sport: Rio-Podium, 140-fache Häufung, Semenya, Khelif.</h3><span class="fc-v fc-v--ok">Überwiegend bestätigt</span></div><p class="fc-sum">Die Sport-Angaben treffen weitgehend zu (mit kleinen Datums-Korrekturen); Regeln und Verfahren sind 2025/26 in Bewegung.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Das 800-m-Podium von Rio waren drei 46,XY-DSD-Athletinnen (Semenya, Niyonsaba, Wambui) — korrektes Jahr 2016, nicht 2018. Hyperandrogene 46,XY-DSD sind im Elite-Frauensport rund 140-fach häufiger (Bermon &amp; Garnier 2014/2017; ca. 7/1000); Testosteron-Senkung ca. −5,7 % Leistung; World-Athletics-Daten 2025: 151,9-fach in Finals. Semenya (46,XY 5-ARD, 2× Olympiasiegerin): WA-Regeln seit 2018/19, von CAS und Schweizer Gericht bestätigt; der EGMR rügte 2023/2025 nur das Verfahren, kippte die Regel nicht. World Boxing führte 2025 einen SRY-Gentest ein; Khelif ist bis zum Test gesperrt, legte beim CAS Berufung ein (Aussetzung abgelehnt) und zeigte sich 2026 offen für einen IOC-Test.</p></div><div class="fc-col fc-col--r"><h4>Widerlegt / strittig</h4><p>Das SRY-Gen allein bestimmt weder Geschlecht noch Vorteil zuverlässig (IOC-FAQ 2026; Human Genetics Society of Australasia); die Größe des Vorteils bestreiten u. a. Karkazis, Sönksen und Ferguson-Smith &amp; Bavington. Die Behauptung, Khelif habe eine „französische Lizenz“ und eine 2028-Bewerbung eingereicht, ist nicht belegt.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>Bermon &amp; Garnier 2014 (JCEM) / 2017; World Athletics 2019/2025; CAS; EGMR 2023/2025; World Boxing 2025; IOC-FAQ 2026.</p></details></div>
+    <div class="fc-card"><div class="fc-headrow"><h3 class="fc-q">K4 · Der IOC schaffte Geschlechtstests um das Jahr 2000 ab.</h3><span class="fc-v fc-v--ok">Bestätigt</span></div><p class="fc-sum">Der IOC schaffte verpflichtende Geschlechtstests 1999 ab (wirksam ab Sydney 2000) — wegen falsch-positiver Fälle. 2026 kehrte er zu Gentests zurück.</p><details class="fc-more"><summary>Belege &amp; Quellen</summary><div class="fc-split"><div class="fc-col fc-col--c"><h4>Bestätigt</h4><p>Atlanta 1996: 8 von 3387 Athletinnen positiv — alle falsch-positiv (Androgenresistenz, ein 5-ARD-Fall), alle zugelassen. Der Fall der spanischen Hürdenläuferin Martínez-Patiño (CAIS) wurde zum Sinnbild. Abschaffung Juni 1999, wirksam Sydney 2000.</p></div><div class="fc-col fc-col--r"><h4>Aktuelle Wende</h4><p>Kein Gegenbeleg zur historischen Abschaffung. Der IOC führte im März 2026 wieder genetische Tests ein — mit Ausnahmen etwa für CAIS und bestimmte DSD.</p></div></div><p class="fc-src"><span class="lab">Quellen</span>Genel/IOC; Play the Game; Globe and Mail 2000; IOC-FAQ &amp; NPR 2026.</p></details></div>
+  </div>
+  <p class="fc-note"><b>Momentaufnahme.</b> Forschungsstand um Mitte 2026 (Wissensstand teils Anfang 2026, ergänzt um Recherche). Mehrere Felder — Jugendmedizin, Sport-Regularien, Geschlechtsdefinition — sind schnelllebig und juristisch umkämpft. Vor Weiterverwendung gegen neuere Studien und Urteile prüfen.</p>
+</section>
+<hr class="br-cut">
+<section class="br-page st-page" id="schlussthese" aria-label="Schlussthese">
+  <span class="kp-frame"></span><span class="kp-num">13 / 14</span>
+  <p class="st-eyebrow">Schlussthese</p>
+  <h2 class="st-title">Worüber wirklich gestritten wurde</h2>
+  <p class="st-deck">Hinter „Biologie oder Identität“ liegen zwei Fragen, die sich nicht ineinander auflösen.</p>
+  <div class="kb"><svg viewBox="0 0 780 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="780" height="130" fill="#0e161b"/><path d="M120 104 Q300 52 376 70" fill="none" stroke="#9fd0db" stroke-width="2" opacity=".55"/><path d="M660 104 Q480 52 404 70" fill="none" stroke="#e8959c" stroke-width="2" opacity=".55"/><path d="M376 70 l8 13 M404 70 l-8 13" stroke="#c89b3c" stroke-width="2" opacity=".5"/><text x="390" y="46" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="22" fill="#ecc868">?</text><text class="kb-ill" x="768" y="123" text-anchor="end">Illustration</text></svg></div>
+  <div class="st-meet"><span class="lab">Worin sie sich treffen</span><p>Beide bejahen, dass es Transidentität gibt; beide lehnen Operationen an intergeschlechtlichen Kindern ab; beide wollen bessere Studien; und beide trennen DSD vom Thema Trans. Ihr Konflikt ist enger, als er klingt — er betrifft nicht das <em>Ob</em>, sondern den <em>Ort</em> des Maßstabs.</p></div>
+  <div class="st-core"><span class="lab">Der unauflösbare Kern</span><p>Adenin macht das <span class="g">biologische Geschlecht</span> zum festen, artübergreifenden Bezugspunkt und trennt es von der Identitätsebene. Kirtscho macht die <span class="g">gelebte Identität</span> zum Bezugspunkt und leitet daraus Anerkennung ab. Beide beantworten verschiedene Fragen — <span class="g">was Geschlecht biologisch ist</span> gegen <span class="g">wie wir mit Menschen umgehen sollen</span> — und keine widerlegt die andere.</p></div>
+  <div class="st-open"><span class="st-open__lab">Was offen bleibt</span><div class="st-open__grid"><div class="st-oitem">Lässt sich biologische Präzision von sozialer Anerkennung trennen?</div><div class="st-oitem">Welche Ergebnismaße entscheiden über „erfolgreiche“ Behandlung?</div><div class="st-oitem">Wie schützt man faire Frauenkategorien, ohne Menschen bloßzustellen?</div><div class="st-oitem">Wie viel Sorgfalt schuldet, wer Forschung öffentlich zitiert?</div></div></div>
+  <p class="st-close">Es bleibt kein Sieger, sondern eine geschärfte Frage: <span class="g">Wie viel entscheidet die Biologie — und wo beginnt die Anerkennung?</span></p>
+</section>
+<hr class="br-cut">
+<section class="br-page st-page" id="kolophon" aria-label="Kolophon">
+  <span class="kp-frame"></span><span class="kp-num">14 / 14</span>
+  <div class="ko-wrap">
+    <p class="st-eyebrow">Kolophon</p>
+    <h2 class="st-title">Apparat, Methode, Sorgfalt</h2>
+    <p class="st-deck">Quelle, Zuordnung, O-Töne — und was als redaktionelle Einordnung markiert ist.</p>
+    <hr class="ko-rule">
+    <div class="ko-sec"><p class="ko-sec__h">Die Quelle</p><div class="ko-card"><p>Ein einziges deutschsprachiges YouTube-Streamgespräch (0:00–1:09:01, ≈ 69 Minuten) zwischen zwei Sprechern. Grundlage ist ein <b>automatisch erstelltes Transkript</b> — ohne Sprecher-Kennzeichnung; Zeitmarken sind daher näherungsweise. <a class="ko-link" href="https://www.youtube.com/watch?v=cRrpSDUXR3g" target="_blank" rel="noopener">Quelle auf YouTube ↗</a></p></div></div>
+    <div class="ko-sec"><p class="ko-sec__h">Die Sprecher</p><div class="ko-people"><div class="ko-person ko-person--p"><span class="ko-person__b">K</span><div><p class="ko-person__n">Kirtscho</p><p class="ko-person__r">Identitätsbejahend · Gastgeber</p><p class="ko-person__note">Nennt sich selbst „der verrückte Blumenmann“ (ca. Min. 4:05); Schreibweise aus dem Audio abgeleitet.</p></div></div><div class="ko-person ko-person--s"><span class="ko-person__b">A</span><div><p class="ko-person__n">Adenin</p><p class="ko-person__r">Biologistin · Biologin (Humangenetik)</p><p class="ko-person__note">Stellt sich als „Adin“ vor (ca. Min. 0:19); Schreibweise aus dem Audio abgeleitet.</p></div></div></div><div class="ko-card"><p>Das Transkript trug keine Sprecher-Labels. Die Zuordnung erfolgte <b>inhaltlich</b> — anhand von Rolle (Gastgeber/Expertin), Frage-Antwort-Verlauf und Selbstbezeichnung, nicht aus Metadaten.</p></div></div>
+    <div class="ko-sec"><p class="ko-sec__h">Verifizierte O-Töne · wortwörtlich, mit Zeitmarke</p><div class="ko-card">
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 8:56</span></div><p class="ko-q__t">„man braucht halt eine Definition von Geschlecht, die bei allen Lebewesen, in denen es Geschlecht gibt, greift“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 9:25</span></div><p class="ko-q__t">„das ist über diese verschiedenen Stammbaumlinien eben nur die Ausrichtung auf die potenzielle Produktion kleiner oder großer Gameten“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 10:02</span></div><p class="ko-q__t">„würdest du dann dafür plädieren, dass man das dann umbenennt?“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 11:18</span></div><p class="ko-q__t">„Säugetiere können ihr Geschlecht nicht wechseln. Sie können ihre Geschlechtsmerkmale so weit die Medizin es zulässt anpassen.“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 18:09</span></div><p class="ko-q__t">„die Umwelt hat das letzte Wort“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 18:20</span></div><p class="ko-q__t">„wäre das nicht viel einfacher für Transmenschen das zu ändern?“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 21:40</span></div><p class="ko-q__t">„dass das die Art und Weise ist, wie wir den Menschen helfen“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 22:26</span></div><p class="ko-q__t">„dass der Leidensdruck halt weniger wird“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 25:36</span></div><p class="ko-q__t">„wir haben eine aktuelle Datenlage, die ist nicht perfekt, die ist nicht mal besonders gut“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 35:34</span></div><p class="ko-q__t">„im 0,1% der Leistungsspitze wirst du nur Männer haben“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 48:25</span></div><p class="ko-q__t">„sie wächst als Frau auf, sie fühlt sich als Frau, das ist ihre Identität“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 55:37</span></div><p class="ko-q__t">„Personen haben Namen, das reicht doch völlig.“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 57:58</span></div><p class="ko-q__t">„was ist das große Problem, das zu respektieren?“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 59:31</span></div><p class="ko-q__t">„es ist nicht nur unfair den Frauen gegenüber, das ist gefährlich“</p></div>
+      <div class="ko-q ko-q--s"><div class="ko-q__meta"><span class="ko-q__b">A</span><span class="ko-q__ts">Min. 1:02:34</span></div><p class="ko-q__t">„er hat irgendwie 22 Quellen, fünf davon waren nicht im Video“</p></div>
+      <div class="ko-q ko-q--p"><div class="ko-q__meta"><span class="ko-q__b">K</span><span class="ko-q__ts">Min. 1:02:51</span></div><p class="ko-q__t">„Ich habe das da einfach reingepackt.“</p></div>
+    </div></div>
+    <div class="ko-sec"><div class="ko-grid"><div><p class="ko-sec__h">Anti-Halluzination</p><div class="ko-card"><ul><li>Personen nur als <b>Monogramm-Silhouetten</b> (K · A) — keine erfundenen Porträts.</li><li>Nur <b>wortwörtlich verifizierte</b> O-Töne mit Zeitmarke; keine erfundenen Zitate, Zahlen oder Statistiken aus der Debatte.</li><li>Die Kopf-Bänder sind <b>abstrakt-symbolische</b> Illustrationen (als „Illustration“ markiert) — keine Belegfotos, keine erfundenen Datendiagramme.</li><li>Der Closed-Book-Wert (35,9 %) im Prüfsiegel beschreibt <b>ungestützte</b> Antworten, nicht diese quellengestützte Arbeit.</li></ul></div></div><div><p class="ko-sec__h">Redaktionelle Einordnungen</p><div class="ko-card"><ul><li><b>Seite 10 · „Kritik von links“</b> — sozialdemokratisch-linksliberale Lesart, ohne wörtliche Zitate.</li><li><b>Seite 11 · „Eine pluralistische Lesart“</b> — Modus-vivendi-/wertepluralistische Lesart, ohne wörtliche Zitate.</li><li><b>Seite 12 · „Empirischer Faktencheck“</b> — stützt sich auf <b>benannte externe wissenschaftliche Quellen</b> (je Befund genannt); Forschungsstand Mitte 2026.</li><li>Zeitmarken sind aus einem Auto-Transkript abgeleitet und näherungsweise. Alles Übrige folgt der Quelle.</li></ul></div></div></div></div>
+    <p class="ko-foot">Quelle: ein deutschsprachiges YouTube-Streamgespräch (≈ 69 Min). Diese Broschüre verdichtet es in Themenkomplexe; die Lesarten (S. 10–11) und der Faktencheck (S. 12) sind als redaktionelle Einordnungen markiert. Texterzeugung: Claude Opus 4.8.</p>
+  </div>
+</section>
+<script>addEventListener("beforeprint",function(){document.querySelectorAll("details").forEach(function(d){d.__o=d.open;d.open=true;});});addEventListener("afterprint",function(){document.querySelectorAll("details").forEach(function(d){d.open=d.__o;});});</script>
+
+</body>
+</html>
