@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Höcke bei Köppel — Aktenanalyse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f1722; --ink:#16222f; --muted:#5d6b79; --faint:#8694a1;
+    --line:#d7dee5; --paper:#e9edf1; --card:#ffffff; --panel:#f3f6f9;
+    --rk:#2563a8;        /* Köppel  */
+    --bh:#9b1c2e;        /* Höcke   */
+    --as:#b06a16;        /* Streamer*/
+    --rebut:#0e6f64;     /* Kritik-Akzent */
+    --red:#c2392f; --amber:#c8841a; --slate:#5d6b79;
+    --shadow:0 1px 2px rgba(16,30,45,.05), 0 6px 22px rgba(16,30,45,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Spectral",Georgia,"Times New Roman",serif;
+    font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 22px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  h1,h2,h3,.eyebrow,.tag,.code,.nav a,.legend,.matrix th,.chiprow{font-family:"Archivo",system-ui,sans-serif}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--navy); color:#e8eef4; padding:54px 0 30px; border-bottom:3px solid var(--bh)}
+  .kicker{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.18em;
+          text-transform:uppercase; color:#86a6c9; margin:0 0 16px}
+  .hero h1{font-weight:700; font-size:clamp(30px,5.4vw,52px); line-height:1.04;
+           letter-spacing:-.02em; margin:0 0 14px}
+  .hero h1 em{font-style:normal; color:#e8b9bf}
+  .hero .lede{font-size:clamp(16px,2.2vw,19px); color:#c6d2dd; max-width:70ch; margin:0 0 22px}
+  .hero .lede b{color:#fff; font-weight:600}
+  .metarow{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
+  .metarow span{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.04em;
+    color:#cdd9e4; border:1px solid #2c3a49; border-radius:999px; padding:5px 11px; background:#16222f}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky; top:0; z-index:40; background:rgba(233,237,241,.86);
+       backdrop-filter:saturate(140%) blur(8px); border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex; gap:4px; flex-wrap:wrap; padding-top:8px; padding-bottom:8px}
+  .nav a{font-size:12.5px; letter-spacing:.02em; color:var(--muted); text-decoration:none;
+         padding:7px 12px; border-radius:7px}
+  .nav a:hover{color:var(--ink); background:#dde4ea}
+  .nav a:focus-visible{outline:2px solid var(--rk); outline-offset:2px}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  .sec{padding:46px 0 6px}
+  .sec-h{display:flex; align-items:baseline; gap:14px; margin:0 0 4px}
+  .sec-h .num{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--bh); font-weight:600}
+  .sec-h h2{font-weight:700; font-size:clamp(21px,3.2vw,29px); letter-spacing:-.015em; margin:0; color:var(--ink)}
+  .sec-sub{color:var(--muted); max-width:74ch; margin:6px 0 26px; font-size:15px}
+  .rule{height:1px; background:var(--line); margin:0 0 26px}
+
+  /* ---------- PROFILES ---------- */
+  .stimmen{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .profile{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--c);
+           border-radius:12px; padding:18px 18px 20px; box-shadow:var(--shadow)}
+  .profile.rk{--c:var(--rk)} .profile.bh{--c:var(--bh)} .profile.as{--c:var(--as)}
+  .profile .code{display:inline-flex; align-items:center; gap:7px; font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--c); font-weight:700; margin-bottom:9px}
+  .profile .code .sq{width:11px; height:11px; border-radius:3px; background:var(--c); display:inline-block}
+  .profile h3{margin:0 0 2px; font-size:19px; letter-spacing:-.01em}
+  .profile .who{color:var(--muted); font-size:13.5px; margin:0 0 12px; line-height:1.4}
+  .profile .role{font-size:14.5px; margin:0; color:#283642}
+  .profile .role b{color:var(--c); font-weight:600}
+
+  /* ---------- MATRIX ---------- */
+  .scrollhint{display:none; font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--faint); margin:-14px 0 10px}
+  .matrix-scroll{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--card); box-shadow:var(--shadow)}
+  table.matrix{border-collapse:collapse; width:100%; min-width:680px; font-size:13.5px}
+  .matrix th,.matrix td{text-align:left; vertical-align:top; padding:13px 15px; border-bottom:1px solid var(--line)}
+  .matrix thead th{font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    color:#fff; position:sticky; top:0}
+  .matrix thead th.th-theme{background:#243240}
+  .matrix thead th.th-rk{background:var(--rk)} .matrix thead th.th-bh{background:var(--bh)} .matrix thead th.th-as{background:var(--as)}
+  .matrix tbody tr:last-child td{border-bottom:0}
+  .matrix tbody tr:nth-child(even){background:#f6f8fa}
+  .matrix td.theme{font-family:"Archivo",sans-serif; font-weight:600; color:var(--ink);
+    white-space:nowrap; position:sticky; left:0; background:inherit; border-right:1px solid var(--line)}
+  .matrix tbody tr:nth-child(even) td.theme{background:#f6f8fa}
+  .matrix tbody tr:nth-child(odd) td.theme{background:var(--card)}
+
+  /* ---------- VERDICT LEGEND ---------- */
+  .legendbox{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:0 0 24px}
+  .legendbox .lab{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .legend{display:inline-flex; align-items:center; gap:7px; font-size:12.5px; color:#33414d}
+  .dot{width:9px; height:9px; border-radius:50%; display:inline-block}
+  .d-red{background:var(--red)} .d-amber{background:var(--amber)} .d-slate{background:var(--slate)}
+
+  /* ---------- DUEL (Behauptung <-> Kritik) ---------- */
+  .duel{background:var(--card); border:1px solid var(--line); border-radius:13px;
+        margin:0 0 18px; box-shadow:var(--shadow); overflow:hidden}
+  .duel-head{display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:12px 18px; border-bottom:1px solid var(--line); background:var(--panel)}
+  .duel-head .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.07em;
+    text-transform:uppercase; color:var(--muted)}
+  .verdict{display:inline-flex; align-items:center; gap:8px; font-family:"Archivo",sans-serif;
+    font-weight:600; font-size:11.5px; letter-spacing:.04em; color:var(--ink);
+    background:#fff; border:1px solid var(--line); border-radius:999px; padding:5px 12px; white-space:nowrap}
+  .duel-body{display:grid; grid-template-columns:1fr 1fr}
+  .side{padding:18px 20px}
+  .side.claim{background:#fbfaf8; border-right:1px solid var(--line)}
+  .side.rebut{background:#fff; border-left:3px solid var(--rebut)}
+  .side .label{display:inline-flex; align-items:center; gap:8px; font-family:"Archivo",sans-serif;
+    font-size:10.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; margin:0 0 9px}
+  .label.claim{color:var(--muted)}
+  .label.rebut{color:var(--rebut)}
+  .tag{display:inline-flex; align-items:center; gap:6px; font-size:10.5px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; padding:3px 8px; border-radius:5px; color:#fff}
+  .tag-bh{background:var(--bh)} .tag-as{background:var(--as)} .tag-rk{background:var(--rk)}
+  .side p{margin:0; font-size:14.5px; line-height:1.5; color:#27333e}
+  .side.claim p{color:#3a4049}
+  .side p .src{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint); display:block; margin-top:8px}
+
+  .subhead{font-family:"Archivo",sans-serif; font-weight:700; font-size:15px; letter-spacing:.02em;
+    color:var(--as); margin:30px 0 14px; display:flex; align-items:center; gap:10px}
+  .subhead::before{content:""; width:26px; height:3px; background:var(--as); border-radius:2px; display:inline-block}
+
+  /* ---------- FIGURES (Architektur) ---------- */
+  .figs{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  .fig{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:16px 17px; box-shadow:var(--shadow)}
+  .fig .n{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--bh); font-weight:600}
+  .fig h3{font-family:"Archivo",sans-serif; font-size:15.5px; letter-spacing:-.005em; margin:4px 0 6px; color:var(--ink)}
+  .fig p{margin:0; font-size:13.8px; line-height:1.5; color:#37434e}
+
+  /* ---------- BELEGE ---------- */
+  .belege{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:6px 22px; box-shadow:var(--shadow)}
+  .belege ul{list-style:none; margin:0; padding:0}
+  .belege li{padding:13px 0; border-bottom:1px solid var(--line); font-size:13.6px; color:#33414d; line-height:1.5}
+  .belege li:last-child{border-bottom:0}
+  .belege .k{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--rebut); display:block; margin-bottom:3px}
+
+  .note{font-size:12.5px; color:var(--muted); font-style:italic; max-width:80ch; margin:26px 0 0}
+  footer{margin-top:40px; border-top:1px solid var(--line); background:#fff}
+  footer .wrap{padding:22px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint); letter-spacing:.03em}
+
+  @media (prefers-reduced-motion: no-preference){
+    .profile,.fig,.duel{transition:border-color .18s ease, box-shadow .18s ease}
+    .profile:hover,.fig:hover{border-color:#b9c4cd; box-shadow:0 2px 4px rgba(16,30,45,.06),0 12px 30px rgba(16,30,45,.09)}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:820px){
+    .stimmen{grid-template-columns:1fr}
+    .figs{grid-template-columns:1fr}
+    .scrollhint{display:block}
+  }
+  @media (max-width:680px){
+    body{font-size:15px}
+    .duel-body{grid-template-columns:1fr}
+    .side.claim{border-right:0; border-bottom:1px solid var(--line)}
+    .side.rebut{border-left:0; border-top:3px solid var(--rebut)}
+    .duel-head{flex-direction:column; align-items:flex-start; gap:8px}
+    .hero{padding-top:40px}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    body{background:#fff}
+    .nav{display:none}
+    .hero{background:#fff; color:#000; border-bottom:2px solid var(--bh)}
+    .hero .kicker{color:#555} .hero h1 em{color:var(--bh)} .hero .lede{color:#222} .hero .lede b{color:#000}
+    .metarow span{color:#222; background:#fff; border-color:#ccc}
+    .duel,.profile,.fig,.belege,.matrix-scroll{break-inside:avoid; box-shadow:none}
+    a{color:inherit; text-decoration:none}
+  }
+
+  /* ---------- KAPITEL 01: HERRSCHAFTSMODELL ---------- */
+  .herr-model{display:flex; flex-wrap:wrap; gap:9px; margin:0 0 26px}
+  .herr-model .pill{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.03em;
+    color:#33414d; background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:6px 12px}
+  .cascade{position:relative}
+  .tier{margin:0 0 4px}
+  .tier .lvlbar{display:flex; align-items:center; gap:10px; margin:0 0 9px; flex-wrap:wrap}
+  .tier .lvl{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; text-transform:uppercase;
+    font-weight:600; color:#fff; padding:4px 11px; border-radius:6px; background:var(--c)}
+  .tier .lvl-sub{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); letter-spacing:.03em}
+  .tier-card{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--c);
+    border-radius:12px; padding:18px 20px 16px; box-shadow:var(--shadow)}
+  .tier.t1{--c:#243240} .tier.t2{--c:var(--bh)} .tier.t3{--c:#3f5468}
+  .tier .actor{font-family:"Archivo",sans-serif; font-weight:700; font-size:19px; letter-spacing:-.01em; color:var(--ink); margin:0 0 7px}
+  .tier .thesis{margin:0 0 12px; font-size:15px; line-height:1.5; color:#2a3742}
+  .tier .thesis b{color:var(--c); font-weight:600}
+  .tier .args{list-style:none; margin:0 0 14px; padding:0; display:grid; gap:8px}
+  .tier .args li{position:relative; padding-left:18px; font-size:14px; line-height:1.5; color:#37434e}
+  .tier .args li::before{content:"\203A"; position:absolute; left:2px; top:-1px; color:var(--bh); font-weight:700; font-size:15px}
+  .tier .args li b{color:var(--ink); font-weight:600}
+  .tier .fn{color:var(--faint); font-size:12px}
+  .as-strip{display:flex; gap:11px; align-items:flex-start; background:#fdf7ee; border:1px solid #f0e2cc;
+    border-left:3px solid var(--as); border-radius:9px; padding:11px 13px}
+  .as-strip .tag{flex:none; margin-top:1px}
+  .as-strip p{margin:0; font-size:13.6px; line-height:1.5; color:#4a3c28}
+  .cascade-arrow{display:flex; justify-content:center; align-items:center; color:#9aa7b3; font-size:22px; line-height:1; margin:3px 0 7px}
+  .brandmauer{margin:15px 0 4px; border-radius:10px; padding:14px 18px; font-size:14px; line-height:1.5; color:#2a3742;
+    border:1px solid var(--line);
+    background:repeating-linear-gradient(135deg,#eef1f4 0,#eef1f4 9px,#e4e9ef 9px,#e4e9ef 18px)}
+  .brandmauer .blab{font-family:"Archivo",sans-serif; font-weight:700; letter-spacing:.03em; color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px; margin-right:6px}
+  .brandmauer .blab::before{content:""; width:13px; height:13px; border-radius:3px; background:var(--bh); display:inline-block}
+  .einordnung{margin:22px 0 0; background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:14px 16px; display:flex; gap:11px; align-items:flex-start; font-size:13.6px; color:#33414d; line-height:1.5}
+  .einordnung .dot{margin-top:6px; flex:none}
+  .einordnung b{color:var(--ink); font-weight:600}
+  @media (max-width:680px){ .tier .actor{font-size:17px} }
+  @media print{ .tier-card,.brandmauer,.einordnung{break-inside:avoid; box-shadow:none} }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Aktenanalyse · Reaction-Auswertung</p>
+    <h1>Höcke bei Köppel —<br><em>Behauptung gegen Kritik</em></h1>
+    <p class="lede">Auswertung der Reaction des Streamers <b>„Agitator der sozialen Marktwirtschaft“</b> auf das Weltwoche-Gespräch zwischen <b>Roger Köppel</b> und <b>Björn Höcke</b>. Jede Stimme ist farbcodiert; die Kernthesen stehen ihrer schärfsten Widerlegung direkt gegenüber, jeder Befund mit der <b>Art</b> des Fehlers etikettiert.</p>
+    <div class="metarow">
+      <span>HERRSCHAFTSMODELL · 3 EBENEN</span><span>3 STIMMEN</span><span>11 BEFUNDE</span><span>POSITIONSMATRIX · 7 THEMEN</span><span>TEIL 1 VON 2</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#herrschaft">01 · Wer beherrscht?</a>
+    <a href="#stimmen">02 · Stimmen</a>
+    <a href="#matrix">03 · Positionsmatrix</a>
+    <a href="#befunde">04 · Behauptung ↔ Kritik</a>
+    <a href="#muster">05 · Muster</a>
+    <a href="#belege">Belege</a>
+  </div>
+</nav>
+
+<!-- 01 HERRSCHAFTSMODELL -->
+<section class="sec" id="herrschaft">
+  <div class="wrap">
+    <div class="sec-h"><span class="num">01</span><h2>Wer beherrscht Deutschland? — Höckes Modell</h2></div>
+    <p class="sec-sub">Höckes politische Diagnose läuft auf eine <b>Herrschaftskette</b> hinaus: außen ein Hegemon, im Inneren eine fremdbestimmte „Anti-Elite“, dahinter die Netzwerke, die sie hervorbringen — und eine Brandmauer, die Widerspruch abriegelt. Jede Ebene mit Höckes Argumenten und dem, was der Streamer ergänzt.</p>
+    <div class="herr-model">
+      <span class="pill">Ebene 1 · Der Hegemon (USA)</span>
+      <span class="pill">Ebene 2 · Die „Anti-Elite“</span>
+      <span class="pill">Ebene 3 · Netzwerke &amp; Medien</span>
+      <span class="pill">Mechanismus · Brandmauer / Kartell</span>
+    </div>
+
+    <div class="cascade">
+
+      <!-- Ebene 1 -->
+      <div class="tier t1">
+        <div class="lvlbar"><span class="lvl">Ebene 1</span><span class="lvl-sub">die äußere Macht</span></div>
+        <div class="tier-card">
+          <div class="actor">Der Hegemon — die USA</div>
+          <p class="thesis"><b>These:</b> Deutschland ist <b>Vasall</b> der USA. Es lebte im „Windschatten“ des Hegemon und durfte nie eigenständige Politik betreiben; heute sei der Hegemon „wild geworden“.</p>
+          <ul class="args">
+            <li>Schon im Kalten Krieg habe Deutschland als Vasall keine Handlungsspielräume gehabt — eigenständige deutsche Interessen seien „gar nicht notwendig, bzw. unmöglich“ gewesen.</li>
+            <li>Nach 1990 sei der „Zugriff“ auf die deutsche Wirtschaft erfolgt: die <b>Deutschland AG</b> zerschlagen, neoliberal umgebaut.</li>
+            <li>Der Hegemon gebe den Vasallen nicht einmal mehr Ruhe zum Wirtschaften — er habe „kritische Infrastruktur von Freunden gesprengt“ (Nord Stream, „nachgewiesen“ durch Hersh). Die transatlantische Freundschaft existiere nicht mehr.</li>
+            <li>Er setze die Führungen der Vasallenstaaten ein, „um Interessenpolitik des Hegemon zu machen“ — nicht nationale Politik.</li>
+          </ul>
+          <div class="as-strip"><span class="tag tag-as">Streamer</span><p>Voll dabei: Der „Niedergang des gesamten Westens“ gehe „von den USA“ aus; die „imperiale Hybris“ habe nicht nur die US-Elite, sondern die der „Vasallenstaaten Deutschland, Frankreich, Großbritannien“ befallen. Beim Nord-Stream-„Segelboot“-Narrativ wird er sarkastisch — er hält die US-Version für die wahre.</p></div>
+        </div>
+      </div>
+
+      <div class="cascade-arrow">↓</div>
+
+      <!-- Ebene 2 -->
+      <div class="tier t2">
+        <div class="lvlbar"><span class="lvl">Ebene 2</span><span class="lvl-sub">das Werkzeug im Inneren</span></div>
+        <div class="tier-card">
+          <div class="actor">Die „Anti-Elite“ in Berlin</div>
+          <p class="thesis"><b>These:</b> Die regierende Elite sei „per Definition keine Elite, sondern eine <b>Anti-Elite</b>“ und „keine deutsche Elite“ — fremdbestimmt, und „im schlechtesten Fall“ hasse sie Deutschland.</p>
+          <ul class="args">
+            <li>Sie habe nie gelernt, „deutsche Interessen zu definieren“; sie handle aus „globalistischem“, „neoliberalem“ Bewusstsein und einem Überlegenheitsgefühl, das „kein deutsches“ sei.</li>
+            <li>Sie sei „von den Amerikanern erzogen“ — liberale Eliten im Geist des Westsiegs und des „Endes der Geschichte“.</li>
+            <li>Konkret benannt: die „Kriegsrhetorik“ von <b>Merz</b>, <b>Kiesewetter</b> und <b>Strack-Zimmermann</b> trete „das deutsche Erbe mit Füßen“; die Russlandpolitik sei „eine Schande und eine Katastrophe“.</li>
+          </ul>
+          <div class="as-strip"><span class="tag tag-as">Streamer</span><p>Er schärft die Pointe: Diese Elite sei zwar siegestrunken, aber nicht im Sinne „wir Deutschen räumen auf“, sondern „wir sind die tollen Freiheitskämpfer, die andere mit unserem System beglücken müssen“ — Hybris des Liberalismus, nicht des Volkes.</p></div>
+        </div>
+      </div>
+
+      <div class="cascade-arrow">↓</div>
+
+      <!-- Ebene 3 -->
+      <div class="tier t3">
+        <div class="lvlbar"><span class="lvl">Ebene 3</span><span class="lvl-sub">die Transmissionsriemen</span></div>
+        <div class="tier-card">
+          <div class="actor">Netzwerke &amp; Medien</div>
+          <p class="thesis"><b>These:</b> Erzeugt und zusammengehalten werde diese Elite durch transatlantische Netzwerke und einen gleichförmigen Medienbetrieb.</p>
+          <ul class="args">
+            <li>Im Gespräch genannt: <b>Atlantik-Brücke</b>, <b>Aspen-Institut</b>, <b>German Marshall Fund</b> — dort sei die Elite „groß geworden“, erzogen im „internationalen, globalistischen Geist“. <span class="fn">(Im Transkript nicht eindeutig Höcke oder Köppel zuzuordnen; der Streamer erkennt darin sofort seine eigene Linie wieder.)</span></li>
+            <li>Die „Reeducation“ habe im Westen „deutschsprechende Amerikaner“ hervorgebracht — im Osten lebten dagegen „deutschsprechende Deutsche“.</li>
+            <li>Die „Berliner Blase“ aus Politik und Journalismus denke nicht anders als die Hauptstädte aller anderen westlichen Länder.</li>
+          </ul>
+          <div class="as-strip"><span class="tag tag-as">Streamer</span><p>Hier verstärkt er am stärksten: deutsche Universitäten seien „komplett gleichgeschaltet“, ununterscheidbar von GB oder USA; die Berliner Blase sei „ein großer westlicher Einheitsbrei“ ohne „Distinktion“. Höcke habe „Dinge vom nächsten Video vorweggenommen“ — volle Deckung.</p></div>
+        </div>
+      </div>
+
+      <!-- Mechanismus -->
+      <div class="brandmauer">
+        <span class="blab">Mechanismus · Brandmauer / Kartell</span>
+        Die Herrschaft sichere sich, indem die Debatte „wie wir Deutschen zusammenleben wollen“ verweigert werde: „Die Entscheidenden sind nicht gewählt, und die Gewählten haben nichts zu entscheiden.“ Das „Kartell“ verpanzere sich hinter der Brandmauer — und treibe Deutschland zugleich „in einen Krieg mit Russland“.
+      </div>
+
+      <div class="einordnung"><span class="dot d-slate"></span><p><b>Einordnung.</b> Als Erklärung ist das die klassische <b>Anti-Elite-Verschwörungsfigur</b>: ein homogener, „fremdbestimmter“ Akteur, der unfalsifizierbar ist (jede pro-westliche Position gilt als Beweis der Steuerung) und mit Begriffen wie „globalistisch / vaterlandslos / wurzellos“ eine antisemitisch konnotierte Vorgeschichte trägt. Die ausführliche Widerlegung steht in <b>Befund I · Elite / Globalismus</b> (Kapitel 04).</p></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 02 STIMMEN -->
+<section class="sec" id="stimmen">
+  <div class="wrap">
+    <div class="sec-h"><span class="num">02</span><h2>Drei Stimmen, drei Funktionen</h2></div>
+    <p class="sec-sub">Wer redet, in welcher Rolle. Die Farben (RK · BH · AS) ziehen sich durch das ganze Dokument.</p>
+    <div class="stimmen">
+      <article class="profile rk">
+        <div class="code"><span class="sq"></span>RK · Köppel</div>
+        <h3>Roger Köppel</h3>
+        <p class="who">Verleger/Chefredakteur <i>Weltwoche</i>, früher <i>Welt</i>; national-konservativ, marktliberal, EU-skeptisch.</p>
+        <p class="role"><b>Gastgeber &amp; Stichwortgeber.</b> Liefert Höcke die Deutungsrahmen und inszeniert ein Gespräch „zwischen zwei Historikern“ — setzt aber echte Einwände, die er fallen lässt, sobald Höcke ausweicht.</p>
+      </article>
+      <article class="profile bh">
+        <div class="code"><span class="sq"></span>BH · Höcke</div>
+        <h3>Björn Höcke</h3>
+        <p class="who">AfD Thüringen, Ex-Geschichtslehrer; Zentralfigur des 2020 als gesichert rechtsextrem eingestuften „Flügels“.</p>
+        <p class="role"><b>Der Gast.</b> Entfaltet ein geschlossenes <b>völkisch-deklinistisches</b> Weltbild: Existenzbedrohung, Entfremdung, „Befreiung“ — verpackt in Anti-Neoliberalismus, DDR-Nostalgie und Kolonialrevision.</p>
+      </article>
+      <article class="profile as">
+        <div class="code"><span class="sq"></span>AS · Streamer</div>
+        <h3>„Agitator der sozialen&nbsp;Marktwirtschaft“</h3>
+        <p class="who">Twitch-Streamer, Umfeld BSW/AfD; Reaction-Format mit Spenden- und Chat-Einwürfen.</p>
+        <p class="role"><b>Verstärker &amp; Taktiker.</b> Nickt Höcke ab („vollkommen richtig“), liest ihn als <b>krypto-links</b> und bewertet alles als Debatten- und Mehrheitsspiel — mit eigenen Zuspitzungen.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 MATRIX -->
+<section class="sec" id="matrix">
+  <div class="wrap">
+    <div class="sec-h"><span class="num">03</span><h2>Positionsmatrix</h2></div>
+    <p class="sec-sub">Wo stehen die drei zu denselben Themen? Übereinstimmungen zwischen Höcke und dem Streamer sind durchgehend, Köppel hält Distanz im Stil, nicht immer in der Sache.</p>
+    <p class="scrollhint">→ Tabelle horizontal wischen</p>
+    <div class="matrix-scroll">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th class="th-theme">Thema</th>
+            <th class="th-rk">Köppel</th>
+            <th class="th-bh">Höcke</th>
+            <th class="th-as">Streamer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="theme">Grunddiagnose</td>
+            <td>Westen/Aufklärung = echtes Erbe; Problem ist die Arroganz nach 1990, nicht die Identität.</td>
+            <td>Existenziell bedroht „wie nie zuvor“; Deutschland sich selbst entfremdet.</td>
+            <td>Teilt die Krisendiagnose; Symptom eines westweiten Niedergangs.</td>
+          </tr>
+          <tr>
+            <td class="theme">Identität / Westen</td>
+            <td>Deutschland „westliches Land par excellence“, weltoffen-vermittelnd.</td>
+            <td>„Vom Kern nicht Westen“; Ersatzidentität (EU / USA).</td>
+            <td>Westdeutschland kulturell amerikanisiert; „deutschsprechende Amerikaner“.</td>
+          </tr>
+          <tr>
+            <td class="theme">DDR</td>
+            <td>Kaum Thema — Fokus auf dem Erfolgsmodell BRD.</td>
+            <td>Osten übervorteilt; Solidarität/Sicherheit der DDR wertvoll, „kein Multikulti“.</td>
+            <td>DDR teils Vorbild — inkl. „idealer“ Zuwanderung.</td>
+          </tr>
+          <tr>
+            <td class="theme">Ökonomie</td>
+            <td>Marktliberal, aber gegen Reagan-/Thatcher-Radikalität.</td>
+            <td>Anti-Neoliberalismus; soziale Marktwirtschaft „zu Grabe getragen“.</td>
+            <td>Teilt die Neoliberalismus-Kritik voll.</td>
+          </tr>
+          <tr>
+            <td class="theme">Außenpolitik / Russland</td>
+            <td>Kritisiert „Kriegsrhetorik“; EU als „Problemherd“.</td>
+            <td>Russlandpolitik = „Schande“; Hegemon „wild“; Nord Stream = USA.</td>
+            <td>US-skeptisch; offizielles Nord-Stream-Narrativ = Manipulation.</td>
+          </tr>
+          <tr>
+            <td class="theme">Eliten</td>
+            <td>„Moralapostel“ — aber Westprägung „nicht abwegig“.</td>
+            <td>Gewählte Elite = „Anti-Elite“, fremdbestimmt, „hasst Deutschland“.</td>
+            <td>Teilt die Eliten-These; „Berliner Blase“ = westlicher Einheitsbrei.</td>
+          </tr>
+          <tr>
+            <td class="theme">Stil / Strategie</td>
+            <td>Warnt vor „Kettensägenrhetorik“; AfD müsste versöhnen.</td>
+            <td>„Versöhner“ + Provokation bei „Sein oder Nichtsein“.</td>
+            <td>Rein strategisch — Höcke gewinne jede Debatte.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 03 BEFUNDE -->
+<section class="sec" id="befunde">
+  <div class="wrap">
+    <div class="sec-h"><span class="num">04</span><h2>Behauptung ↔ Kritik</h2></div>
+    <p class="sec-sub">Links die Aussage aus dem Gespräch, rechts die schärfste Widerlegung. Der Befund-Code benennt die <i>Art</i> des Fehlers.</p>
+    <div class="legendbox">
+      <span class="lab">Befund-Codes</span>
+      <span class="legend"><span class="dot d-red"></span>schwerer / faktischer Fehler</span>
+      <span class="legend"><span class="dot d-amber"></span>irreführend · unbelegt · methodisch fragwürdig</span>
+      <span class="legend"><span class="dot d-slate"></span>kleinerer Fehler · Falschzuschreibung</span>
+    </div>
+
+    <!-- 1 Kolonialismus -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">F · Kaiserreich &amp; Kolonien</span>
+        <span class="verdict"><span class="dot d-red"></span>Faktisch falsch</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Deutsche Kolonialherrschaft sei mild gewesen, „Entwicklungspolitik“ — man habe Suaheli gefördert und „nicht die Knute“ herausgeholt, anders als Briten, die „Negerschießen“ veranstalteten.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Das Kaiserreich verübte 1904–1908 den <b>Völkermord an Herero und Nama</b> (Vernichtungsbefehl, Todeslager Haifischinsel) und tötete im <b>Maji-Maji-Krieg</b> 1905–1907 schätzungsweise 200.000–300.000 Menschen. Suaheli als Verwaltungssprache ist Herrschaftstechnik, kein Wohlwollen; die rassistische Entlastung ist ein <i>tu quoque</i>.<span class="src">Anerkennung als Völkermord durch Deutschland 2021</span></p></div>
+      </div>
+    </article>
+
+    <!-- 2 Demografie -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">A · Demografie &amp; Zuwanderung</span>
+        <span class="verdict"><span class="dot d-red"></span>Maßlosigkeit / unbelegt</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Die Bedrohung sei größer als im Dreißigjährigen Krieg; durch Zuwanderung „nicht integrierbarer“ Kulturen seien die Schweizer „in zwei Generationen“ in der Minderheit — „Finis Germaniae“.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Der Vergleich verwechselt Kategorien: Der Krieg tötete regional bis zu ein Drittel der Bevölkerung. „In zwei Generationen Minderheit“ ist die unbelegte Erzählung vom „Großen Austausch“ und unterstellt eine rein ethnische Definition von „deutsch“. „Nicht integrierbar“ ist als Wesensbehauptung unfalsifizierbar.</p></div>
+      </div>
+    </article>
+
+    <!-- 3 Nord Stream -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">H · Außenpolitik · Nord Stream</span>
+        <span class="verdict"><span class="dot d-amber"></span>Einzelquelle als Beweis</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Es sei „nachgewiesen“ (Seymour Hersh), dass US-Einheiten Nord Stream im Kontext des NATO-Manövers BALTOPS 22 mit norwegischer Hilfe sprengten. Die transatlantische Freundschaft existiere nicht mehr.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Hershs Darstellung beruht auf einer anonymen Einzelquelle. Der justizielle Stand zeigt das Gegenteil: Der Generalbundesanwalt ermittelt gegen ein Segelyacht-Team; gegen den Ukrainer S. Kuznetsov erging Haftbefehl, Überstellung aus Italien.<span class="src">BGH 10.12.2025: dringender Tatverdacht, mögl. fremder Geheimdienst</span></p></div>
+      </div>
+    </article>
+
+    <!-- 4 Kaiserreich Demokratie -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">F · „Innere Demokratie“ des Kaiserreichs</span>
+        <span class="verdict"><span class="dot d-amber"></span>Irreführend</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Die innere Demokratie des Kaiserreichs sei stärker ausgeprägt gewesen als die Englands und Frankreichs — „nachweisbar“.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Nur das Reichstags-Männerwahlrecht stützt das. Aber: kein parlamentarisches Regierungssystem, der Kanzler war dem Kaiser verantwortlich, in Preußen verzerrte das Dreiklassenwahlrecht die Stimmen, das Militär stand außerhalb der Kontrolle. Frankreich war Republik, Großbritannien parlamentarisch. Eine Kennzahl herauszugreifen ist genau die selektive Logik, die das Gespräch sonst ablehnt.</p></div>
+      </div>
+    </article>
+
+    <!-- 5 DDR -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">E · DDR</span>
+        <span class="verdict"><span class="dot d-red"></span>Verklärung / Selbstwiderspruch</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Solidarität, soziale und innere Sicherheit, „kein Multikulti-Staat“, exzellente Bildung — und heute seien Bespitzelung, Zensur und Meinungsdruck wieder da.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Wer heute „Bespitzelung durch einen Geheimdienst“ beklagt, verklärt einen Staat mit der <b>Stasi</b>, Mauertoten, ohne freie Wahlen, Presse oder Reisefreiheit. „Kein Umzugsdruck“ ist die Kehrseite des Reiseverbots; „keine Arbeitslosigkeit“ verdeckt Zwangszuweisung. Dass Homogenität als Tugend zählt, ist der eigentliche Punkt.</p></div>
+      </div>
+    </article>
+
+    <!-- 6 Reeducation -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">C · Reeducation / „Charakterwäsche“</span>
+        <span class="verdict"><span class="dot d-red"></span>Täter-Opfer-Umkehr</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Die Sieger hätten „das Deutsche ausprügeln“ wollen; nach ihnen führten „willige Vollstrecker“ den „Kampf gegen sich selbst“ fort.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Entnazifizierung und Erinnerungskultur waren die Reaktion auf den NS-Vernichtungskrieg — sie als aufgezwungene Selbstauslöschung zu lesen, kehrt Täter und Opfer um und pathologisiert genau die Selbstreflexion, die die BRD stabil machte. Schon „willige Vollstrecker“ ist eine ironische Umkehrung von Goldhagen.</p></div>
+      </div>
+    </article>
+
+    <!-- 7 Anti-Elite -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">I · Elite / Globalismus</span>
+        <span class="verdict"><span class="dot d-amber"></span>Verschwörungsfigur</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Die gewählte Elite sei „per Definition keine Elite, sondern eine Anti-Elite“, fremdbestimmt und hasse Deutschland „im schlechtesten Fall“.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Eine gewählte Regierung per Definition zur „Anti-Elite“ zu erklären, ist bloße Setzung und unfalsifizierbar — Motivunterstellung statt Beleg. „Vaterlandslose / wurzellose / globalistische“ Eliten tragen zudem eine antisemitisch konnotierte Vorgeschichte; Atlantik-Brücke o.&nbsp;Ä. ist Schuld per Assoziation.</p></div>
+      </div>
+    </article>
+
+    <!-- 8 Montesquieu -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">G · Geistesgeschichte</span>
+        <span class="verdict"><span class="dot d-slate"></span>Falschzuschreibung</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>Das Toleranz-Diktum „Ich verachte deine Meinung, aber ich würde alles dafür tun, dass du sie äußern kannst“ stamme von Montesquieu.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Es ist die Voltaire-Paraphrase von <b>Evelyn Beatrice Hall</b> (1906) — weder Montesquieu noch wörtlich Voltaire. Klein, aber entlarvend für den Gestus des belesenen Historikers.</p></div>
+      </div>
+    </article>
+
+    <!-- 9 Versöhner -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">J · Selbstbild</span>
+        <span class="verdict"><span class="dot d-red"></span>Selbstwiderspruch</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-bh">Höcke</span></span>
+          <p>„Ich bin der Versöhner“ — Vertrauenslehrer, konsensorientierter Fraktionschef; nur bei „Sein oder Nichtsein“ müsse man provozieren.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Köppel selbst nennt es „Kettensägenrhetorik“. Höcke wurde 2024 zweifach wegen der verbotenen SA-Losung „Alles für Deutschland“ verurteilt. Die Figur „Versöhner, aber bei Sein oder Nichtsein …“ funktioniert als Freibrief: Die Existenzrahmung lizenziert die Eskalation, die sie als Versöhnung deklariert.</p></div>
+      </div>
+    </article>
+
+    <h3 class="subhead">Eigene Zuspitzungen des Streamers</h3>
+
+    <!-- 10 Streamer UdSSR -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">AS · DDR-Liquidationsthese</span>
+        <span class="verdict"><span class="dot d-red"></span>Anachronismus</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-as">Streamer</span></span>
+          <p>Die UdSSR habe die DDR ohnehin liquidieren wollen; deshalb die „massiven ethnischen Säuberungen vor allem auf polnischem Staatsgebiet“ und die Ausplünderung.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Anachronistisch: Die DDR entstand erst 1949. Flucht und Vertreibung der Deutschen folgten dem Potsdamer Abkommen und der Westverschiebung Polens — einem alliierten Beschluss, keiner „Liquidierungs“-Vorbereitung. Auffällig: „ethnische Säuberung“ erscheint hier nur für Deutsche als Opfer.</p></div>
+      </div>
+    </article>
+
+    <!-- 11 Streamer ideale Migration -->
+    <article class="duel">
+      <div class="duel-head"><span class="eyebrow">AS · „Ideale“ DDR-Zuwanderung</span>
+        <span class="verdict"><span class="dot d-amber"></span>Wohlfahrtschauvinismus</span></div>
+      <div class="duel-body">
+        <div class="side claim"><span class="label claim"><span class="tag tag-as">Streamer</span></span>
+          <p>Die DDR habe „ideale“ Zuwanderung gehabt — Fachkräfte, die nach einigen Jahren „zurückgeschickt“ wurden, also keine dauerhafte Niederlassung und „keine Probleme der Nachfahren“.</p></div>
+        <div class="side rebut"><span class="label rebut">Kritik</span>
+          <p>Das lobt das Modell <i>gerade weil</i> es Niederlassung und Rechte verweigerte. Die Vertragsarbeiter (u.&nbsp;a. aus Vietnam und Mosambik) lebten segregiert, mit Kontaktverboten und erzwungener Rückkehr. Solidarität „nur für uns“ ist die Struktur des Wohlfahrtschauvinismus, nicht der Sozialdemokratie.</p></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 04 MUSTER -->
+<section class="sec" id="muster">
+  <div class="wrap">
+    <div class="sec-h"><span class="num">05</span><h2>Die wiederkehrenden Muster</h2></div>
+    <p class="sec-sub">Die Einzelfehler sind nicht zufällig — die ganze Konstruktion trägt auf wenigen, immer gleichen Denkfiguren.</p>
+    <div class="figs">
+      <article class="fig"><div class="n">M1</div><h3>Essenzialismus &amp; Reifikation</h3><p>„Das Volk“, „der deutsche Geist“ als Subjekte mit Wesen und „Beruf“. Nationen sind aber konstruiert und veränderlich (Anderson, Hobsbawm, Gellner) — schon die Grundkategorie ist eine Setzung.</p></article>
+      <article class="fig"><div class="n">M2</div><h3>Organische Metaphorik als Argument</h3><p>Wurzel, Substanz, Regeneration, „verdorren“ — biologische Bilder naturalisieren die Nation. Eine Metapher beweist nichts; sie setzt voraus, was zu zeigen wäre.</p></article>
+      <article class="fig"><div class="n">M3</div><h3>Existenzrahmung</h3><p>Kontingente Probleme werden zur Überlebensfrage erklärt („Messers Schneide“). Das macht „Provokation“ und Sondermittel plausibel und deutet Widerspruch in Bedrohung um.</p></article>
+      <article class="fig"><div class="n">M4</div><h3>Täter-Opfer-Umkehr</h3><p>Die Deutschen als am gründlichsten entrechtetes Volk, Erinnerungskultur als Selbstauslöschung. Die demokratische Selbstreflexion wird zur Wunde umgedeutet.</p></article>
+      <article class="fig"><div class="n">M5</div><h3>Asymmetrische Maßstäbe</h3><p>Selektive „Nachweise“ (Wahlrecht, Suaheli), Gegenbelege (Völkermord, Autokratie) weggelassen — das Gegenteil des berufenen Historismus.</p></article>
+      <article class="fig"><div class="n">M6</div><h3>Verschwörungsfunktionalismus</h3><p>Hinter diffusen Phänomenen ein kohärenter verborgener Akteur: „Hegemon“, „Globalisten“, „geplante“ Entfremdung. Unfalsifizierbar, weil jeder Gegenbeleg als Tarnung gilt.</p></article>
+      <article class="fig"><div class="n">M7</div><h3>Geliehene Linke / Wohlfahrtschauvinismus</h3><p>Brecht, DDR-„Solidarität“, Anti-Neoliberalismus als Verpackung, die linke Kritiker desorientiert. Der Kern bleibt ethnonational: Solidarität ist ethnisch begrenzt.</p></article>
+    </div>
+    <p class="note">Und der Gastgeber? Köppel prüft Höckes empirische Behauptungen nicht, sondern adelt sie als Geistesgeschichte. Seine treffenden Einwände — Maastricht nicht aufgezwungen, BRD-Erfolg widerlegt die Krise, „Kettensägenrhetorik“ — hält er nicht durch; die schärfsten Spitzen verpackt er entlastend („die Deutschen übertreiben halt“).</p>
+  </div>
+</section>
+
+<!-- BELEGE -->
+<section class="sec" id="belege">
+  <div class="wrap">
+    <div class="sec-h"><span class="num">—</span><h2>Belege und Bezugspunkte</h2></div>
+    <div class="rule"></div>
+    <div class="belege">
+      <ul>
+        <li><span class="k">Kolonialismus</span>Völkermord an Herero und Nama 1904–1908 (Deutsch-Südwestafrika/Namibia); Vernichtungsbefehl von Trothas; Lager Haifischinsel; deutsche Anerkennung als Völkermord 2021. Maji-Maji-Krieg 1905–1907 (Deutsch-Ostafrika); Verbrannte-Erde-Strategie; Schätzungen 200.000–300.000 Tote.</li>
+        <li><span class="k">Kaiserreich</span>Allgemeines Männerwahlrecht zum Reichstag, aber keine parlamentarische Regierung; preußisches Dreiklassenwahlrecht bis 1918; Militär außerhalb parlamentarischer Kontrolle.</li>
+        <li><span class="k">DDR</span>Ministerium für Staatssicherheit (zehntausende hauptamtliche, weit über hunderttausend inoffizielle Mitarbeiter); Mauertote; keine freien Wahlen, Presse, Reisefreiheit; Vertragsarbeiter segregiert und mit Rückkehrpflicht. Vertreibung 1945–1950 infolge des Potsdamer Abkommens und der Westverschiebung Polens.</li>
+        <li><span class="k">Nord Stream</span>GBA-Ermittlungen seit Okt. 2022; Haftbefehl gegen S. Kuznetsov vom 18.08.2025, Festnahme in Italien, Überstellung Nov. 2025; BGH-Beschluss vom 10.12.2025 (dringender Tatverdacht, möglicher fremder Geheimdienst). Hershs US-These beruht auf einer anonymen Einzelquelle.</li>
+        <li><span class="k">Zitat / Geistesgeschichte</span>„Ich verachte deine Meinung …“: Evelyn Beatrice Hall, <i>The Friends of Voltaire</i> (1906) — nicht Montesquieu. Oswald Spengler, <i>Preußentum und Sozialismus</i> (1919); <i>Der Untergang des Abendlandes</i> (1918/1922).</li>
+        <li><span class="k">Person</span>Höcke 2024 zweifach verurteilt wegen „Alles für Deutschland“ (SA-Losung); „Flügel“ 2020 vom Verfassungsschutz als gesichert rechtsextremistisch eingestuft (zur Einstufung der Gesamtpartei laufen juristische Auseinandersetzungen).</li>
+        <li><span class="k">Theorie</span>Zur Konstruktion von Nationen: B. Anderson, <i>Imagined Communities</i>; E. Hobsbawm/T. Ranger, <i>The Invention of Tradition</i>; E. Gellner, <i>Nations and Nationalism</i>.</li>
+      </ul>
+    </div>
+    <p class="note">Die Wiedergabe der Aussagen dient ausschließlich der präzisen Zuordnung und impliziert keine Zustimmung. Erfasst ist die erste Hälfte des Gesprächs.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>HÖCKE BEI KÖPPEL · GEGENÜBERSTELLUNG</span>
+    <span>RK · BH · AS &nbsp;|&nbsp; 11 BEFUNDE · 7 MUSTER &nbsp;|&nbsp; TEIL 1 / 2</span>
+  </div>
+</footer>
+
+</body>
+</html>
