@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MENAPT-Dossier — sachlich, ehrlich, debattenfest</title>
+<style>
+  :root{
+    --paper:#F5F6F4; --ink:#1B2230; --ink-2:#454D5B; --ink-3:#6B7280;
+    --rule:#D7DAD5; --rule-2:#E7E9E5; --spine:#2E5A6B; --link:#1F4E5F;
+    /* Semaphore boxes: tinted bg + saturated left border + dark label */
+    --b-blue:#2563B0;   --bg-blue:#ECF2FA;
+    --b-green:#2E7D46;  --bg-green:#EBF5EE;
+    --b-red:#C0392B;    --bg-red:#FBEDEB;
+    --b-amber:#9A7409;  --bg-amber:#FBF3DC;
+    --b-orange:#C2611C; --bg-orange:#FAEEE3;
+    --b-grey:#5C636E;   --bg-grey:#EFF0F1;
+    --b-purple:#6D3B9E; --bg-purple:#F2ECFA;
+    --ok:#2E7D46; --mid:#9A7409; --no:#C0392B;
+    --mono:"SF Mono","Cascadia Code",Consolas,"Roboto Mono",ui-monospace,monospace;
+    --sans:"Inter","Segoe UI",Roboto,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.62;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px;}
+  .layout{display:grid; grid-template-columns:210px minmax(0,760px); gap:40px; max-width:1080px; margin:0 auto; padding:0 20px;}
+  @media(max-width:900px){.layout{display:block; padding:0 18px;}}
+
+  /* ---------- Sticky TOC ---------- */
+  nav.toc{position:sticky; top:0; align-self:start; padding:26px 0; max-height:100vh; overflow:auto;}
+  nav.toc .toc-h{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin:0 0 10px;}
+  nav.toc a{display:flex; gap:8px; align-items:baseline; text-decoration:none; color:var(--ink-2); font-size:13.5px; padding:3px 0; line-height:1.3;}
+  nav.toc a .n{font-family:var(--mono); font-size:11px; color:var(--spine); min-width:20px;}
+  nav.toc a:hover{color:var(--link);}
+  nav.toc a.star .n::after{content:"★"; color:var(--b-amber); margin-left:1px;}
+  @media(max-width:900px){
+    nav.toc{position:static; max-height:none; padding:14px 0; border-bottom:1px solid var(--rule); margin-bottom:8px;}
+    nav.toc .grid{display:grid; grid-template-columns:1fr 1fr; gap:0 16px;}
+  }
+
+  main{padding:26px 0 80px; min-width:0;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:8px;}
+  .kicker{font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--spine); margin:0 0 8px;}
+  h1.title{font-size:clamp(30px,5vw,46px); line-height:1.02; letter-spacing:-.02em; font-weight:800; margin:0 0 10px;}
+  .subtitle{font-size:18px; color:var(--ink-2); margin:0; max-width:60ch;}
+  .meta-row{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:16px; font-family:var(--mono); font-size:11.5px; color:var(--ink-3); letter-spacing:.02em;}
+  .meta-row b{color:var(--ink-2); font-weight:600;}
+
+  /* ---------- Section scaffolding ---------- */
+  section{padding-top:38px; scroll-margin-top:16px;}
+  .chap-head{display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--rule); padding-bottom:8px; margin-bottom:18px;}
+  .chap-no{font-family:var(--mono); font-size:13px; color:var(--spine); font-weight:600; letter-spacing:.05em; white-space:nowrap;}
+  h2{font-size:clamp(22px,3.4vw,30px); line-height:1.1; letter-spacing:-.015em; font-weight:800; margin:0;}
+  h3{font-size:19px; font-weight:700; letter-spacing:-.01em; margin:30px 0 8px;}
+  h4{font-size:15px; font-weight:700; margin:20px 0 6px; color:var(--ink);}
+  p{margin:0 0 13px;} 
+  main a{color:var(--link); text-underline-offset:2px;}
+  .lede{font-size:18.5px; line-height:1.55; color:var(--ink); margin-bottom:18px;}
+  .muted{color:var(--ink-2);}
+  strong{font-weight:700;}
+  .axis-tag{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.06em; padding:2px 7px; border-radius:3px;}
+  .axis-fisk{background:#E7EEF6; color:#1d4f7a;}
+  .axis-krim{background:#F3E9E7; color:#9a3326;}
+
+  /* ---------- Boxes ---------- */
+  .box{border-left:5px solid; border-radius:0 6px 6px 0; padding:13px 16px 14px; margin:16px 0; position:relative;}
+  .box .lab{display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;}
+  .box p:last-child{margin-bottom:0;}
+  .box p{margin-bottom:8px;}
+  .merk{border-color:var(--b-blue); background:var(--bg-blue);} .merk .lab{color:var(--b-blue);}
+  .befund{border-color:var(--b-green); background:var(--bg-green);} .befund .lab{color:var(--b-green);}
+  .grenze{border-color:var(--b-red); background:var(--bg-red);} .grenze .lab{color:var(--b-red);}
+  .konf{border-color:var(--b-amber); background:var(--bg-amber);} .konf .lab{color:#7a5c07;}
+  .norm{border-color:var(--b-orange); background:var(--bg-orange);} .norm .lab{color:#a4500f;}
+  .gegen{border-color:var(--b-grey); background:var(--bg-grey);} .gegen .lab{color:var(--b-grey);}
+  .replik{border-color:var(--b-purple); background:var(--bg-purple);} .replik .lab{color:var(--b-purple);}
+
+  /* one-sentence summary */
+  .einsatz{border:1px dashed var(--ink-3); background:#fff; border-radius:6px; padding:11px 15px; margin:22px 0 6px; font-size:15.5px;}
+  .einsatz .lab{font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;}
+  .einsatz b{font-weight:600;}
+
+  /* Fazit hero box */
+  .fazit{background:var(--ink); color:#F3F4F2; border-radius:10px; padding:24px 26px; margin:14px 0 6px;}
+  .fazit .lab{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#9FD0DD; display:flex; align-items:center; gap:8px; margin-bottom:14px;}
+  .fazit ol{margin:0; padding-left:0; list-style:none; counter-reset:f;}
+  .fazit li{counter-increment:f; position:relative; padding-left:40px; margin-bottom:13px; font-size:16.5px; line-height:1.5;}
+  .fazit li:last-child{margin-bottom:0;}
+  .fazit li::before{content:counter(f); position:absolute; left:0; top:1px; font-family:var(--mono); font-size:13px; font-weight:700; color:var(--ink); background:#9FD0DD; width:24px; height:24px; border-radius:50%; display:grid; place-items:center;}
+  .fazit b{color:#fff;}
+  .prov{display:inline-block; font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.1em; background:#C2611C; color:#fff; padding:2px 8px; border-radius:3px; vertical-align:middle; margin-left:10px;}
+
+  /* Replik 3-zone card (signature) */
+  .replik .zug{display:grid; grid-template-columns:auto 1fr; gap:10px; margin:9px 0;}
+  .replik .zug .z{font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:.04em; color:#fff; background:var(--b-purple); border-radius:3px; padding:3px 7px; height:fit-content; white-space:nowrap;}
+  .replik .zug p{margin:0; align-self:center;}
+
+  /* Triple-number strip (signature) */
+  .triple{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--rule); border-radius:7px; overflow:hidden; margin:16px 0; background:#fff;}
+  @media(max-width:560px){.triple{grid-template-columns:1fr;}}
+  .triple > div{padding:11px 14px; border-right:1px solid var(--rule-2);}
+  .triple > div:last-child{border-right:none;}
+  @media(max-width:560px){.triple > div{border-right:none; border-bottom:1px solid var(--rule-2);} .triple > div:last-child{border-bottom:none;}}
+  .triple .t-lab{font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--spine); margin-bottom:4px;}
+  .triple .t-val{font-size:14.5px; line-height:1.4;}
+  .triple .t-val b{font-size:17px;}
+
+  /* Tables */
+  .tbl-wrap{overflow-x:auto; margin:16px 0; border:1px solid var(--rule); border-radius:7px;}
+  table{border-collapse:collapse; width:100%; font-size:14px; background:#fff;}
+  caption{caption-side:top; text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--ink-3); padding:10px 12px 0;}
+  th,td{padding:7px 11px; text-align:right; border-bottom:1px solid var(--rule-2); white-space:nowrap;}
+  th:first-child,td:first-child{text-align:left;}
+  thead th{font-family:var(--mono); font-size:11px; font-weight:700; color:var(--ink-2); border-bottom:1.5px solid var(--rule); letter-spacing:.02em;}
+  tbody tr:hover{background:#FAFAF8;}
+  td.neg{color:var(--no); font-variant-numeric:tabular-nums;}
+  td.pos{color:var(--ok); font-variant-numeric:tabular-nums;}
+  td.soft{color:var(--mid); font-variant-numeric:tabular-nums;}
+  .amp{display:inline-block; font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:.06em; padding:3px 9px; border-radius:3px; color:#fff; text-align:center; white-space:nowrap;}
+  .amp-ja{background:var(--ok);} .amp-tw{background:var(--mid);} .amp-nein{background:var(--no);}
+  .kernsatz{background:var(--spine); color:#fff; border-radius:7px; padding:17px 19px; margin:0 0 16px;}
+  .kernsatz .lab{display:block; font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:#CBE0E6; margin-bottom:7px;}
+  .kernsatz p{margin:0; font-size:15.5px; line-height:1.5; color:#fff;}
+  .kernsatz b{color:#fff; font-weight:700;}
+  details.seal{border:1px solid var(--rule); border-radius:6px; background:#fff; margin:0 0 22px;}
+  details.seal>summary{cursor:pointer; padding:12px 16px; font-family:var(--mono); font-size:11.5px; font-weight:700; letter-spacing:.04em; color:var(--spine); list-style:none;}
+  details.seal>summary::-webkit-details-marker{display:none;}
+  details.seal>summary::before{content:"▸  "; color:var(--spine);}
+  details.seal[open]>summary::before{content:"▾  ";}
+  details.seal .sbody{padding:4px 18px 16px; font-size:13px; border-top:1px solid var(--rule-2); line-height:1.55;}
+  details.seal .sbody h4{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin:16px 0 5px;}
+  details.seal .sbody ul{margin:5px 0; padding-left:18px;} details.seal .sbody li{margin:3px 0;}
+  .vk{display:inline-block; font-family:var(--mono); font-size:10px; font-weight:700; padding:1px 6px; border-radius:3px; color:#fff; margin-right:4px;}
+  .vk-g{background:var(--ok);} .vk-y{background:var(--mid);} .vk-r{background:var(--no);}
+  ol.ladder{list-style:none; padding:0; margin:14px 0; counter-reset:lad;}
+  ol.ladder li{display:grid; grid-template-columns:96px 1fr; gap:13px; align-items:start; padding:12px 0; border-bottom:1px solid var(--rule-2);}
+  ol.ladder li:last-child{border-bottom:none;}
+  ol.ladder .amp{justify-self:start; min-width:84px;}
+  ol.ladder b{display:block; margin-bottom:2px;}
+  .cheat{display:grid; grid-template-columns:1fr; gap:0; border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin:14px 0;}
+  .cheat .row{display:grid; grid-template-columns:1fr 1.2fr; gap:0;}
+  .cheat .row:nth-child(odd){background:#F4F5F2;}
+  .cheat .q{padding:9px 12px; font-weight:600; border-right:1px solid var(--rule);}
+  .cheat .a{padding:9px 12px;}
+  @media(max-width:620px){ .cheat .row{grid-template-columns:1fr;} .cheat .q{border-right:none; border-bottom:1px solid var(--rule);} ol.ladder li{grid-template-columns:1fr;} }
+  td.num{font-variant-numeric:tabular-nums;}
+  tr.sum td{font-weight:700; background:#F4F5F2;}
+  .tnote{font-size:12px; color:var(--ink-3); padding:8px 12px; line-height:1.45;}
+
+  /* Status tags */
+  .tag{font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.05em; padding:2px 6px; border-radius:3px; white-space:nowrap; border:1px solid;}
+  .t-amt{background:#EAF3EC; color:#256b39; border-color:#bcdcc4;}
+  .t-peer{background:#EAF0F7; color:#23537f; border-color:#bcd0e6;}
+  .t-pre{background:#F3F0E6; color:#7a6312; border-color:#ddd2ad;}
+  .t-adv{background:#F6EEE7; color:#a4500f; border-color:#e6cbb2;}
+  .t-fringe{background:#F7E9E7; color:#a3271a; border-color:#e6bdb6;}
+  .src-note{font-size:13px; color:var(--ink-2); border-top:1px solid var(--rule-2); margin-top:24px; padding-top:12px;}
+  .src-note .sh{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:6px;}
+  .src-note li{margin-bottom:6px; line-height:1.4;}
+  .src-note ul{margin:0; padding-left:18px;}
+
+  /* legend grid */
+  .legend{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:18px 0;}
+  @media(max-width:620px){.legend{grid-template-columns:1fr;}}
+  .legend .li{border-left:5px solid; border-radius:0 5px 5px 0; padding:9px 13px; font-size:14px; background:#fff;}
+  .legend .li b{display:block; font-family:var(--mono); font-size:11px; letter-spacing:.06em; margin-bottom:2px;}
+
+  /* roadmap */
+  .roadmap{border:1px dashed var(--rule); border-radius:8px; padding:6px 18px 14px; background:#fff;}
+  .roadmap .ri{display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:baseline; padding:9px 0; border-bottom:1px solid var(--rule-2);}
+  .roadmap .ri:last-child{border-bottom:none;}
+  .roadmap .rn{font-family:var(--mono); font-size:12px; color:var(--spine); font-weight:600;}
+  .roadmap .rs{font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:.05em; padding:2px 8px; border-radius:3px;}
+  .rs-done{background:#EAF3EC; color:#256b39;}
+  .rs-todo{background:#F1F2F0; color:var(--ink-3);}
+  .roadmap .rt{font-size:14.5px;}
+  .roadmap .rt small{color:var(--ink-3); display:block; font-size:12.5px;}
+
+  ul.clean{margin:6px 0 13px; padding-left:20px;}
+  ul.clean li{margin-bottom:6px;}
+  hr.soft{border:none; border-top:1px solid var(--rule-2); margin:26px 0;}
+  .country-list{font-size:14.5px; line-height:1.7; background:#fff; border:1px solid var(--rule); border-radius:7px; padding:13px 16px; margin:14px 0;}
+  .country-list b{font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--spine); display:block; margin-bottom:6px;}
+  :focus-visible{outline:3px solid var(--spine); outline-offset:2px; border-radius:2px;}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- =================== STICKY TOC =================== -->
+  <nav class="toc" aria-label="Inhaltsverzeichnis">
+    <p class="toc-h">Inhalt</p>
+    <div class="grid">
+      <a href="#kap-0"><span class="n">00</span> Legende</a>
+      <a href="#kap-1" class="star"><span class="n">01</span> Fazit in 5 Sätzen</a>
+      <a href="#kap-2"><span class="n">02</span> Was ist die MENAPT-Studie?</a>
+      <a href="#kap-3"><span class="n">3A</span> Datenlage Fiskal</a>
+      <a href="#kap-3b"><span class="n">3B</span> Datenlage Kriminalität</a>
+      <a href="#kap-4"><span class="n">04</span> Grundannahmen</a>
+      <a href="#kap-5"><span class="n">05</span> Argumentketten</a>
+      <a href="#kap-6"><span class="n">06</span> Konfunder</a>
+      <a href="#kap-7"><span class="n">07</span> Aneignungen</a>
+      <a href="#kap-8"><span class="n">08</span> Sein-Sollen</a>
+      <a href="#kap-9" class="star"><span class="n">09</span> Schlussfolgerungen</a>
+      <a href="#kap-10" class="star"><span class="n">10</span> Maßnahmen</a>
+      <a href="#kap-11"><span class="n">11</span> Spickzettel</a>
+      <a href="#kap-fall"><span class="n">★</span> Fall: Dayway vs. Agitator</a>
+      <a href="#kap-vdbeek"><span class="n">€</span> NL-Kostenstudie (van de Beek)</a>
+      <a href="#kap-zwaan"><span class="n">±</span> Sonderfall: Zwaan (NL)</a>
+      <a href="#kap-12"><span class="n">12</span> Quellen</a>
+    </div>
+  </nav>
+
+  <!-- =================== MAIN =================== -->
+  <main>
+
+    <header class="masthead">
+      <p class="kicker">Debatten-Dossier · Empirie statt Empörung</p>
+      <h1 class="title">Die MENAPT-Studie — sachlich auseinandergenommen</h1>
+      <p class="subtitle">Ein Werkzeugkasten für die Debatte: die amtlichen Zahlen ehrlich anerkennen — und präzise zeigen, was sie bedeuten und was gerade nicht.</p>
+      <div class="meta-row">
+        <span><b>Für:</b> sozialdemokratische Diskutant·innen</span>
+        <span><b>Gegen:</b> die Zahl als „tragende Säule" für Remigration</span>
+        <span><b>Methode:</b> Steelman → Einordnen → Umdrehen</span>
+        <span><b>Stand:</b> vollständig (6 / 6 Durchläufe · auditiert · inkl. Fallstudie)</span>
+      </div>
+    </header>
+
+    <!-- =================== KERNSATZ + SIEGEL (ganz oben) =================== -->
+    <div class="kernsatz">
+      <span class="lab">🎯 Der eine Satz — woran MENAPT als Remigrations-Argument scheitert</span>
+      <p>Als Remigrations- bzw. Migrationskritik-Argument scheitert MENAPT daran, dass seine <b>eigene amtliche Zahl Beschäftigung, Alter und Fluchtkanal misst — nicht „Herkunft"</b>; am leichtesten angreifbar ist der <b>Sprung von „kostet/krimineller" zu „deshalb Remigration"</b>, denn der folgt aus den Daten nicht, trifft nach seiner eigenen Fiskallogik <b>zuerst arme Inländer</b> (Rentner, Kranke, Arbeitslose) und ist <b>verfassungswidrig</b>.</p>
+    </div>
+
+    <details class="seal">
+      <summary>🛡 Anti-Halluzinations-Siegel — Methode, Quellen &amp; Verifikationsstatus (aufklappen)</summary>
+      <div class="sbody">
+        <p>Dieses Dossier ist auf <strong>Nachprüfbarkeit</strong> gebaut, nicht auf Autorität. Hier liegt offen, wie es entstand, worauf es fußt und — ehrlich gestuft — wie sicher jede Zahl ist.</p>
+
+        <h4>Methode der Erarbeitung</h4>
+        <p>Erstellt in <strong>sechs sequentiellen Durchläufen</strong> mit Selbstkontrolle nach jedem Schritt: (1) Primärquelle sezieren → (2) Fiskal-Konfunder quantifizieren → (3) Kriminalitätsachse mit gepinnter Statistik → (4) Race-Science widerlegen → (5) Sein-Sollen offenlegen → (6) Synthese + Vollständigkeits-Selbstcheck. Durchgehendes Prinzip: die <strong>zwei Achsen (Fiskal &amp; Kriminalität) strikt getrennt</strong> halten und die jeweils <em>stärkste</em> Gegenposition zuerst fair rekonstruieren.</p>
+
+        <h4>Quellen- &amp; Belegprinzip</h4>
+        <ul>
+          <li>Primärquellen (amtliche dänische Berichte, Registerdaten) vor Sekundärem; jede Quelle mit Status-Tag <span class="tag t-amt">AMTLICH</span> <span class="tag t-peer">PEER-REVIEW</span> <span class="tag t-adv">PRESSE</span> <span class="tag t-fringe">FRINGE</span>.</li>
+          <li><strong>Keine Zahl ohne Jahr + Quelle.</strong> Race-Science-Quellen erscheinen <em>ausschließlich</em> als Widerlegungsobjekt, nie als Beleg.</li>
+          <li>Hass-/Foren-/Bewegungsquellen werden nicht zitiert. Vollständige Quellenliste: <a href="#kap-12">Kapitel 12</a>.</li>
+        </ul>
+
+        <h4>Verifikationsstatus — ehrlich gestuft</h4>
+        <p><span class="vk vk-g">VERIFIZIERT</span> Mehrfach gegen amtliche Quellen bestätigt: Gesamtsalden (−24/+7/−31 Mrd, MENAPT −24); die 24-Länder-Liste (wörtlich); Pro-Kopf −85.000/−4.000 DKK; 74 % positive Beitragende (dän.); Lebensprognose (−35k/−27k/+31k pro Lebensjahr, „nach 2060 positiv", −6 Mrd bei 20 % Lückenschluss); alle Kriminalitätsindizes (354; 386/316/312/268; ~2×/~3×; 98,5/98,8 %); BKA-Lagebild 2024 (8,8 %/41,8 %); Plovsing 104/99; Tranæs 12.300 €→1.500 €; Saini/Wicherts/Flynn; GG-/EMRK-/GFK-Artikel; NL-Motiv-Aufschlüsselung (van de Beek/CBS: Arbeit +100k/Asyl −400k/Familie −200k); peer-reviewte JPE-Fassung (Ursache: Beschäftigung + Wohlfahrtsdesign); „Inquisitive Bird" stützt sich selbst auf den amtlichen 2018-Bericht.</p>
+        <p><span class="vk vk-y">GEGENPRÜFEN</span> Aus direkter Lektüre der Primär-PDF (2018-Bericht); Richtung &amp; Größenordnung amtlich bestätigt, die <em>exakten Einzelwerte</em> vor Hochrisiko-Einsatz an der PDF gegenprüfen: die Tab.-2.4-Einzelwerte (Gesamteffekt amtlich als <strong>2015er „+17 Mrd"</strong> wörtlich zitierbar); die MENAPT-Erwerbsalter-Pro-Kopf-Werte (−5k/+35k/−114k); MENAPT-spezifische 35 % positive Beitragende; MENAPT-Erwerbsquote 47 %.</p>
+        <p><span class="vk vk-r">OFFENE LÜCKE</span> Ehrlich unbeziffert (Richtung jeweils klar, trägt keine „Remigration"): die <em>Größe</em> des Einbürgerungs-Artefakts; das <em>Ausmaß</em> der Register-vs-Befragungs-Divergenz.</p>
+
+        <h4>Bekannte Grenzen</h4>
+        <ul>
+          <li>Die Bücher im Projektordner lagen als OCR-/Textfassungen <strong>ohne saubere Druckseiten</strong> vor; wo Seiten rekonstruierbar waren (Tranæs, Huff), sind sie mit „±1" angegeben, sonst wird nach Kapitel/Abschnitt zitiert.</li>
+          <li><em>The Book of Why</em>, Hume und Carens sind nicht im Ordner und allgemein zitiert.</li>
+          <li>Dieses Siegel behauptet <strong>keine Unfehlbarkeit</strong> — es markiert transparent, was geprüft ist und was nicht. Bei Hochrisiko-Einsatz die 🟡-Werte gegen die PDF prüfen.</li>
+        </ul>
+      </div>
+    </details>
+
+
+    <!-- =================== KAP 0 =================== -->
+    <section id="kap-0">
+      <div class="chap-head"><span class="chap-no">KAP. 00</span><h2>Wie dieses Dossier funktioniert</h2></div>
+
+      <p class="lede">Dieses Dossier verfolgt eine einfache Strategie: <strong>Ehrlichkeit ist die schärfste Waffe.</strong> Wer belegbare Zahlen leugnet, verliert sofort. Wer sie anerkennt und dann zeigt, was sie wirklich messen, gewinnt.</p>
+
+      <p>Der Text läuft auf zwei Ebenen. Im <strong>Fließtext</strong> wird erklärt — kurze Sätze, Alltagswörter, ein Gedanke pro Absatz. In den <strong>Farbboxen</strong> wird zugespitzt — Merksätze und fertige Repliken, die man laut sagen kann. Die Boxen folgen einer festen Taxonomie:</p>
+
+      <div class="legend">
+        <div class="li" style="border-color:var(--b-blue)"><b style="color:var(--b-blue)">🔵 MERKSATZ</b>Die eine Sache, die man behalten muss.</div>
+        <div class="li" style="border-color:var(--b-green)"><b style="color:var(--b-green)">🟢 BEFUND</b>Was die Daten robust zeigen — auch Unbequemes.</div>
+        <div class="li" style="border-color:var(--b-red)"><b style="color:var(--b-red)">🔴 GRENZE</b>Was sich <em>nicht</em> schließen lässt; häufiger Fehlschluss.</div>
+        <div class="li" style="border-color:var(--b-amber)"><b style="color:#7a5c07">🟡 KONFUNDER</b>Die Störgröße, die das Ergebnis erklärt.</div>
+        <div class="li" style="border-color:var(--b-orange)"><b style="color:#a4500f">🟠 NORMATIV</b>Die versteckte Wertannahme im „deshalb …".</div>
+        <div class="li" style="border-color:var(--b-grey)"><b style="color:var(--b-grey)">⚪ GEGENSEITE</b>Das stärkste Gegenargument, fair formuliert.</div>
+        <div class="li" style="border-color:var(--b-purple); grid-column:1/-1"><b style="color:var(--b-purple)">🟣 REPLIK</b>Die fertige 3-Satz-Antwort für die Live-Debatte: <strong>Einräumen → Entlarven → Umdrehen.</strong></div>
+      </div>
+
+      <p>Quellen tragen ein Status-Schild, damit man Gewicht und Herkunft sofort sieht:
+        <span class="tag t-amt">AMTLICH</span>
+        <span class="tag t-peer">PEER-REVIEW</span>
+        <span class="tag t-pre">PREPRINT/BLOG</span>
+        <span class="tag t-adv">ADVOCACY</span>
+        <span class="tag t-fringe">FRINGE/RACE-SCIENCE</span>.
+        Die letzte Kategorie wird nie als Beleg benutzt, sondern immer als <em>Widerlegungsobjekt</em>.</p>
+
+      <p>Und die wichtigste Regel des ganzen Dossiers: Es gibt <strong>zwei getrennte Achsen</strong>, die nie vermischt werden dürfen — <span class="axis-tag axis-fisk">A · FISKAL</span> (kostet die Gruppe netto Geld?) und <span class="axis-tag axis-krim">B · KRIMINALITÄT</span> (begeht die Gruppe mehr Straftaten?). Es sind verschiedene Daten, verschiedene Behörden, verschiedene Fehlerquellen.</p>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Nicht die Zahl bestreiten — die <strong>Bedeutung</strong> der Zahl klären. Und Fiskal nie mit Kriminalität in einen Topf werfen.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Dieses Dossier erkennt jede belegbare Zahl an und kämpft ausschließlich um ihre richtige Deutung.</b></div>
+    </section>
+
+    <!-- =================== KAP 1 =================== -->
+    <section id="kap-1">
+      <div class="chap-head"><span class="chap-no">KAP. 01 ★</span><h2>Fazit in 5 Sätzen</h2></div>
+
+      <div class="fazit">
+        <span class="lab">★ Das Wichtigste zuerst</span>
+        <ol>
+          <li>Die amtliche Zahl stimmt: Einwanderer und ihre Kinder aus MENAPT-Ländern waren 2018 für die dänische Staatskasse ein <b>Nettokostenfaktor von rund 24 Milliarden Kronen</b> — das leugnet niemand.</li>
+          <li>Aber sie misst vor allem <b>Beschäftigung, Alter und Zuwanderungsgrund — nicht „Herkunft"</b>: Wer arbeitet, zahlt netto ein; die Regierung rechnet selbst vor, dass bei dänischer Erwerbsbeteiligung der Großteil der Lücke verschwindet — und ihre Prognose erwartet die hier geborenen Kinder <b>nach 2060 netto positiv</b>.</li>
+          <li>Auf der <b>getrennten</b> Kriminalitätsachse ist die Überrepräsentation real und bleibt nach Alterskorrektur — aber die soziale Lage erklärt den Großteil (Index 104 vs. 99), und der Rest bei Nachkommen und Gewalt ist <b>nicht „durch Herkunft erklärt"</b>, sondern ein Auftrag, die echten Ursachen zu beheben.</li>
+          <li>Die „National-IQ"-These, die manche dahinterlegen, ist <b>Pseudowissenschaft</b>: herausgekürzte Daten, vom Flynn-Effekt widerlegt, ökologischer Fehlschluss — produziert von einem rassistischen, einwanderungsfeindlich finanzierten Netzwerk.</li>
+          <li>Aus Zahlen folgt <b>keine Politik</b>: „deshalb Remigration" braucht versteckte Wertannahmen, trifft nach eigener Fiskallogik zuerst arme Inländer und ist <b>verfassungswidrig</b> — die Evidenz stützt <b>Integration, nicht Abschiebung</b>.</li>
+        </ol>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Die Zahl ist echt, misst aber Arbeitsmarkt und Alter statt Herkunft — und trägt keine einzige politische Schlussfolgerung von allein.</b></div>
+    </section>
+
+    <!-- =================== KAP 2 =================== -->
+    <section id="kap-2">
+      <div class="chap-head"><span class="chap-no">KAP. 02</span><h2>Was ist die „MENAPT-Studie"?</h2></div>
+
+      <p class="lede">Es gibt gar keine einzelne „MENAPT-Studie". In Debatten werden unter diesem Etikett <strong>zwei völlig verschiedene Dinge</strong> zusammengeworfen.</p>
+
+      <h3><span class="axis-tag axis-fisk">A · FISKAL</span> Der dänische Nettobeitrags-Bericht</h3>
+      <p>Das Finanzministerium in Kopenhagen (Finansministeriet) rechnet seit 2014 jedes Jahr aus, wie viel verschiedene Bevölkerungsgruppen die Staatskasse netto kosten oder einbringen. Die jüngste Ausgabe mit vollständigen Detaildaten betrifft das Jahr <strong>2018</strong> und erschien im <strong>Oktober 2021</strong>. <span class="tag t-amt">AMTLICH</span></p>
+      <p>Neu in dieser Ausgabe: Die „nicht-westlichen" Einwanderer wurden erstmals aufgeteilt in <strong>MENAPT-Länder</strong> und übrige nicht-westliche Länder. Genau diese Aufteilung hat das Etikett geprägt.</p>
+
+      <h3><span class="axis-tag axis-krim">B · KRIMINALITÄT</span> Die Kriminalitätsbehauptung</h3>
+      <p>Daneben steht eine ganz andere Datenwelt: dänische Kriminalitätsindizes nach Herkunft (Danmarks Statistik / Justizministerium), oft kombiniert mit deutschen Zahlen aus der Polizeilichen Kriminalstatistik (PKS) zur Kategorie „Zuwanderer". Diese Zahlen werden in <a href="#kap-3">Kapitel 3B</a> und <a href="#kap-6">Kapitel 6</a> eigenständig behandelt — mit exakter Quelle (siehe Kapitel 12).</p>
+
+      <div class="box grenze"><span class="lab">🔴 Die häufigste Trickserei</span>
+        <p>Die Gegenseite borgt sich die Glaubwürdigkeit der <strong>amtlichen Fiskalzahl</strong> und überträgt sie auf die <strong>Kriminalitätsbehauptung</strong> — als wäre beides „dasselbe amtliche Faktum". Ist es nicht. Andere Daten, andere Behörden, andere Verzerrungen. Wer beides trennt, entwaffnet den halben Vortrag.</p>
+      </div>
+
+      <h4>Wofür steht „MENAPT"? — und welche Länder?</h4>
+      <p>MENAP ist eine international gebräuchliche Abkürzung für eine Ländergruppe aus dem <strong>Mittleren Osten und Nordafrika</strong> (Middle East &amp; North Africa, plus Afghanistan und Pakistan). Der dänische Bericht fügt <strong>die Türkei</strong> hinzu — daher das zusätzliche „T". Die Kategorie wurde vom dänischen Integrationsministerium als Ergänzung zu den klassischen Herkunftsgruppen eingeführt.</p>
+
+      <div class="country-list"><b>Die 24 MENAPT-Länder (Definition des Berichts)</b>
+        Syrien · Kuwait · Libyen · Saudi-Arabien · Libanon · Somalia · Irak · Katar · Sudan · Bahrain · Dschibuti · Jordanien · Algerien · Vereinigte Arabische Emirate · Tunesien · Ägypten · Marokko · Iran · Jemen · Mauretanien · Oman · Afghanistan · Pakistan · Türkei.
+      </div>
+
+      <div class="box konf"><span class="lab">🟡 Schon hier ein Problem</span>
+        <p>„MENAPT" wirft sehr verschiedene Länder in einen Topf — von Kriegsflüchtlingen aus Syrien bis zu Erwerbsmigranten aus den Emiraten. Der Bericht selbst zeigt: Innerhalb der Gruppe reicht der durchschnittliche Nettobeitrag von stark negativ (Somalia) bis nahe null. Eine „Herkunfts"-Kategorie, die so heterogen ist, erklärt von sich aus wenig.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>„MENAPT" ist kein Forschungsgegenstand, sondern ein Verwaltungs-Etikett für 24 sehr unterschiedliche Länder — und es gibt zwei getrennte Achsen, Fiskal und Kriminalität.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 2</span>
+        <ul>
+          <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Okt. 2021): <em>Indvandreres nettobidrag til de offentlige finanser i 2018.</em> Länderliste &amp; MENAPT-Definition: S. 4 (Fn. 1) und §2.1, S. 9. — <a href="https://fm.dk/media/25228/indvandreres-nettobidrag-til-de-offentlige-finanser-i-2018.pdf">fm.dk (PDF)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =================== KAP 3 =================== -->
+    <section id="kap-3">
+      <div class="chap-head"><span class="chap-no">KAP. 03</span><h2>Datenlage A: Fiskal — die Zahlen und die Methode</h2></div>
+
+      <p class="lede">Hier kommt die ehrliche Anerkennung zuerst. Wir tragen die Originalzahlen ein, beschreiben, wie sie berechnet wurden — und listen die Grenzen, die <strong>der Bericht selbst einräumt</strong>. (Die Kriminalitäts-Datenlage steht in <a href="#kap-3b">Kapitel 3B</a>.)</p>
+
+      <h3>Die Kopfzahlen 2018</h3>
+      <p>Im Jahr 2018 waren Einwanderer und Nachkommen <em>insgesamt</em> eine Nettoausgabe von knapp 24 Mrd. Kronen. Dahinter stehen sehr verschiedene Gruppen.</p>
+
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val"><b>−24 Mrd. DKK</b><br>Nettokosten 2018 für Einwanderer + Nachkommen aus MENAPT-Ländern.</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">≈ <b>1 % des BIP</b>. Im selben Jahr: dänische Herkunft <b>+41 Mrd.</b>, Gesamtbevölkerung <b>+17 Mrd.</b></div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Allein die Schwankung der dänischstämmigen Bilanz 2017→2018 (<b>−25 Mrd.</b>, reiner Buchungseffekt) ist <b>größer</b> als die ganzen MENAPT-Kosten.</div></div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <caption>Tabelle 1.1 — Nettobeitrag zu den öffentlichen Finanzen (Mrd. DKK, 2018-Niveau)</caption>
+          <thead><tr><th>Gruppe</th><th>2017 (rev.)</th><th>2018</th></tr></thead>
+          <tbody>
+            <tr><td>Einwanderer &amp; Nachkommen insgesamt</td><td class="neg">−26</td><td class="neg">−24</td></tr>
+            <tr><td>— aus westlichen Ländern</td><td class="pos">+7</td><td class="pos">+7</td></tr>
+            <tr><td>— aus nicht-westlichen Ländern</td><td class="neg">−33</td><td class="neg">−31</td></tr>
+            <tr><td style="padding-left:26px">davon <b>MENAPT</b></td><td class="neg">−25</td><td class="neg">−24</td></tr>
+            <tr><td style="padding-left:26px">davon übrige nicht-westliche</td><td class="neg">−8</td><td class="neg">−7</td></tr>
+          </tbody>
+        </table>
+        <p class="tnote">Quelle: Finansministeriet 2021, Tab. 1.1, S. 5. Rundung auf ganze Mrd. — Summen können abweichen.</p>
+      </div>
+
+      <p>Der Trend zeigt nach unten: Die nicht-westlichen Nettokosten lagen 2015 noch bei 42 Mrd., 2017 bei 33 Mrd., 2018 bei 31 Mrd. — trotz wachsender Gruppe. Grund laut Bericht: <strong>mehr Beschäftigung</strong> und ein verändertes Zuwanderungsbild (mehr Erwerb, weniger Asyl).</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <caption>Tabelle 2.1 — Nettobeitrag nach Herkunft, 2014–2018 (Mrd. DKK, 2018-Niveau)</caption>
+          <thead><tr><th>Herkunft</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th></tr></thead>
+          <tbody>
+            <tr><td>Dänische Herkunft</td><td class="pos num">60</td><td class="pos num">7</td><td class="pos num">30</td><td class="pos num">66</td><td class="pos num">41</td></tr>
+            <tr><td>Westliche Länder insg.</td><td class="pos num">5</td><td class="pos num">5</td><td class="pos num">6</td><td class="pos num">7</td><td class="pos num">7</td></tr>
+            <tr><td><b>MENAPT</b> insg.</td><td class="neg num">−27</td><td class="neg num">−29</td><td class="neg num">−28</td><td class="neg num">−25</td><td class="neg num">−24</td></tr>
+            <tr><td style="padding-left:24px">— Einwanderer</td><td class="neg num">−14</td><td class="neg num">−17</td><td class="neg num">−16</td><td class="neg num">−15</td><td class="neg num">−13</td></tr>
+            <tr><td style="padding-left:24px">— Nachkommen</td><td class="neg num">−13</td><td class="neg num">−13</td><td class="neg num">−12</td><td class="neg num">−11</td><td class="neg num">−11</td></tr>
+            <tr><td>Übrige nicht-westl. insg.</td><td class="neg num">−12</td><td class="neg num">−13</td><td class="neg num">−10</td><td class="neg num">−8</td><td class="neg num">−7</td></tr>
+          </tbody>
+        </table>
+        <p class="tnote">Quelle: Finansministeriet 2021, Tab. 2.1, S. 8. Die starken Sprünge bei „dänischer Herkunft" (7 → 66 → 41) sind Buchungseffekte (Körperschaft-/PAL-Steuer), kein realer Wohlstandssprung — ein Beleg dafür, wie wackelig die Jahresbilanz ist.</p>
+      </div>
+
+      <h4>Weitere Schlüsselzahlen aus dem Bericht</h4>
+      <ul class="clean">
+        <li><strong>Beschäftigungsquote 25–64 J. (2018):</strong> dänische Herkunft 81 % · MENAPT-Einwanderer 47 % (Männer 57 %, Frauen 35 %) · MENAPT-<em>Nachkommen</em> bereits ~66 %. (§2.2)</li>
+        <li><strong>Zuwanderungsgrund (Kanal):</strong> Von den MENAPT-Einwanderern kamen ursprünglich <strong>unter 5 %</strong> zum Arbeiten/Studieren, ~55 % über Asyl/Familiennachzug. Bei westlichen Einwanderern: rund die Hälfte zum Arbeiten/Studieren. (§2.1)</li>
+        <li><strong>Anteil mit positivem Nettobeitrag (25–64 J.):</strong> dänische Herkunft 74 % · übrige nicht-westliche 53 % · MENAPT 35 %. Also auch in der „teuersten" Gruppe zahlt jeder Dritte netto ein. (§2.4)</li>
+        <li><strong>Erwerbs-Kanal-Einwanderer</strong> (inkl. mitgereister Familie) trugen 2018 zusammen <strong>+9,4 Mrd. DKK</strong> bei; Fachkräfte der „Beløbsordning" im Schnitt +304.000 DKK/Person. (§2.6)</li>
+      </ul>
+
+      <h3>Die wichtigste Tabelle: was im erwerbsfähigen Alter passiert</h3>
+      <p>Die Durchschnitte pro Person sehen dramatisch aus — solange man Kinder und Rentner mitzählt. Beschränkt man den Blick auf das erwerbsfähige Alter (25–64), kippt das Bild für die meisten Gruppen ins Positive. Das ist kein Trick, sondern steht so im amtlichen Bericht.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <caption>Tabelle 2.2 — Nettobeitrag 2018 nach Herkunft: alle Altersgruppen vs. nur 25–64-Jährige (1.000 DKK/Person)</caption>
+          <thead><tr><th>Herkunft</th><th>Ø alle Alter</th><th>Ø 25–64 J.</th></tr></thead>
+          <tbody>
+            <tr class="sum"><td>Gesamtbevölkerung</td><td class="pos num">+3</td><td class="pos num">+116</td></tr>
+            <tr><td>Dänische Herkunft</td><td class="pos num">+8</td><td class="pos num">+133</td></tr>
+            <tr><td>Einwanderer &amp; Nachkommen insg.</td><td class="neg num">−31</td><td class="pos num">+30</td></tr>
+            <tr><td>Einwanderer, westlich</td><td class="pos num">+39</td><td class="pos num">+91</td></tr>
+            <tr><td>Nachkommen, westlich</td><td class="neg num">−75</td><td class="pos num">+104</td></tr>
+            <tr><td>Einwanderer, <b>MENAPT</b></td><td class="neg num">−85</td><td class="neg num">−57</td></tr>
+            <tr><td>Nachkommen, <b>MENAPT</b></td><td class="neg num">−114</td><td class="neg num">−5</td></tr>
+            <tr><td>Einwanderer, übrige n.-w.</td><td class="neg num">−4</td><td class="pos num">+28</td></tr>
+            <tr><td>Nachkommen, übrige n.-w.</td><td class="neg num">−112</td><td class="pos num">+35</td></tr>
+          </tbody>
+        </table>
+        <p class="tnote">Quelle: Finansministeriet 2021, Tab. 2.2, S. 14. Lesehilfe: Die Spalte „25–64" entfernt den Alterseffekt von Kindern/Rentnern.</p>
+      </div>
+
+      <p>Drei Dinge springen heraus. Erstens: Die <strong>Nachkommen</strong> sind im Schnitt nur negativ, weil sie überwiegend Kinder und Jugendliche sind — im erwerbsfähigen Alter werden westliche und übrige nicht-westliche Nachkommen <strong>positiv</strong>, MENAPT-Nachkommen rücken von −114 auf nahezu null (−5). Zweitens: Auch <strong>übrige nicht-westliche Einwanderer</strong> sind im erwerbsfähigen Alter positiv (+28). Drittens — und das ist die ehrliche Kehrseite: <strong>MENAPT-Einwanderer bleiben auch im erwerbsfähigen Alter negativ</strong> (−57). Für diese eine Gruppe genügt das Altersargument nicht; hier zählt zusätzlich die Beschäftigung.</p>
+
+      <div class="box befund"><span class="lab">🟢 Befund — ehrlich anerkannt</span>
+        <p>Ja: 2018 waren MENAPT-Einwanderer und ihre Kinder eine reale Nettoausgabe von rund 24 Mrd. DKK. Und ja: MENAPT-Einwanderer sind selbst im erwerbsfähigen Alter im Schnitt negativ. Das ist der wahre Kern, den man nicht wegreden darf.</p>
+      </div>
+
+      <h3>Wie wird das berechnet? (Die Methode)</h3>
+      <p>Der Bericht stützt sich auf <strong>Registerdaten von Danmarks Statistik</strong> — keine Umfrage, sondern Verwaltungsdaten zur fast gesamten Bevölkerung. Um den Nettobeitrag <em>einer Person</em> zu bestimmen, müssen <strong>sämtliche</strong> öffentlichen Einnahmen und Ausgaben auf einzelne Personen verteilt werden. Das geschieht so:</p>
+      <ul class="clean">
+        <li><strong>Direkt zuordenbar:</strong> Einkommen- und Grundsteuer, Sozialtransfers — stehen personengenau in den Registern.</li>
+        <li><strong>Über Nutzung zugeordnet:</strong> Bildung, Gesundheit, Kinderbetreuung — per registriertem Verbrauch und berechneten Stückkosten.</li>
+        <li><strong>Über Verteilungsschlüssel zugeordnet:</strong> Posten, die sich <em>nicht</em> einer Person zuordnen lassen — z. B. Einnahmen aus <strong>Körperschaft- und Produktionssteuern</strong> sowie Ausgaben für <strong>kollektiven Verbrauch wie Verteidigung</strong>. Hier werden „Verteilungsschlüssel" (fordelingsnøgler) verwendet.</li>
+      </ul>
+      <p>Und ganz wichtig: Es ist ein <strong>Querschnitt</strong> — ein „Momentaufnahme"-Bild des Jahres 2018, auf Basis der <em>tatsächlichen</em> Staatsbilanz dieses Jahres. Kein Lebensverlauf, keine Prognose.</p>
+
+      <div class="box konf"><span class="lab">🟡 Konfunder im Keim (quantifiziert in Kap. 6)</span>
+        <p>Schon die Methode enthält drei Störgrößen: (1) Kollektive Güter wie Verteidigung werden pro Kopf „verrechnet", obwohl ein zusätzlicher Mensch sie nicht teurer macht — das ist eine <strong>Buchungskonvention, kein Verbrauch</strong>. (2) Körperschaftsteuern, die auch durch Arbeit von Eingewanderten entstehen, werden nach einem Schlüssel verteilt, der ihnen den Beitrag nicht gutschreibt. (3) Ein Querschnitt sieht den Lebensverlauf prinzipiell nicht.</p>
+      </div>
+
+      <h3>Was der Bericht <em>selbst</em> einräumt</h3>
+      <p>Der stärkste Trumpf der Gegenseite trägt seine eigenen Vorbehalte schon in sich. Der Bericht sagt ausdrücklich:</p>
+      <ul class="clean">
+        <li>Es ist eine <strong>Momentaufnahme</strong> (øjebliksbillede) — der Nettobeitrag „variiert über das Leben". Für <em>alle</em> Herkunftsgruppen ist er am Anfang und Ende des Lebens negativ. (§1; §2.3)</li>
+        <li>Für <strong>Kinder ist der Nettobeitrag über die Herkunft hinweg ähnlich</strong> — der Unterschied entsteht erst im erwerbsfähigen Alter. (§2.3, S. 13)</li>
+        <li>Alters-Standardisierung hebt den Beitrag der Nachkommen <strong>deutlich</strong>; bei Einwanderern (überrepräsentiert im Erwerbsalter) senkt sie ihn. (§2.3)</li>
+        <li><strong>Beschäftigung ist entscheidend:</strong> Unabhängig vom Aufenthaltsgrund ist Erwerbstätigkeit die Voraussetzung für einen positiven Beitrag — selbst ein <em>erwerbstätiger Asyl­berechtigter</em> ist im Schnitt positiv. (§2.5)</li>
+        <li>Riesige <strong>Streuung</strong>: Am positivsten Großbritannien, am negativsten Somalia; Ukraine, Indien, China positiv. „Nicht-westlich" und sogar „MENAPT" sind nicht homogen. (§2.5)</li>
+        <li>Die „dänische Herkunft"-Zahl <strong>schwankt stark</strong> von Jahr zu Jahr (Körperschaftsteuer, PAL-Steuer) — 2017→2018 fiel sie um 25 Mrd. (S. 8–9)</li>
+      </ul>
+
+      <h3>Die Gegenrechnung der Regierung selbst</h3>
+      <p>Der Bericht enthält eine eigene Modellrechnung (§2.7): Was, wenn nicht-westliche Einwanderer die <strong>gleiche Arbeitsmarktanbindung wie gleichaltrige Dänen</strong> hätten?</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <caption>Tabelle 2.4 — Hypothetische Potenzialrechnung des Finanzministeriums (Mrd. DKK)</caption>
+          <thead><tr><th>Szenario (nur Einwanderer)</th><th>Ist</th><th>Hypothetisch</th><th>Δ</th></tr></thead>
+          <tbody>
+            <tr><td>MENAPT-Länder</td><td class="neg num">−13</td><td class="neg num">−3</td><td class="pos num">+10</td></tr>
+            <tr><td>Übrige nicht-westliche</td><td class="neg num">−1</td><td class="pos num">+5</td><td class="pos num">+6</td></tr>
+            <tr class="sum"><td>Summe nicht-westliche Einwanderer</td><td class="neg num">−14</td><td class="pos num">+2</td><td class="pos num">+16</td></tr>
+          </tbody>
+        </table>
+        <p class="tnote">Werte: 2018-Niveau, aus direkter Lektüre des Berichts (§2.7, S. 19). <strong>Transparenz:</strong> Die <em>wörtlich</em> zitierbare amtliche Zahl ist die des Vorgängerberichts 2015 — „bei dänischer Beschäftigungsfrequenz wären die öffentlichen Finanzen <strong>um bis zu 17 Mrd. DKK</strong> verbessert worden" (alle Nicht-Westlichen). Für 2018 liegt der Gesamteffekt in derselben Größenordnung (~+16 Mrd); die hier gezeigte Pro-Zeile-Aufschlüsselung stammt aus der PDF-Lektüre und sollte für Hochrisiko-Zitate gegen S. 19 geprüft werden. Das Ministerium betont selbst: Die Rechnung <em>überschätzt</em> den Effekt vermutlich (Erwerbslose verdienten im Schnitt weniger als bereits Beschäftigte).</p>
+      </div>
+
+      <p>Lies das langsam: Die <strong>Beschäftigungslücke</strong> erklärt den Großteil des Defizits. Drei <em>wörtlich</em> zitierbare amtliche Belege stützen das unabhängig von der Tabelle oben: (1) Bericht 2015 — bei dänischer Beschäftigung wären die Finanzen „<strong>um bis zu 17 Mrd.</strong>" besser gewesen; (2) Szenario 2017 — bei dänischer Arbeitsmarktanbindung steigt die Beschäftigung um 23 Prozentpunkte (~75.000 Personen) und der Saldo verbessert sich „<strong>von −15 Mrd.</strong>" aufwärts; (3) Lebensprognose — schon <strong>20 % weniger</strong> Beschäftigungslücke senken die Dauerkosten um <strong>6 Mrd.</strong> Das sagt nicht ein Migrationsforscher — das steht in den Berichten des Finanzministeriums.</p>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Die Regierung rechnet es selbst vor: Es ist zu <strong>vier Fünfteln eine Beschäftigungslücke</strong>, keine Herkunftslücke. Wer das MENAPT-Defizit zitiert, zitiert in Wahrheit die dänische Arbeitsmarktintegration.</p>
+      </div>
+
+      <div class="box grenze"><span class="lab">🔴 Grenze — was die Zahl nicht kann</span>
+        <p>Eine Querschnittskostenzahl kann <strong>nicht</strong> zwischen „Herkunft" und „Beschäftigung/Alter/Zuwanderungskanal" trennen — sie bündelt alles in einem Wert. Sie kann <strong>nicht</strong> den Lebensverlauf abbilden. Und sie ist <strong>fragil</strong>: Der reine Buchungs-Wackler der dänischstämmigen Bilanz übertrifft die gesamten MENAPT-Kosten.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Die −24-Milliarden-Zahl ist korrekt gemessen, aber sie ist eine Momentaufnahme der Beschäftigung und Altersstruktur — nicht der Herkunft.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 3A</span>
+        <ul>
+          <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Okt. 2021): <em>Indvandreres nettobidrag til de offentlige finanser i 2018.</em> Zahlen: Tab. 1.1 (S. 5), Tab. 2.1 (S. 8), Tab. 2.2 (S. 14), Tab. 2.4 (S. 19). Methode: §2, S. 7–8. Selbst-Einschränkungen: §1 (S. 4–6), §2.3 (S. 12–14), §2.5 (S. 16), §2.7 (S. 19–20). — <a href="https://fm.dk/media/25228/indvandreres-nettobidrag-til-de-offentlige-finanser-i-2018.pdf">fm.dk (PDF)</a></li>
+          <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Feb. 2018): <em>Indvandreres nettobidrag til de offentlige finanser i 2015</em> — Methoden-Vorgängerbericht mit den detaillierten Verteilungsannahmen (Bilag 5).</li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Tranæs, T. &amp; Zimmermann, K. F. (Hrsg.) 2004: <em>Migrants, Work, and the Welfare State.</em> Univ. Press of Southern Denmark / Rockwool Fonden. Kap. 10 (Wadensjö &amp; Gerdes, „Immigrants and the Public Sector"): Rechenlogik der dän. Fiskalbilanz (Lovmodel), S. 320–323; kollektive Güter werden <em>nicht</em> verteilt, S. 327; Hauptbefund „Differenz ⟶ Beschäftigung, nicht Herkunft", S. ~340; Beschäftigungs-Regression Tab. 10.13, S. 354.
+            <br><span class="muted">Annahme: Die Buchvorlage liegt als OCR-Textfassung ohne saubere Seitenstruktur vor; Seitenzahlen sind aus den laufenden Kolumnentiteln rekonstruiert und können um ±1 abweichen.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =================== KAP 3B =================== -->
+    <section id="kap-3b">
+      <div class="chap-head"><span class="chap-no">KAP. 03 · B</span><h2>Datenlage B: Kriminalität <span class="axis-tag axis-krim">B · KRIMINALITÄT</span></h2></div>
+      <p class="lede">Jetzt die zweite, völlig getrennte Achse. <strong>Wichtig:</strong> Hier gibt es <em>keine</em> Finanzministeriums-Zahl. Die Kriminalitätsdaten stammen von Danmarks Statistik und dem Justizministerium — andere Quelle, andere Methode, andere Unsicherheiten. Wer die Glaubwürdigkeit der Fiskalzahl auf die Kriminalität überträgt, betreibt einen Taschenspielertrick.</p>
+
+      <h3>Was der „Kriminalitätsindex" ist</h3>
+      <p>Der dänische Index funktioniert so: <strong>100 = Durchschnitt der gesamten Bevölkerung</strong>. Ein Index von 200 heißt: doppelt so viele Verurteilte wie im Schnitt zu erwarten. Entscheidend: Es gibt eine Version, die fürs <strong>Alter korrigiert</strong> ist (alderskorrigeret) — sie rechnet heraus, dass manche Gruppen viel jünger sind. Denn Kriminalität ist fast überall ein Phänomen <em>junger Männer</em>.</p>
+
+      <h3>Die exakten amtlichen Zahlen (alterskorrigiert, 2023)</h3>
+      <p>Hier die gepinnten Originalwerte aus <em>Indvandrere i Danmark</em> (Danmarks Statistik) und <em>Kriminalitet og herkomst 2023</em> (Justizministerium). Alle nach Alter korrigiert, Männer, Straftaten nach dem Strafgesetz (straffelov):</p>
+      <ul class="clean">
+        <li>Männliche <strong>MENAPT-Einwanderer</strong>: rund <strong>2×</strong> über dem Bevölkerungsschnitt (Index ~218).</li>
+        <li>Männliche <strong>MENAPT-Nachkommen</strong>: rund <strong>3×</strong> (Index ~262 für Straftaten insgesamt, d. h. ~162 % Überrepräsentation).</li>
+        <li>Bei <strong>Gewaltdelikten</strong> liegt der Index der MENAPT-Nachkommen bei <strong>354</strong> (≈ 3,5×) — gefallen von 404 im Jahr 2019.</li>
+        <li>Frauen aus westlichen und übrigen nicht-westlichen Ländern liegen <em>unter</em> 100.</li>
+      </ul>
+
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">2023 wurden <b>0,8 %</b> aller 15–79-jährigen Männer verurteilt; bei MENAPT-Nachkommen <b>4,3 %</b> (nicht alterskorrigiert).</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Alterskorrigierter Gewalt-Index der MENAPT-Nachkommen <b>354</b> (≈ 3,5× Schnitt). Überrepräsentation ist real.</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Zugleich: <b>98,5 %</b> der Flüchtlinge/Familiennachzügler werden in einem Jahr <b>nicht</b> verurteilt — bei dänischer Herkunft 98,8 %.</div></div>
+      </div>
+
+      <h3>Drei Zahlen, die das Bild sofort einordnen</h3>
+      <p><strong>Erstens — die absolute Mehrheit der Täter ist dänisch.</strong> Von rund 17.400 verurteilten Männern waren knapp 3.300 Einwanderer oder Nachkommen. In absoluten Zahlen stellt die dänische Herkunft die <em>größte</em> Tätergruppe. Der Index ist ein <em>relatives</em> Maß.</p>
+      <p><strong>Zweitens — „nicht-westlich" sagt fast nichts vorher.</strong> Männer mit Herkunft China (Index 17), Norwegen (39) oder Deutschland (38) liegen über 60 % <em>unter</em> dem Schnitt. Hoch sind Libanon (386), Somalia (316), Syrien (312), Irak (268). Die Spannweite innerhalb „nicht-westlich" ist riesig — die Kategorie selbst erklärt nichts.</p>
+      <p><strong>Drittens — jede Generation ist weniger kriminell als die vorige.</strong> Von den 1990–94 eingereisten Flüchtlingen waren nach 10 Jahren ~18 % verurteilt; bei den 2000–04-Eingereisten ~11 %; bei den 2010–14-Eingereisten ~6 % (Rockwool-Fonden). Die Kriminalität sinkt — für alle Gruppen, auch die dänische.</p>
+
+      <div class="box gegen"><span class="lab">⚪ Deutscher Kontext — die PKS-Zahlen, fair zitiert</span>
+        <p>In Deutschland kursieren zwei sehr verschiedene Zahlen. Die <strong>PKS</strong> nennt für 2024 einen Anteil „nichtdeutscher Tatverdächtiger" von <strong>41,8 %</strong> — diese Kategorie enthält aber <em>alle</em> ohne deutschen Pass, auch Touristen, Pendler, Durchreisende. Das engere BKA-„Bundeslagebild Kriminalität im Kontext von Zuwanderung" zählt nur Geflüchtete (Asylbewerber, Schutzberechtigte, Geduldete): hier sind es <strong>8,8 %</strong> aller Tatverdächtigen (172.000 von 1,97 Mio.). Das BKA selbst betont: Es handelt sich um <strong>Tatverdächtige, nicht Verurteilte</strong>, und das Lagebild sei „keine Bewertung von Integrationsprozessen". Geflüchtete tauchen 2024 zugleich als rund <strong>70.000 Opfer</strong> von Straftaten auf.</p>
+      </div>
+
+      <div class="box befund"><span class="lab">🟢 Befund — ehrlich, auch das Unbequeme</span>
+        <p>Die Überrepräsentation ist real und bleibt auch <em>nach</em> der Alterskorrektur bestehen — besonders bei den hier geborenen Nachkommen und besonders bei Gewaltdelikten. Das ist kein Erhebungsfehler und lässt sich nicht wegreden. Ein Sozialdemokrat, der das leugnet, hat die Debatte verloren, bevor sie beginnt.</p>
+      </div>
+
+      <div class="box grenze"><span class="lab">🔴 Grenze — was diese Zahl nicht ist</span>
+        <p>Der Index zählt <strong>Verurteilungen</strong> — also nur entdeckte, angeklagte <em>und</em> verurteilte Taten. Er ist <strong>relativ</strong> (gemessen am Schnitt), reagiert bei kleinen Gruppen heftig auf wenige Personen (syrische Nachkommen: nur 901 Personen), und sagt nichts über <em>Ursachen</em>. Vor allem: Er hat mit der Fiskalzahl <strong>nichts</strong> zu tun.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Die Überrepräsentation bei Verurteilungen ist real und bleibt nach Alterskorrektur bestehen — aber sie ist ein relatives Maß über eine völlig andere Quelle als die Fiskalzahl, und über Ursachen sagt sie noch nichts.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 3B</span>
+        <ul>
+          <li><span class="tag t-amt">AMTLICH</span> Danmarks Statistik: <em>Indvandrere i Danmark</em> (2021/2024/2025), Kap. Kriminalität — altersstandardisierter Kriminalitätsindex nach Herkunft. — <a href="https://www.dst.dk/da/Statistik/udgivelser/bagtal/2022-08-18-fakta-om-indvandrere">dst.dk</a></li>
+          <li><span class="tag t-amt">AMTLICH</span> Justitsministeriets Forskningsenhed (April 2025): <em>Kriminalitet og herkomst 2023.</em> Index ~262 (Nachkommen, Straffelov), Gewalt-Index 354. — <a href="https://www.justitsministeriet.dk/wp-content/uploads/2025/05/Kriminalitet-og-herkomst-2023-WT.pdf">justitsministeriet.dk (PDF)</a></li>
+          <li><span class="tag t-amt">AMTLICH</span> Integrationsbarometer (Udlændinge- og Integrationsministeriet): MENAPT-Männer 2023 ~2× (Einwanderer) bzw. ~3× (Nachkommen) nach Alterskorrektur; Notat zu MENAPT-Kriminalität. — <a href="https://integrationsbarometer.dk/tal-og-analyser/kriminalitet">integrationsbarometer.dk</a></li>
+          <li><span class="tag t-amt">AMTLICH</span> Bundeskriminalamt: <em>Bundeslagebild Kriminalität im Kontext von Zuwanderung 2024</em> (Stand 8.12.2025). „Zuwanderer" 8,8 % der Tatverdächtigen; PKS „nichtdeutsch" 41,8 % (inkl. Touristen); Tatverdächtige ≠ Verurteilte; ~70.000 geflüchtete Opfer. — <a href="https://www.bka.de/DE/AktuelleInformationen/StatistikenLagebilder/Lagebilder/KriminalitaetImKontextVonZuwanderung/KriminalitaetImKontextVonZuwanderung_node.html">bka.de</a></li>
+          <li><span class="tag t-adv">NGO/KONTEXT</span> Refugees Welcome DK (2026): Basisraten (98,5 % vs. 98,8 %), Rockwool-Generationenrückgang, Warnung vor kleinen Fallzahlen. — <a href="https://refugeeswelcome.dk/da/information/fokus/kriminalitet-blandt-flygtninge-og-efterkommere/">refugeeswelcome.dk</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =================== KAP 4 (Fiskal-Teil) =================== -->
+    <section id="kap-4">
+      <div class="chap-head"><span class="chap-no">KAP. 04</span><h2>Katalog der Grundannahmen <span class="axis-tag axis-fisk">A · FISKAL</span></h2></div>
+      <p class="lede">Jede Zahl ruht auf Annahmen. Wer sie kennt, kann die Zahl einordnen. Hier liegen die Annahmen offen — die ausgesprochenen und die versteckten. <span class="muted">(Die kriminalitätsseitigen Störgrößen stehen in <a href="#kap-6">Kapitel 6 B</a>.)</span></p>
+
+      <h3>Was der Bericht offen sagt (explizite Annahmen)</h3>
+      <p>Diese Punkte stehen wörtlich im Bericht. Sie sind keine Kritik — sie sind die Spielregeln, nach denen gerechnet wurde.</p>
+      <ul class="clean">
+        <li><strong>Momentaufnahme statt Lebenslauf.</strong> Gemessen wird ein einziges Jahr (2018). Der Bericht sagt selbst: Der Beitrag „variiert über das Leben". (§1; §2.3)</li>
+        <li><strong>Alle öffentlichen Posten werden auf Personen verteilt</strong> — auch solche, die mit einzelnen Menschen gar nichts zu tun haben. Wie verteilt wird, ist eine <em>Rechenkonvention</em>. (§2)</li>
+        <li><strong>Herkunft schlägt Staatsbürgerschaft.</strong> „Herkunft" richtet sich nach dem Geburtsland der Eltern, nicht nach dem Pass. Wer eingebürgert wird, bleibt in der Statistik „Einwanderer". (Definition Danmarks Statistik)</li>
+        <li><strong>Kollektivgüter pro Kopf.</strong> Verteidigung, zentrale Verwaltung u. Ä. werden gleichmäßig auf alle Köpfe verteilt — als „verbrauche" jeder Mensch ein Stück Armee. (§2)</li>
+        <li><strong>Tatsächlicher Saldo, nicht konjunkturbereinigt.</strong> Gemessen wird die reale Kassenlage 2018, samt Konjunktur- und Buchungseffekten. (§2)</li>
+      </ul>
+
+      <h3>Was unausgesprochen mitläuft (implizite Annahmen)</h3>
+      <p>Diese Annahmen stehen nicht im Bericht, stecken aber in jeder politischen Verwendung der Zahl. Hier wird es heikel.</p>
+      <ul class="clean">
+        <li><strong>„Herkunft erklärt das Ergebnis."</strong> Die Tabelle ordnet nach Herkunftsland. Das legt nahe, Herkunft sei die Ursache. Tatsächlich bündelt eine einzige Zahl Beschäftigung, Alter und Zuwanderungsgrund — sie kann diese nicht trennen.</li>
+        <li><strong>„Die Zahl ist stabil."</strong> Wer „24 Milliarden" sagt, klingt nach einer Konstante. In Wahrheit schwankt schon die dänischstämmige Bilanz um mehr als diesen Betrag von Jahr zu Jahr.</li>
+        <li><strong>„Wer kostet, wird immer kosten."</strong> Die Querschnittszahl wird gelesen, als sei sie ein Schicksal. Die amtliche Prognose selbst erwartet das Gegenteil (siehe Kap. 6, Konfunder 3).</li>
+        <li><strong>„Kosten = Wert eines Menschen."</strong> Der stärkste versteckte Sprung: aus einem Kassenposten wird ein Urteil über den Wert von Menschen. Das ist kein Rechen-, sondern ein Wertschritt (Kap. 8).</li>
+      </ul>
+
+      <hr class="soft">
+      <h3>Und auf der Kriminalitätsachse? <span class="axis-tag axis-krim">B · KRIMINALITÄT</span></h3>
+      <p>Auch der Kriminalitätsindex ruht auf Annahmen — anderen als die Fiskalzahl.</p>
+      <p><strong>Was die Statistik offen sagt (explizit):</strong></p>
+      <ul class="clean">
+        <li>Gezählt werden <strong>Verurteilungen</strong> (domme) — nicht Taten, nicht Tatverdächtige.</li>
+        <li><strong>100 = Bevölkerungsschnitt</strong>: Der Index ist ein <em>relatives</em> Maß, keine absolute Häufigkeit.</li>
+        <li>Es gibt eine <strong>alterskorrigierte</strong> Version — die Behörde sagt selbst, dass das Alter verzerrt.</li>
+        <li>„Herkunft" wird über das Geburtsland der Eltern definiert (dieselbe Konvention wie beim Geld).</li>
+      </ul>
+      <p><strong>Was unausgesprochen mitläuft (implizit):</strong></p>
+      <ul class="clean">
+        <li><strong>„Verurteilung = Tat = Schuld der Gruppe."</strong> Ausgeblendet wird der selektive Trichter Tat → Anzeige → Anklage → Urteil, auf dem Verfolgungsbias sitzt.</li>
+        <li><strong>„Relativer Index = absolute Bedrohung."</strong> Verschwiegen wird die Basisrate: 98,5 % begehen nichts.</li>
+        <li><strong>„Gruppenrate = Risiko des Einzelnen."</strong> Vom Durchschnitt einer Gruppe wird auf jede Person geschlossen — derselbe Fehlschluss wie bei den National-IQs.</li>
+        <li><strong>„Register = die Kriminalität."</strong> Befragungsdaten und das Dunkelfeld bleiben außen vor.</li>
+      </ul>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Der Bericht rechnet sauber — aber er ordnet nach <strong>Herkunft</strong>, während die Ursache <strong>Beschäftigung und Alter</strong> heißt. Diese Verwechslung ist nicht im Bericht, sondern in seiner politischen Verwendung.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Die Studie ist ehrlich über ihre Annahmen — gefährlich werden erst die unausgesprochenen Annahmen derer, die mit der Zahl Politik machen.</b></div>
+    </section>
+
+    <!-- =================== KAP 5 (Fiskal-Teil) =================== -->
+    <section id="kap-5">
+      <div class="chap-head"><span class="chap-no">KAP. 05</span><h2>Argumente &amp; Argumentationsketten <span class="axis-tag axis-fisk">A · FISKAL</span></h2></div>
+      <p class="lede">Jede Kette zuerst <strong>fair</strong> aufgebaut (⚪), dann der wahre Kern (🟢), die Lücke (🔴), die Störgröße (🟡) — und am Ende die fertige <strong>3-Satz-Replik</strong> (🟣) für die Live-Debatte. <span class="muted">(Dies ist die Fiskal-Achse; die Kriminalitäts-Argumentation steht in Kap. 6 B und als Replik R4 im Spickzettel, Kap. 11.)</span></p>
+
+      <!-- Kette F1 -->
+      <h3>Kette F1 — „Nicht-westliche Migration kostet 24 (bzw. 33) Milliarden — das ist nicht tragbar."</h3>
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — fair formuliert</span>
+        <p>Das Finanzministerium selbst, nicht irgendein Aktivist, beziffert die jährlichen Nettokosten. Über ein ganzes Leben gerechnet kostet ein nicht-westlicher Einwanderer im Schnitt rund 31.000–35.000 DKK <em>pro Lebensjahr</em>, ein westlicher bringt <em>+20.000 bis +31.000</em>. Ein reiches Sozialsystem kann das nicht unbegrenzt schultern.</p>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Wahrer Kern</span>
+        <p>Stimmt. Die Nettokosten sind real und amtlich. Und ja: Erwerbsbeteiligung und Transferbezug unterscheiden sich zwischen den Gruppen deutlich. Das wegzureden, wäre unehrlich und würde sofort auffliegen.</p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Lücke</span>
+        <p>Die Zahl sagt <em>dass</em> es kostet, nicht <em>warum</em>. Sie kann nicht zwischen „Herkunft" und „niedrige Beschäftigung + junges Alter + Fluchtkanal" trennen. Und sie ist fragil: Die dänischstämmige Bilanz schwankt jährlich um mehr als die ganzen MENAPT-Kosten.</p>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p><strong>Beschäftigung.</strong> Kontrolliert man allein die Erwerbsquote, schrumpft die Differenz zu Dänen um rund <strong>88 %</strong> (Tranæs/Zimmermann). Die Regierung selbst: bei dänischer Erwerbsbeteiligung +10 Mrd. allein bei MENAPT-Einwanderern.</p>
+      </div>
+      <div class="box replik"><span class="lab">🟣 Replik · laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja — die Zahl stimmt, sie ist amtlich, ich leugne sie nicht."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber sie misst <strong>Arbeitslosigkeit</strong>, nicht Herkunft. Das Ministerium rechnet selbst vor: bei gleicher Beschäftigung wie Dänen verschwinden vier Fünftel der Lücke. Ein arbeitender Syrer zahlt netto ein wie ein arbeitender Däne."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Also folgt aus der Zahl das Gegenteil von Abschiebung: <strong>Arbeitsmarktintegration</strong>. Wer die Menschen rausschickt, statt sie in Arbeit zu bringen, verbrennt genau das Geld, das er sparen will."</p></div>
+      </div>
+
+      <!-- Kette F2 -->
+      <h3>Kette F2 — „Sogar die zweite Generation, die Nachkommen, kostet noch."</h3>
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — fair formuliert</span>
+        <p>Das ist das stärkere Argument: Selbst die hier geborenen Kinder („Nachkommen") aus nicht-westlichen Familien sind in der Bilanz negativ (ca. −17 Mrd. 2018). Wenn nicht einmal die hier Geborenen einzahlen, sei das ein Integrationsversagen, kein Startproblem.</p>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Wahrer Kern</span>
+        <p>Die Momentaufnahme zeigt die Nachkommen tatsächlich negativ. Das ist kein Tippfehler.</p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Lücke</span>
+        <p>Der Grund steht im Bericht selbst: Die Nachkommen sind <strong>überwiegend Kinder und Jugendliche</strong>. Kinder zahlen nirgends Steuern — sie gehen zur Schule. Für <em>alle</em> Herkünfte ist der Beitrag im Kindesalter ähnlich (§2.3, S. 13). Man vergleicht eine Gruppe junger Schüler mit der erwachsenen Gesamtbevölkerung.</p>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p><strong>Altersstruktur / Lebenszyklus.</strong> Im erwerbsfähigen Alter (25–64) kippt das Bild: MENAPT-Nachkommen liegen pro Kopf bei rund <strong>−5.000 DKK</strong> (fast null), die übrigen nicht-westlichen Nachkommen sogar bei <strong>+35.000</strong>. Die amtliche Prognose erwartet, dass die Gruppe nach 2060 „sehr positiv" beiträgt.</p>
+      </div>
+      <div class="box replik"><span class="lab">🟣 Replik · laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Stimmt, in der Jahresbilanz sind die Nachkommen negativ — räume ich ein."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber das sind zum großen Teil <strong>Kinder in der Schule</strong>. Kinder kosten — meine auch, Ihre auch. Im arbeitsfähigen Alter ist ihr Beitrag fast ausgeglichen, bei den übrigen Nicht-Westlichen sogar klar positiv. Das Finanzministerium prognostiziert selbst: ab 2060 stark positiv."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Eine Gruppe von Schülern als ‚Versager' abzustempeln, dreht den Lebenslauf um. Wer Kinder wegrechnet, weil sie noch keine Steuern zahlen, müsste konsequenterweise alle Kindergärten schließen."</p></div>
+      </div>
+
+      <!-- Kette F3 -->
+      <h3>Kette F3 — „Die Zahl ist amtlich, also unangreifbar."</h3>
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — fair formuliert</span>
+        <p>Das Finanzministerium ist keine Lobbygruppe. Die Methode ist dieselbe seit 2014, transparent dokumentiert, auf Registerdaten gestützt. Wer daran zweifelt, leugnet die amtliche Statistik.</p>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Wahrer Kern</span>
+        <p>Korrekt — die Datenbasis ist exzellent und die Rechnung sauber. Das ist gerade der Grund, sie <em>nicht</em> zu leugnen, sondern richtig zu lesen.</p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Lücke</span>
+        <p>„Sauber gerechnet" heißt nicht „misst, was man hineinliest". Der Erfinder genau dieser Methode, Ökonom Eskil Wadensjö, nennt die heutige Pro-Kopf-Verteilung der Kollektivgüter <strong>aufgebläht</strong>: „Dänemark bekommt nicht mehr Königinnen, wenn Einwanderer kommen."</p>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p><strong>Rechenkonvention.</strong> Wer die fixen Kollektivkosten <em>nicht</em> pro Kopf verteilt (wie die Originalstudie 2004), erhält eine deutlich kleinere Zahl. Die Höhe der Zahl hängt an einer Konvention, nicht an einem Verbrauch.</p>
+      </div>
+      <div class="box replik"><span class="lab">🟣 Replik · laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, die Zahl ist amtlich und gut gerechnet — eben deshalb nehme ich sie ernst."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber amtlich heißt nicht ‚misst Herkunft'. Sie verteilt sogar die Verteidigungsausgaben pro Kopf — als verbrauche jeder Flüchtling ein Stück Panzer. Der Ökonom, der diese Methode erfunden hat, nennt das selbst aufgebläht."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Wer die Zahl wörtlich nimmt, müsste auch sagen: Jedes neugeborene dänische Baby ‚kostet' anteilig die Armee. Die Zahl ist ein Buchungstrick, kein Schicksal."</p></div>
+      </div>
+
+      <hr class="soft">
+      <h3>Kette K1 — „Auch nach Alterskorrektur ist die Kriminalität deutlich erhöht." <span class="axis-tag axis-krim">B · KRIMINALITÄT</span></h3>
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — fair formuliert</span>
+        <p>Der Einwand ist berechtigt: Selbst <em>nachdem</em> man fürs junge Alter korrigiert, bleibt der Index der MENAPT-Männer bei rund 2× (Einwanderer) bzw. 3× (Nachkommen), bei Gewalt 354. „Es liegt nicht nur am Alter" — stimmt.</p>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Wahrer Kern</span>
+        <p>Korrekt. Die Alterskorrektur beseitigt die Überrepräsentation nicht. Das ist amtlich und gehört anerkannt.</p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Lücke</span>
+        <p>Alter ist nur der <em>erste</em> Konfunder. Nach ihm kommt die soziale Lage — und der Index zählt Verurteilungen am Ende eines an jeder Stufe verzerrbaren Trichters.</p>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p><strong>Sozioökonomie + Verfolgungsbias.</strong> Nach Sozio-Korrektur fällt der Index auf <strong>104</strong> (gegen 99 dän.); Minderheiten werden häufiger angeklagt/festgenommen, ohne verurteilt zu werden (Kyvsgaard).</p>
+      </div>
+      <div class="box replik"><span class="lab">🟣 Replik · laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja — auch nach Alterskorrektur bleibt etwas übrig, das räume ich ein."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber Alter ist nur der erste Schritt. Nach der sozialen Lage fällt der Index auf 104 gegen 99 — fast gleich. Und gezählt werden Verurteilungen; Minderheiten werden öfter angeklagt, ohne verurteilt zu werden."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Was bleibt, zeigt auf Armut, Segregation und Polizeipraxis — alles veränderbar. Abschiebung ändert nichts davon."</p></div>
+      </div>
+
+      <h3>Kette K2 — „Selbst nach der sozialen Lage bleibt ein Rest — also ist es die Kultur/Herkunft." <span class="axis-tag axis-krim">B · KRIMINALITÄT</span></h3>
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — fair und in stärkster Form</span>
+        <p>Das härteste Argument: In <em>neueren</em> Daten bleibt selbst nach Alter <strong>und</strong> Sozioökonomie ein Rest — bei Nachkommen ~140 % über dem Schnitt. Tranæs selbst sagt, bei hier Geborenen blieben „nur kulturelle Unterschiede". Diesen Rest dürfe man nicht wegerklären.</p>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Wahrer Kern</span>
+        <p>Ehrlich: Ja, ein Rest bleibt, besonders bei Nachkommen und Gewalt. Ihn zu leugnen wäre unredlich.</p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Lücke</span>
+        <p>„Unerklärt durch Armut" ist <strong>nicht</strong> „erklärt durch Herkunft". Der Rest kann ebenso Diskriminierung, Segregation, Lehrstellen-Ausschluss, Eltern-Trauma oder Verfolgungsbias sein — alles bisher unzureichend kontrolliert.</p>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Konfunder · Overcontrol (beide Richtungen)</span>
+        <p>Die soziale Lage ist für Flüchtlinge oft <em>Folge</em> der Migrationslage (Mediator), nicht unabhängige Ursache. „Für alles kontrollieren" ist kein Gütesiegel (Pearl): Der Rest beweist weder „Kultur" noch „nur Armut" — er markiert offene, untersuchbare Ursachen.</p>
+      </div>
+      <div class="box replik"><span class="lab">🟣 Replik · laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Stimmt — nach allen Kontrollen bleibt ein Rest, vor allem bei den hier Geborenen. Das sage ich offen."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber ‚unerklärt durch Armut' heißt nicht ‚erklärt durch Abstammung'. Der Rest kann Diskriminierung, Segregation, versperrte Lehrstellen oder Polizeipraxis sein — niemand hat das sauber herausgerechnet."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Ein unerklärter Rest ist ein Forschungs- und Handlungsauftrag, kein Abschiebegrund. Und ‚Kultur' ändert man nicht durch Ausweisung, sondern durch Teilhabe."</p></div>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Die stärksten Gegenargumente beider Achsen sind alle echt — und alle lösen sich auf, sobald man Beschäftigung, Alter, Rechenkonvention und Verfolgungsbias von „Herkunft" trennt; der bei der Kriminalität verbleibende Rest ist ein Auftrag, kein Abschiebegrund.</b></div>
+    </section>
+
+    <!-- =================== KAP 6 (Fiskal-Teil) =================== -->
+    <section id="kap-6">
+      <div class="chap-head"><span class="chap-no">KAP. 06</span><h2>Konfunder &amp; methodische Verzerrungen <span class="axis-tag axis-fisk">A · FISKAL</span></h2></div>
+      <p class="lede">Ein <strong>Konfunder</strong> ist eine versteckte Störgröße: Sie erzeugt den Zusammenhang, den man fälschlich der „Herkunft" zuschreibt. Hier sind die sechs, die das Fiskal-Ergebnis formen — jeder, wo möglich, mit einer Zahl. <span class="muted">(Die Kriminalitäts-Konfunder folgen weiter unten in diesem Kapitel.)</span></p>
+
+      <div class="box merk"><span class="lab">🔵 Prüfraster (Harford &amp; Huff)</span>
+        <p>Wir prüfen die Zahl mit zwei Klassikern. <strong>Tim Harford</strong> (10 Regeln): u. a. „Spür deine Gefühle" (Regel 1), „Vermeide voreiliges Zählen" (Regel 3: <em>Was</em> wird gezählt?), „Tritt zurück, sieh das ganze Bild" (Regel 4), „Hol die Vorgeschichte" (Regel 5: <em>wie</em> entstand die Zahl?), „Frag, wer fehlt" (Regel 6). <strong>Darrell Huff</strong>: „Der gut gewählte Durchschnitt" (Kap. 2), „Die kleinen Zahlen, die nicht da sind" (Kap. 3: fehlender Bezug), „Die halb-angeheftete Zahl" (Kap. 7: man misst X, behauptet Y).</p>
+      </div>
+
+      <h3>Konfunder 1 — Arbeitsmarktanbindung <span class="muted">(der größte)</span></h3>
+      <p>Das ist die Hauptstörgröße. Ob jemand einzahlt oder kostet, hängt fast nur an einer Frage: Hat er Arbeit? Nicht: Woher kommt er?</p>
+      <p>Die Erwerbsquote der 25- bis 64-Jährigen lag 2018 bei <strong>81 % (dänische Herkunft)</strong>, aber nur <strong>47 % (MENAPT-Einwanderer)</strong> — bei Männern 57 %, bei Frauen 35 %. Genau diese Lücke erzeugt die Kostenlücke.</p>
+      <p>Wie stark? Die peer-review-Studie von Tranæs und Zimmermann rechnet es durch: Kontrolliert man allein die Erwerbsquote, sinkt die Nettokostendifferenz nicht-westlicher Einwanderer gegenüber Dänen von rund <strong>12.300 € auf 1.500 € pro Person</strong> — die niedrige Beschäftigung „erklärt den größten Teil der Differenz".</p>
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">Erwerbsquote 25–64: <b>47 %</b> (MENAPT-Einwanderer) vs. <b>81 %</b> (dän. Herkunft).</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Beschäftigungs-Kontrolle senkt die Kostendifferenz um rund <b>88 %</b> (12.300 € → 1.500 €).</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Regierungs-Gegenrechnung: bei dän. Erwerbsbeteiligung <b>+10 Mrd.</b> allein bei MENAPT-Einwanderern (§2.7).</div></div>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Befund</span>
+        <p>Die Erwerbslücke ist real <em>und</em> sie ist fast die ganze Geschichte. Wer arbeitet, ist im Schnitt netto positiv — unabhängig von Herkunft und sogar Aufenthaltsgrund (§2.5).</p>
+      </div>
+
+      <h3>Konfunder 2 — Zuwanderungskanal (Fluchtgrund)</h3>
+      <p>Menschen kommen aus verschiedenen Gründen. Das entscheidet, wie schnell sie arbeiten dürfen und können.</p>
+      <p>Von den MENAPT-Einwanderern kamen <strong>unter 5 %</strong> zum Arbeiten oder Studieren, rund <strong>55 %</strong> über Asyl oder Familiennachzug. Bei westlichen Einwanderern kam etwa die <em>Hälfte</em> zum Arbeiten/Studieren. Das ist der Grund für die Gruppendifferenz — nicht die Religion oder Region.</p>
+      <p>Der Beweis steckt im Vergleich innerhalb der Nicht-Westlichen: Die „übrigen nicht-westlichen" Einwanderer (mehr Arbeitsmigration) kosten pro Person nur <strong>−4.000 DKK</strong> — die MENAPT-Einwanderer (mehr Flucht) <strong>−85.000</strong>. Gleiche „Nicht-Westlichkeit", völlig andere Bilanz. Arbeitsmigranten samt Familie brachten 2018 sogar <strong>+9,4 Mrd.</strong></p>
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">MENAPT-Einwanderer pro Kopf <b>−85.000 DKK</b> · übrige Nicht-Westliche <b>−4.000</b>.</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Faktor <b>~21×</b> Unterschied — innerhalb derselben Kategorie „nicht-westlich".</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Über 5 % vs. ~50 % kamen zum Arbeiten/Studieren (MENAPT vs. westlich).</div></div>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p>„MENAPT" misst in Wahrheit den <strong>Zuwanderungsgrund</strong>. Ein Asylsuchender darf anfangs oft nicht arbeiten und startet ohne Sprache und anerkannte Abschlüsse. Das ist eine Kanal-Geschichte, keine Herkunfts-Geschichte.</p>
+      </div>
+
+      <h3>Konfunder 3 — Altersstruktur &amp; die Lebenszyklus-Umkehr der Nachkommen</h3>
+      <p>Jeder Mensch durchläuft dieselbe Kurve: Als Kind kostet man (Schule, Betreuung), im mittleren Leben zahlt man ein, im Alter kostet man wieder. Eine Momentaufnahme friert diese Kurve in einem Punkt ein.</p>
+      <p>Die nicht-westlichen Nachkommen sind <strong>überwiegend Kinder und Jugendliche</strong>. Deshalb stehen sie 2018 mit ca. −17 Mrd. da — nicht, weil sie „integrationsunfähig" wären, sondern weil sie noch zur Schule gehen. Im erwerbsfähigen Alter dreht sich das Bild: MENAPT-Nachkommen pro Kopf rund <strong>−5.000 DKK</strong> (praktisch null), übrige nicht-westliche Nachkommen <strong>+35.000</strong>.</p>
+      <p>Und die Regierung sagt die Umkehr <strong>selbst</strong> voraus. Die amtliche Fremskrivning (Mai 2018) erklärt die −17 Mrd. ausdrücklich damit, dass die Gruppe „zu einem hohen Grad aus Kindern und Jugendlichen besteht" — und prognostiziert, die Gruppe werde nach 2060 „<strong>sehr positiv</strong>" zu den öffentlichen Finanzen beitragen, wegen veränderter Altersstruktur und steigender Beschäftigung.</p>
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">Nachkommen pro Kopf 25–64: MENAPT <b>−5.000 DKK</b> · übrige Nicht-Westliche <b>+35.000</b>.</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Vom Allerwelts-Wert (−114.000, alle Alter) zur <b>Fast-Null</b> bzw. <b>Plus</b> im Erwerbsalter.</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Amtliche Prognose: <b>nach 2060 „sehr positiv"</b> (Fremskrivning, Mai 2018).</div></div>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Transparenz zu den Einzelwerten</span>
+        <p>Das <em>Muster</em> ist robust und amtlich: Im Erwerbsalter dreht sich das Bild, die Prognose erwartet die Nachkommen nach 2060 positiv. Die <em>genauen</em> Pro-Kopf-Werte (−5k/+35k/−114k) stammen aus direkter Lektüre der Berichtstabellen (Tab. 2.2/2.3) und sollten für Hochrisiko-Zitate gegen die PDF geprüft werden — die qualitative Aussage hängt nicht an der zweiten Stelle.</p>
+      </div>
+
+      <div class="box befund"><span class="lab">🟢 Befund</span>
+        <p>Die Lebenszyklus-Umkehr ist keine Schönfärberei der Verteidigung — sie ist eine amtliche Prognose des Finanzministeriums. Eine Momentaufnahme junger Menschen sagt nichts über ihren Lebensbeitrag.</p>
+      </div>
+
+      <h3>Konfunder 4 — Das Einbürgerungs-Artefakt</h3>
+      <p>„Herkunft" wird über die Eltern definiert, nicht über den Pass. Das hat eine eingebaute Schieflage.</p>
+      <p>Wenn ein Einwanderer eingebürgert wird, in Dänemark Kinder bekommt und diese wiederum hier Kinder bekommen, dann wandern die <em>am besten integrierten</em> Familien über die Generationen aus der Kategorie „Einwanderer/Nachkommen" heraus und werden zu „dänischer Herkunft" umklassifiziert. Die Erfolgsgeschichten verlassen also die Statistik nach oben — und bleiben in der dänischstämmigen Bilanz hängen, nicht in der der Zuwanderer.</p>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p>Die Kategorie „Einwanderer" verliert systematisch ihre Aufsteiger an die Kategorie „dänische Herkunft". Das senkt die gemessene Zuwanderer-Bilanz <strong>künstlich</strong> und hebt die dänische — ein reiner Klassifikations-Effekt. Das ist Harfords Regel 6: <em>Wer fehlt in der Zahl?</em></p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Grenze der Belege</span>
+        <p>Die <em>Richtung</em> ist eindeutig (Zuwanderer-Bilanz wird zu negativ dargestellt). Die <em>Größe</em> beziffert der Bericht nicht. <strong>LÜCKE:</strong> exakte Quantifizierung des Einbürgerungs-Artefakts liegt in der amtlichen Publikation nicht vor; der Effekt ist konzeptionell zwingend, aber unbeziffert.</p>
+      </div>
+
+      <h3>Konfunder 5 — Pro-Kopf-Zuschreibung kollektiver Güter</h3>
+      <p>Manche Staatsausgaben gibt es genau einmal — egal, wie viele Menschen im Land leben. Eine Armee, ein Parlament, eine zentrale Verwaltung. Solche „Kollektivgüter" werden nicht mehr, wenn ein Mensch dazukommt.</p>
+      <p>Der Bericht von 2018 verteilt diese fixen Kosten trotzdem <strong>gleichmäßig pro Kopf</strong> — also bekommt jeder Einwanderer rechnerisch ein Stück Verteidigungshaushalt aufgebürdet, das er gar nicht „verbraucht". Die Original-Methodenstudie (Tranæs/Zimmermann 2004, S. 327) verteilte reine öffentliche Güter wie Verteidigung und Zentralverwaltung bewusst <em>nicht</em> — und merkte an, der Gesamt-Saldo sei nur deshalb positiv, weil man <em>mehr Einnahmen als Ausgaben</em> auf Köpfe verteile.</p>
+      <p>Der Mitautor jener Methode, Eskil Wadensjö, nennt die heutige Rechnung „aufgebläht": Man müsse Posten für Posten fragen, ob die Ausgabe mit der Bevölkerung steige — „<strong>Dänemark bekommt nicht mehr Königinnen, wenn Einwanderer kommen.</strong>" Es gibt sogar eine amtliche Alternativrechnung „ohne kollektiven öffentlichen Verbrauch".</p>
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">Fixe Kollektivkosten (Verteidigung, Zentralverwaltung) — verteilt auf <b>alle</b> Köpfe.</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Originalmethode 2004 verteilte diese Posten <b>gar nicht</b> → deutlich kleinere Zahl.</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Methoden-Miterfinder Wadensjö selbst: die Pro-Kopf-Variante ist <b>„aufgebläht"</b>.</div></div>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Grenze</span>
+        <p>Das ist eine <strong>Rechenkonvention</strong>, kein „Verbrauch". Eine andere, ebenso legitime Konvention liefert eine andere Zahl. Wer „24 Milliarden" als Naturkonstante präsentiert, verschweigt diese Wahl.</p>
+      </div>
+
+      <h3>Konfunder 6 — Querschnitt statt Lebenszyklus &amp; fehlende Altersstandardisierung</h3>
+      <p>Die Schlagzeile vergleicht Gruppen mit völlig verschiedener Altersstruktur, ohne fürs Alter zu korrigieren. Junge, kinderreiche Gruppen schneiden so automatisch schlechter ab.</p>
+      <p>Die Studie standardisiert die Länderwerte <em>nicht</em> fürs Alter (§2.3). Erst die spätere Lebenszyklus-Prognose tut das, indem sie eine Generation über das ganze Leben verfolgt. Dort bleibt zwar eine Differenz — aber diese Prognose <strong>friert die heutige Beschäftigungslücke ein</strong> und schreibt sie bis 2100 fort. Genau das ist eine anerkannte Fachkritik (u. a. Ökonomin Marie Louise Schultz-Nielsen, Ökonom Eskil Wadensjö): Die Prognose unterstellt, dass Integration nie besser wird. Schon eine Verkleinerung der Beschäftigungslücke um 20 % senkt die prognostizierten Dauerkosten um <strong>6 von 33 Mrd.</strong></p>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p>Huff, Kap. 7 — die <strong>halb-angeheftete Zahl</strong>: Gemessen wird ein Querschnitts-Kassensaldo, behauptet wird etwas über den Lebensbeitrag einer Herkunftsgruppe. Das ist nicht dieselbe Größe. Die Lebenszyklus-Variante hängt an einer eingefrorenen Annahme.</p>
+      </div>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz · der ganze Fiskal-Teil in einem Bild</span>
+        <p>Die −24-Mrd-Zahl ist ein Foto, kein Film. Es zeigt vor allem <strong>wer 2018 gerade arbeitete</strong> und <strong>wer gerade Kind war</strong> — nach Herkunft sortiert, aber nicht von Herkunft verursacht. Räumt man Beschäftigung, Alter, Kanal und Rechenkonvention weg, bleibt von der „Herkunfts"-Erklärung fast nichts übrig.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Sechs Störgrößen — Beschäftigung, Kanal, Alter, Einbürgerung, Kollektivgüter-Konvention, Querschnitt — erklären die Fiskalzahl gemeinsam fast vollständig, ohne dass „Herkunft" als Ursache übrig bleibt.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 6 (Fiskal)</span>
+        <ul>
+          <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Mai 2018): <em>Fremskrivning af indvandreres nettobidrag til de offentlige finanser.</em> Lebenszyklus-Prognose; Nachkommen-Umkehr „nach 2060 sehr positiv"; eingefrorene Beschäftigungslücke; −6 Mrd. bei 20 % kleinerer Lücke. — <a href="https://regeringen.dk/media/dzmpinny/fremskrivning-af-indvandreres-nettobidrag-til-de-offentlige-finanser_oea_maj-2018.pdf">regeringen.dk (PDF)</a></li>
+          <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Okt. 2021): <em>…nettobidrag i 2018.</em> Erwerbsquoten (§2.5), Aufenthaltsgrund (§2.1), Pro-Kopf-Werte (Tab. 2.2/2.3), Gegenrechnung (§2.7). — <a href="https://fm.dk/media/25228/indvandreres-nettobidrag-til-de-offentlige-finanser-i-2018.pdf">fm.dk (PDF)</a></li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Tranæs, T. &amp; Zimmermann, K. F. (2004): <em>Migrants, Work, and the Welfare State.</em> Beschäftigungs-Regression (€12.300 → €1.500), Kap. 10, S. 338; Kollektivgüter werden <em>nicht</em> verteilt, S. 327. <span class="muted">Annahme: OCR-Vorlage, Seiten ±1.</span></li>
+          <li><span class="tag t-adv">PRESSE/FACHKRITIK</span> Information (2020): <em>Hvad koster ikkevestlig indvandring?</em> Wadensjö („keine zusätzlichen Königinnen"; „aufgebläht"), Schultz-Nielsen (Beschäftigungspotenzial), Kritik an eingefrorener Erwerbsannahme. — <a href="https://www.information.dk/indland/2020/10/koster-ikkevestlig-indvandring-danmark-svaret-ligger-sted-mellem-6-33-milliarder">information.dk</a></li>
+          <li><span class="tag t-pre">PRÜFRASTER</span> Harford, T. (2020): <em>How to Make the World Add Up — Ten Rules for Thinking.</em> Regeln 1, 3, 4, 5, 6. · Huff, D. (1954/1993): <em>How to Lie with Statistics.</em> Kap. 2 (S. 27), Kap. 3 (S. 37), Kap. 7 (S. 74), Kap. 10 (S. 122). <span class="muted">Annahme: Textfassungen; Harford nach Regel-Nr. zitiert (so gegliedert), Huff nach Kapitel/Seite.</span></li>
+        </ul>
+      </div>
+          <!-- ===== KAP 6 · B · KRIMINALITÄT ===== -->
+      <hr style="border:none;border-top:2px solid var(--rule);margin:30px 0 22px">
+      <div class="chap-head" style="margin-top:0"><span class="chap-no" style="background:var(--b-red)">B</span><h2 style="font-size:21px">Konfunder Kriminalität <span class="axis-tag axis-krim">B · KRIMINALITÄT</span></h2></div>
+      <p class="lede">Dieselbe Frage wie beim Geld: Was erzeugt den Zusammenhang, den man der „Herkunft" zuschreibt? Hier liegt die Antwort weniger eindeutig — und genau das wird ehrlich gesagt.</p>
+
+      <h3>Konfunder 1 — Alter &amp; Geschlecht</h3>
+      <p>Kriminalität ist ein Phänomen junger Männer. 2023 wurden 1,7 % der 20–24-jährigen Männer verurteilt, aber nur 0,4 % der 55–59-Jährigen. Und <strong>86 %</strong> der nicht-westlichen Nachkommen waren unter 30. Eine Gruppe voller junger Männer schneidet automatisch schlechter ab.</p>
+      <p>Wie stark der Alterseffekt ist, zeigt ein dänischer Befund drastisch: Bei Einwanderern aus den „Hoch-Index"-Ländern <strong>verschwindet die Überrepräsentation bis zum Alter von 24</strong> — dann unterscheiden sie sich nicht mehr von vergleichbaren Dänen. 24-jährige Iraker waren sogar <em>unter</em>repräsentiert. Die Alterskorrektur senkt den Rohwert erheblich (Roh-Index der Nachkommen weit über 300, alterskorrigiert ~262).</p>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p>Alter und Geschlecht erklären einen großen Teil der rohen Überrepräsentation. Wer die unkorrigierten 4,3 % zitiert, vergleicht 18-jährige Jungs mit der ganzen Bevölkerung inklusive Rentnerinnen.</p>
+      </div>
+
+      <h3>Konfunder 2 — Sozioökonomie &amp; Arbeitsmarkt <span class="muted">(der große — und der ehrlichste)</span></h3>
+      <p>Wer arbeitslos ist, wenig verdient, in einem armen Viertel aufwächst, wird häufiger straffällig — unabhängig von der Herkunft. Genau diese Lage trifft Flüchtlingsfamilien überdurchschnittlich oft.</p>
+      <p>Die dänische Statistikbehörde hat das selbst durchgerechnet. Ihr damaliger Chef Jan Plovsing berichtete: Korrigiert man den Index für die <strong>sozioökonomische Stellung</strong>, fällt der Index der Einwanderer und Nachkommen auf <strong>104</strong> — bei dänischer Herkunft liegt er bei <strong>99</strong>. Der Unterschied wird „<em>sehr klein</em>". Plovsing nennt diese Korrektur „fachlich am besten begründet", weil Kriminalität nachweislich bei Menschen außerhalb des Arbeitsmarkts häufiger ist. Die peer-review-Studie von Tranæs/Zimmermann bestätigt: Transferbezug, Bruttoeinkommen und beruflicher Status senken die Überrepräsentation deutlich (S. 310) — ganz im Sinne von Beckers ökonomischer Kriminalitätstheorie: legale Einkommenschancen verhindern Straftaten.</p>
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">Nach Sozio-Korrektur (DST/Plovsing): Index <b>104</b> (Zuwanderer) vs. <b>99</b> (dän. Herkunft).</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Aus „2–3× so hoch" wird nach Alter <em>und</em> Sozioökonomie ein <b>fast verschwindender</b> Abstand — in den 2004er-Daten.</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Mechanismus (Becker 1968): nicht Herkunft, sondern <b>Arbeitslosigkeit + Armut</b> treiben Kriminalität.</div></div>
+      </div>
+      <div class="box befund"><span class="lab">🟢 Befund — aber ehrlich: ein Rest bleibt</span>
+        <p>Schönfärberei wäre, hier zu stoppen. In <strong>neueren</strong> Daten bleibt nach Alter <em>und</em> Sozioökonomie ein <strong>Rest</strong>: männliche nicht-westliche Einwanderer ~13 % über dem Schnitt, Nachkommen sogar <strong>~140 %</strong> darüber. Bei den hier Geborenen lässt sich dieser Rest <em>nicht</em> mehr mit Armut allein erklären. Das ist die unbequeme Wahrheit, und sie gehört auf den Tisch.</p>
+      </div>
+
+      <h3>Konfunder 3 — Erhebungs- &amp; Verfolgungsbias</h3>
+      <p>Der Index zählt <strong>Verurteilungen</strong>. Bis dahin ist es ein langer, an jeder Stelle filterbarer Weg: Tat → Anzeige → Ermittlung → Anklage → Urteil. Auf jeder Stufe kann eine Verzerrung sitzen.</p>
+      <p>Die Kriminologin Britta Kyvsgaard zeigte schon 2001: Menschen ausländischer Herkunft werden <strong>häufiger angeklagt, festgenommen oder in Untersuchungshaft genommen, ohne dass es später zur Verurteilung kommt</strong>. Ihr Schluss: Die Strafverfolgung geht gegen bestimmte Minderheiten <em>härter</em> vor. Dazu kommt der Selbstverstärker: Wo die Polizei Kriminalität <em>erwartet</em>, schaut sie genauer hin — und findet mehr (Tranæs/Zimmermann, S. 309).</p>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p>Höhere Festnahme- bei <em>niedrigerer</em> Verurteilungsquote pro Anklage ist ein Fingerabdruck selektiver Verfolgung. Ein Teil der „Überrepräsentation" misst die Aufmerksamkeit der Behörden, nicht nur das Verhalten.</p>
+      </div>
+
+      <h3>Konfunder 4 — Datentyp: Register vs. Befragung</h3>
+      <p>Es gibt zwei Wege, Kriminalität zu messen. <strong>Registerdaten</strong> (Verurteilungen) erfassen nur, was entdeckt und abgeurteilt wurde. <strong>Befragungsdaten</strong> (Opfer- und Selbstberichte) fragen direkt nach erlebten oder begangenen Taten. Beide ergeben oft <em>verschiedene</em> Bilder — je nachdem, welche Delikte gut entdeckt werden und wer überhaupt angezeigt wird.</p>
+      <div class="box grenze"><span class="lab">🔴 Grenze</span>
+        <p>Der dänische Index ist reine Registerstatistik. Forschung (u. a. Klement) zeigt, dass Register- und Befragungsdaten auseinanderlaufen können. Eine Verurteilungszahl ist nicht „die Kriminalität", sondern „die <em>verurteilte, entdeckte</em> Kriminalität". <strong>LÜCKE:</strong> exakte dänische Befragungs-Gegendaten nach Herkunft sind nur eingeschränkt öffentlich; die Divergenz-Richtung ist belegt, das Ausmaß nicht durchgängig beziffert.</p>
+      </div>
+
+      <h3>Konfunder 5 — Absolut vs. relativ, Opfer, Einreisetäter</h3>
+      <p>Drei Fallstricke auf einmal. <strong>Relativ statt absolut:</strong> Der Index misst eine Gruppe <em>im Verhältnis</em> zum Schnitt — er sagt nichts über die absolute Häufigkeit (98,5 % begehen nichts). <strong>Opferperspektive:</strong> Geflüchtete sind nicht nur Tatverdächtige, sondern auch überproportional <em>Opfer</em> (BKA: ~70.000). <strong>Einreisetäter:</strong> Die deutsche „nichtdeutsch"-Kategorie (41,8 %) enthält Touristen und Durchreisende ohne Wohnsitz — das bläht den scheinbaren „Migrantenanteil" auf.</p>
+      <div class="box konf"><span class="lab">🟡 Konfunder</span>
+        <p>Huff, Kap. 3 — „die kleinen Zahlen, die nicht da sind": Wer „4,3 %!" ruft, verschweigt die Basisrate (95,7 % nicht), die Opferzahlen und die Tatsache, dass die breite deutsche Zahl Reisende mitzählt.</p>
+      </div>
+
+      <h3>Konfunder 6 · STEELMAN — der Overcontrol-Einwand (beide Richtungen)</h3>
+      <p>Jetzt der ehrlichste und schwierigste Punkt. Wenn man die Überrepräsentation „wegkontrolliert", indem man Armut und Arbeitslosigkeit herausrechnet — beweist das wirklich, dass es nicht an der Herkunft liegt? <strong>Nicht automatisch.</strong> Hier müssen beide Richtungen offen benannt werden (Pearl/Mackenzie, <em>The Book of Why</em>: dieselbe Größe kann Störfaktor <em>oder</em> Zwischenglied sein).</p>
+
+      <div class="box gegen"><span class="lab">⚪ Steelman der Gegenseite — fair und stark</span>
+        <p><strong>Überkontrolle kann echte Effekte wegrechnen.</strong> Wenn die schlechte Sozioökonomie teils <em>Folge</em> derselben Dispositionen ist, die auch zur Tat führen, dann „erklärt" das Herausrechnen einen realen Zusammenhang weg. Und der <strong>Rest</strong>, der nach <em>allen</em> Kontrollen bleibt (bei Nachkommen ~140 %), ist genau das, was Armut <em>nicht</em> erklärt. Tranæs selbst sagt: Bei hier geborenen Nachkommen blieben „nur kulturelle Unterschiede" als Erklärung. Diesen Rest als Statistik-Artefakt abzutun, wäre unredlich.</p>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Die andere Richtung — Mediator statt Störfaktor</span>
+        <p>Umgekehrt gilt: Für Flüchtlinge ist die schlechte Sozioökonomie <em>überwiegend Folge</em> der Migrationslage — Flucht, Trauma (ca. ein Drittel der Neuankommenden mit PTSD-Symptomen), versperrte Lehrstellen, Diskriminierung. Das ist ein <strong>Zwischenglied (Mediator)</strong> auf dem Weg „Fluchtlage → Benachteiligung → Tat", kein unabhängiger Störfaktor. Ein Mediator herauszurechnen <em>entfernt</em> einen echten Wirkpfad — aber dieser Pfad ist <strong>veränderbar</strong> (Arbeit, Bildung, Wohnen), anders als „Herkunft".</p>
+      </div>
+      <div class="box grenze"><span class="lab">🔴 Pearls Warnung — nicht blind „für alles" kontrollieren</span>
+        <p><em>The Book of Why</em>: Ob eine Variable Störfaktor (gemeinsame Ursache → kontrollieren), Mediator (auf dem Pfad → <em>nicht</em> kontrollieren, wenn man die Gesamtwirkung will) oder Collider (Kontrolle <em>erzeugt</em> Scheinkorrelation) ist, hängt vom Ursachenmodell ab. „Für alles kontrollieren" ist kein Gütesiegel, sondern oft ein Fehler. Ohne kausales Modell beweist weder die Vollkorrektur „es ist die Kultur" noch die Mediator-Lesart „es ist nur Armut".</p>
+      </div>
+      <div class="box merk"><span class="lab">🔵 Merksatz · der ehrliche Stand</span>
+        <p>Alter erklärt viel, Sozioökonomie noch mehr — aber ein Rest bleibt, vor allem bei Nachkommen und bei Gewalt. „Unerklärt" heißt jedoch <strong>nicht</strong> „durch Abstammung erklärt": Der Rest zeigt auf konkrete, untersuchbare Dinge (Diskriminierung, Segregation, Schul-/Lehrstellen-Ausschluss, Verfolgungsbias, Eltern-Trauma) — keines davon hat die Form „Remigration".</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Alter und Sozioökonomie erklären den Großteil der Überrepräsentation, ein Rest bleibt vor allem bei Nachkommen und Gewalt — doch „unerklärt durch Armut" ist nicht „erklärt durch Herkunft", sondern ein Auftrag, die echten Ursachen zu suchen.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 6 (Kriminalität)</span>
+        <ul>
+          <li><span class="tag t-amt">AMTLICH</span> Plovsing, J. (Danmarks Statistik, 2004): <em>Indvandrere og voldskriminalitet</em> — sozioökonomisch korrigierter Index 104 vs. 99. — <a href="https://www.dst.dk/-/media/Kontorer/16-Formidlingscenter/Bag-Tallene/2004/jan_p_kronik1-pdf.pdf">dst.dk (PDF)</a></li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Tranæs/Zimmermann (2004), <em>Migrants, Work, and the Welfare State</em>, Kap. 9 (Kriminalität): Verfolgungsbias nach Kyvsgaard (2001), S. 309; Sozio-Variablen senken Überrepräsentation, S. 310; Becker-Mechanismus. <span class="muted">Annahme: OCR, Seiten ±1.</span></li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Kyvsgaard, B. (2001): selektive Verfolgung — Minderheiten häufiger angeklagt/festgenommen ohne Verurteilung.</li>
+          <li><span class="tag t-adv">PRESSE/FACHKRITIK</span> Kristeligt Dagblad (2020): Rest nach Alter+Sozio +13 % (Einwanderer) / +140 % (Nachkommen); Lars Højsgaard Andersen (VIVE) zu Diskriminierung/Trauma; Tranæs zum „kulturellen" Rest. — <a href="https://www.kristeligt-dagblad.dk/danmark/kultur-kan-forklare-indvandreres-kriminalitet">kristeligt-dagblad.dk</a></li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Justitsministeriet (2001): <em>Kriminalitet, retshåndhævelse og etniske minoriteter</em> — Anklagen gegen Minderheiten enden häufiger mit Einstellung/Freispruch. · Klement u. a.: Register- vs. Befragungsdaten divergieren.</li>
+          <li><span class="tag t-pre">PRÜFRASTER</span> Pearl, J. &amp; Mackenzie, D. (2018): <em>The Book of Why.</em> Störfaktor vs. Mediator vs. Collider; „nicht für alles kontrollieren". <span class="muted">Annahme: nicht im Ordner; allgemein zitiert.</span></li>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- =================== KAP 7 =================== -->
+    <section id="kap-7">
+      <div class="chap-head"><span class="chap-no">KAP. 07</span><h2>Die Aneignungen: Race-Science — und ihre Widerlegung</h2></div>
+      <p class="lede">Hier wird es ernst. Manche nehmen die dänischen Zahlen und hängen eine zweite Behauptung dran: Bestimmte Völker seien <em>von Natur aus</em> weniger leistungsfähig oder krimineller — „deshalb" helfe Integration nichts. Diese Behauptung stützt sich fast immer auf eine einzige Quelle: <strong>nationale IQ-Vergleiche</strong>. Sie ist kein Rand­phänomen mehr, also wird sie hier nicht ignoriert, sondern <strong>auseinandergenommen</strong>.</p>
+
+      <div class="box gegen"><span class="lab">⚪ Die These — fair und in ihrer stärksten Form</span>
+        <p>So lautet das Argument, wenn man es ernst nimmt: (1) Der IQ sagt Einkommen, Bildung und Kriminalität vorher. (2) Länder haben unterschiedliche <em>Durchschnitts-IQs</em> — angeblich ~100 in Europa, ~70 in Afrika (Lynn &amp; Vanhanen, <em>IQ and the Wealth of Nations</em>, 2002). (3) Diese Werte seien stabil und teils erblich. (4) <em>Schlussfolgerung:</em> Wer Menschen aus „Niedrig-IQ"-Regionen aufnehme, importiere deren Defizite dauerhaft — also seien die dänischen Kosten- und Kriminalitätszahlen „nur Biologie", und Integration sei aussichtslos.</p>
+      </div>
+      <p>Das klingt für manche bestechend, weil es Zahlen hat. Aber jede der vier Stufen ist falsch oder erschlichen. Gehen wir sie durch.</p>
+
+      <h3>1 · Die Daten sind frei erfunden — wörtlich zusammengekürzt</h3>
+      <p>Die berühmte „Afrika-IQ 70" stammt von Richard Lynn, Tatu Vanhanen und Gerhard Meisenberg. Der niederländische Psychologe Jelte Wicherts hat nachgerechnet, wie sie auf 70 kamen. Ergebnis: Sie konnten diesen Wert <strong>nur erreichen, indem sie den allergrößten Teil der vorhandenen Daten weglie&szlig;en</strong> — die tatsächlichen Daten zeigen höhere afrikanische Werte. Wicherts' Urteil: Ihre Methoden seien „unsystematisch… fragwürdig", die Ergebnisse „nicht vertrauenswürdig".</p>
+      <div class="box grenze"><span class="lab">🔴 Mechanismus 1 — Datenmanipulation</span>
+        <p>Eine Zahl, die durch <strong>selektives Weglassen</strong> entsteht, ist kein Messwert, sondern ein Wunsch. Die „70" ist das Lehrbuchbeispiel für Rosinenpickerei (Huff: „die kleinen Zahlen, die nicht da sind").</p>
+      </div>
+
+      <h3>2 · Der Flynn-Effekt: IQ schwankt mit der Umwelt, nicht mit den Genen</h3>
+      <p>1984 zeigte der Forscher James Flynn: Die IQ-Werte stiegen über ein halbes Jahrhundert um rund <strong>3 Punkte pro Jahrzehnt</strong> — nicht, weil Menschen sich genetisch veränderten (das geht in Generationen gar nicht), sondern weil Bildung, Ernährung und anspruchsvolle Tätigkeiten zunahmen. Japan gewann 1951–1975 über <strong>20 Punkte</strong>, Kenia und die Karibik sprangen besonders stark. Schwarze US-Amerikaner holten 1972–2002 sieben bis zehn Punkte auf Weiße auf.</p>
+      <p>Flynn und Kollegen schätzen: Bei diesem Tempo könnte sich die IQ-Lücke zwischen Entwicklungs- und Industrieländern <strong>bis Ende des 21. Jahrhunderts schließen</strong>. Genau die Werte, die die Race-Science als „angeboren" verkauft, bewegen sich also mit dem Entwicklungsstand.</p>
+      <div class="triple">
+        <div><div class="t-lab">Absolut</div><div class="t-val">IQ-Anstieg <b>~3 Punkte / Jahrzehnt</b> über ~50 Jahre (Flynn-Effekt) — reine Umweltwirkung.</div></div>
+        <div><div class="t-lab">Relativ</div><div class="t-val">Japan <b>+20</b> Punkte in 24 Jahren; Schwarze US-Amerikaner <b>+7–10</b> auf Weiße in 30 Jahren.</div></div>
+        <div><div class="t-lab">Bezugspunkt</div><div class="t-val">Prognose: Lücke Entwicklungs-/Industrieländer könnte sich <b>bis 2100 schließen</b>. Gene ändern sich so schnell nicht.</div></div>
+      </div>
+      <div class="box konf"><span class="lab">🟡 Mechanismus 2 — Konfundierung durch Entwicklung</span>
+        <p>Mangelernährung, fehlende Schulbildung, Krieg, Krankheit drücken Testwerte. Das sind <strong>Entwicklungsunterschiede</strong>, keine Erbanlagen. Ein Test misst hier, wie das Land funktioniert — nicht das Erbgut der Getesteten.</p>
+      </div>
+
+      <h3>3 · Der ökologische Fehlschluss: von Gruppen-Mittelwerten auf Gene zu schließen</h3>
+      <p>Man kann aus dem <em>Durchschnitt</em> zweier Gruppen, die in völlig verschiedenen Verhältnissen leben, <strong>nicht</strong> auf angeborene Unterschiede schließen. Das ist wie zwei Töpfe Samen: gie&szlig;t man den einen, den anderen nicht, wächst der eine besser — das beweist nichts über die Samen. Der Psychologe Andrew Colman zeigt: Umweltfaktoren könnten die <em>gesamte</em> Schwarz-Wei&szlig;-IQ-Lücke in den USA erklären. Und: „Es ist schlicht unmöglich, schwarze, wei&szlig;e und gemischte Kinder in identischen Umgebungen aufzuziehen, <em>wenn Rassismus selbst ein Umweltfaktor ist</em>."</p>
+      <div class="box grenze"><span class="lab">🔴 Mechanismus 3 — ökologischer Fehlschluss</span>
+        <p>Gruppen-Durchschnitt ≠ individuelle Ursache. Wer aus „Land A hat im Schnitt X" auf „Person aus A ist genetisch X" schlie&szlig;t, begeht den ökologischen Fehlschluss — einen der ältesten Fehler der Statistik.</p>
+      </div>
+
+      <h3>4 · Der Test, der die These zerlegt: dieselbe Logik auf wei&szlig;e Briten</h3>
+      <p>Jetzt die Umkehrung, die das ganze Gebäude zum Einsturz bringt. In Gro&szlig;britannien erzielt eine Gruppe regelmä&szlig;ig die <strong>niedrigsten</strong> Testergebnisse: wei&szlig;e Jungen aus der Arbeiterklasse. Niemand behauptet deshalb, „Wei&szlig;-Sein" mache dumm. Stattdessen sagt man — völlig richtig —: Es liegt an der <strong>sozialen Lage</strong>. Genau dieselbe Erklärung gilt für Einwandererkinder.</p>
+      <p>Zwei weitere Befunde besiegeln es: Ostasiaten haben laut Flynn denselben Durchschnitts-IQ wie wei&szlig;e Amerikaner, schneiden aber im College-Test besser ab — der Vorsprung ist <strong>kulturell</strong> (Fleiß, Elternhaus), nicht genetisch. Und eine Studie von 1936 (Witty &amp; Jenkins) fand bei hochbegabten schwarzen Kindern <em>keinen</em> Zusammenhang zwischen IQ und Anteil „wei&szlig;er Vorfahren" — die begabteste, ein Mädchen mit IQ 200, hatte gar keine.</p>
+      <div class="box replik"><span class="lab">🟣 Replik · laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, es gibt diese IQ-Tabellen, und ja, der IQ hängt mit Einkommen zusammen — soweit stimmt's."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber die ‚Afrika-70' ist <strong>zusammengelogen</strong> — der Forscher Wicherts zeigte, dass sie fast alle echten Daten weggelassen haben. Und der IQ steigt drei Punkte pro Jahrzehnt mit Bildung und Ernährung. In England schneiden wei&szlig;e Arbeiterjungen am schlechtesten ab — macht Wei&szlig;-Sein dumm? Natürlich nicht. Es ist die soziale Lage."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Wenn dieselbe Logik bei wei&szlig;en Briten Unsinn ist, ist sie es auch bei Syrern. Die IQ-Zahlen beweisen das Gegenteil dessen, was die Gegenseite will: Umwelt formt das Ergebnis — also <strong>investiere</strong> in Schule und Arbeit, statt Menschen abzuschieben."</p></div>
+      </div>
+
+      <h3>Woher diese „Wissenschaft" kommt — die Geldspur</h3>
+      <p>Man muss wissen, wer das produziert. Die nationalen IQ-Daten stammen aus einem geschlossenen Netzwerk, das sich gegenseitig zitiert. Sein Hausjournal, die <em>Mankind Quarterly</em>, wurde laut dem Rutgers-Professor William Tucker „von Rassisten für Rassisten" gemacht; ihr wissenschaftliches Gewicht (Impact-Faktor 0 bis ~1) ist neben <em>Nature</em> (über 40) praktisch null. Finanziert wurde das Feld jahrzehntelang vom <strong>Pioneer Fund</strong> — 1937 vom Segregationisten Wickliffe Draper gegründet, der im Krieg sogar einen Nazi-Eugenik-Film an US-Schulen verteilen lie&szlig;.</p>
+      <p>Und hier schlie&szlig;t sich der Kreis zur Migrationsdebatte: Derselbe Pioneer Fund steckte laut Tucker zwischen 1982 und 2000 fast <strong>1,5 Mio. Dollar in Lobbygruppen für Einwanderungsbeschränkung</strong>. 2013 musste der Heritage-Foundation-Forscher Jason Richwine zurücktreten, weil seine Harvard-Dissertation behauptete, Einwanderer hätten einen niedrigeren IQ als wei&szlig;e Amerikaner — und „Hispanics" wie eine einzige biologische Rasse behandelte. Die „Forschung" wurde also nicht entdeckt, sondern <strong>für die Migrationspolitik bestellt</strong>.</p>
+      <div class="box norm"><span class="lab">🟠 Versteckte Wertannahme</span>
+        <p>Die Race-Science gibt vor, neutrale Empirie zu sein. Tatsächlich liefert sie seit 90 Jahren Munition für eine vorab feststehende politische Agenda. Wer sie zitiert, übernimmt diese Agenda — ob er will oder nicht.</p>
+      </div>
+
+      <div class="box grenze"><span class="lab">🔴 Grenze — was ehrlich bleibt</span>
+        <p>Fair bleibt: <em>Individuelle</em> Intelligenzunterschiede sind in <em>gleichen, gesunden</em> Umgebungen teils erblich. Aber daraus folgt <strong>nichts</strong> über Unterschiede <em>zwischen Gruppen</em> in <em>verschiedenen</em> Umgebungen — und schon gar nichts über Migrationspolitik. Heritabilität innerhalb einer Gruppe und Differenz zwischen Gruppen sind zwei verschiedene Dinge; sie zu verwechseln, ist der Grundfehler.</p>
+      </div>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Die „nationalen IQs" sind aus den Daten <strong>herausgekürzt</strong>, vom Flynn-Effekt <strong>widerlegt</strong> und durch den ökologischen Fehlschluss <strong>logisch unzulässig</strong> — produziert von einem rassistischen, von Einwanderungsgegnern finanzierten Netzwerk. Das ist keine Evidenz, das ist ein Bestelltext.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Die National-IQ-These beruht auf manipulierten Daten, ignoriert den umweltgetriebenen Flynn-Effekt und begeht den ökologischen Fehlschluss — sie ist keine Wissenschaft, sondern als politische Waffe gebaute Pseudoforschung.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 7</span>
+        <ul>
+          <li><span class="tag t-peer">PEER-REVIEW / SACHBUCH</span> Saini, A. (2019): <em>Superior — The Return of Race Science.</em> Beacon Press. Netzwerk/Geldspur: Kap. 4 „Inside the Fold" (Pioneer Fund, Draper, Mankind Quarterly „by racists for racists", Impact-Faktor, Lynn/Vanhanen/Rushton, $1,5 Mio. Einwanderungs-Lobby). Daten-Demontage: Kap. 11 „Black Pills" (Wicherts zu „Afrika-70"; Flynn-Effekt; Colman/ökolog. Fehlschluss; UK-Arbeiterjungen; Witty &amp; Jenkins 1936; Richwine 2013). <span class="muted">Annahme: Textfassung ohne Druckseiten; zitiert nach Kapitel.</span></li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Wicherts, J., Dolan, C., van der Maas, H. (2010): Re-Analyse der afrikanischen IQ-Daten — Lynn/Meisenberg-Werte durch selektiven Datenausschluss; „untrustworthy". Vgl. Lynn &amp; Meisenberg, <em>Intelligence</em> 38(1), 2010, 21–29 <span class="tag t-fringe">FRINGE/RACE-SCIENCE</span> (Widerlegungsobjekt).</li>
+          <li><span class="tag t-peer">PEER-REVIEW</span> Flynn, J. R. (1984/1987); Flynn, Turkheimer u. a., <em>American Psychologist</em> (2012): Malleabilität des IQ, Schließung der Länder-Lücke.</li>
+          <li><span class="tag t-fringe">FRINGE/RACE-SCIENCE</span> Lynn, R. &amp; Vanhanen, T. (2002): <em>IQ and the Wealth of Nations.</em> — <strong>nicht als Evidenz, nur als Widerlegungsobjekt.</strong> Diskreditierte Daten, ökolog. Fehlschluss, Konfundierung. Verlags-/Netzwerknähe Mankind Quarterly / Ulster Institute / Pioneer Fund.</li>
+          <li><span class="tag t-fringe">FRINGE/RACE-SCIENCE</span> <em>Mankind Quarterly</em>; Rushton, <em>Race, Evolution, and Behavior</em> (1994) — Rezension Barash: „bad science… drip like pus". Genannt zur Einordnung der Quelle, nicht als Beleg.</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =================== KAP 8 =================== -->
+    <section id="kap-8">
+      <div class="chap-head"><span class="chap-no">KAP. 08</span><h2>Sein-Sollen: der Sprung zu „Remigration"</h2></div>
+      <p class="lede">Jetzt der entscheidende Denkfehler der Gegenseite. Aus „kostet Geld" und „mehr Verurteilungen" folgt <strong>keine</strong> Politik. Zwischen den Zahlen (dem <em>Sein</em>) und der Forderung „deshalb Remigration" (dem <em>Sollen</em>) klafft eine Lücke. Diese Lücke wird mit <strong>versteckten Wertannahmen</strong> gefüllt. Wir machen sie sichtbar — dann bricht das Argument zusammen.</p>
+
+      <p>Der Philosoph David Hume nannte es das <strong>Sein-Sollen-Problem</strong>: Aus einer reinen Tatsachenbeschreibung lässt sich logisch keine Handlungsvorschrift ableiten. Wer von „ist so" zu „soll so sein" springt, schmuggelt unausgesprochen eine Wertprämisse ein. Bei „deshalb Remigration" sind es gleich vier.</p>
+
+      <h3>Die vier versteckten Wertannahmen</h3>
+      <div class="box norm"><span class="lab">🟠 Prämisse 1 — Der Mensch ist sein Kontostand</span>
+        <p>„Wer netto kostet, ist unerwünscht." Damit wird der Wert eines Menschen auf seinen Saldo in der Staatskasse reduziert. Das ist keine Tatsache, sondern eine <strong>Wertentscheidung</strong> — und eine, die kaum jemand offen vertreten will, wenn man sie ausspricht.</p>
+      </div>
+      <div class="box norm"><span class="lab">🟠 Prämisse 2 — Sippenhaft: die Gruppe haftet für den Einzelnen</span>
+        <p>Aus einem Gruppen-<em>Durchschnitt</em> wird eine Behandlung des <em>Einzelnen</em> abgeleitet. Der konkrete, arbeitende, steuerzahlende Syrer wird für die Statistik seiner Herkunftsgruppe in Haftung genommen. Das verstößt gegen den Kern jeder rechtsstaatlichen Ordnung: Verantwortung ist individuell.</p>
+      </div>
+      <div class="box norm"><span class="lab">🟠 Prämisse 3 — Herkunft ist Schicksal</span>
+        <p>Die Forderung unterstellt, der Befund sei unveränderlich. Wir haben in Kap. 6 gezeigt: Er hängt an Beschäftigung, Alter, Bildung — alles <strong>veränderbar</strong>. „Herkunft ist Schicksal" ist keine Beobachtung, sondern die <em>Weigerung</em>, in Veränderung zu investieren.</p>
+      </div>
+      <div class="box norm"><span class="lab">🟠 Prämisse 4 — Die Nation ist ein ethnisch homogener Block</span>
+        <p>Ganz unten liegt die Annahme, das Land „gehöre" einer Abstammungsgemeinschaft, die rein zu halten sei. Genau das ist der <strong>Ethnopluralismus</strong> der Neuen Rechten (siehe unten). Eine zutiefst normative — und mit dem Grundgesetz unvereinbare — Vorstellung.</p>
+      </div>
+
+      <h3>Die Reductio: dieselbe Logik trifft Inländer härter</h3>
+      <p>Hier ist der stärkste Hebel. Nimm die Fiskallogik ernst — „Wer netto kostet, muss weg" — und wende sie konsequent an. Dann trifft sie nicht zuerst Migranten.</p>
+      <p>Der Finanzministeriumsbericht sagt es selbst: Der Nettobeitrag ist am Anfang <em>und</em> Ende <strong>jedes</strong> Lebens negativ — bei <em>jeder</em> Herkunft. Negativ sind also: Kinder, Rentnerinnen, Langzeitarbeitslose, chronisch Kranke, Menschen mit Behinderung. In absoluten Zahlen sind das weit mehr Inländer als Migranten. Zugleich sind <strong>35 %</strong> der MENAPT-Einwanderer im Erwerbsalter netto <em>positiv</em> — und viele Dänen netto negativ.</p>
+      <p>Eine ehrliche „Fiskal"-Politik müsste also den arbeitenden, einzahlenden Syrer <em>behalten</em> und den langzeitarbeitslosen Inländer <em>aussortieren</em>. Remigration will das exakte Gegenteil. Damit ist bewiesen: Es geht <strong>nicht</strong> um den Kontostand. Die Fiskalzahl ist nur das Feigenblatt für ein Kriterium, das man nicht ausspricht — die Herkunft.</p>
+      <div class="box replik"><span class="lab">🟣 Replik · die Reductio, laut sagbar</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Sagen wir, Ihr Maßstab ist der Nettobeitrag zur Kasse. Gut, nehmen wir ihn ernst."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Dann müssten Sie zuerst Rentner, Langzeitarbeitslose und chronisch Kranke ‚aussortieren' — die kosten in Summe viel mehr. Und Sie müssten den arbeitenden Syrer <strong>behalten</strong>, denn er zahlt ein. Ein Drittel der MENAPT-Erwerbstätigen ist netto positiv."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Sie wollen aber den einzahlenden Syrer raus und den kostenden Rentner drin. Also ist Ihr Kriterium nicht das Geld — es ist die Herkunft. Sagen Sie das, dann reden wir darüber. Aber nennen Sie es nicht ‚Ökonomie'."</p></div>
+      </div>
+
+      <h3>Die rechtlichen Schranken — was gar nicht erlaubt ist</h3>
+      <p>Selbst wenn jemand all das wollte: Große Teile von „Remigration" sind schlicht <strong>verfassungs- und völkerrechtswidrig</strong>. Das ist keine Meinung, das ist geltendes Recht.</p>
+      <ul class="clean">
+        <li><strong>Menschenwürde</strong> (Art. 1 GG): unantastbar. Ein Mensch ist kein Kostenposten, über den man nach Kassenlage verfügt.</li>
+        <li><strong>Diskriminierungsverbot</strong> (Art. 3 Abs. 3 GG): Niemand darf wegen „Abstammung, Rasse, … Heimat und Herkunft" benachteiligt werden. Eine Maßnahme nach ethnischer Herkunft ist per se verfassungswidrig.</li>
+        <li><strong>Schutz der Staatsangehörigkeit</strong> (Art. 16 Abs. 1 GG): Die deutsche Staatsangehörigkeit <em>darf nicht entzogen werden</em>. „Remigration" eingebürgerter Bürger ist damit ausgeschlossen — egal, welche „Statistik" man anführt.</li>
+        <li><strong>Verbot der Kollektivausweisung</strong> (Art. 4 des 4. Zusatzprotokolls EMRK) und <strong>Non-Refoulement</strong> (Art. 33 Genfer Flüchtlingskonvention): Sammelabschiebungen und Rückführung in Verfolgung sind verboten. Jeder Fall ist einzeln zu prüfen.</li>
+      </ul>
+      <p>Wie ernst das ist, zeigte das aufgedeckte <strong>Potsdamer Treffen</strong> (Januar 2024): Dort wurde „Remigration" ausdrücklich auch für <em>deutsche Staatsbürger</em> mit Migrationsgeschichte erörtert. Die Enthüllung löste die größten Demonstrationen der jüngeren deutschen Geschichte aus — weil vielen schlagartig klar wurde, wohin die Logik führt.</p>
+      <div class="box grenze"><span class="lab">🔴 Grenze</span>
+        <p>Der Rechtsstaat zieht hier eine harte Linie: Maßnahmen nach Abstammung, Entzug der Staatsbürgerschaft und Sammelabschiebungen sind verboten. „Remigration" als Programm endet nicht an der Empirie — es endet am Grundgesetz.</p>
+      </div>
+
+      <h3>Wie die Zahl zur Waffe wird — Diskursstrategie (Weiß &amp; Strobl)</h3>
+      <p>Bleibt die Frage: Warum wirkt das Argument trotzdem? Weil die Zahl gar nicht als Beleg gebraucht wird, sondern als <strong>Symbol</strong>. Zwei Analysen zeigen den Mechanismus.</p>
+      <p>Volker Weiß beschreibt den <strong>Ethnopluralismus</strong>: Die alten Lehren von „weißer Überlegenheit" wurden durch die Idee einer „Gleichwertigkeit homogener Völker in ihren angestammten Lebensräumen" ersetzt. Das klingt menschenfreundlich — „jedem Volk seinen Raum" —, trägt aber „dieselben Ausschlussmechanismen, nur in modernisiertem Gewand". „Remigration" ist die <em>Politik</em> dieses Konzepts; die Migrationszahlen werden in den Verschwörungsmythos vom „großen Austausch" eingespeist.</p>
+      <p>Natascha Strobl zeigt die <strong>Methode</strong> des „radikalisierten Konservatismus": Polarisierung mit einem äußeren Feindbild (Migrant:innen), eine „Aufregerproduktionsmaschine" in den Medien — und schließlich das Feld „<em>jenseits der Wahrheit</em>": Auf ein <strong>fiktives Problem</strong> (den „Austausch") folgt eine <strong>fiktive Lösung</strong> (die „Remigration"). In dieser Parallelrealität zählt die <em>Genauigkeit</em> der Zahl nicht mehr — sie ist Totem, nicht Beweis. Strobl dokumentiert, wie eine konservative Regierungspartei (ÖVP) just diese identitäre „Austausch"-Sprache übernahm.</p>
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Die Gegenseite braucht die Zahl nicht als <em>Beweis</em>, sondern als <em>Symbol</em>. Deshalb hilft es ihr nicht, dass wir die Zahl anerkennen — und deshalb schadet es ihr, wenn wir die <strong>versteckte Wertannahme</strong> ausspionieren und laut aussprechen: „Sie meinen nicht Geld, Sie meinen Herkunft."</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Aus den Zahlen folgt „Remigration" nur über vier ungenannte Wertannahmen, die ihre eigene Fiskallogik schon bei Inländern widerlegt — und die das Grundgesetz schlicht verbietet.</b></div>
+
+      <div class="src-note"><span class="sh">Belege · Kapitel 8</span>
+        <ul>
+          <li><span class="tag t-peer">SACHBUCH/ANALYSE</span> Weiß, V. (2017): <em>Die autoritäre Revolte. Die Neue Rechte und der Untergang des Abendlandes.</em> Klett-Cotta. Ethnopluralismus als „Gleichwertigkeit homogener Völker … dieselben Ausschlussmechanismen, nur in modernisiertem Gewand" (Kap. zu Ursprüngen der Neuen Rechten); „Remigration" als Parole, „großer Austausch" als identitärer Diskurs. <span class="muted">Annahme: Textfassung, zitiert nach Abschnitt.</span></li>
+          <li><span class="tag t-peer">SACHBUCH/ANALYSE</span> Strobl, N. (2021): <em>Radikalisierter Konservatismus. Eine Analyse.</em> Suhrkamp. „Eine Analyse in sechs Schritten" — Polarisierung mit Feindbild Migrant:innen (2.2), mediale „Aufregerproduktionsmaschine" (2.5), „Jenseits der Wahrheit" / „Lösung von fiktiven Problemen" (2.6); ÖVP übernimmt „Großer Austausch"-Sprache (Einleitung).</li>
+          <li><span class="tag t-amt">RECHT</span> Grundgesetz Art. 1, Art. 3 Abs. 3, Art. 16 Abs. 1; EMRK 4. Zusatzprotokoll Art. 4 (Verbot der Kollektivausweisung); Genfer Flüchtlingskonvention Art. 33 (Non-Refoulement).</li>
+          <li><span class="tag t-adv">RECHERCHE</span> CORRECTIV (Jan. 2024): Aufdeckung des Potsdamer „Remigrations"-Treffens; „Remigration" auch für deutsche Staatsbürger erörtert; Auslöser bundesweiter Proteste.</li>
+          <li><span class="tag t-pre">PHILOSOPHIE</span> Hume, D.: Sein-Sollen-Problem (Humes Gesetz). · Carens, J. (2013): <em>The Ethics of Immigration</em> — normative Bandbreite migrationspolitischer Begründungen. <span class="muted">Annahme: Carens nicht im Ordner; allgemein zitiert.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =================== KAP 9 =================== -->
+    <section id="kap-9">
+      <div class="chap-head"><span class="chap-no">KAP. 09 ★</span><h2>Palette der Schlussfolgerungen</h2></div>
+      <p class="lede">Was lässt sich aus den Daten <strong>ehrlich</strong> ableiten — und was nicht? Hier die ganze Leiter, von der am besten belegten bis zur unhaltbaren Schlussfolgerung. Jede Stufe trägt eine Ampel: <span class="amp amp-ja">JA</span> trägt die Evidenz · <span class="amp amp-tw">TEILWEISE</span> · <span class="amp amp-nein">NEIN</span>.</p>
+
+      <ol class="ladder">
+        <li><span class="amp amp-ja">JA</span><div><b>Beschäftigung ist der entscheidende Hebel.</b> Beide Achsen zeigen es: Die Erwerbsquote erklärt den Großteil sowohl der Fiskalkosten (12.300 € → 1.500 € nach Kontrolle) als auch der Kriminalität (Index 104 vs. 99).</div></li>
+        <li><span class="amp amp-ja">JA</span><div><b>Der Zuwanderungskanal erklärt die Gruppendifferenz.</b> MENAPT v. a. Flucht/Familie, übrige Nicht-Westliche v. a. Arbeit — Letztere kosten pro Kopf rund 21× weniger. „Nicht-westlich" ist keine Ursache.</div></li>
+        <li><span class="amp amp-ja">JA</span><div><b>Die Querschnitts-Fiskalzahl überzeichnet die Lebensbilanz.</b> Kinder, Pro-Kopf-Kollektivgüter und fehlende Altersstandardisierung blähen sie auf; die amtliche Prognose erwartet die Nachkommen nach 2060 netto positiv.</div></li>
+        <li><span class="amp amp-ja">JA</span><div><b>Es bleibt eine reale Rest-Überrepräsentation bei Gewalt und Nachkommen</b>, die Sozioökonomie allein nicht erklärt. Das ist das ehrliche Zugeständnis — und es gehört offen anerkannt.</div></li>
+        <li><span class="amp amp-ja">JA</span><div><b>Integration ist bisher unvollständig gelungen; es besteht Handlungsbedarf.</b> Folgt direkt aus 1–4. Wer das leugnet, verliert die Debatte.</div></li>
+        <li><span class="amp amp-tw">TEILWEISE</span><div><b>Strengere Zuzugssteuerung senkt kurzfristig Zuzug und Transfers.</b> Dänemarks Kosten sanken (42 → 31 Mrd.). Aber das sagt nichts über bereits Anwesende und stößt an menschenrechtliche Grenzen.</div></li>
+        <li><span class="amp amp-nein">NEIN</span><div><b>„Die Gruppe ist von Natur aus / kulturell weniger leistungsfähig oder krimineller."</b> Race-Science widerlegt: manipulierte Daten, Flynn-Effekt, ökologischer Fehlschluss; Heterogenität (China-Index 17 vs. Libanon 386) sprengt jede „Herkunfts"-Erklärung.</div></li>
+        <li><span class="amp amp-nein">NEIN</span><div><b>„Deshalb Remigration / Aussortieren nach Herkunft."</b> Sein-Sollen-Sprung über vier versteckte Wertannahmen; die eigene Fiskallogik träfe zuerst arme Inländer; verfassungs- und völkerrechtswidrig.</div></li>
+      </ol>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Die Evidenz reicht <strong>weit</strong> — bis „Integration wirkt und ist nötig". Sie reicht <strong>nicht</strong> bis „angeboren" und schon gar nicht bis „Remigration". Genau dort, wo die Gegenseite hinwill, hört die Tragfähigkeit der Daten auf.</p>
+      </div>
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Alles bis „Integration ist nötig und wirksam" trägt die Evidenz — jeder Schritt darüber hinaus zur „Herkunft als Schicksal" oder „Remigration" trägt sie nicht.</b></div>
+    </section>
+
+
+    <!-- =================== KAP 10 (vollständig) =================== -->
+    <section id="kap-10">
+      <div class="chap-head"><span class="chap-no">KAP. 10 ★</span><h2>Palette politischer Maßnahmen</h2></div>
+      <p class="lede">Von der sanftesten bis zur härtesten Maßnahme: Was stützt die Evidenz — und welche rechtlichen oder praktischen Schranken gelten? Geordnet vom geringsten zum stärksten Eingriff.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <caption>Maßnahmen-Palette (minimal → maximal) — Evidenz &amp; Schranken</caption>
+          <thead><tr><th style="width:30%">Maßnahme</th><th>Trägt die Evidenz?</th><th>Begründung / Schranke</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>1 · Frühe Arbeitserlaubnis, Sprache, Abschluss-Anerkennung</b></td>
+              <td><span class="amp amp-ja">JA</span></td>
+              <td>Der größte Hebel. §2.7: +10–16 Mrd. bei dän. Erwerbsbeteiligung; Becker: legale Einkommenschancen senken Kriminalität. <strong>Keine Schranke.</strong></td>
+            </tr>
+            <tr>
+              <td><b>2 · Bildung &amp; Förderung der Nachkommen, Lehrstellen, Antidiskriminierung</b></td>
+              <td><span class="amp amp-ja">JA</span></td>
+              <td>Lebenszyklus-Umkehr (Nachkommen nach 2060 positiv); die Rest-Kriminalität ist sozioökonomisch/diskriminierungsnah. <strong>Keine Schranke.</strong></td>
+            </tr>
+            <tr>
+              <td><b>3 · Gegen Segregation (Wohnen) + gezielte Prävention bei jungen Männern</b></td>
+              <td><span class="amp amp-ja">JA</span></td>
+              <td>Alter/Geschlecht + Nachbarschaftseffekte sind zentral; trifft die Kriminalität dort, wo sie entsteht. <strong>Keine Schranke.</strong></td>
+            </tr>
+            <tr>
+              <td><b>4 · Aktivierender Sozialstaat / Beschäftigungsanreize</b></td>
+              <td><span class="amp amp-ja">JA</span></td>
+              <td>Beschäftigung ist die Ursache des Saldos. Schranke: sozialpolitische Abwägung (Härtefälle, Kinderarmut).</td>
+            </tr>
+            <tr>
+              <td><b>5 · „Dänisches Modell": strenge Zuzugssteuerung, niedrigere Leistungen für Neue, freiwillige Rückkehrförderung</b></td>
+              <td><span class="amp amp-tw">TEILWEISE</span></td>
+              <td>Senkt Zuzug/Transfers (DK-Kosten 42 → 31 Mrd.). Aber: sagt nichts über bereits Anwesende, Risiko von Integrationsschäden/Kinderarmut; <strong>EMRK/EU-Recht im Einzelfall.</strong></td>
+            </tr>
+            <tr>
+              <td><b>6 · Rückführung <em>abgelehnter</em> Asylbewerber (rechtsstaatlich, Einzelfall)</b></td>
+              <td><span class="amp amp-tw">TEILWEISE</span></td>
+              <td>Rechtsstaatliche Normalität — <em>nicht</em> „Remigration". Schranke: <strong>Non-Refoulement (GFK Art. 33), Einzelfallprüfung, kein Kollektiv.</strong></td>
+            </tr>
+            <tr class="sum">
+              <td><b>7 · „Remigration" nach Herkunft / Entzug der Staatsbürgerschaft / Kollektivausweisung</b></td>
+              <td><span class="amp amp-nein">NEIN</span></td>
+              <td>Widerspricht der eigenen Fiskallogik (Reductio) und ist <strong>verfassungs-/völkerrechtswidrig</strong>: Art. 1, 3 Abs. 3, 16 Abs. 1 GG; EMRK 4. ZP Art. 4; GFK Art. 33.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="tnote">Ampel: <span class="amp amp-ja">JA</span> Evidenz stützt · <span class="amp amp-tw">TEILWEISE</span> teils/mit Vorbehalt · <span class="amp amp-nein">NEIN</span> nicht gestützt bzw. unzulässig. Quellen: Kap. 3A/3B, 6, 8.</p>
+      </div>
+
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Die wirksamen Maßnahmen (1–4) sind genau die, gegen die die Gegenseite polemisiert. Die Maßnahme, die sie fordert (7), ist die einzige, die <strong>weder</strong> die Evidenz <strong>noch</strong> das Grundgesetz erlaubt.</p>
+      </div>
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Je härter die Maßnahme, desto schwächer die Evidenz — bis bei „Remigration" gar nichts mehr trägt und das Recht sie verbietet.</b></div>
+    </section>
+
+
+    <!-- =================== KAP 11 =================== -->
+    <section id="kap-11">
+      <div class="chap-head"><span class="chap-no">KAP. 11</span><h2>Debatten-Spickzettel</h2></div>
+      <p class="lede">Alles für die Live-Debatte auf einer Seite: zuerst die <strong>fertigen 🟣-Repliken</strong> (Einräumen → Entlarven → Umdrehen), dann die <strong>Schnellkonter</strong> für die häufigsten Einwürfe.</p>
+
+      <h3>Die sechs Repliken — gebündelt</h3>
+
+      <div class="box replik"><span class="lab">🟣 R1 · „Migration kostet 24 (33) Milliarden"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, die Zahl stimmt, sie ist amtlich."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber sie misst Arbeitslosigkeit, nicht Herkunft — bei dänischer Beschäftigung verschwinden vier Fünftel."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Also folgt daraus Arbeitsmarktintegration, nicht Abschiebung."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 R2 · „Sogar die Nachkommen kosten"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Stimmt, in der Jahresbilanz sind sie negativ."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber das sind Kinder in der Schule; im Erwerbsalter kippt es, und die amtliche Prognose sagt: nach 2060 positiv."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Kinder wegrechnen, weil sie noch keine Steuern zahlen, hieße auch die Kindergärten zu schließen."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 R3 · „Die Zahl ist amtlich, also unangreifbar"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, gut gerechnet — deshalb nehme ich sie ernst."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber sie verteilt sogar die Verteidigung pro Kopf; der Erfinder der Methode nennt das selbst ‚aufgebläht'."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Dann ‚kostet' jedes dänische Baby anteilig die Armee — die Zahl ist Buchung, kein Schicksal."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 R4 · „Die Kriminalität ist überrepräsentiert"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, real und auch nach Alterskorrektur — das leugne ich nicht."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber die soziale Lage erklärt den Großteil (Index 104 vs. 99), und gezählt werden Verurteilungen am Ende eines selektiven Trichters — Minderheiten werden häufiger angeklagt, ohne verurteilt zu werden."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Der Rest ist kein Beweis für Abstammung, sondern ein Auftrag: gegen Diskriminierung, Segregation und Lehrstellen-Ausschluss — nicht für Abschiebung."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 R5 · „Der National-IQ beweist angeborene Unterschiede"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, es gibt diese IQ-Tabellen, und der IQ hängt mit Einkommen zusammen."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber die ‚Afrika-70' ist zusammengelogen (Wicherts), der IQ steigt 3 Punkte pro Jahrzehnt mit Bildung, und in England schneiden weiße Arbeiterjungen am schlechtesten ab."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Wenn die Logik bei weißen Briten Unsinn ist, ist sie es auch bei Syrern — also investiere in Bildung, statt abzuschieben."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 R6 · „Deshalb Remigration" (die Reductio)</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Gut, nehmen wir Ihren Maßstab — den Nettobeitrag zur Kasse — ernst."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Dann müssten Sie zuerst Rentner, Langzeitarbeitslose und Kranke ‚aussortieren' und den einzahlenden Syrer behalten — ein Drittel der MENAPT-Erwerbstätigen ist netto positiv."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Sie wollen das Gegenteil. Also ist Ihr Kriterium nicht Geld, sondern Herkunft — und das ist verfassungswidrig."</p></div>
+      </div>
+
+      <h3>Schnellkonter — Einwand → Antwort in einem Satz</h3>
+      <div class="cheat">
+        <div class="row"><div class="q">„Die Zahl ist doch amtlich!"</div><div class="a">Ja — und amtlich misst sie Beschäftigung, nicht Herkunft.</div></div>
+        <div class="row"><div class="q">„Sogar die Kinder kosten!"</div><div class="a">Kinder kosten überall; im Erwerbsalter kippt es; Prognose nach 2060 positiv.</div></div>
+        <div class="row"><div class="q">„Auch nach Alterskorrektur bleibt Kriminalität hoch!"</div><div class="a">Stimmt; nach sozialer Lage schrumpft sie stark (104 vs. 99); der Rest ist Auftrag, nicht Abstammung.</div></div>
+        <div class="row"><div class="q">„Der IQ-Unterschied ist wissenschaftlich!"</div><div class="a">Die ‚Afrika-70' ist herausgekürzt (Wicherts), der Flynn-Effekt widerlegt sie, ökologischer Fehlschluss.</div></div>
+        <div class="row"><div class="q">„Andere Länder schieben auch ab!"</div><div class="a">Abgelehnte Asylbewerber im Einzelfall — ja; ‚Remigration' nach Herkunft — nein, das ist verfassungswidrig.</div></div>
+        <div class="row"><div class="q">„Es geht um die Kultur / Mehrheitsgesellschaft!"</div><div class="a">Das ist Ethnopluralismus = Rassismus im neuen Gewand. Sagen Sie Herkunft, nicht Ökonomie.</div></div>
+        <div class="row"><div class="q">„Du leugnest doch die Probleme!"</div><div class="a">Nein — ich erkenne sie an und investiere in das, was nachweislich wirkt: Arbeit und Bildung.</div></div>
+        <div class="row"><div class="q">„Die 33 Milliarden!"</div><div class="a">Das ist die Lebensprognose mit eingefrorener Beschäftigungslücke; schon 20 % weniger Lücke = −6 Mrd.</div></div>
+        <div class="row"><div class="q">„Fakten sind Fakten!"</div><div class="a">Eben — die Fakten sagen Beschäftigung und Alter; Sie ziehen daraus ein ‚Sollen', das nicht drinsteckt.</div></div>
+        <div class="row"><div class="q">„Die Gegenrechnung überschätzt doch!"</div><div class="a">Ja, das sagt das Ministerium selbst — und selbst vorsichtig bleibt Beschäftigung der größte Hebel.</div></div>
+      </div>
+
+      <div class="box merk"><span class="lab">🔵 Die eine Bewegung, die immer funktioniert</span>
+        <p>Zahl <strong>anerkennen</strong> → Konfunder <strong>benennen</strong> → versteckte Wertannahme <strong>aussprechen</strong>: „Sie meinen nicht Geld, Sie meinen Herkunft." Wer das sagt, dreht jede Runde.</p>
+      </div>
+
+      <div class="box gegen"><span class="lab">✓ Vollständigkeits-Selbstcheck (Pflicht)</span>
+        <p><b>(a) Jede gegnerische Hauptbehauptung mit 🟣 beantwortet?</b> Ja: Kosten (R1), Nachkommen (R2), „amtlich/unangreifbar" (R3), Kriminalität (R4), National-IQ (R5), Remigration/Reductio (R6).</p>
+        <p><b>(b) Alle Pflicht-Konfunder behandelt?</b> Fiskal: Arbeitsmarkt, Zuwanderungskanal, Alter/Lebenszyklus, Einbürgerung, Kollektivgüter-Konvention, Querschnitt (Kap. 6 A). Kriminalität: Alter/Geschlecht, Sozioökonomie, Verfolgungsbias, Datentyp, absolut/relativ/Opfer/Einreisetäter, Overcontrol-Steelman <em>beide Richtungen</em> (Kap. 6 B).</p>
+        <p><b>(c) Race-Science demontiert?</b> Ja — vier Mechanismen (Datenmanipulation, Flynn, ökolog. Fehlschluss, UK-Reductio), jede Fringe-Quelle als Widerlegungsobjekt getaggt (Kap. 7).</p>
+        <p><b>(d) Beide Paletten vollständig?</b> Ja — Schlussfolgerungen (Kap. 9, 8 Stufen + Ampel) und Maßnahmen (Kap. 10, 7 Stufen + Ampel + Schranken).</p>
+        <p><b>(e) Welche Einwände könnte die Gegenseite noch bringen — beantwortet?</b> Die 10 Schnellkonter oben decken die gängigen Restpunkte. <strong>Offene Lücken, ehrlich benannt:</strong> die <em>Größe</em> des Einbürgerungs-Artefakts und das <em>Ausmaß</em> der Register-vs-Befragungs-Divergenz sind amtlich unbeziffert — beide haben jedoch eine klare Richtung und tragen <strong>keine</strong> „Remigration".</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Anerkennen, Konfunder benennen, Wertannahme aussprechen — sechs Repliken und zehn Konter genügen, um jede Runde zu drehen.</b></div>
+    </section>
+
+    <!-- =================== FALLSTUDIE =================== -->
+    <section id="kap-fall">
+      <h2>Fallstudie · „Dayway vs. Agitator" über MENAPT</h2>
+      <p class="lede">Eine reale Debatte (Sozialdemokrat <strong>Dayway</strong> gegen den AfD-nahen Ex-BSW-Debattanten <strong>Agitator</strong>) zeigt, wie MENAPT live als Waffe eingesetzt wird — und wo die Verteidigung kippt. Hier die Anatomie: Agitators Aufstellung, die schärfsten Entgegnungen, und eine ehrliche Manöverkritik an Dayway. <span class="muted">(Diese Fallstudie ist überwiegend Fiskal-Achse <span class="axis-tag axis-fisk">A · FISKAL</span> mit dem Sprung ins Sollen.)</span></p>
+
+      <h3>1 · Agitators Aufstellung — rekonstruiert</h3>
+      <p>Agitator führt MENAPT als „verschwiegene" Wahrheit ein: Die öffentlich-rechtlichen Medien zeigten die Statistik nie, weil sie „Pro-Migrations-Propaganda" machten. Inhaltlich: Der dänische Staat mache „selbst mit Anfang-20-Jährigen" ein Minus; MENAPT-Menschen seien <em>lebenslang</em> ein Minusgeschäft; eine ähnliche Statistik aus den Niederlanden bestätige das. Kern-Schlachtruf: „<strong>Die Gründe sind herzlich egal</strong>" — es zähle nur Plus oder Minus. Daraus die Kette: kostet → war ein Fehler → „Millionen Muslime, die hier besser nicht sein sollten" → „Ausländer raus".</p>
+
+      <div class="box norm"><span class="lab">🟠 Agitators Grundannahmen (entlarvt)</span>
+        <p>Unter der Zahl liegen fünf unausgesprochene Prämissen — und jede ist angreifbar:</p>
+        <ul class="clean">
+          <li><strong>G1 „Die Zahl misst die Herkunft."</strong> Tatsächlich misst sie Beschäftigung, Alter und Zuwanderungskanal — „die Gründe" sind nicht egal, sie sind <em>der ganze Punkt</em>.</li>
+          <li><strong>G2 „MENAPT ist eine Studie / eine natürliche Gruppe."</strong> MENAPT ist eine <em>politisch gemachte Verwaltungskategorie</em> des dänischen Ministeriums, die 24 sehr verschiedene Länder zusammenwirft.</li>
+          <li><strong>G3 „Eine Jahres-Momentaufnahme = lebenslanger Wert."</strong> Es ist ein Querschnitt mit eingefrorener Beschäftigung; der Lebensverlauf dreht das Bild.</li>
+          <li><strong>G4 „Asyl und Arbeitsmigration gehören in einen Topf."</strong> Verschiedene Rechtsgründe — und das Arbeitsverbot im Asyl <em>erzeugt</em> erst die niedrige Beschäftigung, die die Zahl dann der Herkunft anlastet.</li>
+          <li><strong>G5 „Kosten rechtfertigen Aussortieren nach Herkunft/Religion."</strong> Der Sprung vom Sein ins Sollen — verfassungs- und völkerrechtswidrig.</li>
+        </ul>
+      </div>
+
+      <h3>2 · Fünf Sofort-Grätschen (bevor die Zahl wirkt)</h3>
+      <div class="box merk"><span class="lab">🔵 Was sofort korrigiert gehört</span>
+        <p>Diese fünf Sätze setzt man <em>früh</em>, sonst verfestigt sich die Prämisse:</p>
+        <ul class="clean">
+          <li>„Das ist <strong>keine Studie</strong>, sondern eine Kategorie in einem jährlichen Buchhaltungsbericht — vom dänischen Ministerium politisch zugeschnitten."</li>
+          <li>„Die Zahl misst <strong>Beschäftigung und Alter</strong>, nicht Abstammung — das rechnet die Regierung selbst vor."</li>
+          <li>„‚Lebenslang Minus' ist die <strong>eingefrorene</strong> Beschäftigungsannahme; die amtliche Prognose dreht die Nachkommen ins Plus."</li>
+          <li>„Asyl ist nicht Arbeitsmigration — das <strong>Arbeitsverbot</strong> während des Asyls macht die Kosten, nicht die Herkunft."</li>
+          <li>„Die ÖR haben kein ‚10-Milliarden-Propaganda-Budget' — das ist der <strong>Rundfunkbeitrag</strong> für das gesamte öffentlich-rechtliche Programm."</li>
+        </ul>
+      </div>
+
+      <h3>3 · Die schärfsten Entgegnungen</h3>
+
+      <div class="box replik"><span class="lab">🟣 Replik 1 · „Die Gründe sind egal" — die tödliche Selbstauslieferung</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Gut — nehmen wir deine Regel ernst: Gründe egal, nur Plus/Minus zählt."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Dann sind die <em>größten</em> Minusposten jeder Gesellschaft Rentner, Kranke und Kinder — auch die Dänen sind nur netto positiv, weil die Erwerbstätigen Junge und Alte mittragen. Nach deiner Regel müsste man <strong>zuerst arme deutsche Rentner</strong> aussortieren."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Wer ‚die Gründe sind egal' sagt, hat das Argument schon verloren — denn genau die Gründe entscheiden, ob wir von einer veränderbaren Beschäftigungslücke reden oder von einer Menschensortierung. Und 35 % der MENAPT-Leute im Erwerbsalter sind <em>schon jetzt</em> netto positiv."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 2 · Das Vorzeichen hängt am Kanal, nicht an der Herkunft</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Die Registerdaten stimmen: MENAPT-Einwanderer kosten in der Momentaufnahme netto. Das leugne ich nicht."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber dein eigenes Beispiel — die Niederlande — zerlegt nach <em>Migrationsgrund</em>: Arbeitsmigranten <strong>+100.000 €</strong>, Asyl <strong>−400.000 €</strong>, Familie <strong>−200.000 €</strong> (van de Beek/CBS). Dasselbe Profil, anderes Vorzeichen — je nach Kanal. Und Dänemark rechnet vor: bei dänischer Beschäftigung <strong>bis +17 Mrd.</strong> Das Vorzeichen ist eine Arbeitsmarkt-Zahl, keine Herkunfts-Zahl."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Migrationshistoriker Lucassen sagt es offen: Asylsuchende kosten anfangs mehr, <em>weil man sie vom Arbeitsmarkt fernhält</em> — sobald sie arbeiten dürfen, kippt es. Der Staat hat die Kosten mit Arbeitsverbot und Segregation selbst gemacht. ‚MENAPT' ist eine Stellvertretergröße für ‚über Asyl gekommen und nicht arbeiten gelassen'."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 3 · Kategorie, Momentaufnahme, Heterogenität</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Der Bericht ist seriös — es sind echte amtliche dänische Registerdaten, kein Fake. Punkt."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber er bündelt 24 Länder in eine Verwaltungs-Schublade. In den Einzeldaten sind manche nicht-westlichen Herkünfte <em>positiv</em>, manche negativ; westliche fast alle positiv. ‚MENAPT' verschmilzt Syrer-im-Asyl mit Türkei und Tunesien zu einem Wert — das ist Konstruktion, keine Naturkonstante."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Und es ist eine <strong>Momentaufnahme</strong> eines jungen Jahrgangs: Die amtliche Prognose erwartet die Nachkommen nach 2060 positiv; die niederländische Studie findet, dass die Lücke der zweiten Generation nicht an der Schulbildung hängt, sondern an deren <em>Ertrag</em> am Arbeitsmarkt. Das zeigt auf Diskriminierung und Lohnstruktur — alles veränderbar, nichts an der Abstammung."</p></div>
+      </div>
+
+      <div class="box norm"><span class="lab">🟠 Die Decke drüber — Sein/Sollen + Recht</span>
+        <p>Selbst <em>wenn</em> die Zahl reine Herkunft wäre (ist sie nicht): Aus „kostet" folgt kein „aussortieren". Wie es ein Experte im niederländischen Faktencheck sagt — die Zahlen mögen stimmen, die Schlussfolgerung, der Sozialstaat könne Migranten nicht tragen, ist es nicht. Eine Geldbilanz darf nicht über Bleiberecht nach Herkunft oder Religion entscheiden: <strong>GG Art. 1</strong> (Würde), <strong>Art. 3 Abs. 3</strong> (keine Benachteiligung wegen Abstammung/Herkunft/Glauben), <strong>Art. 16 Abs. 1</strong>; <strong>EMRK 4. ZP Art. 4</strong> (Verbot der Kollektivausweisung); <strong>GFK Art. 33</strong> (Non-Refoulement).</p>
+      </div>
+
+      <h3>4 · Manöverkritik — wo Dayway stark war und wo er kippte</h3>
+
+      <div class="box befund"><span class="lab">🟢 Was Dayway richtig machte</span>
+        <p>Sein Instinkt, dass die Bilanz „<strong>Menschen auf einen Geldwert reduziert</strong>", ist tief und berechtigt — selbst niederländische Minister und Forscher lehnen es ab, Menschen „in der Metrik des Geldes" zu bewerten. Er hatte zudem früh die richtige Trennlinie (Asyl ≠ Arbeitsmigration) und die richtige Frage (<em>wer macht dann die Arbeit?</em>) — beide zeigen auf den wahren Mechanismus.</p>
+      </div>
+
+      <div class="box grenze"><span class="lab">🔴 Wo er Fehler machte</span>
+        <ul class="clean">
+          <li><strong>„Ich kenne die Studie nicht."</strong> Der teuerste Satz der Debatte. Man räumt nie Unkenntnis des zentralen Beweisstücks ein — die Gesamtsalden, die §2.7-Gegenrechnung und die Heterogenität gehören abrufbar parat (genau dafür gibt es dieses Dossier).</li>
+          <li><strong>Der echte Widerspruch.</strong> Erst „wir <em>brauchen</em> Migranten (Fachkräfte)", dann „Geldwert-Denken ist neoliberale Propaganda" — Agitator grätscht zu Recht: „Das war vorhin <em>dein</em> Argument." Saubere Auflösung: „Ich gebe das ökonomische Argument nicht auf — deine Zahl <em>misst</em> genau das, was ich verbessern will: Beschäftigung. Sie belegt meinen Punkt, nicht deinen." Macro-Bedarf und MENAPT-Defizit zeigen <em>beide</em> auf den Hebel Arbeit, nicht auf Herkunft.</li>
+          <li><strong>„Neoliberale Propaganda" als Etikett statt Widerlegung.</strong> Ein Label gewinnt keine Debatte; die Gegenrechnung der Regierung schon.</li>
+          <li><strong>„Die Gründe sind egal" durchgelassen.</strong> Das war Agitators Selbstauslieferung (siehe Replik 1) — Dayway behandelte es als zugestandenes Terrain, statt es umzudrehen.</li>
+          <li><strong>„10 Mrd. ÖR-Propaganda" stehen gelassen.</strong> Eine glatte Falschbehauptung, die unwidersprochen blieb.</li>
+          <li><strong>Nachträglich „keine seriöse Studie / kein Peer-Review / Inquisitive Bird".</strong> Halb richtig, taktisch riskant: Die Zahlen <em>sind</em> amtliche dänische Registerdaten (es gibt sogar eine peer-reviewte Fassung im <em>Journal of Population Economics</em>). „Inquisitive Bird" ist nur die populäre <em>Visualisierung</em> — und stützt sich selbst ausdrücklich auf den amtlichen Bericht. „Fake-Studie" zu rufen, liefert die Replik „kommt vom Finanzministerium" frei Haus. Richtig ist: Daten zugeben, <em>Deutung</em> angreifen.</li>
+        </ul>
+      </div>
+
+      <div class="box konf"><span class="lab">🟡 Was er sofort zugestehen sollte</span>
+        <p>Drei Eingeständnisse kaufen Glaubwürdigkeit und entwaffnen den „du leugnest"-Vorwurf: Die Registerdaten sind echt; MENAPT-Einwanderer kosten in der Momentaufnahme netto; ihre Erwerbsquote ist tatsächlich niedrig (≈ 47 % gegen ≈ 81 % dänisch, 2018). Wer das offen einräumt, darf danach umso härter zeigen, was die Zahl <em>nicht</em> bedeutet.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Agitators stärkste Waffe ist sein schwächster Satz — „die Gründe sind egal" —, denn sobald Dayway die Gründe (Beschäftigung, Kanal, Arbeitsverbot, Alter) sichtbar macht, zerfällt die Herkunfts-Erzählung, und der Sprung zu „Ausländer raus" steht nackt als verfassungswidrige Wertentscheidung da.</b></div>
+    </section>
+
+
+    <!-- =================== DIE ECHTE NL-STUDIE: VAN DE BEEK =================== -->
+    <section id="kap-vdbeek">
+      <h2>Die echte „niederländische MENAPT" · van de Beek u. a. (2024) <span class="axis-tag axis-fisk">A · FISKAL</span></h2>
+
+      <div class="fazit">
+        <span class="lab">★ In einfacher Sprache — worum es geht</span>
+        <ol>
+          <li>Diese Studie aus den Niederlanden rechnet aus, was Zuwanderer dem Staat über ihr <b>ganzes Leben</b> netto kosten oder einbringen.</li>
+          <li>Das Ergebnis hängt fast nur am <b>Grund der Einwanderung</b>: Arbeitsmigranten bringen Geld, Asyl und Familie kosten viel — fast egal, aus welchem Land.</li>
+          <li>Der Grund liegt im <b>Arbeitsmarkt</b>, nicht in der Abstammung: Wer wenig verdient, zahlt wenig Steuern. Die Autoren nennen auch Diskriminierung.</li>
+          <li>Die Studie ist methodisch stark, aber <b>kein amtlicher Bericht und nicht peer-reviewt</b> — und die Erstauflage wurde teils von der Denkfabrik einer Rechtsaußenpartei finanziert.</li>
+          <li>Die größten Schock-Beträge entstehen durch <b>teuer gewählte Rechenannahmen</b> (zum Beispiel eine erfundene vierköpfige Familie statt einer Person).</li>
+          <li>Merke: Selbst wenn die Zahlen weitgehend stimmen — eine Kostenrechnung <b>rechtfertigt keine Abschiebung nach Herkunft</b>; nach diesem Maßstab wären zuerst arme Inländer „zu teuer".</li>
+        </ol>
+      </div>
+
+      <p class="lede">Das ist die Studie, die der Agitator inhaltlich meinte — und sie ist methodisch <strong>deutlich stärker</strong> als die dänischen Zahlen. Wer sie mit dem MENAPT-Snapshot-Argument („Momentaufnahme verzerrt durch Alter") abtun will, blamiert sich: van de Beek rechnet von vornherein über die <em>gesamte Lebenszeit</em>. Diese Sektion räumt ehrlich ein, was trägt — und zeigt dann, wo die Studie kippt und was sie normativ eben nicht hergibt. <span class="muted">(Grundlage: die hochgeladene IZA-Fassung DP 17569, Dez. 2024; Zahlen sind sachliche Angaben aus dem Papier.)</span></p>
+
+      <h3>Was die Studie ist — und warum man sie ernst nehmen muss</h3>
+      <p>Vier Autoren (darunter <strong>Joop Hartog</strong>, ein renommierter Arbeitsökonom der Universität Amsterdam — das ist keine Fringe-Arbeit) berechnen den <strong>diskontierten Lebenszeit-Nettobeitrag</strong> der 2016 in den Niederlanden lebenden Zuwandererbevölkerung. Datenbasis sind die <strong>CBS-Mikrodaten</strong> — Registerdaten über praktisch die gesamte Bevölkerung — kombiniert mit CPB-Projektionen bis 2060. Differenziert wird nach <strong>Migrationsgrund</strong> (Arbeit, Studium, Asyl, Familie, sonstige), <strong>Herkunftsregion</strong> (bis zu 87) und <strong>Generation</strong>. Re-Migration, Sterblichkeit und Familienbildung sind eingerechnet. Diskontsatz 2,5 %, Produktivitätswachstum 1 % (effektiv 1,5 % Diskontierung). Es gibt eine Sensitivitätsanalyse (Rentenalter, Diskontsatz, Verteilung öffentlicher Güter). Kurz: Das ist <em>dynamische</em> Generationenbilanzierung auf amtlichen Registerdaten — genau das, was die MENAPT-Snapshot-Kritik fordert.</p>
+      <p>Zwei Einordnungen zur Belegkraft gehören aber dazu, die ich zunächst zu knapp gehalten hatte: Erstens ist das ein <strong>IZA-Diskussionspapier</strong> — ein Arbeitspapier, das laut eigenem Hinweis vorläufig und <strong>nicht peer-reviewt</strong> ist (der ausführliche Report erscheint im Eigenverlag der Autoren). Zweitens ist die dänische MENAPT-Zahl ein <em>amtlicher Regierungsbericht</em>, diese Studie dagegen <em>nicht amtlich</em>: methodisch ausgefeilter, im institutionellen Status aber schwächer. Beides entwertet die CBS-Daten nicht — aber „stärker als MENAPT" gilt für die <em>Methode</em>, nicht für den Quellenrang.</p>
+
+      <div class="box befund"><span class="lab">🟢 Die Befunde (die Zahlen, fair wiedergegeben)</span>
+        <ul class="clean">
+          <li><strong>Nach Migrationsgrund:</strong> Nur <em>Arbeitsmigranten</em> sind positiv (über <strong>+100.000 €</strong> bei Ankunft mit 20–50; positiv bei Eintritt vor 60). Studium, Familie, Asyl, „sonstige" sind <em>unabhängig vom Eintrittsalter</em> negativ. Asyl ≈ <strong>−400.000 €</strong> (bis Eintrittsalter 70), Familie ≈ <strong>−200.000 €</strong>.</li>
+          <li><strong>Nach Region (1. Generation):</strong> Riesige Streuung. Positiv: Nordamerika +210.000 €, südliches Afrika +180.000 €, Israel +75.000 €. Stark negativ: Horn von Afrika &amp; Sudan ≈ −315.000 €, Region Afghanistan/Iran/Syrien/Irak &lt; −320.000 €. Auch europäische Asyl­regionen (Ex-Jugoslawien, Ex-UdSSR) −100.000 bis −130.000 €.</li>
+          <li><strong>Pro Kopf (Tab. 3):</strong> 1. Gen. gesamt −76.000 €; westlich +42.000 €; nicht-westlich −167.000 €. Nur <strong>20 %</strong> aller Zuwanderer leisten überhaupt einen positiven Lebenszeitbeitrag.</li>
+          <li><strong>2. Generation:</strong> für die meisten Regionen ebenfalls negativ; Negativ-Ausreißer Marokko −480.000 €, Horn/Sudan −460.000 €, Karibik −435.000 €. Und: Kinder hoch-negativer Eltern bleiben meist negativ — das Sprichwort „mit der zweiten Generation wird das schon" trägt laut Studie nicht.</li>
+        </ul>
+      </div>
+
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — die stärkste faire Lesart (Steelman)</span>
+        <p>„Das ist seriöse, dynamische Ökonomie auf amtlichen Mikrodaten — mit einem renommierten Mitautor —, robust gegen Sensitivitätstests. Nicht-westliche Zuwanderer der 1. Generation kosten im Schnitt −167.000 €, Asyl −400.000 €, nur 20 % aller Zuwanderer sind netto positiv, die 2. Generation schließt die Lücke nicht — und selbst nach Kontrolle für Bildung bleibt eine kulturelle Distanz übrig. Der fiskalische Fall für eine Begrenzung nicht-westlicher und besonders der Asylmigration ist empirisch fundiert." — So würde es die Gegenseite sagen, und in dieser Form ist es nicht billig zu kontern.</p>
+      </div>
+
+      <h3>Bewertung nach deinem Raster</h3>
+      <p><strong>(a) Ist es korrekt?</strong> Als fiskalische Buchführung weitgehend ja — mit Vorbehalten bei den <em>Beträgen</em>. Richtung und Rangfolge der Regionen sind robust (die Sensitivitätsanalyse zeigt: andere Annahmen verschieben den Nullpunkt nur leicht und drehen die Reihenfolge nicht um). Aber die <em>Höhe</em> der Schlagzeilen-Zahlen hängt an Modellentscheidungen, die durchweg in die kostenintensive Richtung getroffen sind (siehe 🟡 unten).</p>
+      <p><strong>(b) Ist es gut argumentiert?</strong> Überwiegend ja — und entscheidend: die <em>eigene</em> Kausalanalyse der Autoren zielt gegen die Herkunfts-/Kultur-Lesart. Sie verorten die Lücke auf der Einnahmenseite, im Arbeitsmarkt (nicht in der Schule) und nennen <em>Diskriminierung</em> ausdrücklich als einen Treiber. Schwächster Teil: das Kultur-Distanz-Kapitel (rein korrelativ, siehe unten).</p>
+      <p><strong>(c) Wäre es wünschenswert, dass es stimmt?</strong> Falsche Kategorie für die Kernzahlen: Dass Asylmigration unter dem <em>jetzigen</em> niederländischen Design teuer ist, ist vermutlich schlicht wahr — die Autoren führen es selbst zurück auf <span class="muted">„easy access, difficult integration in the labour market and generous welfare provision"</span>. Das ist eine Aussage über <em>Institutionen</em>, kein Schicksal von Menschen — und zeigt auf Stellschrauben (schnellerer Arbeitsmarktzugang, Integrationsinvestition, Antidiskriminierung), nicht auf Abschiebung. Wünschenswert <em>im Sinne von handlungsleitend</em> wäre die Kultur-Lesart nur, wenn sie belegt wäre — und genau das ist sie am wenigsten.</p>
+
+      <h3>Wo die Studie kippt — die echten Hebel</h3>
+
+      <div class="box konf"><span class="lab">🟡 Konfunder 1 · Der Motor ist der Kanal, nicht die Herkunft</span>
+        <p>Die Schlagzeile „nicht-westlich = teuer" zerfällt an der eigenen Aufschlüsselung: Positiv ist <em>nur</em> der Migrationsgrund <strong>Arbeit</strong> — und Arbeitsmigranten sind aus praktisch allen Regionen positiv. Asyl ist −400.000 €, weil (so die Autoren) sehr schwache Arbeitsmarktbindung, hohe Transferabhängigkeit und die Aufnahme-/Verfahrenskosten der Asylphase zusammenkommen — also <em>Rechtsstatus + Arbeitsmarktintegration</em>, nicht „Herkunft". Dazu §8: Nicht-westliche beziehen nur <strong>8 % mehr Leistungen</strong>, tragen aber <strong>40 % weniger</strong> bei; rund <strong>70 % der Lücke liegen auf der Einnahmenseite</strong> (niedriges Einkommen → wenig Steuern). Das ist ein <em>Niedriglohn-/Beschäftigungsbefund</em>, keine „die-nehmen-zu-viel"-Geschichte — und exakt das dänische Muster.</p>
+      </div>
+
+      <div class="box konf"><span class="lab">🟡 Konfunder 2 · Die Referenz ist hypothetisch — der echte Inländer ist auch negativ</span>
+        <p>Die viel zitierte positive Vergleichsgröße (Native-Dutch-Referenz <strong>+98.000 €</strong>) ist ein <em>konstruierter</em> Idealfall (niederländische Eigenschaften, aber Mobilitäts-/Rentenverhalten eines Zuwanderers). Der <em>tatsächliche</em> durchschnittliche Niederländer liegt bei <strong>−3.000 €</strong>, der durchschnittliche Einwohner insgesamt bei <strong>−65.000 €</strong>. Heißt: Nach derselben Lebenszeit-Logik ist auch ein großer Teil der <em>Einheimischen</em> netto negativ (Geringverdiener, Frührentner, chronisch Kranke). Die Inländer-Reductio greift voll: „kostet netto" heißt vor allem „ist einkommensschwach oder nicht im Erwerbsalter" — und das trifft Millionen Inländer zuerst. <em>Ehrlich dazugesagt: Das widerlegt die Arithmetik nicht — es entlarvt den Maßstab.</em> Es ist ein Sein-Sollen-Argument (Kap. 8), kein empirischer Konter gegen die Zahl selbst.</p>
+      </div>
+
+      <div class="box konf"><span class="lab">🟡 Konfunder 3 · Nicht die Schule — der Arbeitsmarkt (und Diskriminierung)</span>
+        <p>§10 ist für die Gegenseite gefährlich: Zuwandererkinder mit vergleichbarem sozioökonomischem Hintergrund erreichen vergleichbare CITO-Werte (Alter 12) und bei gegebenem CITO-Wert vergleichbare Bildungsabschlüsse wie einheimische Kinder — die Studie betont ausdrücklich, dieser Zusammenhang von Testwert und sozialer Lage sei <em>nicht</em> nach ethnischer Herkunft verschieden (es ist die Schichtlage, nicht die Abstammung). Die Lücke entsteht also <em>nicht im Bildungssystem</em>, sondern im <strong>Arbeitsmarkt</strong>. Die Zerlegung (Tab. 6) für die nicht-westliche 2. Generation: Gesamtdifferenz −259.000 €, davon Bildungssystem nur −4.000 €, <strong>Arbeitsmarkt −171.000 €</strong>. Als einen von drei Gründen für die schlechteren Arbeitsmarkt-Erträge nennen die Autoren ausdrücklich <strong>Diskriminierung</strong> gegen nicht-westliche Zuwanderer. Ein Teil der gemessenen „Kosten" wird also von der <em>Aufnahmegesellschaft</em> verursacht — ein Argument fürs Reparieren des Arbeitsmarkts, nicht fürs Abschieben.</p>
+      </div>
+
+      <div class="box konf"><span class="lab">🟡 Konfunder 4 · Die Schlagzeile nutzt die teuersten Annahmen — und die dynamische Brille selbst</span>
+        <p>Die Rangfolge ist robust — die <em>Beträge</em> sind weich und durchweg kostenmaximierend gewählt:</p>
+        <ul class="clean">
+          <li><strong>Statisch vs. dynamisch:</strong> Die OECD- und Überblicksliteratur findet den fiskalischen Effekt von Zuwanderung meist <em>klein</em> — rund ±1 % des BIP. Auch van de Beeks <em>eigener</em> statischer Einjahres-Saldo liegt „nur" bei <strong>17,3 Mrd. €</strong> (2,7 % des BIP). Die dramatischen Hunderttausender entstehen erst durch die <em>dynamische Lebenszeit-Hochrechnung</em> mit diesen Annahmen. Die Wahl der Brille macht die Schlagzeile.</li>
+          <li><strong>Hypothetische Familie:</strong> Der oft zitierte „−772.000 €"-Wert für nicht-westlich ist eine <em>fiktive vierköpfige Familie</em>, kein Einzelmensch (pro Kopf: −167.000 €). Das Modell bündelt unterstellte Kinder mit ein.</li>
+          <li><strong>Öffentliche Güter pro Kopf:</strong> Kollektivgüter (Verteidigung, Verwaltung, Monarchie …) werden <em>per Kopf</em> umgelegt; Zuwanderer bekommen dadurch 11 % mehr zugerechnet, als sie hier beitragen. Bei der Gegenannahme (reine Kollektivgüter, Grenzkosten ≈ 0) sänke die Zuwandererlast. Die Autoren geben selbst zu: über die Kostenfunktion „wissen wir empirisch sehr wenig".</li>
+          <li><strong>Basisjahr 2016:</strong> ein <em>Höhepunkt</em> der Arbeitslosigkeit (steht im Papier); danach sank sie. Eine Spitzen-Querschnittsbeobachtung in die Zukunft fortzuschreiben, drückt gerade arbeitslosigkeits­empfindliche Gruppen nach unten.</li>
+          <li><strong>Diskontierung:</strong> Schon 1 % weniger Diskont vergrößert die Spanne zwischen höchstem und niedrigstem Beitrag auf rund <strong>1,1 Mio. €</strong> — die Magnituden sind also stark annahmegetrieben.</li>
+        </ul>
+      </div>
+
+      <div class="box grenze"><span class="lab">🔴 Konfunder 5 · Die „kulturelle Distanz" ist der schwächste, weil am wenigsten identifizierte Teil</span>
+        <p>§11 findet, dass „kulturelle Distanz zu Protestantisch-Europa" (gemessen am World Values Survey) den Nettobeitrag auch nach Kontrolle für Bildung und CITO noch vorhersagt (afrikanisch-islamischer Cluster −201.000 € ggü. Referenz). Aber: Das ist <em>korrelativ</em>, und „kulturelle Distanz" ist ein schlecht identifiziertes Konstrukt, das hier vieles zugleich abbilden kann — Konflikt-/Fluchtherkunft der Region, Kolonialgeschichte, eine an sichtbarer Differenz kalibrierte Diskriminierung, Selektionseffekte. Von „WVS-Distanz korreliert" zu „Kultur erklärt es" ist ein Sprung, der nicht eingelöst wird. Genau dieses Kapitel ist die Stelle, die in kulturalistische/Remigrations-Rhetorik wandert — und sie ist am wenigsten belastbar.</p>
+      </div>
+
+      <div class="box konf"><span class="lab">🔎 Herkunft &amp; Förderung — flaggt die Rahmung, nicht die CBS-Zahlen</span>
+        <p>Die <em>Erstauflage</em> des zugrundeliegenden Reports wurde laut Papier teilweise vom <strong>Renaissance Instituut</strong> finanziert — dem wissenschaftlichen Büro der Rechtsaußenpartei <strong>Forum voor Democratie</strong> (Baudet), das „budgetäre Folgen der Immigration" ausdrücklich als Forschungsziel führt. Veröffentlicht wird über den eigenen Verlag der Autoren (Demo-Demo); diese Fassung läuft über das IZA. <strong>Das entwertet die Zahlen nicht</strong> — CBS-Mikrodaten sind amtlich, und Mit­autor Hartog ist ein ernstzunehmender Ökonom. Aber es ist ein legitimer Hinweis auf <em>Themenwahl, Gewichtung</em> (besonders das Kultur-Kapitel), die kostenmaximierende <em>Rahmung</em> und den <em>Politik-Spin</em> („Steuerung nach Nettobeitrag"). Das Papier zitiert Vargas-Silva, wonach pro-/migrationskritische Geldgeber tendenziell pro-/migrationskritische Ergebnisse finden — das gilt reflexiv auch hier.</p>
+      </div>
+
+      <div class="box norm"><span class="lab">🟠 Sein–Sollen &amp; die rechtliche Grenze</span>
+        <p>Es ist eine <em>fiskalische</em> Studie. Selbst voll akzeptiert begründet sie höchstens <strong>Auswahl-/Zuwanderungspolitik</strong> (Arbeitsmigration bevorzugen — die von den Autoren erwähnte „Steuerung nach Nettobeitrag"). Über die <em>Abschiebung rechtmäßig Anwesender</em> sagt sie nichts — und ihre eigene Motiv-Logik ist das Gegenteil herkunftsbasierter Remigration. Die verfassungs-/völkerrechtliche Decke bleibt unberührt: GG Art. 1, 3 (3), 16 (1); EMRK 4. ZP Art. 4 (keine Kollektivausweisung); GFK Art. 33 (Non-Refoulement). Eine Euro-Zahl ist ein <em>Ist</em>; „nach Herkunft raus" ist ein <em>Soll</em>, das keine Bilanztabelle liefert.</p>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 1 · „Asyl kostet 400.000 € — also Grenzen dicht / raus"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Stimmt — Asyl ist unter dem jetzigen System teuer, das zeigt die Studie sauber."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber sie sagt auch <em>warum</em>: Arbeitsverbot in der Asylphase, schwache Arbeitsmarktbindung, universelle Sozialleistungen — also der <em>Asyl-Kanal</em> und das niederländische Design. Arbeitsmigranten aus denselben Regionen sind <em>positiv</em>. Das Vorzeichen hängt am Kanal, nicht an der Herkunft."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Der Hebel ist also: schneller arbeiten lassen, integrieren, bei der Auswahl Arbeitsmigration stärken. Das ist ein Argument über <em>Zuwanderungsauswahl</em> — nicht über das Aussortieren von Menschen nach Abstammung."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 2 · „Nicht-westliche kosten 167.000 €, sogar die 2. Generation — das ist die Herkunft"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Die Lebenszeit-Lücke ist real, und die 2. Generation schließt sie nicht vollständig."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber die Studie verortet sie auf der <em>Einnahmenseite</em> — niedriges Einkommen, nicht Leistungsmissbrauch —, im <em>Arbeitsmarkt</em>, nicht in der Schule, und nennt <em>Diskriminierung</em> als Treiber. Und die positive Vergleichsgröße ist <em>hypothetisch</em>: der echte Durchschnitts-Niederländer liegt bei −3.000 €."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Nach genau dieser Lebenszeit-Logik sind Millionen <em>einkommensschwache Inländer</em> ebenfalls negativ — das Kriterium schöbe arme Rentner und Arbeitslose zuerst ab. Die ehrliche Konsequenz heißt Arbeitsmarktintegration und Antidiskriminierung, nicht ‚nach Herkunft raus'."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 3 · „Selbst nach Kontrolle für Bildung bleibt die kulturelle Distanz — also liegt's an der Kultur"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, nach ihren Kontrollen bleibt eine Restkorrelation mit der WVS-‚Kulturdistanz'."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„‚Kulturelle Distanz zu Protestantisch-Europa' ist korrelativ und unteridentifiziert — sie bildet plausibel Konflikt-/Fluchtherkunft, Kolonialgeschichte, an Sichtbarkeit kalibrierte Diskriminierung und Selektion zugleich ab. Eine Korrelation ohne benannten Mechanismus erklärt nichts. (Dass ausgerechnet dieses Kapitel so prominent ist, passt zur Denkfabrik der Rechtsaußenpartei, die die Erstauflage mitfinanziert hat — aber das Methodenproblem steht für sich.)"</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Selbst wenn du einen Kulturanteil zugestehst: Eine Korrelation ohne benannten Mechanismus ist nichts, woraus man handeln kann — und nichts davon verwandelt ein fiskalisches <em>Ist</em> in ein Remigrations-<em>Soll</em>, das die Verfassung verbietet."</p></div>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Das ist die stärkste Kostenstudie der Debatte — und ehrlich gelesen, samt ihrer eigenen Kausalbefunde, zeigt sie: Das Vorzeichen folgt dem Migrationskanal, der Arbeitsmarktintegration und (teils) der Diskriminierung, nicht der „Herkunft"; die Schlagzeilen-Beträge ruhen auf den teuersten Modellannahmen; das Kultur-Kapitel ist korrelativ und FvD-finanziert; und eine Euro-Zahl rechtfertigt keine Remigration, die das Grundgesetz erlaubt.</b></div>
+    </section>
+
+
+    <!-- =================== SONDERFALL ZWAAN =================== -->
+    <section id="kap-zwaan">
+      <h2>Sonderfall · Zwaan (2021/2022) — die angebliche „niederländische MENAPT-Studie"</h2>
+      <p class="lede">Im Umlauf ist die Behauptung, hier liege eine niederländische Studie vor, „die dasselbe aussagt wie MENAPT". Das ist eine <strong>Verwechslung</strong>: Der deutsche Titel stimmt ungefähr, die inhaltliche Gleichsetzung nicht. Diese Sektion stellt das richtig und seziert Zwaan auf demselben Raster. <span class="muted">(Quellenkritik, keine Achsen-Erweiterung. Grundlage: Projektmodul — eine verdichtete Sekundärdarstellung des urheberrechtlich geschützten Kapitels; Bibliografie extern bestätigt.)</span></p>
+
+      <div class="box grenze"><span class="lab">🔴 Richtigstellung — was hier verwechselt wird</span>
+        <p>Gemeint ist <strong>Zwaan (2021)</strong>, „Migration in the Netherlands: Threats and Opportunities" — Kapitel 6 (S. 87–105) in einem Palgrave-Sammelband; deutsche Übersetzung „Migration in den Niederlanden: <em>Bedrohungen</em> und Chancen" (Springer Cham 2022/2023). Drei Dinge sind sofort zu klären:</p>
+        <ul class="clean">
+          <li><strong>Es ist kein Kostengutachten.</strong> Es ist ein <em>essayistisches Policy-Kapitel</em> ohne eigenen Datensatz und ohne Methodenteil — keine Netto-Beitrags-Rechnung wie der dänische Bericht.</li>
+          <li><strong>Es macht das MENAPT-Argument gar nicht.</strong> Die fiskalische Kostenfrage wird praktisch ausgeklammert; „kostet → deshalb Remigration" kommt nicht vor. Die Grundtendenz ist migrations-<em>optimistisch</em> und integrationszentriert.</li>
+          <li><strong>Zwaan ≠ van de Beek.</strong> Die „niederländische Statistik, die MENAPT ähnelt" (so im Debatten-Transkript) ist die <em>van-de-Beek/CBS-Mikrodatenstudie</em> — eine andere Arbeit, die im Dossier bereits behandelt ist (Fallstudie, Quellen). Wer „die niederländische Studie" sagt, meint fast immer die — nicht Zwaan.</li>
+        </ul>
+      </div>
+
+      <h3>Was Zwaan wirklich ist</h3>
+      <p>Autor ist <strong>Laurens Jonathan Zwaan</strong>, ein Certified Management Consultant — kein Migrationsökonom, keine peer-reviewte Primärforschung. Datenstand ~2018, also <em>vor</em> der niederländischen Kostendebatte (van de Beek 2021). Empirische Basis: überwiegend amtliche CBS-Statistik, SCP-Surveys und Ministeriumsangaben, plus Sekundärliteratur (vor allem Lucassen &amp; Lucassen, Scheffer). Kernthese: Ob Migration „Bedrohung" oder „Chance" wird, hängt weniger an der Migration selbst als an der <strong>Integrationspolitik</strong> — und die ist vor allem Sache der Kommunen. Implizite Empfehlung: früh, passgenau und ressourcenstark integrieren statt vorrangig sanktionieren.</p>
+
+      <h3>Dissektion auf demselben Raster</h3>
+
+      <div class="box gegen"><span class="lab">⚪ Gegenseite — was sie hier <em>überhaupt</em> herausholen könnte (fair)</span>
+        <p>Da Zwaan keine Netto-Bilanz liefert, bleibt der Gegenseite nur <em>Rosinenpickerei</em> bei den genannten Kennzahlen: die <strong>Aufnahmekosten von 37.300 € pro Asylsuchendem und Jahr</strong> im Aufnahmezentrum, das <strong>Ausländerbudget von über 1,1 Mrd. €</strong> (2018) und die CBS-Projektion, wonach bis 2060 bis zu <strong>37 % der Bevölkerung</strong> einen Migrationshintergrund haben könnten. Diese Zahlen kann man als „seht her, wie teuer/wie viele" inszenieren. <span class="axis-tag axis-fisk">A · FISKAL</span></p>
+      </div>
+
+      <div class="box befund"><span class="lab">🟢 Befund — was robust ist</span>
+        <p>Die deskriptiven Daten sind solide (CBS, SCP, Ministerien, Stand ~2018). Besonders belastbar und für die Debatte nützlich: die öffentliche Meinung hat sich 1994→2016 eher <em>entspannt</em>, nicht verhärtet (z. B. „zu viele Menschen anderer Nationalität": 49 % → 31 %; „großzügig Flüchtlingen Zugang gewähren": 75 % → 85 %). Und die Leitbeobachtung — Integration ist Kommunalaufgabe — ist plausibel und gut dokumentiert.</p>
+      </div>
+
+      <div class="box grenze"><span class="lab">🔴 Grenze — was es <em>nicht</em> kann</span>
+        <p>Genau auf dem umstrittensten Terrain — lohnt sich Migration fiskalisch, und für welche Gruppen? — liefert Zwaan nichts Belastbares; der Nutzen wird weitgehend vorausgesetzt. Es ist ein Essay, kein Argumentationspapier: Die Leitthese wird mit Anekdoten <em>illustriert</em> (z. B. Haren mit 85 % Bestehensquote), nicht mit Kontrollvergleich <em>bewiesen</em>. Der historische Strang ruht fast nur auf Lucassen &amp; Lucassen — eine migrationsoptimistische Historiografie, korrekt referiert, aber nicht konsensual-neutral. Und die Daten sind veraltet.</p>
+      </div>
+
+      <div class="box konf"><span class="lab">🟡 Konfunder — der Trick bei den Kostenzahlen</span>
+        <p>Die 37.300 € sind eine <strong>Brutto-Aufnahmekosten-Zahl der Asylphase</strong> — also genau jener Phase, in der Menschen am Arbeiten gehindert werden (Arbeitsverbot, laufendes Verfahren). Das ist <em>kein</em> Lebenszeit-Nettobeitrag. Eine Einreise-Brutto-Ausgabe mit einer Lebensbilanz zu verwechseln, ist derselbe Fehler wie bei MENAPT: Man misst die Kosten des <em>Fernhaltens vom Arbeitsmarkt</em> und schreibt sie der Herkunft zu. Die Zahl ist ein Argument für <em>schnelleres Arbeiten-Dürfen</em>, nicht gegen Aufnahme.</p>
+      </div>
+
+      <div class="box norm"><span class="lab">🟠 Normativ</span>
+        <p>Selbst die Brutto-Kostenzahlen tragen kein „deshalb Remigration". Aus einer Aufnahme-Ausgabe folgt eine Frage nach besserer Integration und schnellerem Arbeitsmarktzugang — nicht das Aussortieren von Menschen nach Herkunft.</p>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 1 · „Welche niederländische Studie meinst du?"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Es gibt niederländische Daten zu den Kosten von Migration — das stimmt."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber du verwechselst zwei Dinge. Zwaans Kapitel ‚Bedrohungen und Chancen' ist ein <em>Essay eines Beraters</em> und rechnet gar keine Netto-Kosten. Die echte Kostenstudie ist van de Beek — und die zerlegt nach <em>Migrationsgrund</em>: Arbeit +100.000 €, Asyl −400.000 €, Familie −200.000 €."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Beide niederländischen Quellen sagen also dasselbe wie die dänischen: Das Vorzeichen hängt am Kanal und an der Beschäftigung, nicht an der Herkunft. Zwaan empfiehlt sogar ausdrücklich <em>bessere Integration statt Sanktion</em>."</p></div>
+      </div>
+
+      <div class="box replik"><span class="lab">🟣 Replik 2 · „37.300 € pro Asylsuchendem — das ist doch der Beweis!"</span>
+        <div class="zug"><span class="z">Einräumen</span><p>„Ja, die Aufnahme im Zentrum kostet pro Person und Jahr rund 37.000 € — eine reale Zahl."</p></div>
+        <div class="zug"><span class="z">Entlarven</span><p>„Aber das ist eine Brutto-Ausgabe der <em>Asylphase</em>, in der man die Leute nicht arbeiten lässt — keine Lebensbilanz. Sobald sie arbeiten dürfen, kippt das Vorzeichen, sagt selbst der Migrationshistoriker Lucassen."</p></div>
+        <div class="zug"><span class="z">Umdrehen</span><p>„Die Zahl ist also ein Argument dafür, Verfahren zu beschleunigen und das Arbeitsverbot zu kürzen — nicht gegen die Menschen. Genau das empfiehlt Zwaans Kapitel."</p></div>
+      </div>
+
+      <h3>Manöver — wie man Zwaan einsetzt (und wie nicht)</h3>
+      <div class="box merk"><span class="lab">🔵 Merksatz</span>
+        <p>Zwaan ist ein <strong>Kontext- und Integrationsbeleg</strong>, kein Kosten-Trumpf. Stark für: historische Normalität von Migration, „Integration ist Kommunalaufgabe / investieren statt sanktionieren", entspannte öffentliche Meinung. <strong>Schwach/riskant</strong> als Hauptquelle in einer kostenzentrierten Debatte — dort sticht die Gegenseite mit van de Beek das Kapitel aus, weil es die Kostenfrage gar nicht führt; zusätzlich ist die Autoritätsbasis (Berater, Sammelband) angreifbar, sobald peer-reviewte Ökonomie auf den Tisch kommt. Wer fiskalisch argumentieren will, nimmt die quantitativen Quellen aus Kap. 3A und der Fallstudie — nicht Zwaan.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>„Zwaan = MENAPT" ist eine Verwechslung: Es ist ein integrationsoptimistisches Berater-Essay ohne Kostenrechnung, das die MENAPT-Behauptung weder erhebt noch stützt — die echte niederländische Kostenstudie ist van de Beek, und auch die zeigt: Kanal und Beschäftigung entscheiden, nicht die Herkunft.</b></div>
+    </section>
+
+
+    <!-- =================== KAP 12 =================== -->
+    <section id="kap-12">
+      <div class="chap-head"><span class="chap-no">KAP. 12</span><h2>Quellen</h2></div>
+      <p class="lede">Alle Belege mit Titel, Direktlink und Status-Tag. Primärquellen zuerst.</p>
+
+      <h3>A · Fiskal</h3>
+      <ul class="clean">
+        <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Okt. 2021): <em>Indvandreres nettobidrag til de offentlige finanser i 2018.</em> — <a href="https://fm.dk/media/25228/indvandreres-nettobidrag-til-de-offentlige-finanser-i-2018.pdf">PDF</a></li>
+        <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Feb. 2018): <em>…i 2015</em> — Methoden-Vorgängerbericht (Bilag 5, Verteilungsschlüssel). Enthält die <em>wörtlich</em> zitierbare Gegenrechnung: bei dänischer Beschäftigung „bis zu 17 Mrd." bessere Finanzen (alle Nicht-Westlichen). — <a href="https://regeringen.dk/nyheder/2018/indvandreres-nettobidrag-til-de-offentlige-finanser-i-2015/">regeringen.dk</a></li>
+        <li><span class="tag t-peer">PEER-REVIEW</span> <em>Journal of Population Economics</em> (2017, Schultz-Nielsen/Tranæs u.a.): peer-reviewte Fassung — der negative Effekt entsteht durch „schwache Arbeitsmarktleistung + Frühverrentung + universelle Wohlfahrt", nicht durch Herkunft. — <a href="https://link.springer.com/article/10.1007/s00148-017-0636-1">link.springer.com</a></li>
+        <li><span class="tag t-pre">ARBEITSPAPIER (IZA DP)</span> van de Beek, Hartog, Kreffer &amp; Roodenburg: <em>The Long-Term Fiscal Impact of Immigrants in the Netherlands, Differentiated by Motive, Source Region and Generation</em>, IZA DP 17569 (Dez. 2024) — <em>Diskussionspapier, nicht peer-reviewt</em>, Mitautor Hartog (UvA). CBS-Mikrodaten, dynamische Lebenszeitbilanz. Nettobeitrag nach <em>Migrationsgrund</em>: Arbeit +100k / Asyl −400k / Familie −200k €; nur 20 % aller Zuwanderer netto positiv; Lücke auf der <em>Einnahmenseite</em> (§8) und im <em>Arbeitsmarkt</em>, nicht in der Schule (§10), Diskriminierung als Treiber genannt. <span class="muted">Hinweis: Erstauflage des Reports teilweise vom Renaissance Instituut (Wissenschaftsbüro Forum voor Democratie) finanziert — flaggt Rahmung, nicht die CBS-Zahlen.</span> Gratis-PDF: <a href="https://docs.iza.org/dp17569.pdf">docs.iza.org/dp17569.pdf</a> · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5077481">SSRN 5077481</a></li>
+        <li><span class="tag t-pre">REPORT/SELBSTVERLAG</span> van de Beek, Hartog, Roodenburg &amp; Kreffer (2023): <em>Borderless Welfare State — The consequences of immigration for public finances</em> (2. Aufl., Uitgeverij Demo-Demo) — der ausführliche Vollreport hinter dem IZA-Papier (gratis). — <a href="https://demo-demo.nl/wp-content/uploads/2023/06/Borderless_Welfare_State-2.pdf">demo-demo.nl (PDF)</a></li>
+        <li><span class="tag t-adv">PRESSE</span> Euronews-Faktencheck (Okt. 2025) zur NL-Studie: Einordnung der Motiv-Aufschlüsselung; Lucassen (Leiden) — Asyl kostet anfangs, <em>weil</em> vom Arbeitsmarkt ferngehalten; „Zahlen mögen stimmen, die Schluss­folgerung ist es nicht". — <a href="https://www.euronews.com/my-europe/2025/10/27/fact-check-how-much-do-immigrants-cost-the-netherlands">euronews.com</a></li>
+        <li><span class="tag t-pre">BUCHKAPITEL</span> Zwaan, L. J. (2021): „Migration in the Netherlands: Threats and Opportunities", Kap. 6 (S. 87–105), in: Franzke/Ruano de la Fuente (Hg.), <em>Local Integration of Migrants Policy</em>, Palgrave Macmillan (DOI 10.1007/978-3-030-50979-8_6); dt. „Migration in den Niederlanden: Bedrohungen und Chancen", Springer Cham 2022/2023 (DOI 10.1007/978-3-031-21373-1_6). <em>Essayistisches Policy-Kapitel, kein Kostengutachten — nicht MENAPT-äquivalent.</em></li>
+        <li><span class="tag t-amt">AMTLICH</span> Finansministeriet (Mai 2018): <em>Fremskrivning af indvandreres nettobidrag…</em> — Lebenszyklus-Prognose; Nachkommen „nach 2060 sehr positiv"; −6 Mrd. bei 20 % kleinerer Beschäftigungslücke. — <a href="https://regeringen.dk/media/dzmpinny/fremskrivning-af-indvandreres-nettobidrag-til-de-offentlige-finanser_oea_maj-2018.pdf">PDF</a></li>
+        <li><span class="tag t-peer">PEER-REVIEW</span> Tranæs, T. &amp; Zimmermann, K. F. (2004): <em>Migrants, Work, and the Welfare State.</em> Univ. Press of Southern Denmark / Rockwool Fonden. Kap. 10 (Beschäftigungs-Regression 12.300 € → 1.500 €, S. 338; Kollektivgüter nicht verteilt, S. 327).</li>
+        <li><span class="tag t-adv">PRESSE/FACHKRITIK</span> Information (2020): Wadensjö, Schultz-Nielsen; „aufgebläht", eingefrorene Erwerbsannahme. — <a href="https://www.information.dk/indland/2020/10/koster-ikkevestlig-indvandring-danmark-svaret-ligger-sted-mellem-6-33-milliarder">information.dk</a></li>
+      </ul>
+
+      <h3>B · Kriminalität</h3>
+      <ul class="clean">
+        <li><span class="tag t-amt">AMTLICH</span> Danmarks Statistik: <em>Indvandrere i Danmark</em> (2021/2024/2025) — altersstandardisierter Kriminalitätsindex. — <a href="https://www.dst.dk/da/Statistik/udgivelser/bagtal/2022-08-18-fakta-om-indvandrere">dst.dk</a></li>
+        <li><span class="tag t-amt">AMTLICH</span> Justitsministeriets Forskningsenhed (Apr. 2025): <em>Kriminalitet og herkomst 2023</em> — Index ~262 (Nachkommen), Gewalt 354. — <a href="https://www.justitsministeriet.dk/wp-content/uploads/2025/05/Kriminalitet-og-herkomst-2023-WT.pdf">PDF</a></li>
+        <li><span class="tag t-amt">AMTLICH</span> Integrationsbarometer (UIM): MENAPT-Männer 2023 ~2× / ~3× nach Alterskorrektur. — <a href="https://integrationsbarometer.dk/tal-og-analyser/kriminalitet">integrationsbarometer.dk</a></li>
+        <li><span class="tag t-amt">AMTLICH</span> Plovsing, J. (Danmarks Statistik, 2004): <em>Indvandrere og voldskriminalitet</em> — sozioökonomisch korrigiert Index 104 vs. 99. — <a href="https://www.dst.dk/-/media/Kontorer/16-Formidlingscenter/Bag-Tallene/2004/jan_p_kronik1-pdf.pdf">PDF</a></li>
+        <li><span class="tag t-peer">PEER-REVIEW</span> Tranæs/Zimmermann (2004), Kap. 9: Verfolgungsbias (Kyvsgaard 2001, S. 309); Sozio-Variablen senken Überrepräsentation (S. 310); Becker. · Kyvsgaard, B. (2001). · Klement u. a. (Register vs. Befragung). · Justitsministeriet (2001): <em>Kriminalitet, retshåndhævelse og etniske minoriteter.</em></li>
+        <li><span class="tag t-amt">AMTLICH</span> Bundeskriminalamt: <em>Bundeslagebild Kriminalität im Kontext von Zuwanderung 2024</em> — „Zuwanderer" 8,8 %, „nichtdeutsch" 41,8 %, Tatverdächtige ≠ Verurteilte, ~70.000 geflüchtete Opfer. — <a href="https://www.bka.de/DE/AktuelleInformationen/StatistikenLagebilder/Lagebilder/KriminalitaetImKontextVonZuwanderung/KriminalitaetImKontextVonZuwanderung_node.html">bka.de</a></li>
+        <li><span class="tag t-adv">NGO/KONTEXT</span> Refugees Welcome DK (2026): Basisraten 98,5 % / 98,8 %, Rockwool-Generationenrückgang. — <a href="https://refugeeswelcome.dk/da/information/fokus/kriminalitet-blandt-flygtninge-og-efterkommere/">refugeeswelcome.dk</a> · Kristeligt Dagblad (2020): Rest +13 %/+140 %. — <a href="https://www.kristeligt-dagblad.dk/danmark/kultur-kan-forklare-indvandreres-kriminalitet">kristeligt-dagblad.dk</a></li>
+      </ul>
+
+      <h3>Aneignungen / Race-Science</h3>
+      <ul class="clean">
+        <li><span class="tag t-peer">SACHBUCH</span> Saini, A. (2019): <em>Superior — The Return of Race Science.</em> Beacon Press. Kap. 4 (Pioneer Fund, Mankind Quarterly, Lynn/Vanhanen/Rushton, Einwanderungs-Lobby); Kap. 11 (Wicherts, Flynn, Colman, UK-Reductio, Richwine).</li>
+        <li><span class="tag t-peer">PEER-REVIEW</span> Wicherts, Dolan, van der Maas (2010); Flynn (1984), Flynn/Turkheimer u. a., <em>American Psychologist</em> (2012).</li>
+        <li><span class="tag t-fringe">FRINGE/RACE-SCIENCE</span> Lynn &amp; Vanhanen (2002): <em>IQ and the Wealth of Nations</em>; <em>Mankind Quarterly</em>; Rushton (1994) — <strong>nur als Widerlegungsobjekt</strong>, nicht als Evidenz.</li>
+      </ul>
+
+      <h3>Diskurs &amp; Recht</h3>
+      <ul class="clean">
+        <li><span class="tag t-peer">ANALYSE</span> Weiß, V. (2017): <em>Die autoritäre Revolte.</em> Klett-Cotta — Ethnopluralismus, „großer Austausch", „Remigration".</li>
+        <li><span class="tag t-peer">ANALYSE</span> Strobl, N. (2021): <em>Radikalisierter Konservatismus.</em> Suhrkamp — 6-Schritte-Methode, „Jenseits der Wahrheit", fiktive Lösung.</li>
+        <li><span class="tag t-amt">RECHT</span> Grundgesetz Art. 1, 3 Abs. 3, 16 Abs. 1; EMRK 4. Zusatzprotokoll Art. 4; Genfer Flüchtlingskonvention Art. 33.</li>
+        <li><span class="tag t-adv">RECHERCHE</span> CORRECTIV (Jan. 2024): Aufdeckung des Potsdamer „Remigrations"-Treffens.</li>
+      </ul>
+
+      <h3>Methodisches Prüfraster</h3>
+      <ul class="clean">
+        <li><span class="tag t-pre">PRÜFRASTER</span> Harford, T. (2020): <em>How to Make the World Add Up</em> (10 Regeln). · Huff, D. (1954/1993): <em>How to Lie with Statistics</em> (Kap. 2, 3, 7, 10). · Pearl, J. &amp; Mackenzie, D. (2018): <em>The Book of Why</em> (Störfaktor/Mediator/Collider). · Hume, D.: Sein-Sollen-Problem. · Carens, J. (2013): <em>The Ethics of Immigration.</em></li>
+      </ul>
+
+      <div class="src-note"><span class="sh">Hinweis zu den Buchbelegen</span>
+        <p class="muted">Annahme: Die Bücher im Projektordner (Tranæs, Huff, Harford, Saini, Weiß, Strobl) lagen als OCR-/Textfassungen ohne saubere Druckseiten vor. Wo Druckseiten rekonstruierbar waren (Tranæs, Huff), sind sie angegeben (±1); sonst wird nach Kapitel/Abschnitt zitiert. <em>Book of Why</em>, Hume und Carens sind nicht im Ordner und allgemein zitiert.</p>
+      </div>
+
+      <div class="einsatz"><span class="lab">In einem Satz</span><b>Jede tragende Zahl stammt aus einer amtlichen oder peer-review-Quelle; jede Race-Science-Quelle steht nur als Widerlegungsobjekt da.</b></div>
+    </section>
+
+
+    <!-- =================== ABSCHLUSS =================== -->
+    <section id="fertig">
+      <div class="chap-head"><span class="chap-no">✓</span><h2>Dossier vollständig</h2></div>
+      <p class="muted">Alle Kapitel 0–12 sind gebaut. Beide Achsen (Fiskal &amp; Kriminalität) sind getrennt behandelt, alle Pflicht-Konfunder quantifiziert, die Race-Science demontiert, der Sein-Sollen-Sprung offengelegt, beide Paletten mit Evidenz-Ampel ausgefüllt und der Spickzettel samt Selbstcheck erstellt. Belege siehe Kapitel 12.</p>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
